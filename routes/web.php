@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Acl\RolePermissionController;
+use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Services\Payment\Ekpay\PaymentController;
 use Illuminate\Support\Facades\Route;
 
@@ -15,13 +16,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::get('/pay', [PaymentController::class, 'payNow']);
 Route::get('/payment/{status}/{appId}', [PaymentController::class, 'paymentStatus']);
 Route::get('/api/ipn-handler', [PaymentController::class, 'ipnHandler']);
 Route::get('/test', [\App\Http\Controllers\TestController::class, 'test']);
 Route::get('/test-email', [\App\Http\Controllers\TestController::class, 'testEmail']);
 Route::get('/modules', [RolePermissionController::class, 'allModules']);
+
+Route::get('/',[HomeController::class,'index']);

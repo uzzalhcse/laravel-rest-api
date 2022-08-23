@@ -1,0 +1,1034 @@
+@extends('frontend.layouts.main')
+@section('main-container')
+<!--Main Slider Start-->
+        <section class="main-slider-two clearfix">
+
+            <div class="swiper-container thm-swiper__slider" data-swiper-options='{"slidesPerView": 1, "loop": true,
+            "effect": "fade",
+            "pagination": {
+            "type": "bullets",
+            "clickable": true
+            },
+            "navigation": {
+            "nextEl": "#main-slider__swiper-button-next",
+            "prevEl": "#main-slider__swiper-button-prev"
+            },
+            "autoplay": {
+            "delay": 5000
+            }}'>
+
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="image-layer-two"
+                            style="background-image: url(frontend/images/backgrounds/main-slider.png);"></div>
+
+                        <div class="container-fluid">
+                            <div class="row slide-over">
+                                <div class="col-8">
+                                    <div class="two__content slider-content">
+                                            <div class="main-slider-two__title-box">
+                                                <h2 class="main-slider-two__title">Get Paid</h2>
+
+                                                <p class="main-slider-two__text-2">Everytime your Phone Rings</p>
+
+                                                <div class="btn-box">
+                                                    <a href="packages-01.html" class="thm-btn slider-btn"> Sign Up To Earn</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-4">
+
+                                        <div class="main-slider-two__video-box">
+                                            <div class="main-slider-two__video-link">
+                                                <a href="{{url('/frontend/video/atc.mp4') }}" class="video-popup">
+                                                    <div class="main-slider-two__video-icon">
+                                                        <span class="fa fa-play"></span>
+                                                        <i class="ripple"></i>
+                                                    </div>
+                                                </a>
+                                                <div class="main-slider-two__video-text-box">
+                                                    <p class="main-slider-two__video-text">Watch the Video</p>
+                                                    <div class="main-slider-two__video-arrow float-bob-y">
+                                                        <img src="assets/images/icon/save-money-video-arrow.png" alt="">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div style="position: absolute;
+                            bottom: 0;
+                            width: 100%;
+                            z-index: 9;
+                            height: 350px;
+                            background: linear-gradient(180deg, rgba(63, 6, 107, 0) 0%, #4A0680 100%);"></div>
+                    </div>
+                        </div>
+                    </div>
+            </div>
+        </section>
+
+        <!--Main Slider End-->
+
+
+        <!--MostPopular Ad start -->
+        <section class="most_popular">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-10">
+                <div class="section-title text-left">
+                    <h2 class="section-title__title">Most Popular Ad Choice</h2>
+                </div>
+                    </div>
+
+                    <div class="col-md-2">
+                    <h2 class="section-title__title1"><a href="{{url('resources/views/frontend/viewall.html') }}">View All</a></h2>
+                    </div>
+            </div>
+
+                <div class="thm-swiper__slider swiper-container" data-swiper-options='{"spaceBetween": 5, "slidesPerView": 9, "autoplay": { "delay": 3000 }, "breakpoints": {
+                                    "0": {
+                                        "spaceBetween": 4,
+                                        "slidesPerView": 3
+                                    },
+                                    "375": {
+                                        "spaceBetween": 4,
+                                        "slidesPerView": 4
+                                    },
+                                    "575": {
+                                        "spaceBetween": 4,
+                                        "slidesPerView": 4
+                                    },
+
+                                    "575": {
+                                        "spaceBetween": 4,
+                                        "slidesPerView": 4
+                                    },
+
+                                    "767": {
+                                        "spaceBetween": 5,
+                                        "slidesPerView": 5
+                                    },
+                                    "767": {
+                                        "spaceBetween": 4,
+                                        "slidesPerView": 5
+                                    },
+                                    "991": {
+                                        "spaceBetween": 4,
+                                        "slidesPerView": 5
+                                    },
+                                    "991": {
+                                        "spaceBetween": 4,
+                                        "slidesPerView": 6
+                                    },
+                                    "1191": {
+                                        "spaceBetween": 4,
+                                        "slidesPerView": 6
+                                    },
+                                    "1391": {
+                                        "spaceBetween": 4,
+                                        "slidesPerView": 7
+                                    },
+                                    "1391": {
+                                        "spaceBetween": 4,
+                                        "slidesPerView": 8
+                                    }
+
+                                }}'>
+
+
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+
+                            <div class="all-time-hit-shape"></div>
+                            <img class="most_popular_img"src="{{ asset('frontend/images/brand/01.png') }}" alt="">
+                            <div class="all-time-hit__video-link">
+                                <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                     <div class="all-time-hit__video-icon">
+                                         <span class="fa fa-play"></span>
+                                         <i class="ripple"></i>
+                                     </div>
+                                 </a>
+                             </div>
+
+                        </div><!-- /.swiper-slide -->
+
+
+
+                        <div class="swiper-slide">
+                            <img class="most_popular_img"src="{{ url('frontend/images/brand/02.png') }}" alt="">
+                            <div class="all-time-hit__video-link">
+
+                                <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                     <div class="all-time-hit__video-icon">
+                                         <span class="fa fa-play"></span>
+                                         <i class="ripple"></i>
+                                     </div>
+                                 </a>
+                             </div>
+
+                        </div><!-- /.swiper-slide -->
+
+
+                        <div class="swiper-slide">
+                            <img class="most_popular_img"src="{{ url('frontend/images/brand/03.png') }}" alt="">
+                            <div class="all-time-hit__video-link">
+
+                                <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                     <div class="all-time-hit__video-icon">
+                                         <span class="fa fa-play"></span>
+                                         <i class="ripple"></i>
+                                     </div>
+                                 </a>
+                             </div>
+                        </div><!-- /.swiper-slide -->
+
+
+                        <div class="swiper-slide">
+                            <img class="most_popular_img" src="{{ url('frontend/images/brand/04.png') }}" alt="">
+                            <div class="all-time-hit__video-link">
+
+                                <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                     <div class="all-time-hit__video-icon">
+                                         <span class="fa fa-play"></span>
+                                         <i class="ripple"></i>
+                                     </div>
+                                 </a>
+                             </div>
+                        </div><!-- /.swiper-slide -->
+
+                        <div class="swiper-slide">
+                            <img class="most_popular_img"src="{{ url('frontend/images/brand/05.png') }}" alt="">
+                            <div class="all-time-hit__video-link">
+
+                                <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                     <div class="all-time-hit__video-icon">
+                                         <span class="fa fa-play"></span>
+                                         <i class="ripple"></i>
+                                     </div>
+                                 </a>
+                             </div>
+                        </div><!-- /.swiper-slide -->
+
+                        <div class="swiper-slide">
+                            <img class="most_popular_img"src="{{ url('frontend/images/brand/06.png') }}" alt="">
+                            <div class="all-time-hit__video-link">
+
+                                <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                     <div class="all-time-hit__video-icon">
+                                         <span class="fa fa-play"></span>
+                                         <i class="ripple"></i>
+                                     </div>
+                                 </a>
+                             </div>
+                        </div><!-- /.swiper-slide -->
+
+                        <div class="swiper-slide">
+                            <img class="most_popular_img"src="{{ url('frontend/images/brand/07.png') }}" alt="">
+                            <div class="all-time-hit__video-link">
+
+                                <a href="{{ asset('frontend/popup/Mcdonalds.html') }}" class="video-popup">
+                                     <div class="all-time-hit__video-icon">
+                                         <span class="fa fa-play"></span>
+                                         <i class="ripple"></i>
+                                     </div>
+                                 </a>
+                             </div>
+                        </div><!-- /.swiper-slide -->
+
+
+                        <div class="swiper-slide">
+                            <img class="most_popular_img"src="{{ url('frontend/images/brand/08.png') }}" alt="">
+                            <div class="all-time-hit__video-link">
+
+                                <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                     <div class="all-time-hit__video-icon">
+                                         <span class="fa fa-play"></span>
+                                         <i class="ripple"></i>
+                                     </div>
+                                 </a>
+                             </div>
+                        </div><!-- /.swiper-slide -->
+
+                        <div class="swiper-slide">
+                            <img class="most_popular_img"src="{{ url('frontend/images/brand/09.png') }}" alt="">
+                            <div class="all-time-hit__video-link">
+
+                                <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                     <div class="all-time-hit__video-icon">
+                                         <span class="fa fa-play"></span>
+                                         <i class="ripple"></i>
+                                     </div>
+                                 </a>
+                             </div>
+                        </div><!-- /.swiper-slide -->
+
+                        <div class="swiper-slide">
+                            <img class="most_popular_img"src="{{ url('frontend/images/brand/10.png') }}" alt="">
+                            <div class="all-time-hit__video-link">
+
+                                <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                     <div class="all-time-hit__video-icon">
+                                         <span class="fa fa-play"></span>
+                                         <i class="ripple"></i>
+                                     </div>
+                                 </a>
+                             </div>
+                        </div><!-- /.swiper-slide -->
+
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!--MostPopular Ad End-->
+
+
+
+
+
+
+
+
+
+        <!-- Modal Start Here -->
+
+            <!-- Modal 01 -->
+
+                 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+               <div class="modal-dialog modal-lg">
+
+              <div class="modal-content">
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+
+               <div class="modal-header img" style="background-image: url(images/1.png);height: 432px; background-size: cover; background-repeat: no-repeat;">
+
+                 <div class="container">
+                      <!-- Media Player-->
+                      <div class="mediPlayer" style="text-align:center;">
+                    <audio class="listen" preload="none" data-size="250" src="sounds/cococola.mp3"></audio>
+                 </div>
+            </div>
+                <!-- Media Player / -->
+
+                <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+                <script src="player.js"></script>
+
+                <script>
+                    $(document).ready(function () {
+                        $('.mediPlayer').mediaPlayer();
+                    });
+                </script>
+                <script type="text/javascript">
+
+                  var _gaq = _gaq || [];
+                  _gaq.push(['_setAccount', 'UA-36251023-1']);
+                  _gaq.push(['_setDomainName', 'jqueryscript.net']);
+                  _gaq.push(['_trackPageview']);
+
+                  (function() {
+                    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+                  })();
+
+                </script>
+
+  </div>
+
+  <div class="container-fluid">
+    <div class="row" style="  margin-top: -30px; background-color: white; border-radius: 24px; padding-left: 10px;">
+      <div class="col-md-8" style="margin-top: 20px;">
+       <p style="font-family: 'Poppins';font-style: normal;font-weight: 600;font-size: 18px;line-height: 10px; color: #212121;"> Company Name </p>
+       <h1 style="font-family: 'Poppins';font-style: normal;font-weight: 600;font-size: 34px;line-height: 40px;color: #212121;">CocaCola </h1>
+    </div>
+      <div class="col-md-4" style="margin-top: 25px;">
+
+        <time style="border:2px solid gray; padding-top:10px; padding-left:30px; padding-right:30px; padding-bottom:10px; border-radius:10px; ">Time:0.01 Seconds</time>
+        <p style="font-family: 'Poppins';font-style: normal;font-weight: 400;font-size: 12px;line-height: 54px; color: #000000">7,732,008 Auditions Jun 13, 2008</p>
+    </div>
+    </div>
+  </div>
+<div class="row">
+    <div class="col-md-12" style="border: 1px solid #80808030 ;">
+
+    </div>
+</div>
+
+  <div class="container-fluid">
+
+    <div class="row" style="padding-left: 10px; padding-top:30px; padding-bottom:10px;">
+        <div class="col-md-6">
+            <h1 style="font-family: 'Poppins';font-style: normal;font-weight: 600;font-size: 20px;line-height: 30px;color: #000000;">Company Bio</h1>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-11" style="margin-left: 20px; margin-right: 20px; padding-top:30px; padding-bottom: 50px; border:1px solid #80808030;">
+            <p style="font-family: 'Poppins';font-style: normal;font-size: 14px;line-height: 30px;color: #000000;">
+
+                By submitting this form i confirm that i have read the privacy policy and agree to the processing of my personal data
+                by Personio for this stated purposes. In case of consent, I can revoke my consent to this processing at any time
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+
+        <div class="col-md-6">
+            <img src="images/ratings.png" style="width:100%; height:auto; margin-left:10px; margin-bottom: 50px; ">
+
+
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+
+        <div class="col-md-12">
+                <div class="col-md-12 text-center">
+                    <button type="button" style="padding-left:150px; padding-right:150px; padding-top:13px; padding-bottom:13px;
+                    background:#5415A4; border-radius: 10px; color:white; font-size: 18px;font-weight: 600; border:none;
+                    margin-bottom: 40px; ">Add to Playlist</button>
+                </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+
+        <div class="col-md-12">
+                <div class="col-md-12" style="margin-left:100px; font-size: 13px; margin-bottom: 50px;">
+
+                    <input type="checkbox" id="privacy" name="privacy" value="privacy" style="font-size: 12px;">&nbsp;&nbsp;
+                     By adding this ad to my playlist this form i confirm that i have read the privacy policy and agree</br> to the>
+                        processing of my personal data by  for this stated purposes.In case of consent, -MORE
+                </div>
+        </div>
+    </div>
+</div>
+</div>
+  </div>
+</div>
+
+
+<!-- Modal end Here -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <!--Free Access Start-->
+        <section class="free-access">
+              <div class="free-access-bg jarallax" data-jarallax data-speed="0.2" data-imgPosition="50% 0%"
+                style="background-image: url(frontend/images/resources/featured.png);">
+            </div>
+          <div class="free-access-shape-1 float-bob-x">
+                <img src="{{ url('frontend/images/shapes/free-access-shape.png') }}" alt="">
+            </div>
+            <div class="free-access-shape-2">
+                <img src="{{ url('frontend/images/shapes/free-access-shape-2.png') }}" alt="">
+            </div>
+            <div class="free-access-shape-3">
+                <img src="{{ url('frontend/images/shapes/free-access-shape-3.png') }}" alt="">
+            </div>
+         <div class="container">
+                <div class="free-access__inner">
+                    <h2 class="free-access__title">Get Paid Every 30 Days With<br> Unlimited Ads To Choose From </h2>
+                    <div class="free-access__btn-box">
+                        <a href="{{ url('/pricing') }}" class="free-access__btn">Get started now</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--Free Access End-->
+
+
+
+        <!--Counter One Start-->
+        <section class="counter-one">
+            <div class="container">
+                <div class="counter-one__inner">
+                    <ul class="list-unstyled counter-one__list">
+                        <li class="counter-one__single">
+                            <div class="counter-one__count-box">
+                                <h3 class="odometer" data-count="150">00</h3>
+                            </div>
+                            <p class="counter-one__text">Countries Globally</p>
+                        </li>
+                        <li class="counter-one__single">
+                            <div class="counter-one__count-box">
+                                <h3 class="odometer" data-count="2">00</h3> &nbsp; <b style="font-size:30px; padding-top:30px;">Billion</b>
+                            </div>
+                            <p class="counter-one__text">Countries Globally</p>
+                        </li>
+                        <li class="counter-one__single">
+                            <div class="counter-one__count-box">
+                                <h3 class="odometer" data-count="300">00</h3>
+                            </div>
+                            <p class="counter-one__text"> Network Providers</p>
+                        </li>
+                        <li class="counter-one__single">
+                            <div class="counter-one__count-box">
+                                <h3 class="odometer" data-count="100">00</h3> &nbsp; <b style="font-size:30px; padding-top:30px;">K</b>
+                            </div>
+                            <p class="counter-one__text">Countries Globally</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <!--Counter One End-->
+
+
+
+   <!--Watch Devices Start-->
+        <section class="watch-devices">
+            <div class="container">
+                <div class="watch-devices__content">
+                    <div class="section-title text-center">
+
+                        <h2 class="section-title__title">Works on Any Device with </br>A sim  Card</h2>
+                    </div>
+                    <p class="watch-devices__text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. </br>
+                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+                    <div class="watch-devices__img-box">
+                        <img src="{{ url('frontend/images/resources/devices.png') }}" alt="">
+                        <div class="watch-devices__price-box">
+                            <div class="watch-devices__price-box-shape"
+                                style="background-image: url(frontend/images/shapes/watch-devices-price-shape.png);">
+                            </div>
+                            <h4>Start</h4>
+                            <p>Earning Now</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--Watch Devices End-->
+
+        <!--Getting Started-->
+
+         <section class="getting_started">
+            <div class="container">
+                <div class="section-title text-center">
+                    <h2 class="section-title__title">Getting started is simple.</h2>
+                </div>
+
+                <div class="container-fluid">
+                <div class="row">
+                    <!--Feature One Single Start-->
+                    <div class="col-xl-4 col-lg-4">
+                        <div class="stage-box__img-box">
+                            <img src="{{ url('frontend/images/shapes/1.png') }}" alt="">
+                        </div>
+                        <div class="stage-background__img-box">
+                            <img src="{{ url('frontend/images/resources/stage1.png') }}" alt="">
+                        </div>
+                            <p class="watch-devices__text"></br>Create an account submit and verify your phone number,s agree to terms and condition</p>
+                        </div>
+
+                    <!--Feature One Single End-->
+
+                    <!--Feature One Single Start-->
+                    <div class="col-xl-4 col-lg-4">
+                        <div class="stage-box__img-box">
+                            <img src="{{ url('frontend/images/shapes/2.png') }}" alt="">
+                        </div>
+                        <div class="stage-background__img-box">
+                            <img src="{{ url('frontend/images/resources/stage2.png') }}" alt="">
+                        </div>
+                            <p class="watch-devices__text"></br> Select the preffered ads or song  you would like to play when anyone calls your telephone number.</p>
+                        </div>
+                    <!--Feature One Single End-->
+
+                    <!--Feature One Single Start-->
+                    <div class="col-xl-4 col-lg-4">
+                        <div class="stage-box__img-box">
+                            <img src="{{ url('frontend/images/shapes/3.png') }}" alt="">
+                        </div>
+                        <div class="stage-background__img-box">
+                            <img src="{{ url('frontend/images/resources/stage3.png') }}" alt="">
+                        </div>
+                            <p class="watch-devices__text"></br>Instantly start earning from every call you recieve, transfer to your bank acount or paypal.</p>
+                        </div>
+                    </div>
+                    <!--Feature One Single End-->
+
+                </div>
+            </div>
+            </div>
+        </section>
+
+        <!--Getting Started-->
+
+
+
+        <!--Customer Start-->
+       <section class="customer">
+            <div class="container">
+                <div class="section-title text-left">
+                    <h2 class="section-title__title">Our Customers</h2>
+                </div>
+                <div class="thm-swiper__slider swiper-container" data-swiper-options='{"spaceBetween": 30, "slidesPerView": 6, "autoplay": { "delay": 3000 }, "breakpoints": {
+                                    "0": {
+                                        "spaceBetween": 10,
+                                        "slidesPerView": 4
+                                    },
+                                    "375": {
+                                        "spaceBetween": 10,
+                                        "slidesPerView": 4
+                                    },
+                                    "575": {
+                                        "spaceBetween": 10,
+                                        "slidesPerView": 4
+                                    },
+
+                                    "575": {
+                                        "spaceBetween": 10,
+                                        "slidesPerView": 5
+                                    },
+
+                                    "767": {
+                                        "spaceBetween": 10,
+                                        "slidesPerView": 5
+                                    },
+                                    "767": {
+                                        "spaceBetween": 10,
+                                        "slidesPerView": 5
+                                    },
+                                    "991": {
+                                        "spaceBetween": 10,
+                                        "slidesPerView": 6
+                                    }
+
+                                }}'>
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img class="brand-slider" src="frontend/images/brand/brand01.png" alt="" >
+                        </div><!-- /.swiper-slide -->
+                        <div class="swiper-slide">
+                            <img class="brand-slider" src="frontend/images/brand/brand02.png" alt="">
+                        </div><!-- /.swiper-slide -->
+                        <div class="swiper-slide">
+                            <img class="brand-slider" src="frontend/images/brand/brand03.png" alt="">
+                        </div><!-- /.swiper-slide -->
+                        <div class="swiper-slide">
+                            <img class="brand-slider" src="frontend/images/brand/brand04.png" alt="">
+                        </div><!-- /.swiper-slide -->
+                        <div class="swiper-slide">
+                            <img class="brand-slider" src="frontend/images/brand/brand05.png" alt="">
+                        </div><!-- /.swiper-slide -->
+                        <div class="swiper-slide">
+                            <img class="brand-slider" src="frontend/images/brand/brand06.png" alt="">
+                        </div><!-- /.swiper-slide -->
+                        <div class="swiper-slide">
+                            <img class="brand-slider" src="frontend/images/brand/brand01.png" alt="">
+                        </div><!-- /.swiper-slide -->
+                        <div class="swiper-slide">
+                            <img class="brand-slider" src="frontend/images/brand/brand02.png" alt="">
+                        </div><!-- /.swiper-slide -->
+                        <div class="swiper-slide">
+                            <img class="brand-slider" src="frontend/images/brand/brand03.png" alt="">
+                        </div><!-- /.swiper-slide -->
+
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--customer End-->
+
+
+        <!--Become An Advertiser Start-->
+        <section class="newsletter">
+            <div class="container">
+                <div class="newsletter__inner">
+                    <div class="newsletter__left">
+
+                        <div class="newsletter__content">
+                            <h3>Become an Advertiser</h3>
+                        </div>
+                    </div>
+                    <div class="newsletter__right">
+                        <div class="newsletter__content">
+                            <h4>Sign Up to Earn </h4> <span>
+                        </div>
+                        <div class="newsletter__content">
+                            <h5><i class="fa fa-share-alt" aria-hidden="true"></i>&nbsp; Share </h5> <span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--Become An Advertiser  End-->
+
+
+        <!--FAQ One Start-->
+        <section class="faq-one">
+            <div class="faq-one__wrapper">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-6">
+                            <div class="faq-one__left">
+                                <div class="section-title text-left">
+
+                                    <h2 class="section-title__title">Have any questions </br>about AdsToCall?</h2>
+                                </div>
+                                <div class="faq-one__left-content">
+                                    <div class="faq-one__left-img">
+                                        <img src="{{ url('frontend/images/resources/logo-3.png') }}" alt="">
+                                    </div>
+                                    <div class="faq-one__left-text-box">
+                                        <p class="faq-one__left-text">Suspendisse finibus urna mauris, vitae consequat
+                                            quam vel. Vestibulum leo ligula, vitae commodo nisl lorem ipsum is simply
+                                            free text.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-6 col-lg-6">
+                            <div class="faq-one__right">
+                                <div class="accrodion-grp" data-grp-name="faq-one-accrodion">
+                                    <div class="accrodion active">
+                                        <div class="accrodion-title">
+                                            <h4>How do I get my ad on Adstocall??</h4>
+                                        </div>
+                                        <div class="accrodion-content">
+                                            <div class="inner">
+                                                <p>There are many variations of passages of available, but the majority
+                                                    have suffered alteration in some form.</p>
+                                            </div><!-- /.inner -->
+                                        </div>
+                                    </div>
+                                    <div class="accrodion">
+                                        <div class="accrodion-title">
+                                            <h4>How much can i earn per call?</h4>
+                                        </div>
+                                        <div class="accrodion-content">
+                                            <div class="inner">
+                                                <p>There are many variations of passages of available, but the majority
+                                                    have suffered alteration in some form.</p>
+                                            </div><!-- /.inner -->
+                                        </div>
+                                    </div>
+                                    <div class="accrodion last-chiled">
+                                        <div class="accrodion-title">
+                                            <h4>Will i get  calls from any telemarketer?</h4>
+                                        </div>
+                                        <div class="accrodion-content">
+                                            <div class="inner">
+                                                <p>There are many variations of passages of available, but the majority
+                                                    have suffered alteration in some form.</p>
+                                            </div><!-- /.inner -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--FAQ One End-->
+
+        <!--Digital Billboard Start-->
+
+      <section class="digital_billboard">
+            <div class="container">
+                <div class="section-title text-left">
+                    <h2 class="section-title__title">Digital Billboard</h2>
+                </div>
+                <div class="thm-swiper__slider swiper-container" data-swiper-options='{"spaceBetween": 300, "slidesPerView": 5, "autoplay": { "delay": 3000 }, "breakpoints": {
+                                    "0": {
+                                        "spaceBetween": 30,
+                                        "slidesPerView": 4
+                                    },
+                                    "375": {
+                                        "spaceBetween": 30,
+                                        "slidesPerView": 4
+                                    },
+                                    "575": {
+                                        "spaceBetween": 30,
+                                        "slidesPerView": 4
+                                    },
+
+                                    "767": {
+                                        "spaceBetween": 30,
+                                        "slidesPerView": 4
+                                    },
+                                    "991": {
+                                        "spaceBetween": 50,
+                                        "slidesPerView": 5
+                                    },
+
+                                    "1680": {
+                                        "spaceBetween": 50,
+                                        "slidesPerView": 5
+                                    },
+
+
+                                    "1800": {
+                                        "spaceBetween": 50,
+                                        "slidesPerView": 5
+                                    }
+
+                                }}'>
+
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img class="billboard_img" src="frontend/images/resources/01.png" alt="">
+                        </div><!-- /.swiper-slide -->
+                        <div class="swiper-slide">
+                            <img class="billboard_img" src="frontend/images/resources/02.png" alt="">
+                        </div><!-- /.swiper-slide -->
+                        <div class="swiper-slide">
+                            <img class="billboard_img" src="frontend/images/resources/03.png" alt="">
+                        </div><!-- /.swiper-slide -->
+                        <div class="swiper-slide">
+                            <img class="billboard_img" src="frontend/images/resources/04.png" alt="">
+                        </div><!-- /.swiper-slide -->
+                        <div class="swiper-slide">
+                            <img class="billboard_img"src="frontend/images/resources/05.png" alt="">
+                        </div><!-- /.swiper-slide -->
+                        <div class="swiper-slide">
+                            <img class="billboard_img" src="frontend/images/resources/01.png" alt="">
+                        </div><!-- /.swiper-slide -->
+                        <div class="swiper-slide">
+                            <img class="billboard_img" src="frontend/images/resources/03.png" alt="">
+                        </div><!-- /.swiper-slide -->
+                        <div class="swiper-slide">
+                            <img class="billboard_img" src="frontend/images/resources/04.png" alt="">
+                        </div><!-- /.swiper-slide -->
+                        <div class="swiper-slide">
+                            <img class="billboard_img" src="frontend/images/resources/01.png" alt="">
+                        </div><!-- /.swiper-slide -->
+
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--Digital billboard End-->
+
+
+
+        <!--News One Start-->
+         <section class="newsblog">
+            <div class="container">
+                <div class="section-title text-left">
+
+                    <h2 class="section-title__title">Our Latest News & Articles</h2>
+                </div>
+                <div class="row">
+                    <!--News One Single Start-->
+                    <div class="col-xl-3 col-lg-3 wow fadeInUp" data-wow-delay="100ms">
+                        <div class="news-one__single">
+                            <div class="news-one__img-box">
+                                <img src="{{ url('frontend/images/blog/news01.png') }}" alt="">
+                                <a href="news-details.html"><span class="icon-plus-symbol"></span></a>
+                            </div>
+                            <div class="news-one__content-box">
+                                <div class="news-one__content">
+                                    <ul class="news-one__meta list-unstyled">
+                                        <li>
+                                            <a href="news-details.html"><i class="fas fa-user-circle"></i>by Admin</a>
+                                        </li>
+                                        <li>
+                                            <a href="news-details.html"><i class="fas fa-comments"></i>02 Comments</a>
+                                        </li>
+                                    </ul>
+                                    <h3 class="news-one__title"><a href="news-details.html">The best usage of the fiber
+                                            internet from
+                                            broadband</a></h3>
+                                </div>
+                                <div class="news-one__bottom">
+                                    <a href="news-details.html" class="news-one__read-more">Read More</a>
+                                </div>
+                                <div class="news-one__date">
+                                    <p>18 may</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--News One Single End-->
+                    <!--News One Single Start-->
+                    <div class="col-xl-3 col-lg-3 wow fadeInUp" data-wow-delay="200ms">
+                        <div class="news-one__single">
+                            <div class="news-one__img-box">
+                                <img src="{{ url('frontend/images/blog/news02.png') }}" alt="">
+                                <a href="news-details.html"><span class="icon-plus-symbol"></span></a>
+                            </div>
+                            <div class="news-one__content-box">
+                                <div class="news-one__content">
+                                    <ul class="news-one__meta list-unstyled">
+                                        <li>
+                                            <a href="news-details.html"><i class="fas fa-user-circle"></i>by Admin</a>
+                                        </li>
+                                        <li>
+                                            <a href="news-details.html"><i class="fas fa-comments"></i>02 Comments</a>
+                                        </li>
+                                    </ul>
+                                    <h3 class="news-one__title"><a href="news-details.html">Lorem ipsum dolor sit amet,
+                                            consectetur </a></h3>
+                                </div>
+                                <div class="news-one__bottom">
+                                    <a href="news-details.html" class="news-one__read-more">Read More</a>
+                                </div>
+                                <div class="news-one__date">
+                                    <p>18 may</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--News One Single End-->
+                    <!--News One Single Start-->
+                    <div class="col-xl-3 col-lg-3 wow fadeInUp" data-wow-delay="300ms">
+                        <div class="news-one__single">
+                            <div class="news-one__img-box">
+                                <img src="{{ url('frontend/images/blog/news03.png') }}" alt="">
+                                <a href="news-details.html"><span class="icon-plus-symbol"></span></a>
+                            </div>
+                            <div class="news-one__content-box">
+                                <div class="news-one__content">
+                                    <ul class="news-one__meta list-unstyled">
+                                        <li>
+                                            <a href="news-details.html"><i class="fas fa-user-circle"></i>by Admin</a>
+                                        </li>
+                                        <li>
+                                            <a href="news-details.html"><i class="fas fa-comments"></i>02 Comments</a>
+                                        </li>
+                                    </ul>
+                                    <h3 class="news-one__title"><a href="news-details.html">Suspendisse posuere, leo ac
+                                            laoreet dapibus, urna</a></h3>
+                                </div>
+                                <div class="news-one__bottom">
+                                    <a href="news-details.html" class="news-one__read-more">Read More</a>
+                                </div>
+                                <div class="news-one__date">
+                                    <p>18 may</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--News One Single End-->
+
+                    <!--News One Single Start-->
+                    <div class="col-xl-3 col-lg-3 wow fadeInUp" data-wow-delay="300ms">
+                        <div class="news-one__single">
+                            <div class="news-one__img-box">
+                                <img src="{{ url('frontend/images/blog/news04.png') }}" alt="">
+                                <a href="news-details.html"><span class="icon-plus-symbol"></span></a>
+                            </div>
+                            <div class="news-one__content-box">
+                                <div class="news-one__content">
+                                    <ul class="news-one__meta list-unstyled">
+                                        <li>
+                                            <a href="news-details.html"><i class="fas fa-user-circle"></i>by Admin</a>
+                                        </li>
+                                        <li>
+                                            <a href="news-details.html"><i class="fas fa-comments"></i>02 Comments</a>
+                                        </li>
+                                    </ul>
+                                    <h3 class="news-one__title"><a href="news-details.html">Suspendisse posuere, leo ac
+                                            laoreet dapibus, urna</a></h3>
+                                </div>
+                                <div class="news-one__bottom">
+                                    <a href="news-details.html" class="news-one__read-more">Read More</a>
+                                </div>
+                                <div class="news-one__date">
+                                    <p>18 may</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--News One Single End-->
+                </div>
+            </div>
+        </section>
+        <!--News One End-->
+
+        <!--NewsLetter Start-->
+        <section class="newsletter">
+            <div class="container">
+                <div class="newsletter__inner">
+                    <div class="newsletter__left">
+
+                        <div class="newsletter__content">
+                            <h1>Join Our Newsletter</h1>
+                        </div>
+                    </div>
+                    <div class="newsletter__right1">
+                        <form class="newsletter__form">
+                            <div class="newsletter__input-box">
+                                <input type="email" placeholder="Email address" name="email">
+                                <button type="submit" class="newsletter__btn thm-btn">Subscribe</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--Newsletter End-->
+
+        @endsection
