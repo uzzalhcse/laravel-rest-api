@@ -1,9 +1,10 @@
 @extends('frontend.layouts.main')
 @section('main-container')
-<!--Main Slider Start-->
-        <section class="main-slider-two clearfix">
 
-            <div class="swiper-container thm-swiper__slider" data-swiper-options='{"slidesPerView": 1, "loop": true,
+    <!--Main Slider Start-->
+    <section class="main-slider-two clearfix">
+
+        <div class="swiper-container thm-swiper__slider" data-swiper-options='{"slidesPerView": 1, "loop": true,
             "effect": "fade",
             "pagination": {
             "type": "bullets",
@@ -17,101 +18,88 @@
             "delay": 5000
             }}'>
 
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <div class="image-layer-two"
-                            style="background-image: url(frontend/images/backgrounds/main-slider.png);"></div>
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="image-layer-two"
+                         style="background-image: url(frontend/images/backgrounds/main-slider.png);"></div>
 
-                        <div class="container-fluid">
-                            <div class="row slide-over">
-                                <div class="col-8">
-                                    <div class="two__content slider-content">
-                                            <div class="main-slider-two__title-box">
-                                                <h2 class="main-slider-two__title">Get Paid</h2>
+                    <div class="container-fluid">
+                        <div class="row slide-over">
 
-                                                <p class="main-slider-two__text-2">Everytime your Phone Rings</p>
+                            <div class="col-8">
 
-                                                <div class="btn-box">
-                                                    <a href="packages-01.html" class="thm-btn slider-btn"> Sign Up To Earn</a>
-                                                </div>
+                                <div class="main-slider-two__video-box">
+                                    <div class="main-slider-two__video-link">
+                                        <a href="{{url('/frontend/video/atc.mp4') }}" class="video-popup">
+                                            <div class="main-slider-two__video-icon">
+                                                <span class="fa fa-play"></span>
+                                                <i class="ripple"></i>
                                             </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-4">
-
-                                        <div class="main-slider-two__video-box">
-                                            <div class="main-slider-two__video-link">
-                                                <a href="{{url('/frontend/video/atc.mp4') }}" class="video-popup">
-                                                    <div class="main-slider-two__video-icon">
-                                                        <span class="fa fa-play"></span>
-                                                        <i class="ripple"></i>
-                                                    </div>
-                                                </a>
-                                                <div class="main-slider-two__video-text-box">
-                                                    <p class="main-slider-two__video-text">Watch the Video</p>
-                                                    <div class="main-slider-two__video-arrow float-bob-y">
-                                                        <img src="assets/images/icon/save-money-video-arrow.png" alt="">
-                                                    </div>
-                                                </div>
+                                        </a>
+                                        <div class="main-slider-two__video-text-box">
+                                            <p class="main-slider-two__video-text">Watch the Video</p>
+                                            <div class="main-slider-two__video-arrow float-bob-y">
+                                                <img src="assets/images/icon/save-money-video-arrow.png" alt="">
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
-                            <div style="position: absolute;
-                            bottom: 0;
-                            width: 100%;
-                            z-index: 9;
-                            height: 350px;
-                            background: linear-gradient(180deg, rgba(63, 6, 107, 0) 0%, #4A0680 100%);"></div>
-                    </div>
+
+                            <div class="col-8">
+                                <div class="two__content slider-content">
+                                    <div class="main-slider-two__title-box">
+
+                                        <h2 class="main-slider-two__title">Get Paid</h2>
+
+                                        <p class="main-slider-two__text-2">Everytime your Phone Rings</p>
+
+                                        <div class="btn-box">
+                                            <a href="packages-01.html" class="thm-btn slider-btn"> Sign Up To Earn</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+
                     </div>
-            </div>
-        </section>
-
-        <!--Main Slider End-->
-
-
-        <!--MostPopular Ad start -->
-        <section class="most_popular">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-10">
-                <div class="section-title text-left">
-                    <h2 class="section-title__title">Most Popular Ad Choice</h2>
+                    <div class="gradiant"></div>
                 </div>
-                    </div>
+            </div>
+        </div>
+        </div>
+    </section>
 
-                    <div class="col-md-2">
-                    <h2 class="section-title__title1"><a href="{{url('resources/views/frontend/viewall.html') }}">View All</a></h2>
+    <!--Main Slider End-->
+
+
+    <!--MostPopular Ad start -->
+    <section class="most_popular">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10">
+                    <div class="section-title text-left">
+                        <h2 class="section-title__title">Most Popular Ad Choice</h2>
                     </div>
+                </div>
+
+                <div class="col-md-2">
+                    <h2 class="section-title__title1"><a href="{{url('') }}">View All</a></h2>
+                </div>
             </div>
 
-                <div class="thm-swiper__slider swiper-container" data-swiper-options='{"spaceBetween": 5, "slidesPerView": 9, "autoplay": { "delay": 3000 }, "breakpoints": {
+            <div class="thm-swiper__slider swiper-container" data-swiper-options='{"spaceBetween": 5, "slidesPerView": 9, "autoplay": { "delay": 3000 }, "breakpoints": {
                                     "0": {
                                         "spaceBetween": 4,
                                         "slidesPerView": 3
                                     },
                                     "375": {
                                         "spaceBetween": 4,
-                                        "slidesPerView": 4
+                                        "slidesPerView": 3
                                     },
                                     "575": {
                                         "spaceBetween": 4,
-                                        "slidesPerView": 4
-                                    },
-
-                                    "575": {
-                                        "spaceBetween": 4,
-                                        "slidesPerView": 4
-                                    },
-
-                                    "767": {
-                                        "spaceBetween": 5,
-                                        "slidesPerView": 5
+                                        "slidesPerView": 3
                                     },
                                     "767": {
                                         "spaceBetween": 4,
@@ -120,19 +108,12 @@
                                     "991": {
                                         "spaceBetween": 4,
                                         "slidesPerView": 5
-                                    },
-                                    "991": {
-                                        "spaceBetween": 4,
-                                        "slidesPerView": 6
                                     },
                                     "1191": {
                                         "spaceBetween": 4,
                                         "slidesPerView": 6
                                     },
-                                    "1391": {
-                                        "spaceBetween": 4,
-                                        "slidesPerView": 7
-                                    },
+
                                     "1391": {
                                         "spaceBetween": 4,
                                         "slidesPerView": 8
@@ -141,345 +122,1112 @@
                                 }}'>
 
 
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
 
-                            <div class="all-time-hit-shape"></div>
-                            <img class="most_popular_img"src="{{ asset('frontend/images/brand/01.png') }}" alt="">
-                            <div class="all-time-hit__video-link">
-                                <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                                     <div class="all-time-hit__video-icon">
-                                         <span class="fa fa-play"></span>
-                                         <i class="ripple"></i>
-                                     </div>
-                                 </a>
-                             </div>
+                        <div class="all-time-hit-shape"></div>
+                        <img class="most_popular_img"src="{{ asset('frontend/images/brand/01.png') }}" alt="">
+                        <div class="all-time-hit__video-link">
+                            <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#cocacola">
+                                <div class="all-time-hit__video-icon">
+                                    <span class="fa fa-play"></span>
+                                    <i class="ripple"></i>
+                                </div>
+                            </a>
+                        </div>
 
-                        </div><!-- /.swiper-slide -->
+                    </div><!-- /.swiper-slide -->
+                    <div class="swiper-slide">
+                        <img class="most_popular_img"src="{{ url('frontend/images/brand/02.png') }}" alt="">
+                        <div class="all-time-hit__video-link">
+
+                            <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#geico">
+                                <div class="all-time-hit__video-icon">
+                                    <span class="fa fa-play"></span>
+                                    <i class="ripple"></i>
+                                </div>
+                            </a>
+                        </div>
+
+                    </div><!-- /.swiper-slide -->
+                    <div class="swiper-slide">
+                        <img class="most_popular_img"src="{{ url('frontend/images/brand/03.png') }}" alt="">
+                        <div class="all-time-hit__video-link">
+
+                            <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#citi">
+                                <div class="all-time-hit__video-icon">
+                                    <span class="fa fa-play"></span>
+                                    <i class="ripple"></i>
+                                </div>
+                            </a>
+                        </div>
+                    </div><!-- /.swiper-slide -->
+                    <div class="swiper-slide">
+                        <img class="most_popular_img" src="{{ url('frontend/images/brand/04.png') }}" alt="">
+                        <div class="all-time-hit__video-link">
+
+                            <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#pizzahut">
+                                <div class="all-time-hit__video-icon">
+                                    <span class="fa fa-play"></span>
+                                    <i class="ripple"></i>
+                                </div>
+                            </a>
+                        </div>
+                    </div><!-- /.swiper-slide -->
+                    <div class="swiper-slide">
+                        <img class="most_popular_img"src="{{ url('frontend/images/brand/05.png') }}" alt="">
+                        <div class="all-time-hit__video-link">
+
+                            <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#expedia">
+                                <div class="all-time-hit__video-icon">
+                                    <span class="fa fa-play"></span>
+                                    <i class="ripple"></i>
+                                </div>
+                            </a>
+                        </div>
+                    </div><!-- /.swiper-slide -->
+                    <div class="swiper-slide">
+                        <img class="most_popular_img"src="{{ url('frontend/images/brand/06.png') }}" alt="">
+                        <div class="all-time-hit__video-link">
+
+                            <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#disney">
+                                <div class="all-time-hit__video-icon">
+                                    <span class="fa fa-play"></span>
+                                    <i class="ripple"></i>
+                                </div>
+                            </a>
+                        </div>
+                    </div><!-- /.swiper-slide -->
+                    <div class="swiper-slide">
+                        <img class="most_popular_img"src="{{ url('frontend/images/brand/07.png') }}" alt="">
+                        <div class="all-time-hit__video-link">
+
+                            <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#mcdonalds">
+                                <div class="all-time-hit__video-icon">
+                                    <span class="fa fa-play"></span>
+                                    <i class="ripple"></i>
+                                </div>
+                            </a>
+                        </div>
+                    </div><!-- /.swiper-slide -->
+                    <div class="swiper-slide">
+                        <img class="most_popular_img"src="{{ url('frontend/images/brand/08.png') }}" alt="">
+                        <div class="all-time-hit__video-link">
+
+                            <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#starbucks">
+                                <div class="all-time-hit__video-icon">
+                                    <span class="fa fa-play"></span>
+                                    <i class="ripple"></i>
+                                </div>
+                            </a>
+                        </div>
+                    </div><!-- /.swiper-slide -->
+                    <div class="swiper-slide">
+                        <img class="most_popular_img"src="{{ url('frontend/images/brand/09.png') }}" alt="">
+                        <div class="all-time-hit__video-link">
+
+                            <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#subway">
+                                <div class="all-time-hit__video-icon">
+                                    <span class="fa fa-play"></span>
+                                    <i class="ripple"></i>
+                                </div>
+                            </a>
+                        </div>
+                    </div><!-- /.swiper-slide -->
+                    <div class="swiper-slide">
+                        <img class="most_popular_img"src="{{ url('frontend/images/brand/10.png') }}" alt="">
+                        <div class="all-time-hit__video-link">
+
+                            <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#pepsi">
+                                <div class="all-time-hit__video-icon">
+                                    <span class="fa fa-play"></span>
+                                    <i class="ripple"></i>
+                                </div>
+                            </a>
+                        </div>
+                    </div><!-- /.swiper-slide -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--MostPopular Ad End-->
 
 
 
-                        <div class="swiper-slide">
-                            <img class="most_popular_img"src="{{ url('frontend/images/brand/02.png') }}" alt="">
-                            <div class="all-time-hit__video-link">
+    <!-- Modal Start Here -->
+    <!-- Modal 01 -->
+    <div class="modal fade" id="cocacola" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
 
-                                <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                                     <div class="all-time-hit__video-icon">
-                                         <span class="fa fa-play"></span>
-                                         <i class="ripple"></i>
-                                     </div>
-                                 </a>
-                             </div>
+            <div class="modal-content">
+                <div class="modal-header img" style="background-image: url('frontend/images/popup/1.png');" >
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 
-                        </div><!-- /.swiper-slide -->
+                    <div class="container">
+                        <!-- Media Player-->
+                        <div class="mediPlayer" style="text-align:center;">
+                            <audio class="listen" preload="none" data-size="250" src= url('frontend/sounds/cococola.mp3');></audio>
+                        </div>
+                    </div>
+                    <!-- Media Player / -->
 
+                    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 
-                        <div class="swiper-slide">
-                            <img class="most_popular_img"src="{{ url('frontend/images/brand/03.png') }}" alt="">
-                            <div class="all-time-hit__video-link">
+                    <script>
+                        $(document).ready(function () {
+                            $('.mediPlayer').mediaPlayer();
+                        });
+                    </script>
+                    <script type="text/javascript">
 
-                                <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                                     <div class="all-time-hit__video-icon">
-                                         <span class="fa fa-play"></span>
-                                         <i class="ripple"></i>
-                                     </div>
-                                 </a>
-                             </div>
-                        </div><!-- /.swiper-slide -->
+                        var _gaq = _gaq || [];
+                        _gaq.push(['_setAccount', 'UA-36251023-1']);
+                        _gaq.push(['_setDomainName', 'jqueryscript.net']);
+                        _gaq.push(['_trackPageview']);
 
+                        (function() {
+                            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+                        })();
 
-                        <div class="swiper-slide">
-                            <img class="most_popular_img" src="{{ url('frontend/images/brand/04.png') }}" alt="">
-                            <div class="all-time-hit__video-link">
+                    </script>
+                </div>
 
-                                <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                                     <div class="all-time-hit__video-icon">
-                                         <span class="fa fa-play"></span>
-                                         <i class="ripple"></i>
-                                     </div>
-                                 </a>
-                             </div>
-                        </div><!-- /.swiper-slide -->
+                <div class="container-fluid">
+                    <div class="row" style="  margin-top: -30px; background-color: white; border-radius: 24px; padding-left: 10px;">
+                        <div class="col-md-8" style="margin-top: 20px;">
+                            <p style="font-family: 'Poppins';font-style: normal;font-weight: 600;font-size: 18px;line-height: 10px; color: #212121;"> Company Name </p>
+                            <h1 style="font-family: 'Poppins';font-style: normal;font-weight: 600;font-size: 34px;line-height: 80px;color: #212121;">CocaCola </h1>
+                        </div>
+                        <div class="col-md-4" style="margin-top: 25px;">
 
-                        <div class="swiper-slide">
-                            <img class="most_popular_img"src="{{ url('frontend/images/brand/05.png') }}" alt="">
-                            <div class="all-time-hit__video-link">
-
-                                <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                                     <div class="all-time-hit__video-icon">
-                                         <span class="fa fa-play"></span>
-                                         <i class="ripple"></i>
-                                     </div>
-                                 </a>
-                             </div>
-                        </div><!-- /.swiper-slide -->
-
-                        <div class="swiper-slide">
-                            <img class="most_popular_img"src="{{ url('frontend/images/brand/06.png') }}" alt="">
-                            <div class="all-time-hit__video-link">
-
-                                <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                                     <div class="all-time-hit__video-icon">
-                                         <span class="fa fa-play"></span>
-                                         <i class="ripple"></i>
-                                     </div>
-                                 </a>
-                             </div>
-                        </div><!-- /.swiper-slide -->
-
-                        <div class="swiper-slide">
-                            <img class="most_popular_img"src="{{ url('frontend/images/brand/07.png') }}" alt="">
-                            <div class="all-time-hit__video-link">
-
-                                <a href="{{ asset('frontend/popup/Mcdonalds.html') }}" class="video-popup">
-                                     <div class="all-time-hit__video-icon">
-                                         <span class="fa fa-play"></span>
-                                         <i class="ripple"></i>
-                                     </div>
-                                 </a>
-                             </div>
-                        </div><!-- /.swiper-slide -->
-
-
-                        <div class="swiper-slide">
-                            <img class="most_popular_img"src="{{ url('frontend/images/brand/08.png') }}" alt="">
-                            <div class="all-time-hit__video-link">
-
-                                <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                                     <div class="all-time-hit__video-icon">
-                                         <span class="fa fa-play"></span>
-                                         <i class="ripple"></i>
-                                     </div>
-                                 </a>
-                             </div>
-                        </div><!-- /.swiper-slide -->
-
-                        <div class="swiper-slide">
-                            <img class="most_popular_img"src="{{ url('frontend/images/brand/09.png') }}" alt="">
-                            <div class="all-time-hit__video-link">
-
-                                <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                                     <div class="all-time-hit__video-icon">
-                                         <span class="fa fa-play"></span>
-                                         <i class="ripple"></i>
-                                     </div>
-                                 </a>
-                             </div>
-                        </div><!-- /.swiper-slide -->
-
-                        <div class="swiper-slide">
-                            <img class="most_popular_img"src="{{ url('frontend/images/brand/10.png') }}" alt="">
-                            <div class="all-time-hit__video-link">
-
-                                <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                                     <div class="all-time-hit__video-icon">
-                                         <span class="fa fa-play"></span>
-                                         <i class="ripple"></i>
-                                     </div>
-                                 </a>
-                             </div>
-                        </div><!-- /.swiper-slide -->
-
+                            <time style="border:2px solid gray; padding-top:10px; padding-left:30px; padding-right:30px; padding-bottom:10px; border-radius:10px; ">Time:0.01 Seconds</time>
+                            <p style="font-family: 'Poppins';font-style: normal;font-weight: 400;font-size: 12px;line-height: 54px; color: #000000">7,732,008 Auditions Jun 13, 2008</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12" style="border: 1px solid #80808030 ;">
 
                     </div>
                 </div>
-            </div>
-        </section>
 
-        <!--MostPopular Ad End-->
+                <div class="container-fluid">
 
+                    <div class="row" style="padding-left: 10px; padding-top:30px; padding-bottom:10px;">
+                        <div class="col-md-6">
+                            <h1 style="font-family: 'Poppins';font-style: normal;font-weight: 600;font-size: 20px;line-height: 30px;color: #000000;">Company Bio</h1>
+                        </div>
+                    </div>
 
+                    <div class="row">
+                        <div class="col-md-11" style="margin-left: 20px; margin-right: 20px; padding-top:30px; padding-bottom: 50px; border:1px solid #80808030;">
+                            <p style="font-family: 'Poppins';font-style: normal;font-size: 14px;line-height: 30px;color: #000000;">
 
+                                By submitting this form i confirm that i have read the privacy policy and agree to the processing.....
+                            </p>
+                        </div>
+                    </div>
+                </div>
 
+                <div class="container-fluid">
+                    <div class="row">
 
-
-
-
-
-        <!-- Modal Start Here -->
-
-            <!-- Modal 01 -->
-
-                 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-               <div class="modal-dialog modal-lg">
-
-              <div class="modal-content">
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-
-
-               <div class="modal-header img" style="background-image: url(images/1.png);height: 432px; background-size: cover; background-repeat: no-repeat;">
-
-                 <div class="container">
-                      <!-- Media Player-->
-                      <div class="mediPlayer" style="text-align:center;">
-                    <audio class="listen" preload="none" data-size="250" src="sounds/cococola.mp3"></audio>
-                 </div>
-            </div>
-                <!-- Media Player / -->
-
-                <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-                <script src="player.js"></script>
-
-                <script>
-                    $(document).ready(function () {
-                        $('.mediPlayer').mediaPlayer();
-                    });
-                </script>
-                <script type="text/javascript">
-
-                  var _gaq = _gaq || [];
-                  _gaq.push(['_setAccount', 'UA-36251023-1']);
-                  _gaq.push(['_setDomainName', 'jqueryscript.net']);
-                  _gaq.push(['_trackPageview']);
-
-                  (function() {
-                    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-                    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-                    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-                  })();
-
-                </script>
-
-  </div>
-
-  <div class="container-fluid">
-    <div class="row" style="  margin-top: -30px; background-color: white; border-radius: 24px; padding-left: 10px;">
-      <div class="col-md-8" style="margin-top: 20px;">
-       <p style="font-family: 'Poppins';font-style: normal;font-weight: 600;font-size: 18px;line-height: 10px; color: #212121;"> Company Name </p>
-       <h1 style="font-family: 'Poppins';font-style: normal;font-weight: 600;font-size: 34px;line-height: 40px;color: #212121;">CocaCola </h1>
-    </div>
-      <div class="col-md-4" style="margin-top: 25px;">
-
-        <time style="border:2px solid gray; padding-top:10px; padding-left:30px; padding-right:30px; padding-bottom:10px; border-radius:10px; ">Time:0.01 Seconds</time>
-        <p style="font-family: 'Poppins';font-style: normal;font-weight: 400;font-size: 12px;line-height: 54px; color: #000000">7,732,008 Auditions Jun 13, 2008</p>
-    </div>
-    </div>
-  </div>
-<div class="row">
-    <div class="col-md-12" style="border: 1px solid #80808030 ;">
-
-    </div>
-</div>
-
-  <div class="container-fluid">
-
-    <div class="row" style="padding-left: 10px; padding-top:30px; padding-bottom:10px;">
-        <div class="col-md-6">
-            <h1 style="font-family: 'Poppins';font-style: normal;font-weight: 600;font-size: 20px;line-height: 30px;color: #000000;">Company Bio</h1>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-md-11" style="margin-left: 20px; margin-right: 20px; padding-top:30px; padding-bottom: 50px; border:1px solid #80808030;">
-            <p style="font-family: 'Poppins';font-style: normal;font-size: 14px;line-height: 30px;color: #000000;">
-
-                By submitting this form i confirm that i have read the privacy policy and agree to the processing of my personal data
-                by Personio for this stated purposes. In case of consent, I can revoke my consent to this processing at any time
-            </p>
-        </div>
-    </div>
-</div>
-
-<div class="container-fluid">
-    <div class="row">
-
-        <div class="col-md-6">
-            <img src="images/ratings.png" style="width:100%; height:auto; margin-left:10px; margin-bottom: 50px; ">
+                        <div class="col-md-6">
+                            <img src="images/ratings.png" style="width:100%; height:auto; margin-left:10px; margin-bottom: 50px; ">
 
 
-        </div>
-    </div>
-</div>
+                        </div>
+                    </div>
+                </div>
 
-<div class="container-fluid">
-    <div class="row">
+                <div class="container-fluid">
+                    <div class="row">
 
-        <div class="col-md-12">
-                <div class="col-md-12 text-center">
-                    <button type="button" style="padding-left:150px; padding-right:150px; padding-top:13px; padding-bottom:13px;
+                        <div class="col-md-12">
+                            <div class="col-md-12 text-center">
+                                <button type="button" style="padding-left:150px; padding-right:150px; padding-top:13px; padding-bottom:13px;
                     background:#5415A4; border-radius: 10px; color:white; font-size: 18px;font-weight: 600; border:none;
                     margin-bottom: 40px; ">Add to Playlist</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
+                <div class="container-fluid">
+                    <div class="row">
+
+                        <div class="col-md-12">
+                            <div class="col-md-12" style="margin-left:100px; font-size: 13px; margin-bottom: 50px;">
+
+                                <input type="checkbox" id="privacy" name="privacy" value="privacy" style="font-size: 12px;">&nbsp;&nbsp;
+                                By adding this ad to my playlist this form i confirm that i have read the privacy policy and agree</br> to the>
+                                processing of my personal data by  for this stated purposes.In case of consent, -MORE
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-</div>
+    <!-- Modal 02 -->
+    <div class="modal fade" id="geico" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
 
-<div class="container-fluid">
-    <div class="row">
+            <div class="modal-content">
+                <div class="modal-header img" style=" background-image: url('frontend/images/popup/2.png');" >
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 
-        <div class="col-md-12">
-                <div class="col-md-12" style="margin-left:100px; font-size: 13px; margin-bottom: 50px;">
+                    <div class="container">
+                        <!-- Media Player-->
+                        <div class="mediPlayer" style="text-align:center;">
+                            <audio class="listen" preload="none" data-size="250" src= url('frontend/sounds/cococola.mp3');></audio>
+                        </div>
+                    </div>
 
-                    <input type="checkbox" id="privacy" name="privacy" value="privacy" style="font-size: 12px;">&nbsp;&nbsp;
-                     By adding this ad to my playlist this form i confirm that i have read the privacy policy and agree</br> to the>
-                        processing of my personal data by  for this stated purposes.In case of consent, -MORE
                 </div>
+
+                <div class="container-fluid">
+                    <div class="row" style="  margin-top: -30px; background-color: white; border-radius: 24px; padding-left: 10px;">
+                        <div class="col-md-8" style="margin-top: 20px;">
+                            <p style="font-family: 'Poppins';font-style: normal;font-weight: 600;font-size: 18px;line-height: 10px; color: #212121;"> Company Name </p>
+                            <h1 style="font-family: 'Poppins';font-style: normal;font-weight: 600;font-size: 34px;line-height: 80px;color: #212121;">Geico </h1>
+                        </div>
+                        <div class="col-md-4" style="margin-top: 25px;">
+
+                            <time style="border:2px solid gray; padding-top:10px; padding-left:30px; padding-right:30px; padding-bottom:10px; border-radius:10px; ">Time:0.01 Seconds</time>
+                            <p style="font-family: 'Poppins';font-style: normal;font-weight: 400;font-size: 12px;line-height: 54px; color: #000000">7,732,008 Auditions Jun 13, 2008</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12" style="border: 1px solid #80808030 ;">
+
+                    </div>
+                </div>
+
+                <div class="container-fluid">
+
+                    <div class="row" style="padding-left: 10px; padding-top:30px; padding-bottom:10px;">
+                        <div class="col-md-6">
+                            <h1 style="font-family: 'Poppins';font-style: normal;font-weight: 600;font-size: 20px;line-height: 30px;color: #000000;">Company Bio</h1>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-11" style="margin-left: 20px; margin-right: 20px; padding-top:30px; padding-bottom: 50px; border:1px solid #80808030;">
+                            <p style="font-family: 'Poppins';font-style: normal;font-size: 14px;line-height: 30px;color: #000000;">
+
+                                By submitting this form i confirm that i have read the privacy policy.......
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container-fluid">
+                    <div class="row">
+
+                        <div class="col-md-6">
+                            <img src="images/ratings.png" style="width:100%; height:auto; margin-left:10px; margin-bottom: 50px; ">
+
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container-fluid">
+                    <div class="row">
+
+                        <div class="col-md-12">
+                            <div class="col-md-12 text-center">
+                                <button type="button" style="padding-left:150px; padding-right:150px; padding-top:13px; padding-bottom:13px;
+                    background:#5415A4; border-radius: 10px; color:white; font-size: 18px;font-weight: 600; border:none;
+                    margin-bottom: 40px; ">Add to Playlist</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container-fluid">
+                    <div class="row">
+
+                        <div class="col-md-12">
+                            <div class="col-md-12" style="margin-left:100px; font-size: 13px; margin-bottom: 50px;">
+
+                                <input type="checkbox" id="privacy" name="privacy" value="privacy" style="font-size: 12px;">&nbsp;&nbsp;
+                                By adding this ad to my playlist this form i confirm that i have read the privacy policy and agree</br> to the>
+                                processing of my personal data by  for this stated purposes.In case of consent, -MORE
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-</div>
-</div>
-  </div>
-</div>
+    <!-- Modal 03 -->
+    <div class="modal fade" id="citi" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+
+            <div class="modal-content">
+                <div class="modal-header img" style=" background-image: url('frontend/images/popup/3.png');" >
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+                    <div class="container">
+                        <!-- Media Player-->
+                        <div class="mediPlayer" style="text-align:center;">
+                            <audio class="listen" preload="none" data-size="250" src= url('frontend/sounds/cococola.mp3');></audio>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="container-fluid">
+                    <div class="row" style="  margin-top: -30px; background-color: white; border-radius: 24px; padding-left: 10px;">
+                        <div class="col-md-8" style="margin-top: 20px;">
+                            <p style="font-family: 'Poppins';font-style: normal;font-weight: 600;font-size: 18px;line-height: 10px; color: #212121;"> Company Name </p>
+                            <h1 style="font-family: 'Poppins';font-style: normal;font-weight: 600;font-size: 34px;line-height: 80px;color: #212121;">Citi </h1>
+                        </div>
+                        <div class="col-md-4" style="margin-top: 25px;">
+
+                            <time style="border:2px solid gray; padding-top:10px; padding-left:30px; padding-right:30px; padding-bottom:10px; border-radius:10px; ">Time:0.01 Seconds</time>
+                            <p style="font-family: 'Poppins';font-style: normal;font-weight: 400;font-size: 12px;line-height: 54px; color: #000000">7,732,008 Auditions Jun 13, 2008</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12" style="border: 1px solid #80808030 ;">
+
+                    </div>
+                </div>
+
+                <div class="container-fluid">
+
+                    <div class="row" style="padding-left: 10px; padding-top:30px; padding-bottom:10px;">
+                        <div class="col-md-6">
+                            <h1 style="font-family: 'Poppins';font-style: normal;font-weight: 600;font-size: 20px;line-height: 60px;color: #000000;">Company Bio</h1>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-11" style="margin-left: 20px; margin-right: 20px; padding-top:30px; padding-bottom: 50px; border:1px solid #80808030;">
+                            <p style="font-family: 'Poppins';font-style: normal;font-size: 14px;line-height: 30px;color: #000000;">
+
+                                By submitting this form i confirm that i have read the privacy policy and agree to the processing of my personal data
+                                by Personio for this stated purposes. In case of consent, I can revoke my consent to this processing at any time
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container-fluid">
+                    <div class="row">
+
+                        <div class="col-md-6">
+                            <img src="images/ratings.png" style="width:100%; height:auto; margin-left:10px; margin-bottom: 50px; ">
 
 
-<!-- Modal end Here -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container-fluid">
+                    <div class="row">
+
+                        <div class="col-md-12">
+                            <div class="col-md-12 text-center">
+                                <button type="button" style="padding-left:150px; padding-right:150px; padding-top:13px; padding-bottom:13px;
+                    background:#5415A4; border-radius: 10px; color:white; font-size: 18px;font-weight: 600; border:none;
+                    margin-bottom: 40px; ">Add to Playlist</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container-fluid">
+                    <div class="row">
+
+                        <div class="col-md-12">
+                            <div class="col-md-12" style="margin-left:100px; font-size: 13px; margin-bottom: 50px;">
+
+                                <input type="checkbox" id="privacy" name="privacy" value="privacy" style="font-size: 12px;">&nbsp;&nbsp;
+                                By adding this ad to my playlist this form i confirm that i have read the privacy policy and agree</br> to the>
+                                processing of my personal data by  for this stated purposes.In case of consent, -MORE
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal 04 -->
+    <div class="modal fade" id="pizzahut" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+
+            <div class="modal-content">
+                <div class="modal-header img" style=" background-image: url('frontend/images/popup/4.png');" >
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+                    <div class="container">
+                        <!-- Media Player-->
+                        <div class="mediPlayer" style="text-align:center;">
+                            <audio class="listen" preload="none" data-size="250" src= url('frontend/sounds/cococola.mp3');></audio>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="container-fluid">
+                    <div class="row" style="  margin-top: -30px; background-color: white; border-radius: 24px; padding-left: 10px;">
+                        <div class="col-md-8" style="margin-top: 20px;">
+                            <p style="font-family: 'Poppins';font-style: normal;font-weight: 600;font-size: 18px;line-height: 10px; color: #212121;"> Company Name </p>
+                            <h1 style="font-family: 'Poppins';font-style: normal;font-weight: 600;font-size: 34px;line-height: 80px;color: #212121;">Pizza Hut </h1>
+                        </div>
+                        <div class="col-md-4" style="margin-top: 25px;">
+
+                            <time style="border:2px solid gray; padding-top:10px; padding-left:30px; padding-right:30px; padding-bottom:10px; border-radius:10px; ">Time:0.01 Seconds</time>
+                            <p style="font-family: 'Poppins';font-style: normal;font-weight: 400;font-size: 12px;line-height: 54px; color: #000000">7,732,008 Auditions Jun 13, 2008</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12" style="border: 1px solid #80808030 ;">
+
+                    </div>
+                </div>
+
+                <div class="container-fluid">
+
+                    <div class="row" style="padding-left: 10px; padding-top:30px; padding-bottom:10px;">
+                        <div class="col-md-6">
+                            <h1 style="font-family: 'Poppins';font-style: normal;font-weight: 600;font-size: 20px;line-height: 60px;color: #000000;">Company Bio</h1>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-11" style="margin-left: 20px; margin-right: 20px; padding-top:30px; padding-bottom: 50px; border:1px solid #80808030;">
+                            <p style="font-family: 'Poppins';font-style: normal;font-size: 14px;line-height: 30px;color: #000000;">
+
+                                By submitting this form i confirm that i have read the privacy policy and agree to the processing of my personal data
+                                by Personio for this stated purposes. In case of consent, I can revoke my consent to this processing at any time
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container-fluid">
+                    <div class="row">
+
+                        <div class="col-md-6">
+                            <img src="images/ratings.png" style="width:100%; height:auto; margin-left:10px; margin-bottom: 50px; ">
+
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container-fluid">
+                    <div class="row">
+
+                        <div class="col-md-12">
+                            <div class="col-md-12 text-center">
+                                <button type="button" style="padding-left:150px; padding-right:150px; padding-top:13px; padding-bottom:13px;
+                    background:#5415A4; border-radius: 10px; color:white; font-size: 18px;font-weight: 600; border:none;
+                    margin-bottom: 40px; ">Add to Playlist</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container-fluid">
+                    <div class="row">
+
+                        <div class="col-md-12">
+                            <div class="col-md-12" style="margin-left:100px; font-size: 13px; margin-bottom: 50px;">
+
+                                <input type="checkbox" id="privacy" name="privacy" value="privacy" style="font-size: 12px;">&nbsp;&nbsp;
+                                By adding this ad to my playlist this form i confirm that i have read the privacy policy and agree</br> to the>
+                                processing of my personal data by  for this stated purposes.In case of consent, -MORE
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal 05 -->
+    <div class="modal fade" id="expedia" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+
+            <div class="modal-content">
+                <div class="modal-header img" style=" background-image: url('frontend/images/popup/5.png');" >
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+                    <div class="container">
+                        <!-- Media Player-->
+                        <div class="mediPlayer" style="text-align:center;">
+                            <audio class="listen" preload="none" data-size="250" src= url('frontend/sounds/cococola.mp3');></audio>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="container-fluid">
+                    <div class="row" style="  margin-top: -30px; background-color: white; border-radius: 24px; padding-left: 10px;">
+                        <div class="col-md-8" style="margin-top: 20px;">
+                            <p style="font-family: 'Poppins';font-style: normal;font-weight: 600;font-size: 18px;line-height: 10px; color: #212121;"> Company Name </p>
+                            <h1 style="font-family: 'Poppins';font-style: normal;font-weight: 600;font-size: 34px;line-height: 80px;color: #212121;">Expedia </h1>
+                        </div>
+                        <div class="col-md-4" style="margin-top: 25px;">
+
+                            <time style="border:2px solid gray; padding-top:10px; padding-left:30px; padding-right:30px; padding-bottom:10px; border-radius:10px; ">Time:0.01 Seconds</time>
+                            <p style="font-family: 'Poppins';font-style: normal;font-weight: 400;font-size: 12px;line-height: 54px; color: #000000">7,732,008 Auditions Jun 13, 2008</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12" style="border: 1px solid #80808030 ;">
+
+                    </div>
+                </div>
+
+                <div class="container-fluid">
+
+                    <div class="row" style="padding-left: 10px; padding-top:30px; padding-bottom:10px;">
+                        <div class="col-md-6">
+                            <h1 style="font-family: 'Poppins';font-style: normal;font-weight: 600;font-size: 20px;line-height: 60px;color: #000000;">Company Bio</h1>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-11" style="margin-left: 20px; margin-right: 20px; padding-top:30px; padding-bottom: 50px; border:1px solid #80808030;">
+                            <p style="font-family: 'Poppins';font-style: normal;font-size: 14px;line-height: 30px;color: #000000;">
+
+                                By submitting this form i confirm that i have read the privacy policy and agree to the processing of my personal data
+                                by Personio for this stated purposes. In case of consent, I can revoke my consent to this processing at any time
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container-fluid">
+                    <div class="row">
+
+                        <div class="col-md-6">
+                            <img src="images/ratings.png" style="width:100%; height:auto; margin-left:10px; margin-bottom: 50px; ">
+
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container-fluid">
+                    <div class="row">
+
+                        <div class="col-md-12">
+                            <div class="col-md-12 text-center">
+                                <button type="button" style="padding-left:150px; padding-right:150px; padding-top:13px; padding-bottom:13px;
+                    background:#5415A4; border-radius: 10px; color:white; font-size: 18px;font-weight: 600; border:none;
+                    margin-bottom: 40px; ">Add to Playlist</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container-fluid">
+                    <div class="row">
+
+                        <div class="col-md-12">
+                            <div class="col-md-12" style="margin-left:100px; font-size: 13px; margin-bottom: 50px;">
+
+                                <input type="checkbox" id="privacy" name="privacy" value="privacy" style="font-size: 12px;">&nbsp;&nbsp;
+                                By adding this ad to my playlist this form i confirm that i have read the privacy policy and agree</br> to the>
+                                processing of my personal data by  for this stated purposes.In case of consent, -MORE
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal 06 -->
+    <div class="modal fade" id="disney" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+
+            <div class="modal-content">
+                <div class="modal-header img" style=" background-image: url('frontend/images/popup/6.png');" >
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+                    <div class="container">
+                        <!-- Media Player-->
+                        <div class="mediPlayer" style="text-align:center;">
+                            <audio class="listen" preload="none" data-size="250" src= url('frontend/sounds/cococola.mp3');></audio>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="container-fluid">
+                    <div class="row" style="  margin-top: -30px; background-color: white; border-radius: 24px; padding-left: 10px;">
+                        <div class="col-md-8" style="margin-top: 20px;">
+                            <p style="font-family: 'Poppins';font-style: normal;font-weight: 600;font-size: 18px;line-height: 10px; color: #212121;"> Company Name </p>
+                            <h1 style="font-family: 'Poppins';font-style: normal;font-weight: 600;font-size: 34px;line-height: 80px;color: #212121;">Disney </h1>
+                        </div>
+                        <div class="col-md-4" style="margin-top: 25px;">
+
+                            <time style="border:2px solid gray; padding-top:10px; padding-left:30px; padding-right:30px; padding-bottom:10px; border-radius:10px; ">Time:0.01 Seconds</time>
+                            <p style="font-family: 'Poppins';font-style: normal;font-weight: 400;font-size: 12px;line-height: 54px; color: #000000">7,732,008 Auditions Jun 13, 2008</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12" style="border: 1px solid #80808030 ;">
+
+                    </div>
+                </div>
+
+                <div class="container-fluid">
+
+                    <div class="row" style="padding-left: 10px; padding-top:30px; padding-bottom:10px;">
+                        <div class="col-md-6">
+                            <h1 style="font-family: 'Poppins';font-style: normal;font-weight: 600;font-size: 20px;line-height: 60px;color: #000000;">Company Bio</h1>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-11" style="margin-left: 20px; margin-right: 20px; padding-top:30px; padding-bottom: 50px; border:1px solid #80808030;">
+                            <p style="font-family: 'Poppins';font-style: normal;font-size: 14px;line-height: 30px;color: #000000;">
+
+                                By submitting this form i confirm that i have read the privacy policy and agree to the processing of my personal data
+                                by Personio for this stated purposes. In case of consent, I can revoke my consent to this processing at any time
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container-fluid">
+                    <div class="row">
+
+                        <div class="col-md-6">
+                            <img src="images/ratings.png" style="width:100%; height:auto; margin-left:10px; margin-bottom: 50px; ">
+
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container-fluid">
+                    <div class="row">
+
+                        <div class="col-md-12">
+                            <div class="col-md-12 text-center">
+                                <button type="button" style="padding-left:150px; padding-right:150px; padding-top:13px; padding-bottom:13px;
+                    background:#5415A4; border-radius: 10px; color:white; font-size: 18px;font-weight: 600; border:none;
+                    margin-bottom: 40px; ">Add to Playlist</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container-fluid">
+                    <div class="row">
+
+                        <div class="col-md-12">
+                            <div class="col-md-12" style="margin-left:100px; font-size: 13px; margin-bottom: 50px;">
+
+                                <input type="checkbox" id="privacy" name="privacy" value="privacy" style="font-size: 12px;">&nbsp;&nbsp;
+                                By adding this ad to my playlist this form i confirm that i have read the privacy policy and agree</br> to the>
+                                processing of my personal data by  for this stated purposes.In case of consent, -MORE
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal 07 -->
+    <div class="modal fade" id="mcdonalds" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+
+            <div class="modal-content">
+                <div class="modal-header img" style=" background-image: url('frontend/images/popup/7.png');" >
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+                    <div class="container">
+                        <!-- Media Player-->
+                        <div class="mediPlayer" style="text-align:center;">
+                            <audio class="listen" preload="none" data-size="250" src= url('frontend/sounds/cococola.mp3');></audio>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="container-fluid">
+                    <div class="row" style="  margin-top: -30px; background-color: white; border-radius: 24px; padding-left: 10px;">
+                        <div class="col-md-8" style="margin-top: 20px;">
+                            <p style="font-family: 'Poppins';font-style: normal;font-weight: 600;font-size: 18px;line-height: 10px; color: #212121;"> Company Name </p>
+                            <h1 style="font-family: 'Poppins';font-style: normal;font-weight: 600;font-size: 34px;line-height: 80px;color: #212121;">MCDonald's </h1>
+                        </div>
+                        <div class="col-md-4" style="margin-top: 25px;">
+
+                            <time style="border:2px solid gray; padding-top:10px; padding-left:30px; padding-right:30px; padding-bottom:10px; border-radius:10px; ">Time:0.01 Seconds</time>
+                            <p style="font-family: 'Poppins';font-style: normal;font-weight: 400;font-size: 12px;line-height: 54px; color: #000000">7,732,008 Auditions Jun 13, 2008</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12" style="border: 1px solid #80808030 ;">
+
+                    </div>
+                </div>
+
+                <div class="container-fluid">
+
+                    <div class="row" style="padding-left: 10px; padding-top:30px; padding-bottom:10px;">
+                        <div class="col-md-6">
+                            <h1 style="font-family: 'Poppins';font-style: normal;font-weight: 600;font-size: 20px;line-height: 60px;color: #000000;">Company Bio</h1>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-11" style="margin-left: 20px; margin-right: 20px; padding-top:30px; padding-bottom: 50px; border:1px solid #80808030;">
+                            <p style="font-family: 'Poppins';font-style: normal;font-size: 14px;line-height: 30px;color: #000000;">
+
+                                By submitting this form i confirm that i have read the privacy policy and agree to the processing of my personal data
+                                by Personio for this stated purposes. In case of consent, I can revoke my consent to this processing at any time
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container-fluid">
+                    <div class="row">
+
+                        <div class="col-md-6">
+                            <img src="images/ratings.png" style="width:100%; height:auto; margin-left:10px; margin-bottom: 50px; ">
+
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container-fluid">
+                    <div class="row">
+
+                        <div class="col-md-12">
+                            <div class="col-md-12 text-center">
+                                <button type="button" style="padding-left:150px; padding-right:150px; padding-top:13px; padding-bottom:13px;
+                    background:#5415A4; border-radius: 10px; color:white; font-size: 18px;font-weight: 600; border:none;
+                    margin-bottom: 40px; ">Add to Playlist</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container-fluid">
+                    <div class="row">
+
+                        <div class="col-md-12">
+                            <div class="col-md-12" style="margin-left:100px; font-size: 13px; margin-bottom: 50px;">
+
+                                <input type="checkbox" id="privacy" name="privacy" value="privacy" style="font-size: 12px;">&nbsp;&nbsp;
+                                By adding this ad to my playlist this form i confirm that i have read the privacy policy and agree</br> to the>
+                                processing of my personal data by  for this stated purposes.In case of consent, -MORE
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal 08 -->
+    <div class="modal fade" id="starbucks" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+
+            <div class="modal-content">
+                <div class="modal-header img" style=" background-image: url('frontend/images/popup/8.png');" >
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+                    <div class="container">
+                        <!-- Media Player-->
+                        <div class="mediPlayer" style="text-align:center;">
+                            <audio class="listen" preload="none" data-size="250" src= url('frontend/sounds/cococola.mp3');></audio>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="container-fluid">
+                    <div class="row" style="  margin-top: -30px; background-color: white; border-radius: 24px; padding-left: 10px;">
+                        <div class="col-md-8" style="margin-top: 20px;">
+                            <p style="font-family: 'Poppins';font-style: normal;font-weight: 600;font-size: 18px;line-height: 10px; color: #212121;"> Company Name </p>
+                            <h1 style="font-family: 'Poppins';font-style: normal;font-weight: 600;font-size: 34px;line-height: 80px;color: #212121;">Starbucks </h1>
+                        </div>
+                        <div class="col-md-4" style="margin-top: 25px;">
+
+                            <time style="border:2px solid gray; padding-top:10px; padding-left:30px; padding-right:30px; padding-bottom:10px; border-radius:10px; ">Time:0.01 Seconds</time>
+                            <p style="font-family: 'Poppins';font-style: normal;font-weight: 400;font-size: 12px;line-height: 54px; color: #000000">7,732,008 Auditions Jun 13, 2008</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12" style="border: 1px solid #80808030 ;">
+
+                    </div>
+                </div>
+
+                <div class="container-fluid">
+
+                    <div class="row" style="padding-left: 10px; padding-top:30px; padding-bottom:10px;">
+                        <div class="col-md-6">
+                            <h1 style="font-family: 'Poppins';font-style: normal;font-weight: 600;font-size: 20px;line-height: 60px;color: #000000;">Company Bio</h1>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-11" style="margin-left: 20px; margin-right: 20px; padding-top:30px; padding-bottom: 50px; border:1px solid #80808030;">
+                            <p style="font-family: 'Poppins';font-style: normal;font-size: 14px;line-height: 30px;color: #000000;">
+
+                                By submitting this form i confirm that i have read the privacy policy and agree to the processing of my personal data
+                                by Personio for this stated purposes. In case of consent, I can revoke my consent to this processing at any time
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container-fluid">
+                    <div class="row">
+
+                        <div class="col-md-6">
+                            <img src="images/ratings.png" style="width:100%; height:auto; margin-left:10px; margin-bottom: 50px; ">
+
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container-fluid">
+                    <div class="row">
+
+                        <div class="col-md-12">
+                            <div class="col-md-12 text-center">
+                                <button type="button" style="padding-left:150px; padding-right:150px; padding-top:13px; padding-bottom:13px;
+                    background:#5415A4; border-radius: 10px; color:white; font-size: 18px;font-weight: 600; border:none;
+                    margin-bottom: 40px; ">Add to Playlist</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container-fluid">
+                    <div class="row">
+
+                        <div class="col-md-12">
+                            <div class="col-md-12" style="margin-left:100px; font-size: 13px; margin-bottom: 50px;">
+
+                                <input type="checkbox" id="privacy" name="privacy" value="privacy" style="font-size: 12px;">&nbsp;&nbsp;
+                                By adding this ad to my playlist this form i confirm that i have read the privacy policy and agree</br> to the>
+                                processing of my personal data by  for this stated purposes.In case of consent, -MORE
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal 09 -->
+    <div class="modal fade" id="pepsi" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+
+            <div class="modal-content">
+                <div class="modal-header img" style=" background-image: url('frontend/images/popup/9.png');" >
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+                    <div class="container">
+                        <!-- Media Player-->
+                        <div class="mediPlayer" style="text-align:center;">
+                            <audio class="listen" preload="none" data-size="250" src= url('frontend/sounds/cococola.mp3');></audio>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="container-fluid">
+                    <div class="row" style="  margin-top: -30px; background-color: white; border-radius: 24px; padding-left: 10px;">
+                        <div class="col-md-8" style="margin-top: 20px;">
+                            <p style="font-family: 'Poppins';font-style: normal;font-weight: 600;font-size: 18px;line-height: 10px; color: #212121;"> Company Name </p>
+                            <h1 style="font-family: 'Poppins';font-style: normal;font-weight: 600;font-size: 34px;line-height: 80px;color: #212121;">Pepsi </h1>
+                        </div>
+                        <div class="col-md-4" style="margin-top: 25px;">
+
+                            <time style="border:2px solid gray; padding-top:10px; padding-left:30px; padding-right:30px; padding-bottom:10px; border-radius:10px; ">Time:0.01 Seconds</time>
+                            <p style="font-family: 'Poppins';font-style: normal;font-weight: 400;font-size: 12px;line-height: 54px; color: #000000">7,732,008 Auditions Jun 13, 2008</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12" style="border: 1px solid #80808030 ;">
+
+                    </div>
+                </div>
+
+                <div class="container-fluid">
+
+                    <div class="row" style="padding-left: 10px; padding-top:30px; padding-bottom:10px;">
+                        <div class="col-md-6">
+                            <h1 style="font-family: 'Poppins';font-style: normal;font-weight: 600;font-size: 20px;line-height: 60px;color: #000000;">Company Bio</h1>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-11" style="margin-left: 20px; margin-right: 20px; padding-top:30px; padding-bottom: 50px; border:1px solid #80808030;">
+                            <p style="font-family: 'Poppins';font-style: normal;font-size: 14px;line-height: 30px;color: #000000;">
+
+                                By submitting this form i confirm that i have read the privacy policy and agree to the processing of my personal data
+                                by Personio for this stated purposes. In case of consent, I can revoke my consent to this processing at any time
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container-fluid">
+                    <div class="row">
+
+                        <div class="col-md-6">
+                            <img src="images/ratings.png" style="width:100%; height:auto; margin-left:10px; margin-bottom: 50px; ">
+
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container-fluid">
+                    <div class="row">
+
+                        <div class="col-md-12">
+                            <div class="col-md-12 text-center">
+                                <button type="button" style="padding-left:150px; padding-right:150px; padding-top:13px; padding-bottom:13px;
+                    background:#5415A4; border-radius: 10px; color:white; font-size: 18px;font-weight: 600; border:none;
+                    margin-bottom: 40px; ">Add to Playlist</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container-fluid">
+                    <div class="row">
+
+                        <div class="col-md-12">
+                            <div class="col-md-12" style="margin-left:100px; font-size: 13px; margin-bottom: 50px;">
+
+                                <input type="checkbox" id="privacy" name="privacy" value="privacy" style="font-size: 12px;">&nbsp;&nbsp;
+                                By adding this ad to my playlist this form i confirm that i have read the privacy policy and agree</br> to the>
+                                processing of my personal data by  for this stated purposes.In case of consent, -MORE
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal 10 -->
+    <div class="modal fade" id="subway" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+
+            <div class="modal-content">
+                <div class="modal-header img" style=" background-image: url('frontend/images/popup/10.png');" >
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+                    <div class="container">
+                        <!-- Media Player-->
+                        <div class="mediPlayer" style="text-align:center;">
+                            <audio class="listen" preload="none" data-size="250" src= url('frontend/sounds/cococola.mp3');></audio>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="container-fluid">
+                    <div class="row" style="  margin-top: -30px; background-color: white; border-radius: 24px; padding-left: 10px;">
+                        <div class="col-md-8" style="margin-top: 20px;">
+                            <p style="font-family: 'Poppins';font-style: normal;font-weight: 600;font-size: 18px;line-height: 10px; color: #212121;"> Company Name </p>
+                            <h1 style="font-family: 'Poppins';font-style: normal;font-weight: 600;font-size: 34px;line-height: 80px;color: #212121;">Subway </h1>
+                        </div>
+                        <div class="col-md-4" style="margin-top: 25px;">
+
+                            <time style="border:2px solid gray; padding-top:10px; padding-left:30px; padding-right:30px; padding-bottom:10px; border-radius:10px; ">Time:0.01 Seconds</time>
+                            <p style="font-family: 'Poppins';font-style: normal;font-weight: 400;font-size: 12px;line-height: 54px; color: #000000">7,732,008 Auditions Jun 13, 2008</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12" style="border: 1px solid #80808030 ;">
+
+                    </div>
+                </div>
+
+                <div class="container-fluid">
+
+                    <div class="row" style="padding-left: 10px; padding-top:30px; padding-bottom:10px;">
+                        <div class="col-md-6">
+                            <h1 style="font-family: 'Poppins';font-style: normal;font-weight: 600;font-size: 20px;line-height: 60px;color: #000000;">Company Bio</h1>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-11" style="margin-left: 20px; margin-right: 20px; padding-top:30px; padding-bottom: 50px; border:1px solid #80808030;">
+                            <p style="font-family: 'Poppins';font-style: normal;font-size: 14px;line-height: 30px;color: #000000;">
+
+                                By submitting this form i confirm that i have read the privacy policy and agree to the processing of my personal data
+                                by Personio for this stated purposes. In case of consent, I can revoke my consent to this processing at any time
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container-fluid">
+                    <div class="row">
+
+                        <div class="col-md-6">
+                            <img src="images/ratings.png" style="width:100%; height:auto; margin-left:10px; margin-bottom: 50px; ">
+
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container-fluid">
+                    <div class="row">
+
+                        <div class="col-md-12">
+                            <div class="col-md-12 text-center">
+                                <button type="button" style="padding-left:150px; padding-right:150px; padding-top:13px; padding-bottom:13px;
+                    background:#5415A4; border-radius: 10px; color:white; font-size: 18px;font-weight: 600; border:none;
+                    margin-bottom: 40px; ">Add to Playlist</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container-fluid">
+                    <div class="row">
+
+                        <div class="col-md-12">
+                            <div class="col-md-12" style="margin-left:100px; font-size: 13px; margin-bottom: 50px;">
+
+                                <input type="checkbox" id="privacy" name="privacy" value="privacy" style="font-size: 12px;">&nbsp;&nbsp;
+                                By adding this ad to my playlist this form i confirm that i have read the privacy policy and agree</br> to the>
+                                processing of my personal data by  for this stated purposes.In case of consent, -MORE
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- <!--Free Access Start-->
+    <!--Free Access Start-->
         <section class="free-access">
               <div class="free-access-bg jarallax" data-jarallax data-speed="0.2" data-imgPosition="50% 0%"
                 style="background-image: url(frontend/images/resources/featured.png);">
@@ -495,7 +1243,7 @@
             </div>
          <div class="container">
                 <div class="free-access__inner">
-                    <h2 class="free-access__title">Get Paid Every 30 Days With<br> Unlimited Ads To Choose From </h2>
+                    <h2 class="free-access__title">Get Paid Every 30 Days With    Unlimited Ads To Choose From </h2>
                     <div class="free-access__btn-box">
                         <a href="{{ url('/pricing') }}" class="free-access__btn">Get started now</a>
                     </div>
@@ -504,6 +1252,31 @@
         </section>
         <!--Free Access End-->
 
+
+    <!--Free Access Start for Mobile-->
+    <section class="free-access1">
+        <div class="free-access-bg"
+             style="background-image: url(frontend/images/resources/featured.png);">
+        </div>
+        <div class="free-access-shape-1 float-bob-x">
+            <img src="{{ url('frontend/images/shapes/free-access-shape.png') }}" alt="">
+        </div>
+        <div class="free-access-shape-2">
+            <img src="{{ url('frontend/images/shapes/free-access-shape-2.png') }}" alt="">
+        </div>
+        <div class="free-access-shape-3">
+            <img src="{{ url('frontend/images/shapes/free-access-shape-3.png') }}" alt="">
+        </div>
+        <div class="container">
+            <div class="free-access__inner">
+                <h2 class="free-access1__title">Get Paid Every 30 Days With    Unlimited Ads To Choose From </h2>
+                <div class="free-access__btn-box">
+                    <a href="{{ url('/pricing') }}" class="free-access__btn">Get started now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Free Access for mobile End-->
 
 
         <!--Counter One Start-->
@@ -542,6 +1315,42 @@
         <!--Counter One End-->
 
 
+        <!--Counter One Start for mobile-->
+        <section class="counter-mobile">
+        <div class="container">
+            <div class="counter-mobile__inner">
+                <ul class="list-unstyled counter-one__list">
+                    <li class="counter-mobile__single">
+                        <div class="counter-one__count-box">
+                            <h3 class="odometer" data-count="150">00</h3>
+                        </div>
+                        <p class="counter-mobile__text">Countries Globally</p>
+                    </li>
+                    <li class="counter-mobile__single">
+                        <div class="counter-one__count-box">
+                            <h3 class="odometer" data-count="2">00</h3>
+                        </div>
+                        <p class="counter-mobile__text"> Users Daily</p>
+                    </li>
+                    <li class="counter-mobile__single">
+                        <div class="counter-one__count-box">
+                            <h3 class="odometer" data-count="300">00</h3>
+                        </div>
+                        <p class="counter-mobile__text"> Network Providers</p>
+                    </li>
+                    <li class="counter-mobile__single">
+                        <div class="counter-one__count-box">
+                            <h3 class="odometer" data-count="100">00 &nbsp;</h3>
+                        </div>
+                        <p class="counter-mobile__text"> Paid Out Daily</p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+        <!--Counter One End for Mobile-->
+
+
 
    <!--Watch Devices Start-->
         <section class="watch-devices">
@@ -568,8 +1377,10 @@
         </section>
         <!--Watch Devices End-->
 
-        <!--Getting Started-->
 
+
+
+    <!--Getting Started for PC-->
          <section class="getting_started">
             <div class="container">
                 <div class="section-title text-center">
@@ -579,7 +1390,7 @@
                 <div class="container-fluid">
                 <div class="row">
                     <!--Feature One Single Start-->
-                    <div class="col-xl-4 col-lg-4">
+                    <div class="col-lg-4 col-6">
                         <div class="stage-box__img-box">
                             <img src="{{ url('frontend/images/shapes/1.png') }}" alt="">
                         </div>
@@ -592,7 +1403,7 @@
                     <!--Feature One Single End-->
 
                     <!--Feature One Single Start-->
-                    <div class="col-xl-4 col-lg-4">
+                    <div class="col-lg-4 col-6">
                         <div class="stage-box__img-box">
                             <img src="{{ url('frontend/images/shapes/2.png') }}" alt="">
                         </div>
@@ -604,7 +1415,7 @@
                     <!--Feature One Single End-->
 
                     <!--Feature One Single Start-->
-                    <div class="col-xl-4 col-lg-4">
+                    <div class="col-lg-4 col-6">
                         <div class="stage-box__img-box">
                             <img src="{{ url('frontend/images/shapes/3.png') }}" alt="">
                         </div>
@@ -620,8 +1431,75 @@
             </div>
             </div>
         </section>
+        <!--Getting Started end-->
 
-        <!--Getting Started-->
+
+    <!--Getting Started for mobile-->
+    <section class="getting_startedmobile">
+        <div class="container">
+            <div class="section-title text-center">
+                <h2 class="section-title__title">How Adstocall Work ?</h2>
+            </div>
+
+            <div class="container-fluid">
+                <!--Feature One Single Start-->
+                <div class="row">
+                    <div class="col-lg-4 col-6">
+                        <div class="mobile-background__img-box">
+                            <img src="{{ url('frontend/images/resources/stage1.png') }}" alt="">
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-6">
+                        <div class="mobile-devices__img-box">
+                            <img src="{{ url('frontend/images/shapes/1.png') }}" alt="">
+                        </div>
+                        <p class="mobile-devices__text"></br>Create an account submit and verify your phone number,s agree to terms and condition</p>
+                        <div>
+                  </div>
+                    </div>
+                </div>
+                <!--Feature One Single End-->
+
+                <!--Feature One Single Start-->
+                <div class="row">
+                    <div class="col-lg-4 col-6">
+                        <div class="mobile-devices__img-box">
+                            <img src="{{ url('frontend/images/shapes/2.png') }}" alt="">
+                        </div>
+                        <p class="mobile-devices__text"></br>Create an account submit and verify your phone number,s agree to terms and condition</p>
+                        <div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-6">
+                        <div class="mobile-background__img-box">
+                            <img src="{{ url('frontend/images/resources/stage2.png') }}" alt="">
+                        </div>
+                    </div>
+                </div>
+                <!--Feature One Single End-->
+
+
+                <!--Feature One Single Start-->
+                <div class="row">
+                    <div class="col-lg-4 col-6">
+                        <div class="mobile-background__img-box">
+                            <img src="{{ url('frontend/images/resources/stage3.png') }}" alt="">
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-6">
+                        <div class="mobile-devices__img-box">
+                            <img src="{{ url('frontend/images/shapes/3.png') }}" alt="">
+                        </div>
+                        <p class="mobile-devices__text"></br>Create an account submit and verify your phone number,s agree to terms and condition</p>
+                        <div>
+                        </div>
+                    </div>
+                </div>
+                <!--Feature One Single End-->
+        </div>
+        </div>
+    </section>
+    <!--Getting Started End-->
 
 
 
@@ -661,6 +1539,14 @@
                                     "991": {
                                         "spaceBetween": 10,
                                         "slidesPerView": 6
+                                    },
+                                    "1440": {
+                                       "spaceBetween": 10,
+                                       "slidesPerView": 6
+                                    },
+                                    "1800": {
+                                       "spaceBetween": 10,
+                                       "slidesPerView": 7
                                     }
 
                                 }}'>
@@ -706,16 +1592,17 @@
                 <div class="newsletter__inner">
                     <div class="newsletter__left">
 
-                        <div class="newsletter__content">
+                        <div class="newsletter__content desktop mobile">
                             <h3>Become an Advertiser</h3>
                         </div>
                     </div>
+
                     <div class="newsletter__right">
                         <div class="newsletter__content">
-                            <h4>Sign Up to Earn </h4> <span>
+                            <h4>Sign Up to Earn </h4>
                         </div>
                         <div class="newsletter__content">
-                            <h5><i class="fa fa-share-alt" aria-hidden="true"></i>&nbsp; Share </h5> <span>
+                            <h5><i class="fa fa-share-alt" aria-hidden="true"></i>&nbsp; Share </h5>
                         </div>
 
                     </div>
@@ -723,6 +1610,7 @@
             </div>
         </section>
         <!--Become An Advertiser  End-->
+
 
 
         <!--FAQ One Start-->
@@ -793,8 +1681,9 @@
         </section>
         <!--FAQ One End-->
 
-        <!--Digital Billboard Start-->
 
+
+        <!--Digital Billboard Start-->
       <section class="digital_billboard">
             <div class="container">
                 <div class="section-title text-left">
@@ -1008,7 +1897,184 @@
         </section>
         <!--News One End-->
 
-        <!--NewsLetter Start-->
+
+    <!--News Carousel Start-->
+    <section class="news-carousel-page">
+        <div class="container">
+            <div class="section-title text-left">
+                <h2 class="section-title__title">Our Latest News & Articles </h2>
+            </div>
+            <div class="thm-swiper__slider swiper-container" data-swiper-options='{"spaceBetween": 300, "slidesPerView": 5, "autoplay": { "delay": 2000 }, "breakpoints": {
+                                    "0": {
+                                        "spaceBetween": 30,
+                                        "slidesPerView": 1
+                                    },
+                                    "375": {
+                                        "spaceBetween": 30,
+                                        "slidesPerView": 1
+                                    },
+                                    "575": {
+                                        "spaceBetween": 30,
+                                        "slidesPerView":1
+                                    },
+
+                                    "767": {
+                                        "spaceBetween": 30,
+                                        "slidesPerView": 2
+                                    },
+                                    "991": {
+                                        "spaceBetween": 50,
+                                        "slidesPerView": 5
+                                    },
+
+                                    "1680": {
+                                        "spaceBetween": 50,
+                                        "slidesPerView": 5
+                                    },
+
+
+                                    "1800": {
+                                        "spaceBetween": 50,
+                                        "slidesPerView": 5
+                                    }
+
+                                }}'>
+
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="col-xl-3 col-lg-3 wow fadeInUp" data-wow-delay="100ms">
+                            <div class="news-one__single">
+                                <div class="news-one__img-box">
+                                    <img src="{{ url('frontend/images/blog/news01.png') }}" alt="">
+                                    <a href="news-details.html"><span class="icon-plus-symbol"></span></a>
+                                </div>
+                                <div class="news-one__content-box">
+                                    <div class="news-one__content">
+                                        <ul class="news-one__meta list-unstyled">
+                                            <li>
+                                                <a href="news-details.html"><i class="fas fa-user-circle"></i>by Admin</a>
+                                            </li>
+                                            <li>
+                                                <a href="news-details.html"><i class="fas fa-comments"></i>02 Comments</a>
+                                            </li>
+                                        </ul>
+                                        <h3 class="news-one__title"><a href="news-details.html">The best usage of the fiber
+                                                internet from
+                                                broadband</a></h3>
+                                    </div>
+                                    <div class="news-one__bottom">
+                                        <a href="news-details.html" class="news-one__read-more">Read More</a>
+                                    </div>
+                                    <div class="news-one__date">
+                                        <p>18 may</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- /.swiper-slide -->
+                    <div class="swiper-slide">
+                        <div class="col-xl-3 col-lg-3 wow fadeInUp" data-wow-delay="200ms">
+                            <div class="news-one__single">
+                                <div class="news-one__img-box">
+                                    <img src="{{ url('frontend/images/blog/news02.png') }}" alt="">
+                                    <a href="news-details.html"><span class="icon-plus-symbol"></span></a>
+                                </div>
+                                <div class="news-one__content-box">
+                                    <div class="news-one__content">
+                                        <ul class="news-one__meta list-unstyled">
+                                            <li>
+                                                <a href="news-details.html"><i class="fas fa-user-circle"></i>by Admin</a>
+                                            </li>
+                                            <li>
+                                                <a href="news-details.html"><i class="fas fa-comments"></i>02 Comments</a>
+                                            </li>
+                                        </ul>
+                                        <h3 class="news-one__title"><a href="news-details.html">Lorem ipsum dolor sit amet,
+                                                consectetur </a></h3>
+                                    </div>
+                                    <div class="news-one__bottom">
+                                        <a href="news-details.html" class="news-one__read-more">Read More</a>
+                                    </div>
+                                    <div class="news-one__date">
+                                        <p>18 may</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- /.swiper-slide -->
+                    <div class="swiper-slide">
+                        <div class="col-xl-3 col-lg-3 wow fadeInUp" data-wow-delay="300ms">
+                            <div class="news-one__single">
+                                <div class="news-one__img-box">
+                                    <img src="{{ url('frontend/images/blog/news03.png') }}" alt="">
+                                    <a href="news-details.html"><span class="icon-plus-symbol"></span></a>
+                                </div>
+                                <div class="news-one__content-box">
+                                    <div class="news-one__content">
+                                        <ul class="news-one__meta list-unstyled">
+                                            <li>
+                                                <a href="news-details.html"><i class="fas fa-user-circle"></i>by Admin</a>
+                                            </li>
+                                            <li>
+                                                <a href="news-details.html"><i class="fas fa-comments"></i>02 Comments</a>
+                                            </li>
+                                        </ul>
+                                        <h3 class="news-one__title"><a href="news-details.html">Suspendisse posuere, leo ac
+                                                laoreet dapibus, urna</a></h3>
+                                    </div>
+                                    <div class="news-one__bottom">
+                                        <a href="news-details.html" class="news-one__read-more">Read More</a>
+                                    </div>
+                                    <div class="news-one__date">
+                                        <p>18 may</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!-- /.swiper-slide -->
+                    <div class="swiper-slide">
+                        <div class="col-xl-3 col-lg-3 wow fadeInUp" data-wow-delay="300ms">
+                            <div class="news-one__single">
+                                <div class="news-one__img-box">
+                                    <img src="{{ url('frontend/images/blog/news04.png') }}" alt="">
+                                    <a href="news-details.html"><span class="icon-plus-symbol"></span></a>
+                                </div>
+                                <div class="news-one__content-box">
+                                    <div class="news-one__content">
+                                        <ul class="news-one__meta list-unstyled">
+                                            <li>
+                                                <a href="news-details.html"><i class="fas fa-user-circle"></i>by Admin</a>
+                                            </li>
+                                            <li>
+                                                <a href="news-details.html"><i class="fas fa-comments"></i>02 Comments</a>
+                                            </li>
+                                        </ul>
+                                        <h3 class="news-one__title"><a href="news-details.html">Suspendisse posuere, leo ac
+                                                laoreet dapibus, urna</a></h3>
+                                    </div>
+                                    <div class="news-one__bottom">
+                                        <a href="news-details.html" class="news-one__read-more">Read More</a>
+                                    </div>
+                                    <div class="news-one__date">
+                                        <p>18 may</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--News One Single End-->
+                    </div><!-- /.swiper-slide -->
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Digital billboard End-->
+
+
+
+
+
+    <!--NewsLetter Start-->
         <section class="newsletter">
             <div class="container">
                 <div class="newsletter__inner">
