@@ -2916,7 +2916,7 @@ ul {
 
 
 .main-slider-two__video-icon:hover:before {
-  background-color: var(--zeinet-base);
+  background-color: #9b6dfb;
 }
 
 .main-slider-two__video-link .ripple,
@@ -4446,7 +4446,7 @@ z-index: 1;
 
     max-width: 80%;
     height: auto;
-    margin-left: 150px;
+    margin-left: 95px;
     padding-bottom: 20px;
     background-position:right ;
 }
@@ -9393,7 +9393,7 @@ z-index: 1;
 }
 
 .billboard_img {
-    width: 110%;
+    width: 115%;
     height: auto;
 }
 

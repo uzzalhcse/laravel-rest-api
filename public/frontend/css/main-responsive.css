@@ -2325,6 +2325,64 @@
         text-align: center;
         padding: 20px 14px 20px 40px;
     }
+    .newsletter__right {
+        position: relative;
+        display: block;
+        max-width: 585px;
+        width: 100%;
+    }
+    .main-slider-two .container-fluid {
+        position: relative;
+        padding-top: 650px;
+        padding-bottom: 650px;
+        z-index: 30;
+    }
+    .newsletter__content h4 {
+        font-size: 20px;
+        font-weight: 800;
+        line-height: 30px;
+        position: absolute;
+        color: #D30ABF;
+        padding: 20px 40px;
+        position: absolute;
+        width: 350px;
+        height: 70px;
+        background: white;
+        border: 1px solid #DE9969;
+        border-radius: 10px;
+        text-align: center;
+    }
+    .newsletter__content h5 {
+        font-size: 20px;
+        font-weight: 800;
+        line-height: 30px;
+        position: absolute;
+        color: #0B9119;
+        padding: 20px 40px;
+        position: absolute;
+        width: 430px;
+        height: 70px;
+        background: white;
+        border: 1px solid #43A0E3;
+        border-radius: 10px;
+        text-align: center;
+        margin-left: 440px;
+    }
+    .newsletter__content h4 {
+        font-size: 20px;
+        font-weight: 800;
+        line-height: 30px;
+        position: absolute;
+        color: #D30ABF;
+        padding: 20px 40px;
+        position: absolute;
+        width: 430px;
+        height: 70px;
+        background: white;
+        border: 1px solid #DE9969;
+        border-radius: 10px;
+        text-align: center;
+    }
 }
 
 
