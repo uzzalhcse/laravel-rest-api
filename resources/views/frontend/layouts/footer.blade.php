@@ -5,12 +5,12 @@
     <div class="container">
         <div class="site-footer__top">
             <div class="row">
-                <div class="col-xl-4 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="100ms">
+                <div class="col-xl-4 col-lg-6 col-md-12 wow fadeInUp" data-wow-delay="100ms">
                     <div class="footer-widget__column footer-widget__about">
                         <div class="footer-widget__about-text-box">
                             <img class="footer-logo" src="frontend/images/resources/logo-4.png">
 
-                            <p class="footer-widget__about-text">Earning has never been so easy.</p>
+                            <p class="footer-widget__about-text">Earning has never </br> been so easy.</p>
                         </div>
                         <div class="site-footer__social">
                             <a href="#"><i class="fab fa-twitter"></i></a>
@@ -20,7 +20,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-2 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="200ms">
+                <div class="col-xl-2 col-lg-6 col-6 wow fadeInUp" data-wow-delay="200ms">
                     <div class="footer-widget__column footer-widget__links clearfix">
                         <h3 class="footer-widget__title">Links</h3>
                         <ul class="footer-widget__links-list list-unstyled clearfix">
@@ -32,7 +32,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="300ms">
+                <div class="col-xl-3 col-lg-6 col-6 wow fadeInUp" data-wow-delay="300ms">
                     <div class="footer-widget__column footer-widget__links clearfix">
                         <h3 class="footer-widget__title">Policies</h3>
                         <ul class="footer-widget__links-list list-unstyled clearfix">
@@ -40,7 +40,8 @@
                             <li><a href="contact.html">Terms & Conditions</a></li>
                             <li><a href="packages-01.html">Payouts</a></li>
                             <li><a href="services.html">Advertiser</a></li>
-                            <li><a href="news.html">Media</a></li>
+                            <li><a href="news.html"> Media</a></li>
+
                         </ul>
                     </div>
                 </div>

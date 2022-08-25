@@ -124,126 +124,190 @@
 
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
-
-                        <div class="all-time-hit-shape"></div>
-                        <img class="most_popular_img"src="{{ asset('frontend/images/brand/01.png') }}" alt="">
-                        <div class="all-time-hit__video-link">
-                            <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#cocacola">
-                                <div class="all-time-hit__video-icon">
-                                    <span class="fa fa-play"></span>
-                                    <i class="ripple"></i>
-                                </div>
-                            </a>
-                        </div>
-
-                    </div><!-- /.swiper-slide -->
-                    <div class="swiper-slide">
-                        <img class="most_popular_img"src="{{ url('frontend/images/brand/02.png') }}" alt="">
-                        <div class="all-time-hit__video-link">
-
-                            <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#geico">
-                                <div class="all-time-hit__video-icon">
-                                    <span class="fa fa-play"></span>
-                                    <i class="ripple"></i>
-                                </div>
-                            </a>
-                        </div>
-
-                    </div><!-- /.swiper-slide -->
-                    <div class="swiper-slide">
-                        <img class="most_popular_img"src="{{ url('frontend/images/brand/03.png') }}" alt="">
-                        <div class="all-time-hit__video-link">
-
-                            <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#citi">
-                                <div class="all-time-hit__video-icon">
-                                    <span class="fa fa-play"></span>
-                                    <i class="ripple"></i>
-                                </div>
-                            </a>
+                        <div class="all-time-hit__img">
+                            <div class="all-time-hit-shape"></div>
+                            <img class="most_popular_img"src="{{ asset('frontend/images/brand/01.png') }}" alt="">
+                            <div class="all-time-hit__video-link">
+                                <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#cocacola">
+                                    <div class="all-time-hit__video-icon">
+                                        <span class="fa fa-play"></span>
+                                        <i class="ripple"></i>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="all-time-hit__content">
+                                <h4 class="all-time-hit__title"><a href="#">Cocacola</a></h4>
+                                <p class="all-time-hit__text">2020 <i class="fa fa-star"></i> <span>6.5</span></p>
+                            </div>
                         </div>
                     </div><!-- /.swiper-slide -->
-                    <div class="swiper-slide">
-                        <img class="most_popular_img" src="{{ url('frontend/images/brand/04.png') }}" alt="">
-                        <div class="all-time-hit__video-link">
 
-                            <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#pizzahut">
-                                <div class="all-time-hit__video-icon">
-                                    <span class="fa fa-play"></span>
-                                    <i class="ripple"></i>
-                                </div>
-                            </a>
+                    <div class="swiper-slide">
+                        <div class="all-time-hit__img">
+                            <div class="all-time-hit-shape"></div>
+                            <img class="most_popular_img"src="{{ asset('frontend/images/brand/02.png') }}" alt="">
+                            <div class="all-time-hit__video-link">
+                                <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#geico">
+                                    <div class="all-time-hit__video-icon">
+                                        <span class="fa fa-play"></span>
+                                        <i class="ripple"></i>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="all-time-hit__content">
+                                <h4 class="all-time-hit__title"><a href="#">Geico</a></h4>
+                                <p class="all-time-hit__text">2020 <i class="fa fa-star"></i> <span>6.5</span></p>
+                            </div>
                         </div>
                     </div><!-- /.swiper-slide -->
-                    <div class="swiper-slide">
-                        <img class="most_popular_img"src="{{ url('frontend/images/brand/05.png') }}" alt="">
-                        <div class="all-time-hit__video-link">
 
-                            <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#expedia">
-                                <div class="all-time-hit__video-icon">
-                                    <span class="fa fa-play"></span>
-                                    <i class="ripple"></i>
-                                </div>
-                            </a>
+                    <div class="swiper-slide">
+                        <div class="all-time-hit__img">
+                            <div class="all-time-hit-shape"></div>
+                            <img class="most_popular_img"src="{{ asset('frontend/images/brand/03.png') }}" alt="">
+                            <div class="all-time-hit__video-link">
+                                <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#citi">
+                                    <div class="all-time-hit__video-icon">
+                                        <span class="fa fa-play"></span>
+                                        <i class="ripple"></i>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="all-time-hit__content">
+                                <h4 class="all-time-hit__title"><a href="#">Citi</a></h4>
+                                <p class="all-time-hit__text">2020 <i class="fa fa-star"></i> <span>6.5</span></p>
+                            </div>
                         </div>
                     </div><!-- /.swiper-slide -->
-                    <div class="swiper-slide">
-                        <img class="most_popular_img"src="{{ url('frontend/images/brand/06.png') }}" alt="">
-                        <div class="all-time-hit__video-link">
 
-                            <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#disney">
-                                <div class="all-time-hit__video-icon">
-                                    <span class="fa fa-play"></span>
-                                    <i class="ripple"></i>
-                                </div>
-                            </a>
-                        </div>
-                    </div><!-- /.swiper-slide -->
                     <div class="swiper-slide">
-                        <img class="most_popular_img"src="{{ url('frontend/images/brand/07.png') }}" alt="">
-                        <div class="all-time-hit__video-link">
-
-                            <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#mcdonalds">
-                                <div class="all-time-hit__video-icon">
-                                    <span class="fa fa-play"></span>
-                                    <i class="ripple"></i>
-                                </div>
-                            </a>
+                        <div class="all-time-hit__img">
+                            <div class="all-time-hit-shape"></div>
+                            <img class="most_popular_img"src="{{ asset('frontend/images/brand/04.png') }}" alt="">
+                            <div class="all-time-hit__video-link">
+                                <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#pizzahut">
+                                    <div class="all-time-hit__video-icon">
+                                        <span class="fa fa-play"></span>
+                                        <i class="ripple"></i>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="all-time-hit__content">
+                                <h4 class="all-time-hit__title"><a href="#">pizzahut</a></h4>
+                                <p class="all-time-hit__text">2020 <i class="fa fa-star"></i> <span>6.5</span></p>
+                            </div>
                         </div>
                     </div><!-- /.swiper-slide -->
                     <div class="swiper-slide">
-                        <img class="most_popular_img"src="{{ url('frontend/images/brand/08.png') }}" alt="">
-                        <div class="all-time-hit__video-link">
+                        <div class="all-time-hit__img">
+                            <div class="all-time-hit-shape"></div>
+                            <img class="most_popular_img"src="{{ asset('frontend/images/brand/05.png') }}" alt="">
+                            <div class="all-time-hit__video-link">
+                                <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#expedia">
+                                    <div class="all-time-hit__video-icon">
+                                        <span class="fa fa-play"></span>
+                                        <i class="ripple"></i>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="all-time-hit__content">
+                                <h4 class="all-time-hit__title"><a href="#">Expedia</a></h4>
+                                <p class="all-time-hit__text">2020 <i class="fa fa-star"></i> <span>6.5</span></p>
+                            </div>
+                        </div>
+                    </div><!-- /.swiper-slide -->
 
-                            <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#starbucks">
-                                <div class="all-time-hit__video-icon">
-                                    <span class="fa fa-play"></span>
-                                    <i class="ripple"></i>
-                                </div>
-                            </a>
+                    <div class="swiper-slide">
+                        <div class="all-time-hit__img">
+                            <div class="all-time-hit-shape"></div>
+                            <img class="most_popular_img"src="{{ asset('frontend/images/brand/06.png') }}" alt="">
+                            <div class="all-time-hit__video-link">
+                                <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#disney">
+                                    <div class="all-time-hit__video-icon">
+                                        <span class="fa fa-play"></span>
+                                        <i class="ripple"></i>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="all-time-hit__content">
+                                <h4 class="all-time-hit__title"><a href="#">Disney</a></h4>
+                                <p class="all-time-hit__text">2020 <i class="fa fa-star"></i> <span>6.5</span></p>
+                            </div>
+                        </div>
+                    </div><!-- /.swiper-slide -->
+
+                    <div class="swiper-slide">
+                        <div class="all-time-hit__img">
+                            <div class="all-time-hit-shape"></div>
+                            <img class="most_popular_img"src="{{ asset('frontend/images/brand/07.png') }}" alt="">
+                            <div class="all-time-hit__video-link">
+                                <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#mcdonalds">
+                                    <div class="all-time-hit__video-icon">
+                                        <span class="fa fa-play"></span>
+                                        <i class="ripple"></i>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="all-time-hit__content">
+                                <h4 class="all-time-hit__title"><a href="#">MCDonald's</a></h4>
+                                <p class="all-time-hit__text">2020 <i class="fa fa-star"></i> <span>6.5</span></p>
+                            </div>
+                        </div>
+                    </div><!-- /.swiper-slide -->
+
+                    <div class="swiper-slide">
+                        <div class="all-time-hit__img">
+                            <div class="all-time-hit-shape"></div>
+                            <img class="most_popular_img"src="{{ asset('frontend/images/brand/08.png') }}" alt="">
+                            <div class="all-time-hit__video-link">
+                                <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#starbucks">
+                                    <div class="all-time-hit__video-icon">
+                                        <span class="fa fa-play"></span>
+                                        <i class="ripple"></i>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="all-time-hit__content">
+                                <h4 class="all-time-hit__title"><a href="#">Starbucks</a></h4>
+                                <p class="all-time-hit__text">2020 <i class="fa fa-star"></i> <span>6.5</span></p>
+                            </div>
+                        </div>
+                    </div><!-- /.swiper-slide -->
+
+                    <div class="swiper-slide">
+                        <div class="all-time-hit__img">
+                            <div class="all-time-hit-shape"></div>
+                            <img class="most_popular_img"src="{{ asset('frontend/images/brand/09.png') }}" alt="">
+                            <div class="all-time-hit__video-link">
+                                <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#subway">
+                                    <div class="all-time-hit__video-icon">
+                                        <span class="fa fa-play"></span>
+                                        <i class="ripple"></i>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="all-time-hit__content">
+                                <h4 class="all-time-hit__title"><a href="#">Subway</a></h4>
+                                <p class="all-time-hit__text">2020 <i class="fa fa-star"></i> <span>6.5</span></p>
+                            </div>
                         </div>
                     </div><!-- /.swiper-slide -->
                     <div class="swiper-slide">
-                        <img class="most_popular_img"src="{{ url('frontend/images/brand/09.png') }}" alt="">
-                        <div class="all-time-hit__video-link">
-
-                            <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#subway">
-                                <div class="all-time-hit__video-icon">
-                                    <span class="fa fa-play"></span>
-                                    <i class="ripple"></i>
-                                </div>
-                            </a>
-                        </div>
-                    </div><!-- /.swiper-slide -->
-                    <div class="swiper-slide">
-                        <img class="most_popular_img"src="{{ url('frontend/images/brand/10.png') }}" alt="">
-                        <div class="all-time-hit__video-link">
-
-                            <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#pepsi">
-                                <div class="all-time-hit__video-icon">
-                                    <span class="fa fa-play"></span>
-                                    <i class="ripple"></i>
-                                </div>
-                            </a>
+                        <div class="all-time-hit__img">
+                            <div class="all-time-hit-shape"></div>
+                            <img class="most_popular_img"src="{{ asset('frontend/images/brand/10.png') }}" alt="">
+                            <div class="all-time-hit__video-link">
+                                <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#pepsi">
+                                    <div class="all-time-hit__video-icon">
+                                        <span class="fa fa-play"></span>
+                                        <i class="ripple"></i>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="all-time-hit__content">
+                                <h4 class="all-time-hit__title"><a href="#">Pepsi</a></h4>
+                                <p class="all-time-hit__text">2020 <i class="fa fa-star"></i> <span>6.5</span></p>
+                            </div>
                         </div>
                     </div><!-- /.swiper-slide -->
                 </div>
@@ -1547,6 +1611,11 @@
                                     "1800": {
                                        "spaceBetween": 10,
                                        "slidesPerView": 7
+                                    },
+
+                                     "2560": {
+                                       "spaceBetween": 10,
+                                       "slidesPerView": 9
                                     }
 
                                 }}'>
@@ -1582,6 +1651,7 @@
                     </div>
                 </div>
             </div>
+            </div>
         </section>
         <!--customer End-->
 
@@ -1604,7 +1674,6 @@
                         <div class="newsletter__content">
                             <h5><i class="fa fa-share-alt" aria-hidden="true"></i>&nbsp; Share </h5>
                         </div>
-
                     </div>
                 </div>
             </div>

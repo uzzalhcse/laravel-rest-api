@@ -87,15 +87,7 @@
 
                                     <li class="dropdown">
                                         <a href="{{asset('/service') }}">Services</a>
-                                        <ul class="shadow-box">
-                                            <li><a href="services.html">Services</a></li>
-                                            <li><a href="services-carousel.html">Services carousel</a></li>
-                                            <li><a href="broadband.html">Broadband</a></li>
-                                            <li><a href="tv-streaming.html">TV & streaming</a></li>
-                                            <li><a href="all-for-mobile.html">All for mobile</a></li>
-                                            <li><a href="fast-internet.html">Fast Internet</a></li>
-                                            <li><a href="satelite-tv.html">Satelite TV</a></li>
-                                        </ul>
+
                                     </li>
 
                                     <li class="dropdown">
@@ -103,17 +95,20 @@
 
                                     </li>
                                     <li class="dropdown">
-                                        <a href="#">Shop</a>
-                                        <ul class="shadow-box">
-                                            <li><a href="products.html">Products</a></li>
-                                            <li><a href="product-details.html">Product details</a></li>
-                                            <li><a href="cart.html">Cart</a></li>
-                                            <li><a href="checkout.html">Checkout</a></li>
-                                        </ul>
+                                        <a href="#">About Us</a>
+
                                     </li>
                                     <li>
                                         <a href="contact.html">Contact</a>
                                     </li>
+                                    <li class="mob-link">
+                                        <a href="http://app.adstocall.com">Signup</a>
+                                    </li>
+                                    <li class="mob-link">
+                                        <a href="http://app.adstocall.com">Login</a>
+                                    </li>
+
+
                                 </ul>
                             </div>
                         </div>
@@ -126,11 +121,29 @@
                                     <a href="{{ asset('/') }}" class="thm-btn1 main-menu-three__btn">Place A ad</a>
                                 </div>
                                 <div class="main-menu-three__btn-box">
-                                    <a href="https://admin.adstocall.com/html" class="thm-btn2 main-menu-three__btn">Sign Up</a>
+                                    <a href="http://app.adstocall.com" class="thm-btn2 main-menu-three__btn">Sign Up</a>
                                 </div>
                                 <div class="main-menu-three__btn-box">
-                                    <a href="{{ asset('frontend/login/login.html') }}" class="thm-btn3 main-menu-three__btn">Login</a>
+                                    <a href="http://app.adstocall.com" class="thm-btn3 main-menu-three__btn">Login</a>
                                 </div>
+                                <div class="dropdown">
+
+                                    <img class="lang" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" src="frontend/images/icon/language.png"><span>
+                                        <i class=" dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" style="color: white;">
+                                        </i>
+                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                            <li><a class="dropdown-item" href="#">En</a></li>
+                                            <li><a class="dropdown-item" href="#">Bn</a></li>
+                                            <li><a class="dropdown-item" href="#">中國手語</a></li>
+                                            <li><a class="dropdown-item" href="#">한국수어</a></li>
+                                        </ul>
+
+                                </span>
+
+                                </div>
+
+
+
                             </div>
                         </div>
                     </div>
