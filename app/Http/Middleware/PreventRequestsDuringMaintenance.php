@@ -12,6 +12,7 @@ class PreventRequestsDuringMaintenance extends Middleware
      * @var array<int, string>
      */
     protected $except = [
-        //
+        'enable-maintenance-mode/*',
+        'disable-maintenance-mode/*',
     ];
 }

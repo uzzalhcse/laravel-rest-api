@@ -23,4 +23,6 @@ Route::get('/test', [\App\Http\Controllers\TestController::class, 'test']);
 Route::get('/test-email', [\App\Http\Controllers\TestController::class, 'testEmail']);
 Route::get('/modules', [RolePermissionController::class, 'allModules']);
 
-Route::get('/',[HomeController::class,'index']);
+Route::get('/',[HomeController::class,'index'])->name('home');
+//Route::get('/enable-maintenance-mode/{key}',[HomeController::class,'maintenanceMode']);
+//Route::get('/disable-maintenance-mode/{key}',[HomeController::class,'disableMaintenanceMode']);
