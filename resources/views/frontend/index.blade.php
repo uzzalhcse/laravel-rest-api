@@ -4,16 +4,8 @@
     <!--Main Slider Start-->
     <section class="main-slider-two clearfix">
 
-        <div class="swiper-container thm-swiper__slider" data-swiper-options='{"slidesPerView": 1, "loop": true,
-            "effect": "fade",
-            "pagination": {
-            "type": "bullets",
-            "clickable": true
-            },
-            "navigation": {
-            "nextEl": "#main-slider__swiper-button-next",
-            "prevEl": "#main-slider__swiper-button-prev"
-            },
+        <div class="swiper-container thm-swiper__slider" data-swiper-options='{"slidesPerView": 0, "loop": true,
+            "effect": "zoom",
             "autoplay": {
             "delay": 5000
             }}'>
@@ -54,8 +46,8 @@
 
                                         <p class="main-slider-two__text-2">Everytime your Phone Rings</p>
 
-                                        <div class="btn-box">
-                                            <a href="packages-01.html" class="thm-btn slider-btn"> Sign Up To Earn</a>
+                                        <div class="btn--box">
+                                            <a href="#" class="thm-btn slider-btn"> Sign Up To Earn</a>
                                         </div>
                                     </div>
                                 </div>
@@ -136,7 +128,7 @@
                                 </a>
                             </div>
                             <div class="all-time-hit__content">
-                                <h4 class="all-time-hit__title"><a href="#">Cocacola</a></h4>
+
                                 <p class="all-time-hit__text">2020 <i class="fa fa-star"></i> <span>6.5</span></p>
                             </div>
                         </div>
@@ -155,7 +147,7 @@
                                 </a>
                             </div>
                             <div class="all-time-hit__content">
-                                <h4 class="all-time-hit__title"><a href="#">Geico</a></h4>
+
                                 <p class="all-time-hit__text">2020 <i class="fa fa-star"></i> <span>6.5</span></p>
                             </div>
                         </div>
@@ -174,7 +166,7 @@
                                 </a>
                             </div>
                             <div class="all-time-hit__content">
-                                <h4 class="all-time-hit__title"><a href="#">Citi</a></h4>
+
                                 <p class="all-time-hit__text">2020 <i class="fa fa-star"></i> <span>6.5</span></p>
                             </div>
                         </div>
@@ -193,7 +185,7 @@
                                 </a>
                             </div>
                             <div class="all-time-hit__content">
-                                <h4 class="all-time-hit__title"><a href="#">pizzahut</a></h4>
+
                                 <p class="all-time-hit__text">2020 <i class="fa fa-star"></i> <span>6.5</span></p>
                             </div>
                         </div>
@@ -211,7 +203,7 @@
                                 </a>
                             </div>
                             <div class="all-time-hit__content">
-                                <h4 class="all-time-hit__title"><a href="#">Expedia</a></h4>
+
                                 <p class="all-time-hit__text">2020 <i class="fa fa-star"></i> <span>6.5</span></p>
                             </div>
                         </div>
@@ -230,7 +222,7 @@
                                 </a>
                             </div>
                             <div class="all-time-hit__content">
-                                <h4 class="all-time-hit__title"><a href="#">Disney</a></h4>
+
                                 <p class="all-time-hit__text">2020 <i class="fa fa-star"></i> <span>6.5</span></p>
                             </div>
                         </div>
@@ -249,7 +241,7 @@
                                 </a>
                             </div>
                             <div class="all-time-hit__content">
-                                <h4 class="all-time-hit__title"><a href="#">MCDonald's</a></h4>
+
                                 <p class="all-time-hit__text">2020 <i class="fa fa-star"></i> <span>6.5</span></p>
                             </div>
                         </div>
@@ -268,7 +260,7 @@
                                 </a>
                             </div>
                             <div class="all-time-hit__content">
-                                <h4 class="all-time-hit__title"><a href="#">Starbucks</a></h4>
+
                                 <p class="all-time-hit__text">2020 <i class="fa fa-star"></i> <span>6.5</span></p>
                             </div>
                         </div>
@@ -287,7 +279,7 @@
                                 </a>
                             </div>
                             <div class="all-time-hit__content">
-                                <h4 class="all-time-hit__title"><a href="#">Subway</a></h4>
+
                                 <p class="all-time-hit__text">2020 <i class="fa fa-star"></i> <span>6.5</span></p>
                             </div>
                         </div>
@@ -305,7 +297,7 @@
                                 </a>
                             </div>
                             <div class="all-time-hit__content">
-                                <h4 class="all-time-hit__title"><a href="#">Pepsi</a></h4>
+
                                 <p class="all-time-hit__text">2020 <i class="fa fa-star"></i> <span>6.5</span></p>
                             </div>
                         </div>
@@ -330,9 +322,9 @@
                     <div class="container">
                         <!-- Media Player-->
                         <div class="mediPlayer" style="text-align:center;">
-                            <audio class="listen" preload="none" data-size="250" src= url('frontend/sounds/cococola.mp3');></audio>
+                            <audio class="listen" preload="none" data-size="250" src="{{ asset('frontend/sounds/cococola.mp3') }}"></audio>
                         </div>
-                    </div>
+
                     <!-- Media Player / -->
 
                     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
@@ -356,6 +348,7 @@
                         })();
 
                     </script>
+                    </div>
                 </div>
 
                 <div class="container-fluid">
@@ -389,7 +382,8 @@
                         <div class="col-md-11" style="margin-left: 20px; margin-right: 20px; padding-top:30px; padding-bottom: 50px; border:1px solid #80808030;">
                             <p style="font-family: 'Poppins';font-style: normal;font-size: 14px;line-height: 30px;color: #000000;">
 
-                                By submitting this form i confirm that i have read the privacy policy and agree to the processing.....
+                                By submitting this form i confirm that i have read the privacy policy and agree to the processing of my personal data by Personio for this stated purposes.
+                                In case of consent, I can revoke my consent to this processing at any time
                             </p>
                         </div>
                     </div>
@@ -399,9 +393,7 @@
                     <div class="row">
 
                         <div class="col-md-6">
-                            <img src="images/ratings.png" style="width:100%; height:auto; margin-left:10px; margin-bottom: 50px; ">
-
-
+                            <img src="{{ asset('frontend/images/icon/ratings.png') }}" style="width:100%; height:auto; margin-left:10px; margin-bottom: 50px; ">
                         </div>
                     </div>
                 </div>
@@ -426,8 +418,7 @@
                             <div class="col-md-12" style="margin-left:100px; font-size: 13px; margin-bottom: 50px;">
 
                                 <input type="checkbox" id="privacy" name="privacy" value="privacy" style="font-size: 12px;">&nbsp;&nbsp;
-                                By adding this ad to my playlist this form i confirm that i have read the privacy policy and agree</br> to the>
-                                processing of my personal data by  for this stated purposes.In case of consent, -MORE
+                                By adding this ad to my playlist this form i confirm that i have read the privacy policy and agree More--
                             </div>
                         </div>
                     </div>
@@ -483,7 +474,8 @@
                         <div class="col-md-11" style="margin-left: 20px; margin-right: 20px; padding-top:30px; padding-bottom: 50px; border:1px solid #80808030;">
                             <p style="font-family: 'Poppins';font-style: normal;font-size: 14px;line-height: 30px;color: #000000;">
 
-                                By submitting this form i confirm that i have read the privacy policy.......
+                                By submitting this form i confirm that i have read the privacy policy and agree to the processing of my personal data by Personio for this stated purposes.
+                                In case of consent, I can revoke my consent to this processing at any time
                         </div>
                     </div>
                 </div>
@@ -492,9 +484,7 @@
                     <div class="row">
 
                         <div class="col-md-6">
-                            <img src="images/ratings.png" style="width:100%; height:auto; margin-left:10px; margin-bottom: 50px; ">
-
-
+                            <img src="{{ asset('frontend/images/icon/ratings.png') }}" style="width:100%; height:auto; margin-left:10px; margin-bottom: 50px; ">
                         </div>
                     </div>
                 </div>
@@ -587,9 +577,7 @@
                     <div class="row">
 
                         <div class="col-md-6">
-                            <img src="images/ratings.png" style="width:100%; height:auto; margin-left:10px; margin-bottom: 50px; ">
-
-
+                            <img src="{{ asset('frontend/images/icon/ratings.png') }}" style="width:100%; height:auto; margin-left:10px; margin-bottom: 50px; ">
                         </div>
                     </div>
                 </div>
@@ -614,8 +602,7 @@
                             <div class="col-md-12" style="margin-left:100px; font-size: 13px; margin-bottom: 50px;">
 
                                 <input type="checkbox" id="privacy" name="privacy" value="privacy" style="font-size: 12px;">&nbsp;&nbsp;
-                                By adding this ad to my playlist this form i confirm that i have read the privacy policy and agree</br> to the>
-                                processing of my personal data by  for this stated purposes.In case of consent, -MORE
+                                By adding this ad to my playlist this form i confirm that i have read the privacy policy More-
                             </div>
                         </div>
                     </div>
@@ -682,9 +669,7 @@
                     <div class="row">
 
                         <div class="col-md-6">
-                            <img src="images/ratings.png" style="width:100%; height:auto; margin-left:10px; margin-bottom: 50px; ">
-
-
+                            <img src="{{ asset('frontend/images/icon/ratings.png') }}" style="width:100%; height:auto; margin-left:10px; margin-bottom: 50px; ">
                         </div>
                     </div>
                 </div>
@@ -709,8 +694,7 @@
                             <div class="col-md-12" style="margin-left:100px; font-size: 13px; margin-bottom: 50px;">
 
                                 <input type="checkbox" id="privacy" name="privacy" value="privacy" style="font-size: 12px;">&nbsp;&nbsp;
-                                By adding this ad to my playlist this form i confirm that i have read the privacy policy and agree</br> to the>
-                                processing of my personal data by  for this stated purposes.In case of consent, -MORE
+                                By adding this ad to my playlist this form i confirm that i have read the privacy policy and agree - More
                             </div>
                         </div>
                     </div>
@@ -777,9 +761,7 @@
                     <div class="row">
 
                         <div class="col-md-6">
-                            <img src="images/ratings.png" style="width:100%; height:auto; margin-left:10px; margin-bottom: 50px; ">
-
-
+                            <img src="{{ asset('frontend/images/icon/ratings.png') }}" style="width:100%; height:auto; margin-left:10px; margin-bottom: 50px; ">
                         </div>
                     </div>
                 </div>
@@ -804,8 +786,7 @@
                             <div class="col-md-12" style="margin-left:100px; font-size: 13px; margin-bottom: 50px;">
 
                                 <input type="checkbox" id="privacy" name="privacy" value="privacy" style="font-size: 12px;">&nbsp;&nbsp;
-                                By adding this ad to my playlist this form i confirm that i have read the privacy policy and agree</br> to the>
-                                processing of my personal data by  for this stated purposes.In case of consent, -MORE
+                                By adding this ad to my playlist this form i confirm that i have read the privacy policy and agree - More
                             </div>
                         </div>
                     </div>
@@ -872,9 +853,7 @@
                     <div class="row">
 
                         <div class="col-md-6">
-                            <img src="images/ratings.png" style="width:100%; height:auto; margin-left:10px; margin-bottom: 50px; ">
-
-
+                            <img src="{{ asset('frontend/images/icon/ratings.png') }}" style="width:100%; height:auto; margin-left:10px; margin-bottom: 50px; ">
                         </div>
                     </div>
                 </div>
@@ -899,8 +878,7 @@
                             <div class="col-md-12" style="margin-left:100px; font-size: 13px; margin-bottom: 50px;">
 
                                 <input type="checkbox" id="privacy" name="privacy" value="privacy" style="font-size: 12px;">&nbsp;&nbsp;
-                                By adding this ad to my playlist this form i confirm that i have read the privacy policy and agree</br> to the>
-                                processing of my personal data by  for this stated purposes.In case of consent, -MORE
+                                By adding this ad to my playlist this form i confirm that i have read the privacy policy and agree - More
                             </div>
                         </div>
                     </div>
@@ -967,9 +945,7 @@
                     <div class="row">
 
                         <div class="col-md-6">
-                            <img src="images/ratings.png" style="width:100%; height:auto; margin-left:10px; margin-bottom: 50px; ">
-
-
+                            <img src="{{ asset('frontend/images/icon/ratings.png') }}" style="width:100%; height:auto; margin-left:10px; margin-bottom: 50px; ">
                         </div>
                     </div>
                 </div>
@@ -994,8 +970,7 @@
                             <div class="col-md-12" style="margin-left:100px; font-size: 13px; margin-bottom: 50px;">
 
                                 <input type="checkbox" id="privacy" name="privacy" value="privacy" style="font-size: 12px;">&nbsp;&nbsp;
-                                By adding this ad to my playlist this form i confirm that i have read the privacy policy and agree</br> to the>
-                                processing of my personal data by  for this stated purposes.In case of consent, -MORE
+                                By adding this ad to my playlist this form i confirm that i have read the privacy policy and agree - More
                             </div>
                         </div>
                     </div>
@@ -1062,9 +1037,7 @@
                     <div class="row">
 
                         <div class="col-md-6">
-                            <img src="images/ratings.png" style="width:100%; height:auto; margin-left:10px; margin-bottom: 50px; ">
-
-
+                            <img src="{{ asset('frontend/images/icon/ratings.png') }}" style="width:100%; height:auto; margin-left:10px; margin-bottom: 50px; ">
                         </div>
                     </div>
                 </div>
@@ -1089,8 +1062,7 @@
                             <div class="col-md-12" style="margin-left:100px; font-size: 13px; margin-bottom: 50px;">
 
                                 <input type="checkbox" id="privacy" name="privacy" value="privacy" style="font-size: 12px;">&nbsp;&nbsp;
-                                By adding this ad to my playlist this form i confirm that i have read the privacy policy and agree</br> to the>
-                                processing of my personal data by  for this stated purposes.In case of consent, -MORE
+                                By adding this ad to my playlist this form i confirm that i have read the privacy policy and agree- More
                             </div>
                         </div>
                     </div>
@@ -1157,9 +1129,7 @@
                     <div class="row">
 
                         <div class="col-md-6">
-                            <img src="images/ratings.png" style="width:100%; height:auto; margin-left:10px; margin-bottom: 50px; ">
-
-
+                            <img src="{{ asset('frontend/images/icon/ratings.png') }}" style="width:100%; height:auto; margin-left:10px; margin-bottom: 50px; ">
                         </div>
                     </div>
                 </div>
@@ -1184,8 +1154,7 @@
                             <div class="col-md-12" style="margin-left:100px; font-size: 13px; margin-bottom: 50px;">
 
                                 <input type="checkbox" id="privacy" name="privacy" value="privacy" style="font-size: 12px;">&nbsp;&nbsp;
-                                By adding this ad to my playlist this form i confirm that i have read the privacy policy and agree</br> to the>
-                                processing of my personal data by  for this stated purposes.In case of consent, -MORE
+                                By adding this ad to my playlist this form i confirm that i have read the privacy policy and agree - More
                             </div>
                         </div>
                     </div>
@@ -1252,9 +1221,7 @@
                     <div class="row">
 
                         <div class="col-md-6">
-                            <img src="images/ratings.png" style="width:100%; height:auto; margin-left:10px; margin-bottom: 50px; ">
-
-
+                            <img src="{{ asset('frontend/images/icon/ratings.png') }}" style="width:100%; height:auto; margin-left:10px; margin-bottom: 50px; ">
                         </div>
                     </div>
                 </div>
@@ -1279,8 +1246,7 @@
                             <div class="col-md-12" style="margin-left:100px; font-size: 13px; margin-bottom: 50px;">
 
                                 <input type="checkbox" id="privacy" name="privacy" value="privacy" style="font-size: 12px;">&nbsp;&nbsp;
-                                By adding this ad to my playlist this form i confirm that i have read the privacy policy and agree</br> to the>
-                                processing of my personal data by  for this stated purposes.In case of consent, -MORE
+                                By adding this ad to my playlist this form i confirm that i have read the privacy policy and agree- More
                             </div>
                         </div>
                     </div>
@@ -1566,7 +1532,6 @@
     <!--Getting Started End-->
 
 
-
         <!--Customer Start-->
        <section class="customer">
             <div class="container">
@@ -1654,6 +1619,7 @@
             </div>
         </section>
         <!--customer End-->
+
 
 
         <!--Become An Advertiser Start-->
@@ -2138,8 +2104,6 @@
         </div>
     </section>
     <!--Digital billboard End-->
-
-
 
 
 

@@ -30,4 +30,16 @@ class HomeController extends ApiController
         Artisan::call('up');
         return redirect()->route('home');
     }
+
+    public function about(){
+        return view('frontend.aboutus');
+    }
+
+    public function contact(){
+        return view('frontend.contact');
+    }
+
+    public function pricing(){
+        return view('frontend.pricing');
+    }
 }

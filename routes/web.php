@@ -24,5 +24,8 @@ Route::get('/test-email', [\App\Http\Controllers\TestController::class, 'testEma
 Route::get('/modules', [RolePermissionController::class, 'allModules']);
 
 Route::get('/',[HomeController::class,'index'])->name('home');
+Route::get('/about',[HomeController::class,'about'])->name('about');
+Route::get('/contact',[HomeController::class,'contact'])->name('contact');
+Route::get('/pricing',[HomeController::class,'pricing'])->name('pricing');
 //Route::get('/enable-maintenance-mode/{key}',[HomeController::class,'maintenanceMode']);
 //Route::get('/disable-maintenance-mode/{key}',[HomeController::class,'disableMaintenanceMode']);

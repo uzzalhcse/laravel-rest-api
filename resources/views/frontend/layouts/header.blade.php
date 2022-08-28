@@ -86,26 +86,26 @@
                                     </li>
 
                                     <li class="dropdown">
-                                        <a href="{{asset('/service') }}">Services</a>
+                                        <a href="#">Services</a>
 
                                     </li>
 
                                     <li class="dropdown">
-                                        <a href="{{ asset('/pricing') }}">Pricing</a>
+                                        <a href="{{ route('pricing') }}">Pricing</a>
 
                                     </li>
                                     <li class="dropdown">
-                                        <a href="#">About Us</a>
+                                        <a href="{{route('about')}}">About Us</a>
 
                                     </li>
                                     <li>
-                                        <a href="contact.html">Contact</a>
+                                        <a href="{{route('contact')}}">Contact</a>
                                     </li>
                                     <li class="mob-link">
-                                        <a href="http://app.adstocall.com">Signup</a>
+                                        <a href="https://app.adstocall.com">Signup</a>
                                     </li>
                                     <li class="mob-link">
-                                        <a href="http://app.adstocall.com">Login</a>
+                                        <a href="https://app.adstocall.com">Login</a>
                                     </li>
 
 
