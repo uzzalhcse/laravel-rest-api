@@ -41,73 +41,36 @@
     }
   }
 
-  // Price Filter
-  function priceFilter() {
-    if ($(".price-ranger").length) {
-      $(".price-ranger #slider-range").slider({
-        range: true,
-        min: 50,
-        max: 500,
-        values: [11, 300],
-        slide: function (event, ui) {
-          $(".price-ranger .ranger-min-max-block .min").val("$" + ui.values[0]);
-          $(".price-ranger .ranger-min-max-block .max").val("$" + ui.values[1]);
-        }
-      });
-      $(".price-ranger .ranger-min-max-block .min").val(
-        "$" + $(".price-ranger #slider-range").slider("values", 0)
-      );
-      $(".price-ranger .ranger-min-max-block .max").val(
-        "$" + $(".price-ranger #slider-range").slider("values", 1)
-      );
-    }
-  }
-
-  // Cart Touch Spin
-  if ($(".quantity-spinner").length) {
-    $("input.quantity-spinner").TouchSpin({
-      verticalbuttons: true
-    });
-  }
-
-  // // custom coursor
-  // if ($(".custom-cursor").length) {
-  //   var cursor = document.querySelector(".custom-cursor__cursor");
-  //   var cursorinner = document.querySelector(".custom-cursor__cursor-two");
-  //   var a = document.querySelectorAll("a");
-  //
-  //   document.addEventListener("mousemove", function (e) {
-  //     var x = e.clientX;
-  //     var y = e.clientY;
-  //     cursor.style.transform = `translate3d(calc(${e.clientX}px - 50%), calc(${e.clientY}px - 50%), 0)`;
-  //   });
-  //
-  //   document.addEventListener("mousemove", function (e) {
-  //     var x = e.clientX;
-  //     var y = e.clientY;
-  //     cursorinner.style.left = x + "px";
-  //     cursorinner.style.top = y + "px";
-  //   });
-  //
-  //   document.addEventListener("mousedown", function () {
-  //     cursor.classList.add("click");
-  //     cursorinner.classList.add("custom-cursor__innerhover");
-  //   });
-  //
-  //   document.addEventListener("mouseup", function () {
-  //     cursor.classList.remove("click");
-  //     cursorinner.classList.remove("custom-cursor__innerhover");
-  //   });
-  //
-  //   a.forEach((item) => {
-  //     item.addEventListener("mouseover", () => {
-  //       cursor.classList.add("custom-cursor__hover");
+  // // Price Filter
+  // function priceFilter() {
+  //   if ($(".price-ranger").length) {
+  //     $(".price-ranger #slider-range").slider({
+  //       range: true,
+  //       min: 50,
+  //       max: 500,
+  //       values: [11, 300],
+  //       slide: function (event, ui) {
+  //         $(".price-ranger .ranger-min-max-block .min").val("$" + ui.values[0]);
+  //         $(".price-ranger .ranger-min-max-block .max").val("$" + ui.values[1]);
+  //       }
   //     });
-  //     item.addEventListener("mouseleave", () => {
-  //       cursor.classList.remove("custom-cursor__hover");
-  //     });
+  //     $(".price-ranger .ranger-min-max-block .min").val(
+  //       "$" + $(".price-ranger #slider-range").slider("values", 0)
+  //     );
+  //     $(".price-ranger .ranger-min-max-block .max").val(
+  //       "$" + $(".price-ranger #slider-range").slider("values", 1)
+  //     );
+  //   }
+  // }
+
+  // // Cart Touch Spin
+  // if ($(".quantity-spinner").length) {
+  //   $("input.quantity-spinner").TouchSpin({
+  //     verticalbuttons: true
   //   });
   // }
+
+
 
   if ($(".listing-details__contact-info-phone").length) {
     $(".listing-details__contact-info-phone").on("click", function (e) {
@@ -177,48 +140,48 @@
   }
 
   // Type Effect
-  if ($(".typed-effect").length) {
-    $(".typed-effect").each(function () {
-      var typedStrings = $(this).data("strings");
-      var typedTag = $(this).attr("id");
-      var typed = new Typed("#" + typedTag, {
-        typeSpeed: 100,
-        backSpeed: 100,
-        fadeOut: true,
-        loop: true,
-        strings: typedStrings.split(",")
-      });
-    });
-  }
+  // if ($(".typed-effect").length) {
+  //   $(".typed-effect").each(function () {
+  //     var typedStrings = $(this).data("strings");
+  //     var typedTag = $(this).attr("id");
+  //     var typed = new Typed("#" + typedTag, {
+  //       typeSpeed: 100,
+  //       backSpeed: 100,
+  //       fadeOut: true,
+  //       loop: true,
+  //       strings: typedStrings.split(",")
+  //     });
+  //   });
+  // }
 
   // Popular Causes Progress Bar
-  if ($(".count-bar").length) {
-    $(".count-bar").appear(
-      function () {
-        var el = $(this);
-        var percent = el.data("percent");
-        $(el).css("width", percent).addClass("counted");
-      },
-      {
-        accY: -50
-      }
-    );
-  }
+  // if ($(".count-bar").length) {
+  //   $(".count-bar").appear(
+  //     function () {
+  //       var el = $(this);
+  //       var percent = el.data("percent");
+  //       $(el).css("width", percent).addClass("counted");
+  //     },
+  //     {
+  //       accY: -50
+  //     }
+  //   );
+  // }
 
   //Progress Bar / Levels
-  if ($(".progress-levels .progress-box .bar-fill").length) {
-    $(".progress-box .bar-fill").each(
-      function () {
-        $(".progress-box .bar-fill").appear(function () {
-          var progressWidth = $(this).attr("data-percent");
-          $(this).css("width", progressWidth + "%");
-        });
-      },
-      {
-        accY: 0
-      }
-    );
-  }
+  // if ($(".progress-levels .progress-box .bar-fill").length) {
+  //   $(".progress-box .bar-fill").each(
+  //     function () {
+  //       $(".progress-box .bar-fill").appear(function () {
+  //         var progressWidth = $(this).attr("data-percent");
+  //         $(this).css("width", progressWidth + "%");
+  //       });
+  //     },
+  //     {
+  //       accY: 0
+  //     }
+  //   );
+  // }
 
   //Fact Counter + Text Count
   if ($(".count-box").length) {
@@ -376,7 +339,6 @@
       mainClass: "mfp-fade",
       removalDelay: 160,
       preloader: true,
-
       fixedContentPos: false
     });
   }
@@ -843,6 +805,7 @@
     }
 
     //Jquery Spinner / Quantity Spinner
+
     if ($(".quantity-spinner").length) {
       $("input.quantity-spinner").TouchSpin({
         verticalbuttons: true
@@ -851,6 +814,8 @@
 
     if ($(".post-filter").length) {
       var postFilterList = $(".post-filter li");
+
+
       // for first init
       $(".filter-layout").isotope({
         filter: ".filter-item",
@@ -860,6 +825,10 @@
           queue: false
         }
       });
+
+
+
+
       // on click filter links
       postFilterList.on("click", function () {
         var Self = $(this);

@@ -191,24 +191,6 @@ ul {
   z-index: -1;
 }
 
-/*--------------------------------------------------------------
-# Custom Cursor
---------------------------------------------------------------*/
-.custom-cursor__cursor {
-  width: 25px;
-  height: 25px;
-  border-radius: 100%;
-  border: 1px solid var(--zeinet-base);
-  -webkit-transition: all 200ms ease-out;
-  transition: all 200ms ease-out;
-  position: fixed;
-  pointer-events: none;
-  left: 0;
-  top: 0;
-  -webkit-transform: translate(calc(-50% + 5px), -50%);
-  transform: translate(calc(-50% + 5px), -50%);
-  z-index: 999991;
-}
 
 .mob-link{
     display: none;
@@ -235,31 +217,6 @@ ul {
     height: auto;
 }
 
-.custom-cursor__cursor-two {
-  width: 10px;
-  height: 10px;
-  border-radius: 100%;
-  background-color: var(--zeinet-base);
-  opacity: .3;
-  position: fixed;
-  -webkit-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  pointer-events: none;
-  -webkit-transition: width .3s, height .3s, opacity .3s;
-  transition: width .3s, height .3s, opacity .3s;
-  z-index: 999991;
-}
-
-.custom-cursor__hover {
-  background-color: var(--zeinet-base);
-  opacity: 0.4;
-}
-
-.custom-cursor__innerhover {
-  width: 25px;
-  height: 25px;
-  opacity: .4;
-}
 
 
 .thm-btn {
@@ -354,9 +311,6 @@ ul {
   height: 380%;
 }
 
-
-
-
 .section-title {
   position: relative;
   display: block;
@@ -408,8 +362,6 @@ ul {
   letter-spacing: -0.04em;
   margin-top: 5px;
 }
-
-
 
 .section-title__title1 a {
     margin: 0;
@@ -531,7 +483,7 @@ ul {
   display: inline-block;
   width: 50px;
   height: 50px;
-  background: var(--zeinet-primary);
+  background: #4A0680;
   position: fixed;
   bottom: 40px;
   right: 40px;
@@ -553,7 +505,7 @@ ul {
 }
 
 .scroll-to-top:hover {
-  background-color: var(--zeinet-base);
+  background-color:#FD08B8;
 }
 
 .scroll-to-top:hover i {
@@ -3890,7 +3842,6 @@ z-index: 1;
 .digital_billboard .container{
 
     max-width: 80%;
-
 }
 
 .newsblog{
@@ -3900,7 +3851,6 @@ z-index: 1;
     background-color: var(--zeinet-white);
     padding: 50px 0 0px;
     z-index: 1;
-
 }
 
 .newsblog .container{
@@ -3982,6 +3932,27 @@ z-index: 1;
 
 .all-time-hit__img img {
   width: 95%;
+}
+
+
+.all-time-hit__img1 img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+
+.all-time-hit__img1:before {
+    position: absolute;
+    border-radius: 10px;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    content: "";
+    background-image: -webkit-linear-gradient(90deg, rgb(14 17 23 / 55%) 0%, rgba(14, 17, 23, 0) 30%);
+    background-image: -webkit-linear-gradient(90deg, rgb(14 17 23 / 55%) 0%, rgba(14, 17, 23, 0) 30%);
+    background-image: -webkit-linear-gradient(90deg, rgb(14 17 23 / 55%) 0%, rgba(14, 17, 23, 0) 30%);
 }
 
 .all-time-hit-shape {
@@ -4642,7 +4613,7 @@ z-index: 1;
 
 .footer-widget__links-list li a:hover {
   padding-left: 15px;
-  color: var(--zeinet-base);
+  color: #FD08B8;
 }
 
 .footer-widget__links-list li a:before {
@@ -4802,6 +4773,7 @@ z-index: 1;
 --------------------------------------------------------------*/
 .all-time-hit--two {
   background-color: var(--zeinet-white);
+  margin-top: 3%;
 }
 
 .all-time-hit--two .section-title__title {
@@ -7403,8 +7375,8 @@ about-four__text-1 {
 .plans-one__single {
     position: relative;
     display: block;
-    border: 1px solid var(--zeinet-bdr-color);
-    padding: 45px 15px 15px;
+    border: 1px solid #e3d2f1;
+    padding: 25px 15px 15px;
     margin-bottom: 30px;
 }
 
@@ -7412,16 +7384,16 @@ about-four__text-1 {
     position: relative;
     display: block;
     text-align: center;
-    padding-bottom: 54px;
+    padding-bottom: 20px;
 }
 
 .plans-one__sub-title {
     font-size: 14px;
-    color: var(--zeinet-base);
+    color: #4A0680;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     font-weight: 700;
-    line-height: 20px;
+    line-height: 26px;
 }
 
 .plans-one__title {
@@ -7433,8 +7405,8 @@ about-four__text-1 {
 .plans-one__bottom {
     position: relative;
     display: block;
-    background-color: var(--zeinet-extra);
-    padding: 70px 50px 50px;
+    background-color: #faf2ff;
+    padding: 50px 50px 50px;
 }
 
 .plans-one__list {
@@ -9048,11 +9020,10 @@ about-four__text-1 {
     border-radius:9px;
     width: 200px;
     box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 10%);
-
 }
 
 .billboard_img {
-    width: 117%;
+    width: 116%;
     height: auto;
 }
 

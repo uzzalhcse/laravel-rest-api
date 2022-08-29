@@ -27,5 +27,9 @@ Route::get('/',[HomeController::class,'index'])->name('home');
 Route::get('/about',[HomeController::class,'about'])->name('about');
 Route::get('/contact',[HomeController::class,'contact'])->name('contact');
 Route::get('/pricing',[HomeController::class,'pricing'])->name('pricing');
+Route::get('/globalcoverage',[HomeController::class,'globalcoverage'])->name('globalcoverage');
+Route::get('/whyatc',[HomeController::class,'whyatc'])->name('whyatc');
+
+Route::get('/viewall',[HomeController::class,'viewall'])->name('viewall');
 //Route::get('/enable-maintenance-mode/{key}',[HomeController::class,'maintenanceMode']);
 //Route::get('/disable-maintenance-mode/{key}',[HomeController::class,'disableMaintenanceMode']);

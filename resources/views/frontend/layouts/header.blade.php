@@ -53,11 +53,7 @@
     <link rel="stylesheet" href="{{asset('frontend/css/ionicons.min.css')}}">
 
 </head>
-
-<body class="custom-cursor">
-
-<div class="custom-cursor__cursor"></div>
-<div class="custom-cursor__cursor-two"></div>
+<body>
 
 <div class="preloader">
     <div class="preloader__image"></div>
@@ -72,7 +68,7 @@
                 <div class="main-menu-three__wrapper-inner clearfix">
                     <div class="main-menu-three__left">
                         <div class="main-menu-three__logo">
-                            <a href="i{{ asset('/') }}"><img src="frontend/images/resources/logo-2.png" alt="" width="229px" height="39px"></a>
+                            <a href="{{ route('home') }}"><img src="{{asset('frontend/images/resources/logo-2.png')}}" alt="" width="229px" height="39px"></a>
                         </div>
                     </div>
                     <div class="main-menu-three__left">
@@ -81,12 +77,12 @@
                                 <a href="#" class="mobile-nav__toggler"><i class="fa fa-bars"></i></a>
                                 <ul class="main-menu__list">
                                     <li class="dropdown current megamenu">
-                                        <a href="{{ asset('/') }}">Home </a>
+                                        <a href="{{ route('home') }}">Home </a>
 
                                     </li>
 
                                     <li class="dropdown">
-                                        <a href="#">Services</a>
+                                        <a href="{{route('globalcoverage')}}">Global Coverage</a>
 
                                     </li>
 
