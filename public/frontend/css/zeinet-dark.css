@@ -1,0 +1,135 @@
+body,
+body.boxed-wrapper .page-wrapper,
+.feature-one__icon,
+.why-choose-one__content,
+.plans-one__icon-box i,
+.testimonial-one__content,
+.testimonial-one__quote {
+    background-color: #272b30;
+}
+
+.main-menu__wrapper,
+.feature-one__single-content-box,
+.why-choose-one,
+.plans-one__bottom,
+.news-one:before,
+.news-one__content-box,
+.stricky-header.main-menu,
+.feature-one__icon:before {
+    background-color: var(--zeinet-black);
+}
+
+.main-menu .main-menu__list>li>a,
+.stricky-header .main-menu__list>li>a,
+.main-menu__help-line-sub-title,
+.feature-one__text,
+.about-one__text-2,
+.why-choose-one__text,
+.plans-one__list li .text p,
+.plans-one__price-time,
+.testimonial-one__text,
+.testimonial-one__client-sub-title,
+.live-sports__text,
+.live-sports__points li .content p,
+.news-one__meta li a,
+.news-one__read-more {
+    color: #a4a9ae;
+}
+
+
+.main-menu .main-menu__list>li.current>a,
+.main-menu .main-menu__list>li:hover>a,
+.stricky-header .main-menu__list>li.current>a,
+.stricky-header .main-menu__list>li:hover>a {
+    color: var(--zeinet-white);
+}
+
+.main-menu__search-box:before {
+    background-color: rgba(var(--zeinet-white-rgb), .10);
+}
+
+.main-menu__search,
+.main-menu__help-line-number a,
+.feature-one__title a,
+.section-title__title,
+.about-one__points li .text p,
+.why-choose-one__title,
+.why-choose-one__single:hover .why-choose-one__icon span,
+.plans-one__title,
+.plans-one__price,
+.testimonial-one__client-name,
+.live-sports__points li .content h4,
+.news-one__title a {
+    color: var(--zeinet-white);
+}
+
+.main-menu__help-line-icon,
+.testimonial-one {
+    background-color: #202428;
+}
+
+.feature-one__single-content-box:before {
+    background-color: #202428;
+}
+
+.about-one__points li .icon {
+    color: var(--zeinet-black);
+}
+
+.thm-btn:hover {
+    color: var(--zeinet-base);
+}
+
+.thm-btn::before {
+    background-color: var(--zeinet-white);
+}
+
+.why-choose-one-shape-1,
+.why-choose-one-shape-2 {
+    opacity: 0.06;
+}
+
+.plans-one__single {
+    border: 1px solid #35393e;
+}
+
+.plans-one__price-box,
+.news-one__read-more {
+    border-top: 1px solid rgba(var(--zeinet-white-rgb), .10);
+}
+
+.testimonial-one-bg {
+    opacity: 0.06;
+}
+
+.testimonial-one__carousel.owl-theme .owl-nav .owl-prev,
+.testimonial-one__carousel.owl-theme .owl-nav .owl-next {
+    color: var(--zeinet-white);
+    background-color: var(--zeinet-black);
+}
+
+.service-available__btn:hover {
+    color: var(--zeinet-white);
+}
+
+.service-available__btn::before {
+    background-color: var(--zeinet-black);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*  */

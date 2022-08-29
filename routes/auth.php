@@ -24,13 +24,14 @@ Route::post('/register', [AuthController::class, 'register']);
 
 Route::middleware(['auth:sanctum'])->group(function () {
     // our routes to be protected will go in here
+
     Route::get('/info', [AuthController::class, 'info']);
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::post('/update-profile', [AuthController::class, 'updateProfile']);
     Route::post('/update-password', [AuthController::class, 'updatePassword']);
     Route::get('/office-types',   [OfficeController::class, 'officeTypes']);
     Route::get('/jurisdictions',   [OfficeController::class, 'jurisdictions']);
-    Route::get('/get-modules',               [RolePermissionController::class, 'allModules'])   ->name('role-and-permissions.allModules');
+    Route::get('/get-modules',     [RolePermissionController::class, 'allModules'])   ->name('role-and-permissions.allModules');
 
     Route::middleware('acl:user-role-management')->group(function () {
         /*
