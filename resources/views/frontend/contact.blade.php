@@ -42,8 +42,7 @@
                                 </div>
                                 <div class="content">
                                     <p>Visit anytime</p>
-                                    <h4>7154 N University Dr #95,<br>
-                                        Tamarac, FL 33321, USA</h4>
+                                    <h4>30 Broklyern Goldin Street, New York, <br>United States of America</h4>
                                 </div>
                             </li>
                         </ul>

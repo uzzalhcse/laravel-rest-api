@@ -42,4 +42,21 @@ class HomeController extends ApiController
     public function pricing(){
         return view('frontend.pricing');
     }
+
+    public function globalcoverage(){
+        return view('frontend.globalcoverage');
+    }
+
+    public function whyatc(){
+        return view('frontend.whyatc');
+    }
+
+
+
+
+
+
+    public function viewall(){
+        return view('frontend.viewall');
+    }
 }

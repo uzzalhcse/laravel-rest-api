@@ -24,11 +24,11 @@
                     <div class="footer-widget__column footer-widget__links clearfix">
                         <h3 class="footer-widget__title">Links</h3>
                         <ul class="footer-widget__links-list list-unstyled clearfix">
-                            <li><a href="about.html">About</a></li>
-                            <li><a href="contact.html">Contact</a></li>
-                            <li><a href="packages-01.html">Our Packages</a></li>
-                            <li><a href="services.html">Services</a></li>
-                            <li><a href="news.html"> Media</a></li>
+                            <li><a href="{{route('about')}}">About</a></li>
+                            <li><a href="{{route('contact')}}">Contact</a></li>
+                            <li><a href="{{ route('pricing') }}">Our Pricing</a></li>
+                            <li><a href="{{ route('whyatc') }}">Why ATC ?</a></li>
+                            <li><a href="#"> Partner With us</a></li>
                         </ul>
                     </div>
                 </div>
@@ -36,18 +36,18 @@
                     <div class="footer-widget__column footer-widget__links clearfix">
                         <h3 class="footer-widget__title">Policies</h3>
                         <ul class="footer-widget__links-list list-unstyled clearfix">
-                            <li><a href="about.html">Privacy Policy</a></li>
-                            <li><a href="contact.html">Terms & Conditions</a></li>
-                            <li><a href="packages-01.html">Payouts</a></li>
-                            <li><a href="services.html">Advertiser</a></li>
-                            <li><a href="news.html"> Media</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms & Conditions</a></li>
+                            <li><a href="#">Payouts</a></li>
+                            <li><a href="#">Advertiser</a></li>
+                            <li><a href="#"> Global Coverage</a></li>
 
                         </ul>
                     </div>
                 </div>
                 <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="400ms">
                     <div class="footer-widget__column footer-widget__contact">
-                        <h3 class="footer-widget__title">Say hello!</h3>
+                        <h3 class="footer-widget__title"><a style="color: white;" href="{{route('contact')}}">Say hello!</a></h3>
                         <ul class="list-unstyled footer-widget__contact-list">
                             <li>
                                 <div class="text">
@@ -74,7 +74,7 @@
             <div class="row">
                 <div class="col-xl-8">
                     <div class="site-footer__bottom-inner">
-                        <p class="site-footer__bottom-text">© All Copyright 2022 by <a href="#">Adstocall.com</a>
+                        <p class="site-footer__bottom-text">© All Copyright 2022 by <a href="{{ asset('/') }}">Adstocall.com</a>
                         </p>
                     </div>
                 </div>
@@ -100,8 +100,7 @@
         <span class="mobile-nav__close mobile-nav__toggler"><i class="fa fa-times"></i></span>
 
         <div class="logo-box">
-            <a href="index.html" aria-label="logo image"><img src="{{ asset('frontend/images/resources/logo-2.png') }}" width="125"
-                                                              height="43" alt="" /></a>
+            <a href="index.html" aria-label="logo image"><img src="{{ asset('frontend/images/resources/logo-2.png') }}" width="125" height="43" alt="" /></a>
         </div>
         <!-- /.logo-box -->
         <div class="mobile-nav__container"></div>
@@ -176,13 +175,66 @@
 <script src="{{ asset('frontend/vendors/timepicker/timePicker.js') }}"></script>
 <script src="{{ asset('frontend/vendors/circleType/jquery.circleType.js') }}"></script>
 <script src="{{ asset('frontend/vendors/circleType/jquery.lettering.min.js') }}"></script>
-
-
-
+<script src="{{ asset('frontend/vendors/jvectormap/jquery.vmap.js') }}"></script>
+<script src="{{ asset('frontend/vendors/jvectormap/jquery-jvectormap-world-mill-en.js') }}"></script>
 
 <!-- template js -->
 <script src="{{asset('frontend/js/player.js')}}"></script>
 <script src="{{ asset('frontend/js/zeinet.js') }}"></script>
+<script>
+
+    $('#world-map-markers1').vectorMap({
+        map: 'world_mill_en',
+        scaleColors: ['#6c5ffc', '#e82646', '#05c3fb'],
+
+        normalizeFunction: 'polynomial',
+
+        hoverOpacity: 0.7,
+
+        hoverColor: false,
+
+        regionStyle: {
+
+            initial: {
+
+                fill: '#edf0f5'
+            }
+        },
+        markerStyle: {
+            initial: {
+                r: 6,
+                'fill': '#6c5ffc',
+                'fill-opacity': 0.9,
+                'stroke': '#fff',
+                'stroke-width': 9,
+                'stroke-opacity': 0.2
+            },
+
+            hover: {
+                'stroke': '#fff',
+                'fill-opacity': 1,
+                'stroke-width': 1.5
+            }
+        },
+        backgroundColor: 'transparent',
+        markers: [{
+            latLng: [40.3, -101.38],
+            name: 'USA'
+        }, {
+            latLng: [22.5, 1.51],
+            name: 'India'
+        }, {
+            latLng: [50.02, 80.55],
+            name: 'Bahrain'
+        }, {
+            latLng: [3.2, 73.22],
+            name: 'Maldives'
+        }, {
+            latLng: [35.88, 14.5],
+            name: 'Malta'
+        }]
+    })
+</script>
 
 </body>
 

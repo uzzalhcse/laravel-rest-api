@@ -180,6 +180,14 @@
                                         <i class="fa fa-check"></i>
                                     </div>
                                     <div class="text">
+                                        <p>Upgrade Free</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="icon">
+                                        <i class="fa fa-check"></i>
+                                    </div>
+                                    <div class="text">
                                         <p>Worldwide</p>
                                     </div>
                                 </li>
@@ -194,7 +202,7 @@
                                     <a href="contact.html" class="thm-btn plans-one__btn">Get started</a>
                                 </div>
                             </div>
-                          
+
                         </div>
                     </div>
                 </div>

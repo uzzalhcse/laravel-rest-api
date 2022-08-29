@@ -76,7 +76,7 @@
                 </div>
 
                 <div class="col-md-2">
-                    <h2 class="section-title__title1"><a href="{{url('') }}">View All</a></h2>
+                    <h2 class="section-title__title1"><a href={{route('viewall')}}>View All</a></h2>
                 </div>
             </div>
 
@@ -322,7 +322,7 @@
                     <div class="container">
                         <!-- Media Player-->
                         <div class="mediPlayer" style="text-align:center;">
-                            <audio class="listen" preload="none" data-size="250" src="{{ asset('frontend/sounds/cococola.mp3') }}"></audio>
+                            <audio class="listen" preload="none" data-size="250" src="frontend/sounds/blanco.mp3"></audio>
                         </div>
 
                     <!-- Media Player / -->
@@ -1273,7 +1273,7 @@
             </div>
          <div class="container">
                 <div class="free-access__inner">
-                    <h2 class="free-access__title">Get Paid Every 30 Days With    Unlimited Ads To Choose From </h2>
+                    <h2 class="free-access__title">Get Paid Every 30 Days With Unlimited Ads To Choose From </h2>
                     <div class="free-access__btn-box">
                         <a href="{{ url('/pricing') }}" class="free-access__btn">Get started now</a>
                     </div>
@@ -1299,7 +1299,7 @@
         </div>
         <div class="container">
             <div class="free-access__inner">
-                <h2 class="free-access1__title">Get Paid Every 30 Days With    Unlimited Ads To Choose From </h2>
+                <h2 class="free-access1__title">Get Paid Every 30 Days WithUnlimited Ads To Choose From </h2>
                 <div class="free-access__btn-box">
                     <a href="{{ url('/pricing') }}" class="free-access__btn">Get started now</a>
                 </div>
