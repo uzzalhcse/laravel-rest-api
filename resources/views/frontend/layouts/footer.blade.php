@@ -24,7 +24,7 @@
                     <div class="footer-widget__column footer-widget__links clearfix">
                         <h3 class="footer-widget__title">Links</h3>
                         <ul class="footer-widget__links-list list-unstyled clearfix">
-                            <li><a href="{{route('about')}}">About</a></li>
+                            <li><a href="{{route('about')}}">About Us</a></li>
                             <li><a href="{{route('contact')}}">Contact</a></li>
                             <li><a href="{{ route('pricing') }}">Our Pricing</a></li>
                             <li><a href="{{ route('whyatc') }}">Why ATC ?</a></li>
@@ -179,63 +179,34 @@
 <script src="{{ asset('frontend/vendors/jvectormap/jquery-jvectormap-world-mill-en.js') }}"></script>
 
 <!-- template js -->
-<script src="{{asset('frontend/js/player.js')}}"></script>
+
 <script src="{{ asset('frontend/js/zeinet.js') }}"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script src="{{asset('frontend/js/player.js')}}"></script>
+
+
+{{----------------------Media Player js --------------}}
+
 <script>
+    $(document).ready(function () {
+        $('.mediPlayer').mediaPlayer();
+    });
+</script>
+<script type="text/javascript">
 
-    $('#world-map-markers1').vectorMap({
-        map: 'world_mill_en',
-        scaleColors: ['#6c5ffc', '#e82646', '#05c3fb'],
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-36251023-1']);
+    _gaq.push(['_setDomainName', 'jqueryscript.net']);
+    _gaq.push(['_trackPageview']);
 
-        normalizeFunction: 'polynomial',
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
 
-        hoverOpacity: 0.7,
-
-        hoverColor: false,
-
-        regionStyle: {
-
-            initial: {
-
-                fill: '#edf0f5'
-            }
-        },
-        markerStyle: {
-            initial: {
-                r: 6,
-                'fill': '#6c5ffc',
-                'fill-opacity': 0.9,
-                'stroke': '#fff',
-                'stroke-width': 9,
-                'stroke-opacity': 0.2
-            },
-
-            hover: {
-                'stroke': '#fff',
-                'fill-opacity': 1,
-                'stroke-width': 1.5
-            }
-        },
-        backgroundColor: 'transparent',
-        markers: [{
-            latLng: [40.3, -101.38],
-            name: 'USA'
-        }, {
-            latLng: [22.5, 1.51],
-            name: 'India'
-        }, {
-            latLng: [50.02, 80.55],
-            name: 'Bahrain'
-        }, {
-            latLng: [3.2, 73.22],
-            name: 'Maldives'
-        }, {
-            latLng: [35.88, 14.5],
-            name: 'Malta'
-        }]
-    })
 </script>
 
-</body>
 
+</body>
 </html>

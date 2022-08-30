@@ -6240,8 +6240,10 @@ about-four__text-1 {
 ....................................*/
 
 .modal-header .btn-close {
-    padding: 0.5rem 0.5rem;
-    margin: -19.5rem -0.5rem -0.5rem auto;
+    padding: 10px 10px;
+    margin-top: -298px;
+    position: absolute;
+    background-color: white;
 }
 
 .modal-header {
@@ -6249,6 +6251,128 @@ about-four__text-1 {
     background-size: cover;
     background-repeat: no-repeat;
 }
+
+.brand-body{
+
+    margin-top: -30px;
+    background-color: white;
+    border-radius: 24px;
+    padding-left: 10px;
+}
+
+.brand-text p{
+    margin-top:20px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 10px;
+    color: #212121;
+}
+
+.brand-text h1{
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 34px;
+    line-height: 80px;
+    color: #212121;
+}
+
+.brand-time{
+    margin-top: 25px;
+}
+.brand-time time {
+    border:1px solid gray;
+    padding-top:10px;
+    padding-left:30px;
+    padding-right:30px;
+    padding-bottom:10px;
+    border-radius:10px;
+}
+
+.brand-time p{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 54px;
+    color: #000000;
+    text-align:left;
+}
+
+.company-bio{
+    padding-left: 10px;
+    padding-top:30px;
+    padding-bottom:10px;
+}
+
+.company-bio h1{
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 30px;
+    color: #000000;
+}
+
+.company-txt{
+
+    margin-left: 20px;
+    margin-right: 20px;
+    padding-top:30px;
+    padding-bottom: 50px;
+    border:1px solid #80808030;
+}
+.company-txt p{
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-size: 14px;
+    line-height: 30px;
+    color: #000000;
+}
+.company-rating img{
+    width:100%;
+    height:auto;
+    margin-left:10px;
+    margin-bottom: 50px;
+}
+
+.text-center button{
+    padding-left:150px;
+    padding-right:150px;
+    padding-top:13px;
+    padding-bottom:13px;
+    background:#5415A4;
+    border-radius: 10px;
+    color:white;
+    font-size: 18px;
+    font-weight: 600;
+    border:none;
+    margin-bottom: 40px;
+
+}
+
+.chk-box{
+    margin-left:100px;
+    font-size: 13px;
+    margin-bottom: 30px;
+
+}
+
+/*----------------------------------------global Map---------------*/
+
+.globalmap .container{
+    max-width:60%;
+}
+.globalmap .container {
+    max-width: 80%;
+    padding-top: 6%;
+}
+
 
 
 /*--------------------------------------------------------------
