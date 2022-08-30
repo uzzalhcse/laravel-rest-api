@@ -743,13 +743,104 @@
         width: 116%;
         height: auto;
     }
-}
 
+    .brand-time time {
+        border: 1px solid gray;
+        padding-top: 10px;
+        padding-left: 19px;
+        padding-right: 19px;
+        padding-bottom: 10px;
+        border-radius: 10px;
+        font-size: 9px;
+    }
+
+    .brand-time p {
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 13px;
+        line-height: 23px;
+        color: #000000;
+        text-align: left;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .company-txt p {
+        font-family: 'Poppins';
+        font-style: normal;
+        font-size: 13px;
+        line-height: 27px;
+        color: #000000;
+    }
+
+    .chk-box {
+        margin-left: 5px;
+        font-size: 10px;
+        margin-bottom: 21px;
+    }
+}
 
 
 /*------------------------------------ Mobile Layout: 425px.----------------------- */
 
 @media only screen and (max-width: 767px) {
+
+    .brand-text p {
+        margin-top: 20px;
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 15px;
+        line-height: 0px;
+        color: #212121;
+    }
+
+    .brand-time time {
+        border: 1px solid gray;
+        padding-top: 5px;
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-bottom: 5px;
+        border-radius: 10px;
+        font-size: 13px;
+    }
+
+
+    .brand-text h1 {
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 22px;
+        line-height: 55px;
+        color: #212121;
+    }
+
+    .company-txt p {
+        font-family: 'Poppins';
+        font-style: normal;
+        font-size: 11px;
+        line-height: 22px;
+        color: #000000;
+    }
+
+    .section-title__title1 a {
+        margin: 0;
+        color: var(--zeinet-black);
+        letter-spacing: -0.04em;
+        margin-top: 5px;
+        font-style: normal;
+        font-weight: 800;
+        font-size: 17px;
+        line-height: 36px;
+        text-align: right;
+        margin-left: 0px!important;
+    }
+
+    .section-title__title1{
+        margin-top: -13px;
+    }
+
 
 
     .billboard_img {
@@ -768,14 +859,7 @@
 .slider-btn{
         margin-top: -125px;
     }
-.gradiant {
-        position: absolute;
-        bottom: 0;
-        width: 100%;
-        z-index: 9;
-        height: 107px;
-        background: linear-gradient(180deg, rgba(63, 6, 107, 0) 0%, #4A0680 100%);
-    }
+
 .free-access{
         display: none;
     }
@@ -928,9 +1012,7 @@
         margin: 0 auto;
         padding: 38px 0 34px;
     }
-.col-md-2{
-        display: none;
-    }
+
 .most_popular .container {
         max-width: 100%;
     }
@@ -1064,7 +1146,7 @@
         background-position: right;
     }
 .section-title__title {
-        font-size: 22px;
+        font-size: 20px;
         margin-top: 0px;
     }
 
@@ -1402,17 +1484,84 @@
         margin-left: 0%;
     }
 
-.main-slider-two__video-box{
-        display: none;
-    }
+
 
  .main-slider-two__video-link {
         float: none;
     }
 
-.main-slider-two__video-box {
-        margin-top: 60px;
-        margin-left: 158px;
+    .main-slider-two__video-text {
+        font-size: 11px;
+        color: var(--zeinet-white);
+        font-family: var(--zeinet-reey-font);
+    }
+
+    .main-slider-two__video-text-box {
+        position: absolute;
+        bottom: -39px;
+        left: -71px;
+    }
+
+    .main-slider-two__video-icon {
+        position: relative;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 70px;
+        height: 70px;
+        line-height: 140px;
+        text-align: center;
+        font-size: 25px;
+        color: var(--zeinet-black);
+        background-color: rgba(0, 0, 0, .20);
+        border-radius: 50%;
+        transition: all 0.5s ease;
+        z-index: 1;
+    }
+
+
+    .main-slider-two__video-box {
+        margin-bottom: 39px;
+        margin-left: 79px;
+    }
+
+    .main-slider-two__video-icon .ripple:before{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 70px;
+        height: 70px;
+    }
+
+    .main-slider-two__video-link .ripple {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 70px;
+        height: 70px;
+    }
+
+    .main-slider-two__video-icon .ripple:after {
+
+        left: 50%;
+        top:50%;
+        width: 70px;
+        height: 70px;
+    }
+
+    .main-slider-two__video-icon:before {
+        position: absolute;
+        top: 16px;
+        left: 13px;
+        right: 14px;
+        bottom: 11px;
+    }
+
+    .fa-play:before {
+        content: "\f04b";
+        color: red;
+        font-size: 15px;
     }
 
 .main-slider-two .container {
@@ -1640,7 +1789,42 @@
         margin-top: 10px;
     }
 
+    .btn-close {
+        padding: 10px 10px;
+        margin-top: -167px!important;
+        position: absolute;
+        background-color: white;
+    }
+    .brand-time {
+        margin-top: 0px;
+    }
+    .company-txt {
+        margin-left: 0px;
+        margin-left: 0px;
+        padding-top: 21px;
+        padding-bottom: 30px;
+        border: 1px solid #80808030;
+    }
 
+    .chk-box {
+        margin-left: 0px;
+        font-size: 8px;
+        margin-bottom: 30px;
+    }
+
+    .text-center button {
+        padding-left: 80px;
+        padding-right: 80px;
+        padding-top: 13px;
+        padding-bottom: 13px;
+        background: #5415A4;
+        border-radius: 10px;
+        color: white;
+        font-size: 16px;
+        font-weight: 600;
+        border: none;
+        margin-bottom: 40px;
+    }
 
 
 }
@@ -1648,6 +1832,44 @@
 
 /*------------------------------------ Medium Mobile Device.----------------------- */
 @media screen and (max-width: 393px) {
+
+    .main-slider-two__video-box {
+        margin-bottom: 27px;
+        margin-left: 73px;
+    }
+
+    .main-slider-two__video-text-box {
+        position: absolute;
+        bottom: -31px;
+        left: -80px;
+    }
+
+    .main-slider-two__video-text {
+        font-size: 10px;
+        color: var(--zeinet-white);
+        font-family: var(--zeinet-reey-font);
+    }
+
+    .main-slider-two__video-icon:before {
+        position: absolute;
+        top: 19px;
+        left: 16px;
+        right: 18px;
+        bottom: 15px;
+    }
+
+    .section-title__title1 a {
+        margin: 0;
+        color: var(--zeinet-black);
+        letter-spacing: -0.04em;
+        margin-top: 5px;
+        font-style: normal;
+        font-weight: 800;
+        font-size: 15px;
+        line-height: 36px;
+        text-align: right;
+        margin-left: 0px!important;
+    }
 
 
     .billboard_img {
@@ -1832,12 +2054,87 @@
         margin-bottom: 29px;
         margin-top: 10px;
     }
+
+     .btn-close {
+        padding: 10px 10px;
+        margin-top: -167px!important;
+        position: absolute;
+        background-color: white;
+    }
+
+    .brand-time {
+        margin-top: 0px;
+    }
+
+    .company-bio {
+        padding-left: 10px;
+        padding-top: 9px;
+        padding-bottom: 10px;
+    }
+
+    .company-txt {
+        margin-left: 0PX;
+        margin-right: 0px;
+        padding-top: 16px;
+        padding-bottom: 16px;
+        border: 1px solid #80808030;
+    }
+
+    .company-txt p {
+        font-family: 'Poppins';
+        font-style: normal;
+        font-size: 13px;
+        line-height: 24px;
+        color: #000000;
+    }
+
+    .text-center button {
+        padding-left: 56px;
+        padding-right: 56px;
+        padding-top: 13px;
+        padding-bottom: 13px;
+        background: #5415A4;
+        border-radius: 10px;
+        color: white;
+        font-size: 18px;
+        font-weight: 600;
+        border: none;
+        margin-bottom: 40px;
+    }
+
+    .chk-box {
+        margin-left: 5px;
+        font-size: 10px;
+        margin-bottom: 21px;
+    }
 }
 /*------------------------------------ Medium Mobile Device.----------------------- */
 
 /*-------------------------# Small Mobile Device ------------------------------*/
 
 @media only screen and (min-width: 200px) and (max-width: 360px) {
+
+
+    .main-slider-two__video-icon:before {
+        position: absolute;
+        top: 20px;
+        left: 16px;
+        right: 17px;
+        bottom: 13px;
+    }
+
+    .section-title__title1 a {
+        margin: 0;
+        color: var(--zeinet-black);
+        letter-spacing: -0.04em;
+        margin-top: 5px;
+        font-style: normal;
+        font-weight: 800;
+        font-size: 13px;
+        line-height: 36px;
+        text-align: right;
+        margin-left: -3px;
+    }
 
 
     .billboard_img {
@@ -2062,6 +2359,61 @@
     .about-four__right .section-title {
         margin-bottom: 29px;
         margin-top: 10px;
+    }
+
+
+
+    .btn-close {
+        padding: 10px 10px;
+        margin-top: -155px!important;
+        position: absolute;
+        background-color: white;
+    }
+
+    .brand-time {
+        margin-top: 0px;
+    }
+
+    .company-bio {
+        padding-left: 10px;
+        padding-top: 9px;
+        padding-bottom: 10px;
+    }
+
+    .company-txt {
+        margin-left: 0PX;
+        margin-right: 0px;
+        padding-top: 16px;
+        padding-bottom: 16px;
+        border: 1px solid #80808030;
+    }
+
+    .company-txt p {
+        font-family: 'Poppins';
+        font-style: normal;
+        font-size: 13px;
+        line-height: 24px;
+        color: #000000;
+    }
+
+    .text-center button {
+        padding-left: 56px;
+        padding-right: 56px;
+        padding-top: 13px;
+        padding-bottom: 13px;
+        background: #5415A4;
+        border-radius: 10px;
+        color: white;
+        font-size: 18px;
+        font-weight: 600;
+        border: none;
+        margin-bottom: 40px;
+    }
+
+    .chk-box {
+        margin-left: 5px;
+        font-size: 10px;
+        margin-bottom: 21px;
     }
 
 }
@@ -2942,6 +3294,33 @@
 }
 @media only screen and (min-width: 2250px) and (max-width: 3000px) {
 
+    .main-slider-two__video-text {
+        font-size: 30px;
+        color: var(--zeinet-white);
+        line-height: 34px;
+        font-family: var(--zeinet-reey-font);
+    }
+
+    .main-slider-two__video-text-box {
+        position: absolute;
+        bottom: -77px;
+        left: -190px;
+    }
+
+    .main-slider-two__video-box {
+        position: relative;
+        display: block;
+        margin-top: -18%;
+        margin-right: 67%;
+    }
+
+    .main-slider-two .container-fluid {
+        position: relative;
+        padding-top: 510px;
+        padding-bottom: 462px;
+        z-index: 30;
+    }
+
     .faq-one__wrapper {
         position: relative;
         display: block;
@@ -3025,7 +3404,7 @@
         letter-spacing: -0.04em;
         margin-top: 5px;
         font-style: normal;
-        font-weight: 600;
+        font-weight: 800;
         font-size: 23px;
         line-height: 36px;
         text-align: right;

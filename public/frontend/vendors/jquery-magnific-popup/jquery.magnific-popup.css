@@ -231,19 +231,15 @@ button::-moz-focus-inner {
   height: 0;
   overflow: hidden;
   padding-top: 56.25%; }
-
-
   .mfp-iframe-scaler iframe {
     position: absolute;
     display: block;
     top: 0;
     left: 0;
     width: 100%;
-    height: 1000px;
+    height: 100%;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
-    background: white;
-    margin-top:-200px;
- }
+    background: #000; }
 
 /* Main image in popup */
 img.mfp-img {

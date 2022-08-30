@@ -91,12 +91,10 @@
 
                                     </li>
                                     <li class="dropdown">
-                                        <a href="{{route('about')}}">About Us</a>
+                                        <a href="{{ route('whyatc') }}">Why ATC</a>
 
                                     </li>
-                                    <li>
-                                        <a href="{{route('contact')}}">Contact</a>
-                                    </li>
+
                                     <li class="mob-link">
                                         <a href="https://app.adstocall.com">Signup</a>
                                     </li>
