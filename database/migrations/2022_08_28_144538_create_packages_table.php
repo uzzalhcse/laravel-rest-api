@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->double('price');
+            $table->string('type')->default('advertisement')->comment('advertisement/billboard');
             $table->boolean('is_enabled')->default(1);
             $table->timestamps();
         });

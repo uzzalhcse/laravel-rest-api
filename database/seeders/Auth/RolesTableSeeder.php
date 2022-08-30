@@ -52,6 +52,13 @@ class RolesTableSeeder extends Seeder
                 'slug' => 'user',
                 'created_at'=>$timestamp,
                 'updated_at'=>$timestamp,
+            ],
+            [
+                'id' => '6',
+                'name' => 'Customer Care',
+                'slug' => 'customer_care',
+                'created_at'=>$timestamp,
+                'updated_at'=>$timestamp,
             ]
         ];
 

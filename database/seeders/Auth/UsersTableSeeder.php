@@ -61,6 +61,15 @@ class UsersTableSeeder extends Seeder
                 'office_id' => 2,
                 'created_at'=>Carbon::now()->toDateTimeString(),
                 'updated_at'=>Carbon::now()->toDateTimeString(),
+            ],
+            [
+                'name' => 'Customer Care',
+                'email' => 'cc@gmail.com',
+                'avatar' => '/uploads/user/man.png',
+                'password' => bcrypt('password'),
+                'office_id' => 2,
+                'created_at'=>Carbon::now()->toDateTimeString(),
+                'updated_at'=>Carbon::now()->toDateTimeString(),
             ]
         ];
 
@@ -93,6 +102,12 @@ class UsersTableSeeder extends Seeder
             [
                 'user_id' => '5',
                 'role_id' => '5',
+                'created_at'=>Carbon::now()->toDateTimeString(),
+                'updated_at'=>Carbon::now()->toDateTimeString(),
+            ],
+            [
+                'user_id' => '6',
+                'role_id' => '6',
                 'created_at'=>Carbon::now()->toDateTimeString(),
                 'updated_at'=>Carbon::now()->toDateTimeString(),
             ],
