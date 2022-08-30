@@ -6363,8 +6363,15 @@ about-four__text-1 {
 
 }
 
+/*----------------------------------------global Map---------------*/
 
-
+.globalmap .container{
+    max-width:80%;
+}
+.globalmap .container {
+    max-width: 80%;
+    padding-top: 6%;
+}
 
 
 
