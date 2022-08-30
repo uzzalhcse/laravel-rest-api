@@ -37,6 +37,11 @@ class UserPermissionSeeder extends Seeder
                 ['user_id'=>5, 'permission_id'=>15, 'created_at'=>$timestamp, 'updated_at'=>$timestamp],
                 ['user_id'=>5, 'permission_id'=>16, 'created_at'=>$timestamp, 'updated_at'=>$timestamp],
                 ['user_id'=>5, 'permission_id'=>17, 'created_at'=>$timestamp, 'updated_at'=>$timestamp]
+                ,
+                ['user_id'=>6, 'permission_id'=>14, 'created_at'=>$timestamp, 'updated_at'=>$timestamp],
+                ['user_id'=>6, 'permission_id'=>15, 'created_at'=>$timestamp, 'updated_at'=>$timestamp],
+                ['user_id'=>6, 'permission_id'=>16, 'created_at'=>$timestamp, 'updated_at'=>$timestamp],
+                ['user_id'=>6, 'permission_id'=>17, 'created_at'=>$timestamp, 'updated_at'=>$timestamp]
             ]
         );
     }
