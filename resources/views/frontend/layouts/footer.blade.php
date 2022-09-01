@@ -175,10 +175,8 @@
 <script src="{{ asset('frontend/vendors/timepicker/timePicker.js') }}"></script>
 <script src="{{ asset('frontend/vendors/circleType/jquery.circleType.js') }}"></script>
 <script src="{{ asset('frontend/vendors/circleType/jquery.lettering.min.js') }}"></script>
-<script src="{{ asset('frontend/vendors/jvectormap/jquery.vmap.js') }}"></script>
-<script src="{{ asset('frontend/vendors/jvectormap/jquery-jvectormap-world-mill-en.js') }}"></script>
 
-<!-- template js -->
+{{--<!-- template js -->--}}
 
 <script src="{{ asset('frontend/js/zeinet.js') }}"></script>
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
@@ -206,7 +204,6 @@
     })();
 
 </script>
-
 
 </body>
 </html>
