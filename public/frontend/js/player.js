@@ -112,7 +112,7 @@
              * Default Options
              */
 
-            var template = ['<svg viewBox="0 0 100 100" id="playable" version="1.1" xmlns="http://www.w3.org/2000/svg" width="100" height="180" data-play="playable" class="not-started playable">',
+            var template = ['<svg viewBox="0 0 100 100" id="playable" version="1.1" xmlns="http://www.w3.org/2000/svg" width="65" height="160" data-play="playable" class="not-started playable">',
                 '<g class="shape">',
                 '<circle class="progress-track" cx="50" cy="50" r="47.45" stroke="#ffffff" stroke-opacity="1" stroke-linecap="round" fill="none" stroke-width="5"/>',
                 '<circle class="precache-bar" cx="50" cy="50" r="47.45" stroke="#ffffff" stroke-opacity="1" stroke-linecap="round" fill="none" stroke-width="5" transform="rotate(-90 50 50)"/>',

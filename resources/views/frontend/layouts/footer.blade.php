@@ -47,7 +47,7 @@
                 </div>
                 <div class="col-xl-3 col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="400ms">
                     <div class="footer-widget__column footer-widget__contact">
-                        <h3 class="footer-widget__title"><a style="color: white;" href="{{route('contact')}}">Say hello!</a></h3>
+                        <h3 class="footer-widget__title1"><a style="color: white;" href="{{route('contact')}}">Say hello!</a></h3>
                         <ul class="list-unstyled footer-widget__contact-list">
                             <li>
                                 <div class="text">
@@ -91,8 +91,6 @@
 
 
 </div><!-- /.page-wrapper -->
-
-
 <div class="mobile-nav__wrapper">
     <div class="mobile-nav__overlay mobile-nav__toggler"></div>
     <!-- /.mobile-nav__overlay -->
@@ -100,7 +98,7 @@
         <span class="mobile-nav__close mobile-nav__toggler"><i class="fa fa-times"></i></span>
 
         <div class="logo-box">
-            <a href="index.html" aria-label="logo image"><img src="{{ asset('frontend/images/resources/logo-2.png') }}" width="125" height="43" alt="" /></a>
+            <a href="{{route('home')}}" aria-label="logo image"><img src="{{ asset('frontend/images/resources/logo-2.png') }}" width="125" height="43" alt="" /></a>
         </div>
         <!-- /.logo-box -->
         <div class="mobile-nav__container"></div>
@@ -109,11 +107,11 @@
         <ul class="mobile-nav__contact list-unstyled">
             <li>
                 <i class="fa fa-envelope"></i>
-                <a href="mailto:needhelp@packageName__.com">needhelp@zeinet.com</a>
+                <a href="mailto:support@adstocall">support@adstocall.com</a>
             </li>
             <li>
                 <i class="fa fa-phone-alt"></i>
-                <a href="tel:666-888-0000">666 888 0000</a>
+                <a href="tel:666-888-0000">+88(9800)6802</a>
             </li>
         </ul><!-- /.mobile-nav__contact -->
         <div class="mobile-nav__top">
@@ -124,8 +122,6 @@
                 <a href="#" class="fab fa-instagram"></a>
             </div><!-- /.mobile-nav__social -->
         </div><!-- /.mobile-nav__top -->
-
-
 
     </div>
     <!-- /.mobile-nav__content -->
@@ -178,8 +174,18 @@
 <script src="{{ asset('frontend/vendors/jvectormap/jquery.vmap.js') }}"></script>
 <script src="{{ asset('frontend/vendors/jvectormap/jquery-jvectormap-world-mill-en.js') }}"></script>
 
-<!-- template js -->
+<!-- Vector Map -->
 
+<script src="{{asset('frontend/vendors/jvectormap/jquery-jvectormap-2.0.2.min.js')}}"></script>
+<script src="{{asset('frontend/vendors/jvectormap/jquery-jvectormap-2.0.2.min.js/jvectormap/jquery-jvectormap-world-mill-en.js')}}"></script>
+
+
+
+
+
+
+
+<!-- template js -->
 <script src="{{ asset('frontend/js/zeinet.js') }}"></script>
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script src="{{asset('frontend/js/player.js')}}"></script>
@@ -204,9 +210,9 @@
         ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
     })();
-
 </script>
 
 
-</body>
+
+</body
 </html>

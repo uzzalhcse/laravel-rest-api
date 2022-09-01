@@ -10,13 +10,11 @@
     <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('frontend/images/favicons/favicon-32x32.png') }}" />
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('frontend/images/favicons/favicon-16x16.png') }}" />
     <link rel="manifest" href="frontend/images/favicons/site.webmanifest" />
-    <meta name="description" content="Zeinet HTML 5 Template " />
+    <meta name="description" content="Ads To Call " />
 
     <!-- fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap"
           rel="stylesheet">
 
@@ -76,32 +74,24 @@
                             <div class="main-menu-three__main-menu-box">
                                 <a href="#" class="mobile-nav__toggler"><i class="fa fa-bars"></i></a>
                                 <ul class="main-menu__list">
-                                    <li class="dropdown current megamenu">
+                                    <li>
                                         <a href="{{ route('home') }}">Home </a>
-
                                     </li>
-
-                                    <li class="dropdown">
+                                    <li>
                                         <a href="{{route('globalcoverage')}}">Global Coverage</a>
-
                                     </li>
-
-                                    <li class="dropdown">
+                                    <li>
                                         <a href="{{ route('pricing') }}">Pricing</a>
-
                                     </li>
-                                    <li class="dropdown">
+                                    <li>
                                         <a href="{{ route('whyatc') }}">Why ATC</a>
-
                                     </li>
-
                                     <li class="mob-link">
                                         <a href="https://app.adstocall.com">Signup</a>
                                     </li>
                                     <li class="mob-link">
                                         <a href="https://app.adstocall.com">Login</a>
                                     </li>
-
 
                                 </ul>
                             </div>
@@ -131,13 +121,9 @@
                                             <li><a class="dropdown-item" href="#">中國手語</a></li>
                                             <li><a class="dropdown-item" href="#">한국수어</a></li>
                                         </ul>
-
                                 </span>
 
                                 </div>
-
-
-
                             </div>
                         </div>
                     </div>
