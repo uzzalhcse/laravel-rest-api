@@ -41,35 +41,6 @@
     }
   }
 
-  // // Price Filter
-  // function priceFilter() {
-  //   if ($(".price-ranger").length) {
-  //     $(".price-ranger #slider-range").slider({
-  //       range: true,
-  //       min: 50,
-  //       max: 500,
-  //       values: [11, 300],
-  //       slide: function (event, ui) {
-  //         $(".price-ranger .ranger-min-max-block .min").val("$" + ui.values[0]);
-  //         $(".price-ranger .ranger-min-max-block .max").val("$" + ui.values[1]);
-  //       }
-  //     });
-  //     $(".price-ranger .ranger-min-max-block .min").val(
-  //       "$" + $(".price-ranger #slider-range").slider("values", 0)
-  //     );
-  //     $(".price-ranger .ranger-min-max-block .max").val(
-  //       "$" + $(".price-ranger #slider-range").slider("values", 1)
-  //     );
-  //   }
-  // }
-
-  // // Cart Touch Spin
-  // if ($(".quantity-spinner").length) {
-  //   $("input.quantity-spinner").TouchSpin({
-  //     verticalbuttons: true
-  //   });
-  // }
-
 
 
   if ($(".listing-details__contact-info-phone").length) {
@@ -139,49 +110,49 @@
     });
   }
 
-  // Type Effect
-  // if ($(".typed-effect").length) {
-  //   $(".typed-effect").each(function () {
-  //     var typedStrings = $(this).data("strings");
-  //     var typedTag = $(this).attr("id");
-  //     var typed = new Typed("#" + typedTag, {
-  //       typeSpeed: 100,
-  //       backSpeed: 100,
-  //       fadeOut: true,
-  //       loop: true,
-  //       strings: typedStrings.split(",")
-  //     });
-  //   });
-  // }
+  //Type Effect
+  if ($(".typed-effect").length) {
+    $(".typed-effect").each(function () {
+      var typedStrings = $(this).data("strings");
+      var typedTag = $(this).attr("id");
+      var typed = new Typed("#" + typedTag, {
+        typeSpeed: 100,
+        backSpeed: 100,
+        fadeOut: true,
+        loop: true,
+        strings: typedStrings.split(",")
+      });
+    });
+  }
 
-  // Popular Causes Progress Bar
-  // if ($(".count-bar").length) {
-  //   $(".count-bar").appear(
-  //     function () {
-  //       var el = $(this);
-  //       var percent = el.data("percent");
-  //       $(el).css("width", percent).addClass("counted");
-  //     },
-  //     {
-  //       accY: -50
-  //     }
-  //   );
-  // }
+  //Popular Causes Progress Bar
+  if ($(".count-bar").length) {
+    $(".count-bar").appear(
+      function () {
+        var el = $(this);
+        var percent = el.data("percent");
+        $(el).css("width", percent).addClass("counted");
+      },
+      {
+        accY: -50
+      }
+    );
+  }
 
   //Progress Bar / Levels
-  // if ($(".progress-levels .progress-box .bar-fill").length) {
-  //   $(".progress-box .bar-fill").each(
-  //     function () {
-  //       $(".progress-box .bar-fill").appear(function () {
-  //         var progressWidth = $(this).attr("data-percent");
-  //         $(this).css("width", progressWidth + "%");
-  //       });
-  //     },
-  //     {
-  //       accY: 0
-  //     }
-  //   );
-  // }
+  if ($(".progress-levels .progress-box .bar-fill").length) {
+    $(".progress-box .bar-fill").each(
+      function () {
+        $(".progress-box .bar-fill").appear(function () {
+          var progressWidth = $(this).attr("data-percent");
+          $(this).css("width", progressWidth + "%");
+        });
+      },
+      {
+        accY: 0
+      }
+    );
+  }
 
   //Fact Counter + Text Count
   if ($(".count-box").length) {
@@ -790,7 +761,6 @@
   }
 
   // window load event
-
   $(window).on("load", function () {
     if ($(".preloader").length) {
       $(".preloader").fadeOut();

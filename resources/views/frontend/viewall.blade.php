@@ -4,11 +4,33 @@
     <!--All Time Hit Start-->
     <section class="all-time-hit all-time-hit--two">
         <div class="container">
-            <div class="section-title text-left">
-                <span class="section-title__tagline">All Brands</span>
-                <h2 class="section-title__title">Most Popular Ad Choice</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="section-title text-left">
+                        <h2 class="section-title__title">Most Popular Ad Choice</h2>
+                    </div>
+
+                </div>
+
+                <div class="col-md-6">
+                    <div class="service-available__right">
+                        <form class="service-available__form">
+                            <div class="service-available__input-box">
+                                <input type="text" placeholder="Search here" name="search">
+                                <button type="submit" class="service-available__btn thm-btn">Search</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
-            <ul class="all-time-hit__list list-unstyled">
+
+
+
+
+
+{{--            ------------------------------** For Pc **-----------------------}}
+
+            <ul class="all-time-hit__list list-unstyled most_popular_ad_for_pc ">
                 <li class="all-time-hit__single wow fadeInUp" data-wow-delay="100ms">
                     <div class="all-time-hit__inner">
                         <div class="all-time-hit__img1">
@@ -328,9 +350,389 @@
     <!--All Time Hit End-->
 
 
+    <!-------------------------For Mobile------------------------->
+
+    <div class="container-fluid most_popular_ad_for_mobile">
+        <div class="row">
+            <ul class="all-time-hit__list list-unstyled">
+                <div class="col-lg-3 col-6">
+                    <li class="all-time-hit__single wow fadeInUp" data-wow-delay="100ms">
+                        <div class="all-time-hit__inner">
+                            <div class="all-time-hit__img1">
+                                <div class="all-time-hit-shape"></div>
+
+                                <img src="{{ asset('frontend/images/brand/01.png') }}" alt="">
+                                <div class="all-time-hit__video-link1">
+                                    <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#cocacola">
+                                        <div class="all-time-hit__video-icon">
+                                            <span class="fa fa-play"></span>
+                                            <i class="ripple"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="all-time-hit__content">
+
+                                    <p class="all-time-hit__text">2020 <i class="fa fa-star"></i> <span>6.5</span></p>
+                                </div>
+                            </div>
+                    </li>
+                </div>
+                <div class="col-lg-3 col-6">
+                    <li class="all-time-hit__single wow fadeInUp" data-wow-delay="100ms">
+                        <div class="all-time-hit__inner">
+                            <div class="all-time-hit__img1">
+                                <div class="all-time-hit-shape"></div>
+
+                                <img src="{{ asset('frontend/images/brand/02.png') }}" alt="">
+                                <div class="all-time-hit__video-link1">
+                                    <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#geico">
+                                        <div class="all-time-hit__video-icon">
+                                            <span class="fa fa-play"></span>
+                                            <i class="ripple"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="all-time-hit__content">
+
+                                    <p class="all-time-hit__text">2020 <i class="fa fa-star"></i> <span>6.5</span></p>
+                                </div>
+                            </div>
+
+                    </li>
+                </div>
+                <div class="col-lg-3 col-6">
+                    <li class="all-time-hit__single wow fadeInUp" data-wow-delay="100ms">
+                        <div class="all-time-hit__inner">
+                            <div class="all-time-hit__img1">
+                                <div class="all-time-hit-shape"></div>
+
+                                <img src="{{ asset('frontend/images/brand/03.png') }}" alt="">
+                                <div class="all-time-hit__video-link1">
+                                    <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#citi">
+                                        <div class="all-time-hit__video-icon">
+                                            <span class="fa fa-play"></span>
+                                            <i class="ripple"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="all-time-hit__content">
+
+                                    <p class="all-time-hit__text">2020 <i class="fa fa-star"></i> <span>6.5</span></p>
+                                </div>
+                            </div>
+
+                    </li>
+                </div>
+                <div class="col-lg-3 col-6">
+                    <li class="all-time-hit__single wow fadeInUp" data-wow-delay="100ms">
+                        <div class="all-time-hit__inner">
+                            <div class="all-time-hit__img1">
+                                <div class="all-time-hit-shape"></div>
+
+                                <img src="{{ asset('frontend/images/brand/04.png') }}" alt="">
+                                <div class="all-time-hit__video-link1">
+                                    <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#pizzahut">
+                                        <div class="all-time-hit__video-icon">
+                                            <span class="fa fa-play"></span>
+                                            <i class="ripple"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="all-time-hit__content">
+
+                                    <p class="all-time-hit__text">2020 <i class="fa fa-star"></i> <span>6.5</span></p>
+                                </div>
+                            </div>
+
+                    </li>
+                </div>
+                <div class="col-lg-3 col-6">
+                    <li class="all-time-hit__single wow fadeInUp" data-wow-delay="100ms">
+                        <div class="all-time-hit__inner">
+                            <div class="all-time-hit__img1">
+                                <div class="all-time-hit-shape"></div>
+
+                                <img src="{{ asset('frontend/images/brand/05.png') }}" alt="">
+                                <div class="all-time-hit__video-link1">
+                                    <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#expedia">
+                                        <div class="all-time-hit__video-icon">
+                                            <span class="fa fa-play"></span>
+                                            <i class="ripple"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="all-time-hit__content">
+
+                                    <p class="all-time-hit__text">2020 <i class="fa fa-star"></i> <span>6.5</span></p>
+                                </div>
+                            </div>
+
+                    </li>
+                </div>
+                <div class="col-lg-3 col-6">
+                    <li class="all-time-hit__single wow fadeInUp" data-wow-delay="100ms">
+                        <div class="all-time-hit__inner">
+                            <div class="all-time-hit__img1">
+                                <div class="all-time-hit-shape"></div>
+
+                                <img src="{{ asset('frontend/images/brand/06.png') }}" alt="">
+                                <div class="all-time-hit__video-link1">
+                                    <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#disney">
+                                        <div class="all-time-hit__video-icon">
+                                            <span class="fa fa-play"></span>
+                                            <i class="ripple"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="all-time-hit__content">
+
+                                    <p class="all-time-hit__text">2020 <i class="fa fa-star"></i> <span>6.5</span></p>
+                                </div>
+                            </div>
+
+                    </li>
+                </div>
+                <div class="col-lg-3 col-6">
+                    <li class="all-time-hit__single wow fadeInUp" data-wow-delay="100ms">
+                        <div class="all-time-hit__inner">
+                            <div class="all-time-hit__img1">
+                                <div class="all-time-hit-shape"></div>
+
+                                <img src="{{ asset('frontend/images/brand/07.png') }}" alt="">
+                                <div class="all-time-hit__video-link1">
+                                    <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#mcdonalds">
+                                        <div class="all-time-hit__video-icon">
+                                            <span class="fa fa-play"></span>
+                                            <i class="ripple"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="all-time-hit__content">
+
+                                    <p class="all-time-hit__text">2020 <i class="fa fa-star"></i> <span>6.5</span></p>
+                                </div>
+                            </div>
+
+                    </li>
+                </div>
+                <div class="col-lg-3 col-6">
+                    <li class="all-time-hit__single wow fadeInUp" data-wow-delay="100ms">
+                        <div class="all-time-hit__inner">
+                            <div class="all-time-hit__img1">
+                                <div class="all-time-hit-shape"></div>
+
+                                <img src="{{ asset('frontend/images/brand/08.png') }}" alt="">
+                                <div class="all-time-hit__video-link1">
+                                    <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#starbucks">
+                                        <div class="all-time-hit__video-icon">
+                                            <span class="fa fa-play"></span>
+                                            <i class="ripple"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="all-time-hit__content">
+
+                                    <p class="all-time-hit__text">2020 <i class="fa fa-star"></i> <span>6.5</span></p>
+                                </div>
+                            </div>
+
+                    </li>
+                </div>
+                <div class="col-lg-3 col-6">
+                    <li class="all-time-hit__single wow fadeInUp" data-wow-delay="100ms">
+                        <div class="all-time-hit__inner">
+                            <div class="all-time-hit__img1">
+                                <div class="all-time-hit-shape"></div>
+
+                                <img src="{{ asset('frontend/images/brand/09.png') }}" alt="">
+                                <div class="all-time-hit__video-link1">
+                                    <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#subway">
+                                        <div class="all-time-hit__video-icon">
+                                            <span class="fa fa-play"></span>
+                                            <i class="ripple"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="all-time-hit__content">
+
+                                    <p class="all-time-hit__text">2020 <i class="fa fa-star"></i> <span>6.5</span></p>
+                                </div>
+                            </div>
+
+                    </li>
+                </div>
+                <div class="col-lg-3 col-6">
+                    <li class="all-time-hit__single wow fadeInUp" data-wow-delay="100ms">
+                        <div class="all-time-hit__inner">
+                            <div class="all-time-hit__img1">
+                                <div class="all-time-hit-shape"></div>
+
+                                <img src="{{ asset('frontend/images/brand/10.png') }}" alt="">
+                                <div class="all-time-hit__video-link1">
+                                    <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#pepsi">
+                                        <div class="all-time-hit__video-icon">
+                                            <span class="fa fa-play"></span>
+                                            <i class="ripple"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="all-time-hit__content">
+
+                                    <p class="all-time-hit__text">2020 <i class="fa fa-star"></i> <span>6.5</span></p>
+                                </div>
+                            </div>
+
+                    </li>
+                </div>
+                <div class="col-lg-3 col-6">
+                    <li class="all-time-hit__single wow fadeInUp" data-wow-delay="100ms">
+                        <div class="all-time-hit__inner">
+                            <div class="all-time-hit__img1">
+                                <div class="all-time-hit-shape"></div>
+
+                                <img src="{{ asset('frontend/images/brand/11.png') }}" alt="">
+                                <div class="all-time-hit__video-link1">
+                                    <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#hm">
+                                        <div class="all-time-hit__video-icon">
+                                            <span class="fa fa-play"></span>
+                                            <i class="ripple"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="all-time-hit__content">
+
+                                    <p class="all-time-hit__text">2020 <i class="fa fa-star"></i> <span>6.5</span></p>
+                                </div>
+                            </div>
+
+                    </li>
+                </div>
+                <div class="col-lg-3 col-6">
+                    <li class="all-time-hit__single wow fadeInUp" data-wow-delay="100ms">
+                        <div class="all-time-hit__inner">
+                            <div class="all-time-hit__img1">
+                                <div class="all-time-hit-shape"></div>
+
+                                <img src="{{ asset('frontend/images/brand/12.png') }}" alt="">
+                                <div class="all-time-hit__video-link1">
+                                    <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#liberty">
+                                        <div class="all-time-hit__video-icon">
+                                            <span class="fa fa-play"></span>
+                                            <i class="ripple"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="all-time-hit__content">
+
+                                    <p class="all-time-hit__text">2020 <i class="fa fa-star"></i> <span>6.5</span></p>
+                                </div>
+                            </div>
+
+                    </li>
+                </div>
+                <div class="col-lg-3 col-6">
+                    <li class="all-time-hit__single wow fadeInUp" data-wow-delay="100ms">
+                        <div class="all-time-hit__inner">
+                            <div class="all-time-hit__img1">
+                                <div class="all-time-hit-shape"></div>
+
+                                <img src="{{ asset('frontend/images/brand/13.png') }}" alt="">
+                                <div class="all-time-hit__video-link1">
+                                    <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#pringles">
+                                        <div class="all-time-hit__video-icon">
+                                            <span class="fa fa-play"></span>
+                                            <i class="ripple"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="all-time-hit__content">
+
+                                    <p class="all-time-hit__text">2020 <i class="fa fa-star"></i> <span>6.5</span></p>
+                                </div>
+                            </div>
+
+                    </li>
+                </div>
+                <div class="col-lg-3 col-6">
+                    <li class="all-time-hit__single wow fadeInUp" data-wow-delay="100ms">
+                        <div class="all-time-hit__inner">
+                            <div class="all-time-hit__img1">
+                                <div class="all-time-hit-shape"></div>
+
+                                <img src="{{ asset('frontend/images/brand/14.png') }}" alt="">
+                                <div class="all-time-hit__video-link1">
+                                    <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#tmobile">
+                                        <div class="all-time-hit__video-icon">
+                                            <span class="fa fa-play"></span>
+                                            <i class="ripple"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="all-time-hit__content">
+
+                                    <p class="all-time-hit__text">2020 <i class="fa fa-star"></i> <span>6.5</span></p>
+                                </div>
+                            </div>
+
+                    </li>
+                </div>
+                <div class="col-lg-3 col-6">
+                    <li class="all-time-hit__single wow fadeInUp" data-wow-delay="100ms">
+                        <div class="all-time-hit__inner">
+                            <div class="all-time-hit__img1">
+                                <div class="all-time-hit-shape"></div>
+
+                                <img src="{{ asset('frontend/images/brand/15.png') }}" alt="">
+                                <div class="all-time-hit__video-link1">
+                                    <a href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#choice">
+                                        <div class="all-time-hit__video-icon">
+                                            <span class="fa fa-play"></span>
+                                            <i class="ripple"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="all-time-hit__content">
+
+                                    <p class="all-time-hit__text">2020 <i class="fa fa-star"></i> <span>6.5</span></p>
+                                </div>
+                            </div>
+                    </li>
+                </div>
+
+            </ul>
+        </div>
 
 
-    <!-- Modal Start Here -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- Modal Start Here -->
     <!-- Modal 01 -->
     <div class="modal fade" id="cocacola" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">

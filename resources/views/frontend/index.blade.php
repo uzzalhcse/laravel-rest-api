@@ -4,7 +4,7 @@
     <!--Main Slider Start-->
     <section class="main-slider-two clearfix">
 
-        <div class="swiper-container thm-swiper__slider" data-swiper-options='{"slidesPerView": 0, "loop": true,
+        <div class="swiper-container thm-swiper__slider" data-swiper-options='{"slidesPerView": 0, "loop": no,
             "effect": "zoom",
             "autoplay": {
             "delay": 5000
@@ -24,7 +24,7 @@
                                     <div class="main-slider-two__video-link">
                                         <a href="{{url('/frontend/video/atc.mp4') }}" class="video-popup">
                                             <div class="main-slider-two__video-icon">
-                                                <span class="fa fa-play"></span>
+                                                <span class="fa fa-play fa-mobile"></span>
                                                 <i class="ripple"></i>
                                             </div>
                                         </a>
@@ -53,9 +53,7 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
-                    <div class="gradiant"></div>
                 </div>
             </div>
         </div>
@@ -326,16 +324,22 @@
                     <!-- Media Player / -->
                 </div>
                 </div>
-                <div class="container-fluid">
-                    <div class="row brand-body">
-                        <div class="col-md-8 brand-text">
-                            <p> Company Name </p>
-                            <h1>CocaCola </h1>
-                        </div>
-                        <div class="col-md-4 brand-time">
 
-                            <time>Time:0.01 Seconds</time>
-                            <p>7,732,008 Auditions Jun 13, 2008</p>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-8 col-6 brand-text">
+                            <h1>CocaCola </h1>
+                            <div class="ratings">
+                                <i class="fa fa-star rating-color"></i>
+                                <i class="fa fa-star rating-color"></i>
+                                <i class="fa fa-star rating-color"></i>
+                                <i class="fa fa-star rating-color"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-6 brand-time">
+                            <time><i class="far fa-clock"></i>&nbsp; Time:0.01 Seconds</time>
+                            <p>7,732,008 Auditions</p>
                         </div>
                     </div>
                 </div>
@@ -358,14 +362,6 @@
                                 By submitting this form i confirm that i have read the privacy policy and agree to the processing of my personal data by Personio for this stated purposes.
                                 In case of consent, I can revoke my consent to this processing at any time
                             </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md-6 company-rating">
-                            <img src="{{ asset('frontend/images/icon/ratings.png') }}">
                         </div>
                     </div>
                 </div>
@@ -381,11 +377,11 @@
                     <div class="row">
 
                         <div class="col-md-12">
-                            <div class="col-md-12 chk-box">
 
-                                <input class="chk-box-text" type="checkbox" id="privacy" name="privacy" value="privacy" style="margin-bottom: 30px;">&nbsp;&nbsp;
-                                By adding this ad to my playlist this form i confirm that i have read the privacy policy.....
-                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                <label class="form-check-label" for="flexCheckDefault">By adding this ad to my playlist this form i confirm that i have read the privacy policy</label>
+
                         </div>
                     </div>
                 </div>
@@ -393,7 +389,6 @@
         </div>
     </div>
     </div>
-
     <!-- Modal 02 -->
     <div class="modal fade" id="geico" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
@@ -404,21 +399,27 @@
                     <div class="container">
                         <!-- Media Player-->
                         <div class="mediPlayer" style="text-align:center;">
-                            <audio class="listen" preload="none" data-size="250" src="{{asset('frontend/sounds/gieco.mp3')}}"></audio>
+                            <audio class="listen" preload="none" data-size="250" src="{{asset('frontend/sounds/Gieco.mp3')}}"></audio>
                         </div>
                         <!-- Media Player / -->
                     </div>
                 </div>
-                <div class="container-fluid">
-                    <div class="row brand-body">
-                        <div class="col-md-8 brand-text">
-                            <p> Company Name </p>
-                            <h1>Geico </h1>
-                        </div>
-                        <div class="col-md-4 brand-time">
 
-                            <time>Time:0.01 Seconds</time>
-                            <p>7,732,008 Auditions Jun 13, 2008</p>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-8 col-6 brand-text">
+                            <h1>Geico </h1>
+                            <div class="ratings">
+                                <i class="fa fa-star rating-color"></i>
+                                <i class="fa fa-star rating-color"></i>
+                                <i class="fa fa-star rating-color"></i>
+                                <i class="fa fa-star rating-color"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-6 brand-time">
+                            <time><i class="far fa-clock"></i>&nbsp; Time:0.01 Seconds</time>
+                            <p>7,732,008 Auditions</p>
                         </div>
                     </div>
                 </div>
@@ -444,14 +445,6 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md-6 company-rating">
-                            <img src="{{ asset('frontend/images/icon/ratings.png') }}">
-                        </div>
-                    </div>
-                </div>
                 <div class="container-fluid">
                     <div class="row">
 
@@ -464,10 +457,11 @@
                     <div class="row">
 
                         <div class="col-md-12">
-                            <div class="col-md-12" style="margin-left:100px; font-size: 13px; margin-bottom: 50px;">
 
-                                <input type="checkbox" id="privacy" name="privacy" value="privacy" style="font-size: 12px;">&nbsp;&nbsp;
-                                By adding this ad to my playlist this form i confirm that i have read the privacy policy.....
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                <label class="form-check-label" for="flexCheckDefault">By adding this ad to my playlist this form i confirm that i have read the privacy policy</label>
+
                             </div>
                         </div>
                     </div>
@@ -475,8 +469,6 @@
             </div>
         </div>
     </div>
-    </div>
-
     <!-- Modal 03 -->
     <div class="modal fade" id="citi" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
@@ -487,21 +479,27 @@
                     <div class="container">
                         <!-- Media Player-->
                         <div class="mediPlayer" style="text-align:center;">
-                            <audio class="listen" preload="none" data-size="250" src="{{asset('frontend/sounds/citibank.mp3')}}"></audio>
+                            <audio class="listen" preload="none" data-size="250" src="{{asset('frontend/sounds/Citibank.mp3')}}"></audio>
                         </div>
                         <!-- Media Player / -->
                     </div>
                 </div>
-                <div class="container-fluid">
-                    <div class="row brand-body">
-                        <div class="col-md-8 brand-text">
-                            <p> Company Name </p>
-                            <h1>Citi </h1>
-                        </div>
-                        <div class="col-md-4 brand-time">
 
-                            <time>Time:0.01 Seconds</time>
-                            <p>7,732,008 Auditions Jun 13, 2008</p>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-8 col-6 brand-text">
+                            <h1>Citibank </h1>
+                            <div class="ratings">
+                                <i class="fa fa-star rating-color"></i>
+                                <i class="fa fa-star rating-color"></i>
+                                <i class="fa fa-star rating-color"></i>
+                                <i class="fa fa-star rating-color"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-6 brand-time">
+                            <time><i class="far fa-clock"></i>&nbsp; Time:0.01 Seconds</time>
+                            <p>7,732,008 Auditions</p>
                         </div>
                     </div>
                 </div>
@@ -527,14 +525,6 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md-6 company-rating">
-                            <img src="{{ asset('frontend/images/icon/ratings.png') }}">
-                        </div>
-                    </div>
-                </div>
                 <div class="container-fluid">
                     <div class="row">
 
@@ -547,10 +537,11 @@
                     <div class="row">
 
                         <div class="col-md-12">
-                            <div class="col-md-12" style="margin-left:100px; font-size: 13px; margin-bottom: 50px;">
 
-                                <input type="checkbox" id="privacy" name="privacy" value="privacy" style="font-size: 12px;">&nbsp;&nbsp;
-                                By adding this ad to my playlist this form i confirm that i have read the privacy policy.....
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                <label class="form-check-label" for="flexCheckDefault">By adding this ad to my playlist this form i confirm that i have read the privacy policy</label>
+
                             </div>
                         </div>
                     </div>
@@ -558,8 +549,6 @@
             </div>
         </div>
     </div>
-    </div>
-
     <!-- Modal 04 -->
     <div class="modal fade" id="pizzahut" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
@@ -570,21 +559,27 @@
                     <div class="container">
                         <!-- Media Player-->
                         <div class="mediPlayer" style="text-align:center;">
-                            <audio class="listen" preload="none" data-size="250" src="{{asset('frontend/sounds/pizzahut.mp3')}}"></audio>
+                            <audio class="listen" preload="none" data-size="250" src="{{asset('frontend/sounds/Pizzahut.mp3')}}"></audio>
                         </div>
                         <!-- Media Player / -->
                     </div>
                 </div>
-                <div class="container-fluid">
-                    <div class="row brand-body">
-                        <div class="col-md-8 brand-text">
-                            <p> Company Name </p>
-                            <h1>Pizza Hut </h1>
-                        </div>
-                        <div class="col-md-4 brand-time">
 
-                            <time>Time:0.01 Seconds</time>
-                            <p>7,732,008 Auditions Jun 13, 2008</p>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-8 col-6 brand-text">
+                            <h1>Pizzahut </h1>
+                            <div class="ratings">
+                                <i class="fa fa-star rating-color"></i>
+                                <i class="fa fa-star rating-color"></i>
+                                <i class="fa fa-star rating-color"></i>
+                                <i class="fa fa-star rating-color"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-6 brand-time">
+                            <time><i class="far fa-clock"></i>&nbsp; Time:0.01 Seconds</time>
+                            <p>7,732,008 Auditions</p>
                         </div>
                     </div>
                 </div>
@@ -610,14 +605,6 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md-6 company-rating">
-                            <img src="{{ asset('frontend/images/icon/ratings.png') }}">
-                        </div>
-                    </div>
-                </div>
                 <div class="container-fluid">
                     <div class="row">
 
@@ -630,10 +617,11 @@
                     <div class="row">
 
                         <div class="col-md-12">
-                            <div class="col-md-12" style="margin-left:100px; font-size: 13px; margin-bottom: 50px;">
 
-                                <input type="checkbox" id="privacy" name="privacy" value="privacy" style="font-size: 12px;">&nbsp;&nbsp;
-                                By adding this ad to my playlist this form i confirm that i have read the privacy policy.....
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                <label class="form-check-label" for="flexCheckDefault">By adding this ad to my playlist this form i confirm that i have read the privacy policy</label>
+
                             </div>
                         </div>
                     </div>
@@ -641,8 +629,6 @@
             </div>
         </div>
     </div>
-    </div>
-
     <!-- Modal 05 -->
     <div class="modal fade" id="expedia" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
@@ -658,16 +644,22 @@
                         <!-- Media Player / -->
                     </div>
                 </div>
-                <div class="container-fluid">
-                    <div class="row brand-body">
-                        <div class="col-md-8 brand-text">
-                            <p> Company Name </p>
-                            <h1>Expedia </h1>
-                        </div>
-                        <div class="col-md-4 brand-time">
 
-                            <time>Time:0.01 Seconds</time>
-                            <p>7,732,008 Auditions Jun 13, 2008</p>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-8 col-6 brand-text">
+                            <h1>Expedia </h1>
+                            <div class="ratings">
+                                <i class="fa fa-star rating-color"></i>
+                                <i class="fa fa-star rating-color"></i>
+                                <i class="fa fa-star rating-color"></i>
+                                <i class="fa fa-star rating-color"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-6 brand-time">
+                            <time><i class="far fa-clock"></i>&nbsp; Time:0.01 Seconds</time>
+                            <p>7,732,008 Auditions</p>
                         </div>
                     </div>
                 </div>
@@ -693,14 +685,6 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md-6 company-rating">
-                            <img src="{{ asset('frontend/images/icon/ratings.png') }}">
-                        </div>
-                    </div>
-                </div>
                 <div class="container-fluid">
                     <div class="row">
 
@@ -713,10 +697,11 @@
                     <div class="row">
 
                         <div class="col-md-12">
-                            <div class="col-md-12" style="margin-left:100px; font-size: 13px; margin-bottom: 50px;">
 
-                                <input type="checkbox" id="privacy" name="privacy" value="privacy" style="font-size: 12px;">&nbsp;&nbsp;
-                                By adding this ad to my playlist this form i confirm that i have read the privacy policy.....
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                <label class="form-check-label" for="flexCheckDefault">By adding this ad to my playlist this form i confirm that i have read the privacy policy</label>
+
                             </div>
                         </div>
                     </div>
@@ -724,8 +709,6 @@
             </div>
         </div>
     </div>
-    </div>
-
     <!-- Modal 06 -->
     <div class="modal fade" id="disney" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
@@ -741,16 +724,22 @@
                         <!-- Media Player / -->
                     </div>
                 </div>
-                <div class="container-fluid">
-                    <div class="row brand-body">
-                        <div class="col-md-8 brand-text">
-                            <p> Company Name </p>
-                            <h1>Disney </h1>
-                        </div>
-                        <div class="col-md-4 brand-time">
 
-                            <time>Time:0.01 Seconds</time>
-                            <p>7,732,008 Auditions Jun 13, 2008</p>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-8 col-6 brand-text">
+                            <h1>Disney </h1>
+                            <div class="ratings">
+                                <i class="fa fa-star rating-color"></i>
+                                <i class="fa fa-star rating-color"></i>
+                                <i class="fa fa-star rating-color"></i>
+                                <i class="fa fa-star rating-color"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-6 brand-time">
+                            <time><i class="far fa-clock"></i>&nbsp; Time:0.01 Seconds</time>
+                            <p>7,732,008 Auditions</p>
                         </div>
                     </div>
                 </div>
@@ -776,14 +765,6 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md-6 company-rating">
-                            <img src="{{ asset('frontend/images/icon/ratings.png') }}">
-                        </div>
-                    </div>
-                </div>
                 <div class="container-fluid">
                     <div class="row">
 
@@ -796,10 +777,11 @@
                     <div class="row">
 
                         <div class="col-md-12">
-                            <div class="col-md-12" style="margin-left:100px; font-size: 13px; margin-bottom: 50px;">
 
-                                <input type="checkbox" id="privacy" name="privacy" value="privacy" style="font-size: 12px;">&nbsp;&nbsp;
-                                By adding this ad to my playlist this form i confirm that i have read the privacy policy.....
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                <label class="form-check-label" for="flexCheckDefault">By adding this ad to my playlist this form i confirm that i have read the privacy policy</label>
+
                             </div>
                         </div>
                     </div>
@@ -807,8 +789,6 @@
             </div>
         </div>
     </div>
-    </div>
-
     <!-- Modal 07 -->
     <div class="modal fade" id="mcdonalds" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
@@ -824,16 +804,22 @@
                         <!-- Media Player / -->
                     </div>
                 </div>
-                <div class="container-fluid">
-                    <div class="row brand-body">
-                        <div class="col-md-8 brand-text">
-                            <p> Company Name </p>
-                            <h1>McDonald's </h1>
-                        </div>
-                        <div class="col-md-4 brand-time">
 
-                            <time>Time:0.01 Seconds</time>
-                            <p>7,732,008 Auditions Jun 13, 2008</p>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-8 col-6 brand-text">
+                            <h1>McDonald's </h1>
+                            <div class="ratings">
+                                <i class="fa fa-star rating-color"></i>
+                                <i class="fa fa-star rating-color"></i>
+                                <i class="fa fa-star rating-color"></i>
+                                <i class="fa fa-star rating-color"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-6 brand-time">
+                            <time><i class="far fa-clock"></i>&nbsp; Time:0.01 Seconds</time>
+                            <p>7,732,008 Auditions</p>
                         </div>
                     </div>
                 </div>
@@ -859,14 +845,6 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md-6 company-rating">
-                            <img src="{{ asset('frontend/images/icon/ratings.png') }}">
-                        </div>
-                    </div>
-                </div>
                 <div class="container-fluid">
                     <div class="row">
 
@@ -879,10 +857,11 @@
                     <div class="row">
 
                         <div class="col-md-12">
-                            <div class="col-md-12" style="margin-left:100px; font-size: 13px; margin-bottom: 50px;">
 
-                                <input type="checkbox" id="privacy" name="privacy" value="privacy" style="font-size: 12px;">&nbsp;&nbsp;
-                                By adding this ad to my playlist this form i confirm that i have read the privacy policy.....
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                <label class="form-check-label" for="flexCheckDefault">By adding this ad to my playlist this form i confirm that i have read the privacy policy</label>
+
                             </div>
                         </div>
                     </div>
@@ -890,8 +869,6 @@
             </div>
         </div>
     </div>
-    </div>
-
     <!-- Modal 08 -->
     <div class="modal fade" id="starbucks" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
@@ -907,16 +884,22 @@
                         <!-- Media Player / -->
                     </div>
                 </div>
-                <div class="container-fluid">
-                    <div class="row brand-body">
-                        <div class="col-md-8 brand-text">
-                            <p> Company Name </p>
-                            <h1>Starbucks </h1>
-                        </div>
-                        <div class="col-md-4 brand-time">
 
-                            <time>Time:0.01 Seconds</time>
-                            <p>7,732,008 Auditions Jun 13, 2008</p>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-8 col-6 brand-text">
+                            <h1>Starbucks </h1>
+                            <div class="ratings">
+                                <i class="fa fa-star rating-color"></i>
+                                <i class="fa fa-star rating-color"></i>
+                                <i class="fa fa-star rating-color"></i>
+                                <i class="fa fa-star rating-color"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-6 brand-time">
+                            <time><i class="far fa-clock"></i>&nbsp; Time:0.01 Seconds</time>
+                            <p>7,732,008 Auditions</p>
                         </div>
                     </div>
                 </div>
@@ -942,14 +925,6 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md-6 company-rating">
-                            <img src="{{ asset('frontend/images/icon/ratings.png') }}">
-                        </div>
-                    </div>
-                </div>
                 <div class="container-fluid">
                     <div class="row">
 
@@ -962,10 +937,11 @@
                     <div class="row">
 
                         <div class="col-md-12">
-                            <div class="col-md-12" style="margin-left:100px; font-size: 13px; margin-bottom: 50px;">
 
-                                <input type="checkbox" id="privacy" name="privacy" value="privacy" style="font-size: 12px;">&nbsp;&nbsp;
-                                By adding this ad to my playlist this form i confirm that i have read the privacy policy.....
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                <label class="form-check-label" for="flexCheckDefault">By adding this ad to my playlist this form i confirm that i have read the privacy policy</label>
+
                             </div>
                         </div>
                     </div>
@@ -973,8 +949,6 @@
             </div>
         </div>
     </div>
-    </div>
-
     <!-- Modal 09 -->
     <div class="modal fade" id="subway" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
@@ -985,21 +959,27 @@
                     <div class="container">
                         <!-- Media Player-->
                         <div class="mediPlayer" style="text-align:center;">
-                            <audio class="listen" preload="none" data-size="250" src="{{asset('frontend/sounds/Subway.mp3')}}"></audio>
+                            <audio class="listen" preload="none" data-size="250" src="{{asset('frontend/sounds/subway.mp3')}}"></audio>
                         </div>
                         <!-- Media Player / -->
                     </div>
                 </div>
-                <div class="container-fluid">
-                    <div class="row brand-body">
-                        <div class="col-md-8 brand-text">
-                            <p> Company Name </p>
-                            <h1>Subway </h1>
-                        </div>
-                        <div class="col-md-4 brand-time">
 
-                            <time>Time:0.01 Seconds</time>
-                            <p>7,732,008 Auditions Jun 13, 2008</p>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-8 col-6 brand-text">
+                            <h1>Subway </h1>
+                            <div class="ratings">
+                                <i class="fa fa-star rating-color"></i>
+                                <i class="fa fa-star rating-color"></i>
+                                <i class="fa fa-star rating-color"></i>
+                                <i class="fa fa-star rating-color"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-6 brand-time">
+                            <time><i class="far fa-clock"></i>&nbsp; Time:0.01 Seconds</time>
+                            <p>7,732,008 Auditions</p>
                         </div>
                     </div>
                 </div>
@@ -1025,14 +1005,6 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md-6 company-rating">
-                            <img src="{{ asset('frontend/images/icon/ratings.png') }}">
-                        </div>
-                    </div>
-                </div>
                 <div class="container-fluid">
                     <div class="row">
 
@@ -1045,10 +1017,11 @@
                     <div class="row">
 
                         <div class="col-md-12">
-                            <div class="col-md-12" style="margin-left:100px; font-size: 13px; margin-bottom: 50px;">
 
-                                <input type="checkbox" id="privacy" name="privacy" value="privacy" style="font-size: 12px;">&nbsp;&nbsp;
-                                By adding this ad to my playlist this form i confirm that i have read the privacy policy.....
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                <label class="form-check-label" for="flexCheckDefault">By adding this ad to my playlist this form i confirm that i have read the privacy policy</label>
+
                             </div>
                         </div>
                     </div>
@@ -1056,8 +1029,6 @@
             </div>
         </div>
     </div>
-    </div>
-
     <!-- Modal 10 -->
     <div class="modal fade" id="pepsi" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
@@ -1068,21 +1039,27 @@
                     <div class="container">
                         <!-- Media Player-->
                         <div class="mediPlayer" style="text-align:center;">
-                            <audio class="listen" preload="none" data-size="250" src="{{asset('frontend/sounds/Pepsi.mp3')}}"></audio>
+                            <audio class="listen" preload="none" data-size="250" src="{{asset('frontend/sounds/pepsi.mp3')}}"></audio>
                         </div>
                         <!-- Media Player / -->
                     </div>
                 </div>
-                <div class="container-fluid">
-                    <div class="row brand-body">
-                        <div class="col-md-8 brand-text">
-                            <p> Company Name </p>
-                            <h1>Pepsi </h1>
-                        </div>
-                        <div class="col-md-4 brand-time">
 
-                            <time>Time:0.01 Seconds</time>
-                            <p>7,732,008 Auditions Jun 13, 2008</p>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-8 col-6 brand-text">
+                            <h1>Pepsi </h1>
+                            <div class="ratings">
+                                <i class="fa fa-star rating-color"></i>
+                                <i class="fa fa-star rating-color"></i>
+                                <i class="fa fa-star rating-color"></i>
+                                <i class="fa fa-star rating-color"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-6 brand-time">
+                            <time><i class="far fa-clock"></i>&nbsp; Time:0.01 Seconds</time>
+                            <p>7,732,008 Auditions</p>
                         </div>
                     </div>
                 </div>
@@ -1108,14 +1085,6 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md-6 company-rating">
-                            <img src="{{ asset('frontend/images/icon/ratings.png') }}">
-                        </div>
-                    </div>
-                </div>
                 <div class="container-fluid">
                     <div class="row">
 
@@ -1128,10 +1097,11 @@
                     <div class="row">
 
                         <div class="col-md-12">
-                            <div class="col-md-12" style="margin-left:100px; font-size: 13px; margin-bottom: 50px;">
 
-                                <input type="checkbox" id="privacy" name="privacy" value="privacy" style="font-size: 12px;">&nbsp;&nbsp;
-                                By adding this ad to my playlist this form i confirm that i have read the privacy policy.....
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                <label class="form-check-label" for="flexCheckDefault">By adding this ad to my playlist this form i confirm that i have read the privacy policy</label>
+
                             </div>
                         </div>
                     </div>
@@ -1139,12 +1109,11 @@
             </div>
         </div>
     </div>
-    </div>
 
 
 
 
-    <!--Free Access Start-->
+<!--Free Access Start-->
         <section class="free-access">
               <div class="free-access-bg jarallax" data-jarallax data-speed="0.2" data-imgPosition="50% 0%"
                 style="background-image: url(frontend/images/resources/featured.png);">
@@ -1186,21 +1155,24 @@
         </div>
         <div class="container">
             <div class="free-access__inner">
-                <h2 class="free-access1__title">Get Paid Every 30 Days WithUnlimited Ads To Choose From </h2>
+                <h2 class="free-access1__title">Get Paid Every 30 Days With <br>Unlimited Ads To Choose From </h2>
                 <div class="free-access__btn-box">
                     <a href="{{ url('/pricing') }}" class="free-access__btn">Get started now</a>
                 </div>
+
             </div>
         </div>
     </section>
     <!--Free Access for mobile End-->
 
 
-        <!--Counter One Start-->
+<!--Counter One Start-->
         <section class="counter-one">
             <div class="container">
                 <div class="counter-one__inner">
+
                     <ul class="list-unstyled counter-one__list">
+
                         <li class="counter-one__single">
                             <div class="counter-one__count-box">
                                 <h3 class="odometer" data-count="150">00</h3>
@@ -1231,7 +1203,6 @@
         </section>
         <!--Counter One End-->
 
-
         <!--Counter One Start for mobile-->
         <section class="counter-mobile">
         <div class="container">
@@ -1245,7 +1216,7 @@
                     </li>
                     <li class="counter-mobile__single">
                         <div class="counter-one__count-box">
-                            <h3 class="odometer" data-count="2">00</h3>
+                            <h3 class="odometer" data-count="2">00</h3>&nbsp;<b style="font-size:20px; padding-top:30px; color: #0a0302;">Bln</b>
                         </div>
                         <p class="counter-mobile__text"> Users Daily</p>
                     </li>
@@ -1266,8 +1237,6 @@
         </div>
     </section>
         <!--Counter One End for Mobile-->
-
-
 
    <!--Watch Devices Start-->
         <section class="watch-devices">
@@ -1293,8 +1262,6 @@
             </div>
         </section>
         <!--Watch Devices End-->
-
-
 
 
     <!--Getting Started for PC-->
@@ -1349,7 +1316,6 @@
             </div>
         </section>
         <!--Getting Started end-->
-
 
     <!--Getting Started for mobile-->
     <section class="getting_startedmobile">
@@ -1417,8 +1383,7 @@
         </div>
     </section>
     <!--Getting Started End-->
-
-
+    
         <!--Customer Start-->
        <section class="customer">
             <div class="container">
@@ -1614,15 +1579,15 @@
                 <div class="thm-swiper__slider swiper-container" data-swiper-options='{"spaceBetween": 300, "slidesPerView": 5, "autoplay": { "delay": 3000 }, "breakpoints": {
                                     "0": {
                                         "spaceBetween": 30,
-                                        "slidesPerView": 4
+                                        "slidesPerView": 3
                                     },
                                     "375": {
                                         "spaceBetween": 30,
-                                        "slidesPerView": 4
+                                        "slidesPerView": 3
                                     },
                                     "575": {
                                         "spaceBetween": 30,
-                                        "slidesPerView": 4
+                                        "slidesPerView": 3
                                     },
 
                                     "767": {
@@ -2017,4 +1982,4 @@
         </section>
         <!--Newsletter End-->
 
-        @endsection
+@endsection

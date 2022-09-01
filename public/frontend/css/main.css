@@ -366,6 +366,7 @@ ul {
 .section-title__title1 a {
     margin: 0;
     color: var(--zeinet-black);
+    font-family: 'Poppins';
     letter-spacing: -0.04em;
     margin-top: 5px;
     font-style: normal;
@@ -385,6 +386,19 @@ ul {
     letter-spacing: -0.04em;
     margin-top: 5px;
   }
+
+
+
+
+/*________________________________MostpopularAd-----------------*/
+
+.most_popular_ad_for_mobile{
+
+    display: none;
+}
+
+
+
 
 
 .bootstrap-select .btn-light:not(:disabled):not(.disabled).active,
@@ -440,25 +454,25 @@ ul {
 }
 
 .preloader {
-  position: fixed;
-  background-color: #3B148C;
-  background-position: center center;
-  background-repeat: no-repeat;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 99999;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  text-align: center;
+    position: fixed;
+    background-color: #fff;
+    background-position: center center;
+    background-repeat: no-repeat;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 99999;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    text-align: center;
 }
 
 .preloader__image {
@@ -473,7 +487,7 @@ ul {
   background-image: url(../images/loader.png);
   background-repeat: no-repeat;
   background-position: center center;
-  background-size: 200px auto;
+    background-size: 60px auto;
   width: 100%;
   height: 100%;
 }
@@ -4381,6 +4395,7 @@ z-index: 1;
   display: block;
   max-width: 600px;
   width: 100%;
+  margin-bottom: 30px;
 }
 
 .service-available__form {
@@ -4394,28 +4409,47 @@ z-index: 1;
 }
 
 .service-available__input-box input[type="text"] {
-  height: 80px;
-  width: 100%;
-  max-width: 600px;
-  background-color: #15909c;
-  border: 1px solid #31abb6;
-  border-radius: 40px;
+  height: 50px;
+  width: 115%;
+  max-width: 700px;
+  background-color: var(--zeinet-white) ;
+  border: 1px solid #3B148C;
+  border-radius: 12px;
   font-size: 16px;
-  color: var(--zeinet-white);
+  color: #4d4d4d;
   padding-left: 40px;
-  padding-right: 245px;
+
   outline: none;
 }
 
 .service-available__btn {
   position: absolute;
   top: 50%;
-  right: 15px;
+  right: -100px;
   border: 0;
-  background-color: var(--zeinet-white);
-  color: var(--zeinet-black);
+  background-color: #3B148C;
+  color: var(--zeinet-white);
   transform: translateY(-50%);
 }
+
+
+
+.world-map circle:nth-child(2) {
+    fill: #e82646;
+}
+
+.world-map circle:nth-child(3) {
+    fill: #05c3fb;
+}
+
+.world-map circle:nth-child(4) {
+    fill: #09ad95;
+}
+
+.world-map circle:nth-child(5) {
+    fill: #f7b731;
+}
+
 
 /*--------------------------------------------------------------
 # Site Footer
@@ -4481,6 +4515,22 @@ z-index: 1;
   line-height: 18px;
   margin-bottom: 27px;
   letter-spacing: var(--zeinet-letter-spacing-two);
+}
+
+.footer-widget__title1 {
+    font-size: 22px;
+    color: var(--zeinet-white);
+    font-weight: 800;
+    line-height: 18px;
+    margin-bottom: 27px;
+    letter-spacing: var(--zeinet-letter-spacing-two);
+}
+
+.site-footer__bottom-text {
+    font-size: 15px;
+    color: #ffffff;
+    font-weight: 500;
+
 }
 
 .site-footer__top {
@@ -6260,50 +6310,39 @@ about-four__text-1 {
     padding-left: 10px;
 }
 
-.brand-text p{
-    margin-top:20px;
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 18px;
-    line-height: 10px;
-    color: #212121;
-}
-
 .brand-text h1{
 
     font-family: 'Poppins';
+    padding-top: 20px;
     font-style: normal;
     font-weight: 600;
     font-size: 34px;
-    line-height: 80px;
+    line-height: 40px;
     color: #212121;
 }
 
-.brand-time{
+.brand-time {
     margin-top: 25px;
-}
-.brand-time time {
-    border:1px solid gray;
-    padding-top:10px;
-    padding-left:30px;
-    padding-right:30px;
-    padding-bottom:10px;
-    border-radius:10px;
+    text-align: right;
 }
 
 .brand-time p{
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 400;
+    padding-left: 20px;
+    font-size: 15px;
+}
+
+.ratings{
+    margin-bottom: 10px;
     font-size: 13px;
-    line-height: 54px;
-    color: #000000;
-    text-align:left;
+
+}
+
+.rating-color{
+    color:#fbc634 !important;
 }
 
 .company-bio{
-    padding-left: 10px;
+
     padding-top:30px;
     padding-bottom:10px;
 }
@@ -6320,11 +6359,10 @@ about-four__text-1 {
 
 .company-txt{
 
-    margin-left: 20px;
-    margin-right: 20px;
-    padding-top:30px;
-    padding-bottom: 50px;
-    border:1px solid #80808030;
+
+    padding-top:10px;
+    padding-bottom: 20px;
+
 }
 .company-txt p{
 
@@ -6333,6 +6371,9 @@ about-four__text-1 {
     font-size: 14px;
     line-height: 30px;
     color: #000000;
+    font-style: normal;
+    font-weight: normal;
+    margin-bottom: 10px;
 }
 .company-rating img{
     width:100%;
@@ -6342,8 +6383,8 @@ about-four__text-1 {
 }
 
 .text-center button{
-    padding-left:150px;
-    padding-right:150px;
+    padding-left:310px;
+    padding-right:310px;
     padding-top:13px;
     padding-bottom:13px;
     background:#5415A4;
@@ -6356,11 +6397,11 @@ about-four__text-1 {
 
 }
 
-.chk-box{
-    margin-left:100px;
-    font-size: 13px;
-    margin-bottom: 30px;
-
+.form-check {
+    display: block;
+    min-height: 1.5rem;
+    padding-left: 50px;
+    margin-bottom: 31px;
 }
 
 /*----------------------------------------global Map---------------*/
@@ -7482,6 +7523,88 @@ about-four__text-1 {
   background-color: var(--zeinet-primary);
   color: var(--zeinet-white);
 }
+
+
+/*----------------------------------------------
+ #Why ATC
+ ----------------------------------------------*/
+
+.why-atc {
+    position: relative;
+    display: block;
+    padding: 100px 0px 100px;
+}
+
+.why-atc-inner{
+
+    margin-bottom: 20px;
+    margin-top: 20px;
+
+
+}
+
+.why-atc-title h1{
+
+    font-size: 45px;
+    color: var(--zeinet-black);
+    line-height: 50px;
+    font-weight: 800;
+    margin-top: 50px;
+    padding-bottom: 40px;
+}
+
+
+.why-atc-title p{
+
+    font-size: 18px;
+    line-height: 30px;
+    padding-bottom: 30px;
+    text-align: justify;
+}
+
+
+.why-atc_img {
+    position: relative;
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-left: 0px;
+    margin-right: 0px;
+
+}
+
+.why-atc-img2{
+
+    position: relative;
+    display: block;
+    width: 100%;
+    margin-left: -180px;
+    margin-right: 0px;
+
+
+
+}
+
+.atc-inner-background{
+
+    background-color: #f6ebfb;
+    padding: 60px 40px 60px;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
