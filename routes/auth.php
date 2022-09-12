@@ -31,7 +31,8 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::post('/update-password', [AuthController::class, 'updatePassword']);
     Route::get('/office-types',   [OfficeController::class, 'officeTypes']);
     Route::get('/jurisdictions',   [OfficeController::class, 'jurisdictions']);
-    Route::get('/get-modules',     [RolePermissionController::class, 'allModules'])   ->name('role-and-permissions.allModules');
+    Route::get('/get-modules',     [RolePermissionController::class, 'allModules'])->name('role-and-permissions.allModules');
+    Route::get('/get-modules',     [RolePermissionController::class, 'allModules'])->name('role-and-permissions.allModules');
 
     Route::middleware('acl:user-role-management')->group(function () {
         /*

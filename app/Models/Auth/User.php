@@ -32,7 +32,6 @@ use Laravel\Sanctum\HasApiTokens;
  * @property-read mixed $is_active
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
  * @property-read int|null $notifications_count
- * @property-read \App\Models\Auth\Office $office
  * @property-read \Illuminate\Database\Eloquent\Collection|Permission[] $permissions
  * @property-read int|null $permissions_count
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Auth\Role[] $roles
@@ -129,11 +128,6 @@ class User extends Authenticatable
     public function getAclAttribute(){
         return $this->roles->map->permissions->flatten()->merge($this->permissions)->pluck('slug');
     }
-
-    public function office(){
-        return $this->belongsTo(Office::class);
-    }
-
     public function getAvatarAttribute(){
         return url('/').$this->attributes['avatar'];
     }

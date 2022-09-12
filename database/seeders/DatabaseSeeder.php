@@ -8,15 +8,12 @@ use Database\Seeders\Acl\ModuleTableSeeder;
 use Database\Seeders\Acl\PermissionSeeder;
 use Database\Seeders\Acl\RolePermissionSeeder;
 use Database\Seeders\Acl\UserPermissionSeeder;
-use Database\Seeders\Auth\OfficeSeeder;
 use Database\Seeders\Auth\RolesTableSeeder;
-use Database\Seeders\Auth\CommonSeeder;
 use Database\Seeders\Auth\UsersTableSeeder;
-use Database\Seeders\Share\DistrictSeeder;
-use Database\Seeders\Share\DivisionSeeder;
+use Database\Seeders\Blog\BlogCommentSeeder;
+use Database\Seeders\Blog\BlogSeeder;
+use Database\Seeders\Share\CountrySeeder;
 use Database\Seeders\Share\StatusSeeder;
-use Database\Seeders\Share\UnionSeeder;
-use Database\Seeders\Share\UpazilaSeeder;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -30,12 +27,8 @@ class DatabaseSeeder extends Seeder
     {
 
         $this->call(StatusSeeder::class);
-        $this->call(DivisionSeeder::class);
-        $this->call(DistrictSeeder::class);
-        $this->call(UpazilaSeeder::class);
-        $this->call(UnionSeeder::class);
+        $this->call(CountrySeeder::class);
         $this->call(RolesTableSeeder::class);
-        $this->call(OfficeSeeder::class);
         $this->call(UsersTableSeeder::class);
         $this->call(ModuleTableSeeder::class);
         $this->call(FeatureTableSeeder::class);
@@ -43,5 +36,7 @@ class DatabaseSeeder extends Seeder
         $this->call(PermissionSeeder::class);
         $this->call(RolePermissionSeeder::class);
         $this->call(UserPermissionSeeder::class);
+        $this->call(BlogSeeder::class);
+        $this->call(BlogCommentSeeder::class);
     }
 }

@@ -15,12 +15,19 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
+            $table->string('first_name');
+            $table->string('last_name');
+            $table->string('type')->default('user');
             $table->string('avatar')->nullable();
+            $table->string('occupation')->nullable();
+            $table->string('job_title')->nullable();
+            $table->string('gender');
+            $table->string('mobile');
+            $table->string('email')->unique();
+            $table->text('address');
+            $table->foreignId('country_id')->default(1)->constrained('countries');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->foreignId('office_id')->constrained('offices')->cascadeOnDelete();
             $table->foreignId('status_id')->default(1)->constrained('statuses');
             $table->foreignId('created_by')->nullable()->constrained('users')->cascadeOnDelete();
             $table->foreignId('updated_by')->nullable()->constrained('users')->cascadeOnDelete();
