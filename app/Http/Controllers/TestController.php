@@ -8,6 +8,7 @@ use App\Http\Resources\TestCollection;
 use App\Http\Resources\TestResource;
 use App\Jobs\WelcomeEmailJob;
 use App\Mail\WelcomeEmail;
+use App\Models\Ads\Ads;
 use App\Models\Auth\User;
 use App\Models\Share\District;
 use App\Models\Share\Upazila;
@@ -19,7 +20,7 @@ use Illuminate\Support\Facades\Mail;
 class TestController extends ApiController
 {
     public function test(){
-        return [Carbon::now()->month];
+        return [Ads::all()];
     }
 
     public function testEmail(){

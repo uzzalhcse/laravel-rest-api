@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\ApiController;
 use App\Http\Requests\Auth\UserRequest;
 use App\Http\Resources\Acl\PermissionResource;
+use App\Http\Resources\EloquentResource;
 use App\Http\Resources\Auth\UserResource;
 use App\Interfaces\Auth\UserRepositoryInterface;
 use App\Jobs\WelcomeEmailJob;
@@ -36,7 +37,7 @@ class UserController extends ApiController
     public function index(): JsonResponse
     {
         return $this->success('User lists',[
-            'item'=> $this->userRepository->getAllItems()
+            'item'=> new EloquentResource($this->userRepository->getAllItems())
         ]);
     }
 
@@ -48,8 +49,8 @@ class UserController extends ApiController
      */
     public function store(UserRequest $request): JsonResponse
     {
-        $user = $this->userRepository->store($request->validated());
-        $this->userRepository->saveAcl($request->role_ids,$request->permissions);
+        $user = $this->userRepository->store($request);
+        $this->userRepository->saveAcl($user,$request->role_ids,$request->permissions);
 
         dispatch(new WelcomeEmailJob($user));
         return $this->success('User Saved');
@@ -69,7 +70,7 @@ class UserController extends ApiController
 
         $modules = Module::with('features.permissions')->where('is_enabled',1)->get();
         return $this->success('User Info',[
-            'user'=> new UserResource($user),
+            'user'=> $user->formatResponse(),
             'modules'=> PermissionResource::collection($modules),
         ]);
     }
@@ -83,7 +84,7 @@ class UserController extends ApiController
      */
     public function update(UserRequest $request, User $user): JsonResponse
     {
-        $this->userRepository->update($request->validated(),$user);
+        $this->userRepository->update($request,$user);
         $this->userRepository->saveAcl($user,$request->role_ids,$request->permissions);
         return $this->success('User Update');
     }

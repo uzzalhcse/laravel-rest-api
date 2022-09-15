@@ -27,27 +27,15 @@ Route::middleware(['auth:sanctum'])->group(function () {
 
     Route::get('/info', [AuthController::class, 'info']);
     Route::post('/logout', [AuthController::class, 'logout']);
+
     Route::post('/update-profile', [AuthController::class, 'updateProfile']);
     Route::post('/update-password', [AuthController::class, 'updatePassword']);
-    Route::get('/office-types',   [OfficeController::class, 'officeTypes']);
-    Route::get('/jurisdictions',   [OfficeController::class, 'jurisdictions']);
+
     Route::get('/get-modules',     [RolePermissionController::class, 'allModules'])->name('role-and-permissions.allModules');
     Route::get('/get-modules',     [RolePermissionController::class, 'allModules'])->name('role-and-permissions.allModules');
 
-    Route::middleware('acl:user-role-management')->group(function () {
-        /*
-         * Roles, User, User Role Crud Resource
-         */
-        Route::apiResource('/users',   UserController::class);
-        Route::apiResource('/roles',   RoleController::class);
-    });
+    Route::apiResource('/users',   UserController::class);
+    Route::apiResource('/roles',   RoleController::class);
 
-//    Route::get('/roles',   [RoleController::class, 'index'])->name('roles.index');
-    Route::middleware('acl:office-management')->group(function () {
-        /*
-         * office Crud Resource
-         */
-        Route::apiResource('/offices',   OfficeController::class);
-    });
 });
 

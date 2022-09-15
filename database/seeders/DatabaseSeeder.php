@@ -12,6 +12,8 @@ use Database\Seeders\Auth\RolesTableSeeder;
 use Database\Seeders\Auth\UsersTableSeeder;
 use Database\Seeders\Blog\BlogCommentSeeder;
 use Database\Seeders\Blog\BlogSeeder;
+use Database\Seeders\Package\PackageSeeder;
+use Database\Seeders\Share\CommonSeeder;
 use Database\Seeders\Share\CountrySeeder;
 use Database\Seeders\Share\StatusSeeder;
 use Illuminate\Database\Seeder;
@@ -38,5 +40,7 @@ class DatabaseSeeder extends Seeder
         $this->call(UserPermissionSeeder::class);
         $this->call(BlogSeeder::class);
         $this->call(BlogCommentSeeder::class);
+        $this->call(PackageSeeder::class);
+        $this->call(CommonSeeder::class);
     }
 }

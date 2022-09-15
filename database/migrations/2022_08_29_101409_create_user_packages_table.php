@@ -13,12 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('package_features', function (Blueprint $table) {
+        Schema::create('user_packages', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
             $table->foreignId('package_id')->constrained('packages')->cascadeOnDelete();
-            $table->string('key');
-            $table->text('value');
-            $table->boolean('is_enabled')->default(1);
+            $table->double('amount',10,2);
+            $table->integer('audition_limit');
+            $table->date('expired_at');
+            $table->foreignId('status_id')->default(1)->constrained('statuses');
             $table->timestamps();
         });
     }
@@ -30,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('package_features');
+        Schema::dropIfExists('user_packages');
     }
 };

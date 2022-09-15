@@ -2,12 +2,13 @@
 
 namespace App\Repositories\Blog;
 
-use App\Http\Resources\AppResource;
+use App\Http\Resources\EloquentResource;
 use App\Interfaces\Blog\BlogRepositoryInterface;
 use App\Models\Auth\User;
 use App\Models\Blog\Blog;
 use App\Repositories\BaseEloquentRepository;
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Illuminate\Support\Facades\Auth;
@@ -26,25 +27,12 @@ class BlogRepository extends BaseEloquentRepository implements BlogRepositoryInt
         parent::__construct($blog);
     }
 
-    public function getAllItems(): AnonymousResourceCollection|AppResource
+    /**
+     * @param Request $request
+     * @return Model|null
+     */
+    public function store(Request $request): ?Model
     {
-
-        if (isset(request()->page)){ // paginate if request has page query
-            $items = Cache::remember('paginate_'.$this->model->getTable().'_'.request()->page,config('settings.cache_ttl'), function (){
-                return $this->model::active()->latest()->paginate(config('settings.pagination.per_page'));
-            });
-        } else{
-            $items = Cache::remember($this->model->getTable(),config('settings.cache_ttl'), function (){
-                return $this->model::active()->latest()->take(20)->get();
-            });
-        }
-        return new AppResource($items);
-    }
-
-    public function getItem(Blog $blog){
-        return $blog->formatResponse();
-    }
-    public function saveBlog(Request $request){
         $blog = new Blog();
         $blog->user_id = Auth::id();
         $blog->title = $request->title;
@@ -54,21 +42,26 @@ class BlogRepository extends BaseEloquentRepository implements BlogRepositoryInt
         $blog->thumbnail = $thumbnail;
         $blog->banner = $banner;
         $blog->save();
-        Cache::flush();
+        return $blog;
     }
-    public function updateBlog(Request $request, Blog $blog){
-        $blog->title = $request->title;
-        $blog->body = $request->body;
+
+    /**
+     * @param Request $request
+     */
+    public function update(Request $request, Model $model): ?Model
+    {
+        $model->title = $request->title;
+        $model->body = $request->body;
         $thumbnail = $this->saveThumbnail($request);
         $banner = $this->saveBanner($request);
         if ($thumbnail){
-            $blog->thumbnail = $thumbnail;
+            $model->thumbnail = $thumbnail;
         }
         if ($banner){
-            $blog->banner = $banner;
+            $model->banner = $banner;
         }
-        $blog->save();
-        Cache::flush();
+        $model->save();
+        return $model;
     }
 
     public function saveThumbnail(Request $request): ?string

@@ -1,10 +1,10 @@
 <?php
 
-namespace Database\Seeders\Package;
+namespace Database\Seeders\Auth;
 
 use Illuminate\Database\Seeder;
 
-class PackageFeatureSeeder extends Seeder
+class UserProfileSeeder extends Seeder
 {
     /**
      * Run the database seeds.

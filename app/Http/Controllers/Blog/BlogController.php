@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Blog;
 use App\Http\Controllers\ApiController;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\BlogRequest;
+use App\Http\Resources\EloquentResource;
 use App\Interfaces\Blog\BlogRepositoryInterface;
 use App\Models\Blog\Blog;
 use Illuminate\Http\JsonResponse;
@@ -34,7 +35,7 @@ class BlogController extends ApiController
     public function index(): JsonResponse
     {
         return $this->success('Blog list',[
-            'blogs'=> $this->blogRepository->getAllItems()
+            'blogs'=> new EloquentResource($this->blogRepository->getAllItems())
         ]);
     }
 
@@ -46,7 +47,7 @@ class BlogController extends ApiController
      */
     public function store(BlogRequest $request)
     {
-        $this->blogRepository->saveBlog($request);
+        $this->blogRepository->store($request);
         return $this->success('Blog saved successfully');
     }
 
@@ -59,7 +60,7 @@ class BlogController extends ApiController
     public function show(Blog $blog)
     {
         return $this->success('Blog info',[
-            'blog'=> $this->blogRepository->getItem($blog)
+            'blog'=> $blog->formatResponse(true)
         ]);
     }
 
@@ -72,7 +73,7 @@ class BlogController extends ApiController
      */
     public function update(Request $request, Blog $blog): JsonResponse
     {
-        $this->blogRepository->updateBlog($request,$blog);
+        $this->blogRepository->update($request,$blog);
         return $this->success('Blog updated successfully');
     }
 

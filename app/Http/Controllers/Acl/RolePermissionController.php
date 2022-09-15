@@ -19,7 +19,8 @@ class RolePermissionController extends ApiController
      * Fetch all Modules
      *
      * */
-    public function allModules(){
+    public function allModules(): JsonResponse
+    {
         $modules = Module::with('features.permissions')->where('is_enabled',1)->get();
         return $this->success('Module list',[
             'modules'=> PermissionResource::collection($modules)

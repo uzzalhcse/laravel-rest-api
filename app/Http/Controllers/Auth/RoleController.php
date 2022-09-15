@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\ApiController;
 use App\Http\Requests\Auth\StoreRoleRequest;
 use App\Http\Resources\Acl\PermissionResource;
+use App\Http\Resources\EloquentResource;
 use App\Interfaces\Auth\RoleRepositoryInterface;
 use App\Models\Acl\Module;
 use App\Models\Auth\Role;
@@ -28,7 +29,7 @@ class RoleController extends ApiController
     public function index(): JsonResponse
     {
         return $this->success('Role lists',[
-            'roles'=> $this->roleRepository->getAllItems()
+            'roles'=> new EloquentResource($this->roleRepository->getAllItems())
         ]);
     }
 
@@ -40,7 +41,7 @@ class RoleController extends ApiController
 
         $modules = Module::with('features.permissions')->where('is_enabled',1)->get();
         return $this->success($role->name.' Module list',[
-            'item'=> $role,
+            'item'=> $role->formatResponse(),
             'modules'=> PermissionResource::collection($modules),
         ]);
     }
@@ -48,7 +49,7 @@ class RoleController extends ApiController
 
     public function store(StoreRoleRequest $request): JsonResponse
     {
-        $role = $this->roleRepository->store($request->validated());
+        $role = $this->roleRepository->store($request);
 
         $role->permissions()->attach($request->permissions);
         return $this->success('Role Permissions Saved');
@@ -56,7 +57,7 @@ class RoleController extends ApiController
 
     public function update(StoreRoleRequest $request, Role $role): JsonResponse
     {
-        $this->roleRepository->update($request->validated(),$role);
+        $this->roleRepository->update($request,$role);
 
         $role->permissions()->sync($request->permissions);
         return $this->success('Role Permission Updated');

@@ -2,12 +2,12 @@
 
 namespace App\Providers;
 
-use App\Interfaces\Auth\OfficeRepositoryInterface;
+use App\Interfaces\AdsRepositoryInterface;
 use App\Interfaces\Auth\RoleRepositoryInterface;
 use App\Interfaces\Auth\UserRepositoryInterface;
 use App\Interfaces\BaseEloquentInterface;
 use App\Interfaces\Blog\BlogRepositoryInterface;
-use App\Repositories\Auth\OfficeRepository;
+use App\Repositories\AdsRepository;
 use App\Repositories\Auth\RoleRepository;
 use App\Repositories\Auth\UserRepository;
 use App\Repositories\BaseEloquentRepository;
@@ -27,6 +27,7 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(UserRepositoryInterface::class,UserRepository::class);
         $this->app->bind(RoleRepositoryInterface::class,RoleRepository::class);
         $this->app->bind(BlogRepositoryInterface::class,BlogRepository::class);
+        $this->app->bind(AdsRepositoryInterface::class,AdsRepository::class);
     }
 
     /**
