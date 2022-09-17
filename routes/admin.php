@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Blog\BlogController;
+use App\Http\Controllers\Share\AdsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,5 +22,6 @@ Route::middleware(['auth:sanctum'])->group(function () {
 //    Route::get('/info', [AuthController::class, 'info']);
 
     Route::apiResource('/blogs',   BlogController::class);
+    Route::get('/all-ads',                           [AdsController::class, 'index']);
 });
 

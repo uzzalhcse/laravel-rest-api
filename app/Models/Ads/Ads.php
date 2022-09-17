@@ -2,6 +2,7 @@
 
 namespace App\Models\Ads;
 
+use App\Models\Auth\User;
 use App\Models\Share\Media;
 use App\Traits\ScopeActive;
 use App\Traits\Status;
@@ -27,19 +28,25 @@ class Ads extends Model
     public function getAudioAttribute(){
         return $this->media->where('media_type','audio')->first()->path;
     }
+    public function advertiser(){
+        return $this->belongsTo(User::class,'user_id');
+    }
 
     public function formatResponse(): array
     {
-        return [
+        $res = [
             'id'=>$this->id,
             'title'=>$this->title,
+            'advertiser'=>$this->advertiser,
             'date'=>$this->created_at->format('Y'),
             'thumbnail'=>url('/').$this->thumbnail,
             'aired'=>$this->created_at->format('Y-m-d'),
             'description'=>$this->description,
             'audio'=>url('/').$this->audio,
             'banner'=>url('/').$this->banner,
-            'rating'=> 4.2
+            'rating'=> 4.2,
+            'status'=>$this->status->title
         ];
+        return $res;
     }
 }
