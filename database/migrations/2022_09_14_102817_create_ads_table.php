@@ -18,10 +18,8 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
             $table->string('title');
             $table->text('description');
-            $table->integer('min_male_age')->default(18);
-            $table->integer('max_male_age')->default(80);
-            $table->integer('min_female_age')->default(18);
-            $table->integer('max_female_age')->default(80);
+            $table->integer('male_age_range')->default(18);
+            $table->integer('female_age_range')->default(18);
             $table->string('preferred_gender')->default('Both');
             $table->foreignId('status_id')->default(1)->constrained('statuses');
             $table->timestamps();

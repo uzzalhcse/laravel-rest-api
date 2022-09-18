@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('company_name');
             $table->string('company_size');
+            $table->string('company_info');
             $table->string('industry');
             $table->string('work_phone');
             $table->string('no_of_employee')->nullable();
@@ -29,7 +30,6 @@ return new class extends Migration
             $table->string('mobile_service_provider')->nullable();
             $table->string('phone_model')->nullable();
             $table->string('personality')->nullable();
-            $table->string('language_of_ad')->nullable();
             $table->string('no_of_handset')->nullable();
             $table->string('payment_period')->nullable();
             $table->string('ad_line_interest')->nullable();

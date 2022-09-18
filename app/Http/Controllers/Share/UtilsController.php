@@ -9,6 +9,8 @@ use App\Http\Resources\Share\StatusResource;
 use App\Interfaces\AdsRepositoryInterface;
 use App\Interfaces\Blog\BlogRepositoryInterface;
 use App\Models\Ads\Ads;
+use App\Models\Auth\User;
+use App\Models\Package\Package;
 use App\Models\Share\Country;
 use App\Models\Share\District;
 use App\Models\Share\Division;
@@ -19,6 +21,7 @@ use App\Repositories\BillBoardRepository;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Artisan;
 
 class UtilsController extends ApiController
 {
@@ -76,5 +79,57 @@ class UtilsController extends ApiController
         return $this->success('Faq List',[
             'items'=>Faq::all()
         ]);
+    }
+
+    public function packages(){
+        return $this->success('All Package List',[
+            'items'=>Package::enabled()->get()
+        ]);
+    }
+
+    public function serviceProviders(){
+        $users = User::with('roles')->whereHas('roles',function ($query){
+            return $query->where('slug','provider');
+        })->get();
+        return $this->success('Service Providers',[
+            'providers'=>$users
+        ]);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public function clear(){
+        Artisan::call('cache:clear');
+        Artisan::call('config:clear');
+        return $this->success('Application Cache Cleared!');
     }
 }

@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\RoleController;
 use App\Http\Controllers\Blog\BlogController;
 use App\Http\Controllers\Customization\FaqController;
 use App\Http\Controllers\Customization\PageController;
+use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\Share\AdsController;
 use App\Http\Controllers\Share\UtilsController;
 use Illuminate\Http\Request;
@@ -25,6 +26,11 @@ Route::get('/countries',                    [UtilsController::class, 'countries'
 Route::get('/blogs',                        [BlogController::class, 'index']);
 Route::get('/blogs/{blog}',                 [BlogController::class, 'show']);
 Route::get('/homepage',                     [UtilsController::class, 'homepage']);
-Route::get('/ads',                           [AdsController::class, 'index']);
+Route::get('/ads',                          [AdsController::class, 'index']);
 Route::get('/faq',                          [UtilsController::class, 'faq']);
+Route::get('/packages',                     [UtilsController::class, 'packages']);
+Route::get('/service-providers',            [UtilsController::class, 'serviceProviders']);
+Route::post('/newsletter',                     [NewsletterController::class, 'store']);
+
+Route::get('/clear',                     [UtilsController::class, 'clear']);
 
