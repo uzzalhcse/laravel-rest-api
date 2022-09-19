@@ -41,10 +41,8 @@ class CommonSeeder extends Seeder
                 'user_id'=>'3',
                 'title'=>'CITI',
                 'description'=>'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic soluta unde veniam. Ipsa, mollitia, nemo? Ab aut delectus dolorem eaque eum explicabo fugit laboriosam perspiciatis ut vero. Corporis, impedit iste.',
-                'min_male_age'=>'20',
-                'max_male_age'=>'19',
-                'min_female_age'=>'19',
-                'max_female_age'=>'19',
+                'male_age_range'=>'{20,26}',
+                'female_age_range'=>'{30,45}',
                 'preferred_gender'=>'Both',
                 'created_at'=>$timestamp,
                 'updated_at'=>$timestamp
@@ -54,10 +52,8 @@ class CommonSeeder extends Seeder
                 'user_id'=>'3',
                 'title'=>'Cocacola',
                 'description'=>'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic soluta unde veniam. Ipsa, mollitia, nemo? Ab aut delectus dolorem eaque eum explicabo fugit laboriosam perspiciatis ut vero. Corporis, impedit iste.',
-                'min_male_age'=>'20',
-                'max_male_age'=>'19',
-                'min_female_age'=>'19',
-                'max_female_age'=>'19',
+                'male_age_range'=>'{20,26}',
+                'female_age_range'=>'{30,45}',
                 'preferred_gender'=>'Male',
                 'created_at'=>$timestamp,
                 'updated_at'=>$timestamp
@@ -67,10 +63,8 @@ class CommonSeeder extends Seeder
                 'user_id'=>'3',
                 'title'=>'Pizza Hunt',
                 'description'=>'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic soluta unde veniam. Ipsa, mollitia, nemo? Ab aut delectus dolorem eaque eum explicabo fugit laboriosam perspiciatis ut vero. Corporis, impedit iste.',
-                'min_male_age'=>'20',
-                'max_male_age'=>'19',
-                'min_female_age'=>'19',
-                'max_female_age'=>'19',
+                'male_age_range'=>'{20,26}',
+                'female_age_range'=>'{30,45}',
                 'preferred_gender'=>'Male',
                 'created_at'=>$timestamp,
                 'updated_at'=>$timestamp
@@ -80,10 +74,8 @@ class CommonSeeder extends Seeder
                 'user_id'=>'3',
                 'title'=>'Star Bucks',
                 'description'=>'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic soluta unde veniam. Ipsa, mollitia, nemo? Ab aut delectus dolorem eaque eum explicabo fugit laboriosam perspiciatis ut vero. Corporis, impedit iste.',
-                'min_male_age'=>'20',
-                'max_male_age'=>'19',
-                'min_female_age'=>'19',
-                'max_female_age'=>'19',
+                'male_age_range'=>'{20,26}',
+                'female_age_range'=>'{30,45}',
                 'preferred_gender'=>'Female',
                 'created_at'=>$timestamp,
                 'updated_at'=>$timestamp
@@ -93,10 +85,8 @@ class CommonSeeder extends Seeder
                 'user_id'=>'3',
                 'title'=>'Pepsi',
                 'description'=>'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic soluta unde veniam. Ipsa, mollitia, nemo? Ab aut delectus dolorem eaque eum explicabo fugit laboriosam perspiciatis ut vero. Corporis, impedit iste.',
-                'min_male_age'=>'20',
-                'max_male_age'=>'19',
-                'min_female_age'=>'19',
-                'max_female_age'=>'19',
+                'male_age_range'=>'{20,26}',
+                'female_age_range'=>'{30,45}',
                 'preferred_gender'=>'Female',
                 'created_at'=>$timestamp,
                 'updated_at'=>$timestamp
@@ -111,7 +101,7 @@ class CommonSeeder extends Seeder
             [
                 'mediable_type'=>'App\Models\Ads\Ads',
                 'mediable_id'=>'1',
-                'path'=>'/uploads/media/thumbnail/citi.jpg',
+                'path'=>'/uploads/defaults/media/thumbnail/citi.jpg',
                 'media_type'=>'thumbnail',
                 'created_at'=>$timestamp,
                 'updated_at'=>$timestamp
@@ -119,7 +109,7 @@ class CommonSeeder extends Seeder
             [
                 'mediable_type'=>'App\Models\Ads\Ads',
                 'mediable_id'=>'1',
-                'path'=>'/uploads/media/banner/coca-cola.jpg',
+                'path'=>'/uploads/defaults/media/banner/coca-cola.jpg',
                 'media_type'=>'banner',
                 'created_at'=>$timestamp,
                 'updated_at'=>$timestamp
@@ -127,7 +117,7 @@ class CommonSeeder extends Seeder
             [
                 'mediable_type'=>'App\Models\Ads\Ads',
                 'mediable_id'=>'1',
-                'path'=>'/uploads/media/audio/coca-cola.mp3',
+                'path'=>'/uploads/defaults/media/audio/citi_bank.mp3',
                 'media_type'=>'audio',
                 'created_at'=>$timestamp,
                 'updated_at'=>$timestamp
@@ -135,7 +125,7 @@ class CommonSeeder extends Seeder
             [
                 'mediable_type'=>'App\Models\Ads\Ads',
                 'mediable_id'=>'2',
-                'path'=>'/uploads/media/thumbnail/coca-cola.jpg',
+                'path'=>'/uploads/defaults/media/thumbnail/coca-cola.jpg',
                 'media_type'=>'thumbnail',
                 'created_at'=>$timestamp,
                 'updated_at'=>$timestamp
@@ -143,7 +133,7 @@ class CommonSeeder extends Seeder
             [
                 'mediable_type'=>'App\Models\Ads\Ads',
                 'mediable_id'=>'2',
-                'path'=>'/uploads/media/banner/coca-cola.jpg',
+                'path'=>'/uploads/defaults/media/banner/coca-cola.jpg',
                 'media_type'=>'banner',
                 'created_at'=>$timestamp,
                 'updated_at'=>$timestamp
@@ -151,7 +141,7 @@ class CommonSeeder extends Seeder
             [
                 'mediable_type'=>'App\Models\Ads\Ads',
                 'mediable_id'=>'2',
-                'path'=>'/uploads/media/audio/coca-cola.mp3',
+                'path'=>'/uploads/defaults/media/audio/coca-cola.mp3',
                 'media_type'=>'audio',
                 'created_at'=>$timestamp,
                 'updated_at'=>$timestamp
@@ -159,7 +149,7 @@ class CommonSeeder extends Seeder
             [
                 'mediable_type'=>'App\Models\Ads\Ads',
                 'mediable_id'=>'3',
-                'path'=>'/uploads/media/thumbnail/pizza-hunt.jpg',
+                'path'=>'/uploads/defaults/media/thumbnail/pizza-hunt.jpg',
                 'media_type'=>'thumbnail',
                 'created_at'=>$timestamp,
                 'updated_at'=>$timestamp
@@ -167,7 +157,7 @@ class CommonSeeder extends Seeder
             [
                 'mediable_type'=>'App\Models\Ads\Ads',
                 'mediable_id'=>'3',
-                'path'=>'/uploads/media/banner/coca-cola.jpg',
+                'path'=>'/uploads/defaults/media/banner/coca-cola.jpg',
                 'media_type'=>'banner',
                 'created_at'=>$timestamp,
                 'updated_at'=>$timestamp
@@ -175,7 +165,7 @@ class CommonSeeder extends Seeder
             [
                 'mediable_type'=>'App\Models\Ads\Ads',
                 'mediable_id'=>'3',
-                'path'=>'/uploads/media/audio/coca-cola.mp3',
+                'path'=>'/uploads/defaults/media/audio/coca-cola.mp3',
                 'media_type'=>'audio',
                 'created_at'=>$timestamp,
                 'updated_at'=>$timestamp
@@ -183,7 +173,7 @@ class CommonSeeder extends Seeder
             [
                 'mediable_type'=>'App\Models\Ads\Ads',
                 'mediable_id'=>'4',
-                'path'=>'/uploads/media/thumbnail/star-bucks.jpg',
+                'path'=>'/uploads/defaults/media/thumbnail/star-bucks.jpg',
                 'media_type'=>'thumbnail',
                 'created_at'=>$timestamp,
                 'updated_at'=>$timestamp
@@ -191,7 +181,7 @@ class CommonSeeder extends Seeder
             [
                 'mediable_type'=>'App\Models\Ads\Ads',
                 'mediable_id'=>'4',
-                'path'=>'/uploads/media/banner/coca-cola.jpg',
+                'path'=>'/uploads/defaults/media/banner/coca-cola.jpg',
                 'media_type'=>'banner',
                 'created_at'=>$timestamp,
                 'updated_at'=>$timestamp
@@ -199,7 +189,7 @@ class CommonSeeder extends Seeder
             [
                 'mediable_type'=>'App\Models\Ads\Ads',
                 'mediable_id'=>'4',
-                'path'=>'/uploads/media/audio/coca-cola.mp3',
+                'path'=>'/uploads/defaults/media/audio/coca-cola.mp3',
                 'media_type'=>'audio',
                 'created_at'=>$timestamp,
                 'updated_at'=>$timestamp
@@ -207,7 +197,7 @@ class CommonSeeder extends Seeder
             [
                 'mediable_type'=>'App\Models\Ads\Ads',
                 'mediable_id'=>'5',
-                'path'=>'/uploads/media/thumbnail/pepsi.jpg',
+                'path'=>'/uploads/defaults/media/thumbnail/pepsi.jpg',
                 'media_type'=>'thumbnail',
                 'created_at'=>$timestamp,
                 'updated_at'=>$timestamp
@@ -215,7 +205,7 @@ class CommonSeeder extends Seeder
             [
                 'mediable_type'=>'App\Models\Ads\Ads',
                 'mediable_id'=>'5',
-                'path'=>'/uploads/media/banner/pepsi.jpg',
+                'path'=>'/uploads/defaults/media/banner/pepsi.jpg',
                 'media_type'=>'banner',
                 'created_at'=>$timestamp,
                 'updated_at'=>$timestamp
@@ -223,7 +213,7 @@ class CommonSeeder extends Seeder
             [
                 'mediable_type'=>'App\Models\Ads\Ads',
                 'mediable_id'=>'5',
-                'path'=>'/uploads/media/audio/coca-cola.mp3',
+                'path'=>'/uploads/defaults/media/audio/coca-cola.mp3',
                 'media_type'=>'audio',
                 'created_at'=>$timestamp,
                 'updated_at'=>$timestamp
@@ -271,7 +261,7 @@ class CommonSeeder extends Seeder
             [
                 'mediable_type'=>'App\Models\Ads\Billboard',
                 'mediable_id'=>'1',
-                'path'=>'/uploads/media/thumbnail/billboard_01.jpg',
+                'path'=>'/uploads/defaults/media/thumbnail/billboard_01.jpg',
                 'media_type'=>'thumbnail',
                 'created_at'=>$timestamp,
                 'updated_at'=>$timestamp
@@ -279,7 +269,7 @@ class CommonSeeder extends Seeder
             [
                 'mediable_type'=>'App\Models\Ads\Billboard',
                 'mediable_id'=>'2',
-                'path'=>'/uploads/media/thumbnail/billboard_02.jpg',
+                'path'=>'/uploads/defaults/media/thumbnail/billboard_02.jpg',
                 'media_type'=>'thumbnail',
                 'created_at'=>$timestamp,
                 'updated_at'=>$timestamp
@@ -287,7 +277,7 @@ class CommonSeeder extends Seeder
             [
                 'mediable_type'=>'App\Models\Ads\Billboard',
                 'mediable_id'=>'3',
-                'path'=>'/uploads/media/thumbnail/billboard_03.jpg',
+                'path'=>'/uploads/defaults/media/thumbnail/billboard_03.jpg',
                 'media_type'=>'thumbnail',
                 'created_at'=>$timestamp,
                 'updated_at'=>$timestamp
@@ -295,7 +285,7 @@ class CommonSeeder extends Seeder
             [
                 'mediable_type'=>'App\Models\Ads\Billboard',
                 'mediable_id'=>'4',
-                'path'=>'/uploads/media/thumbnail/billboard_04.jpg',
+                'path'=>'/uploads/defaults/media/thumbnail/billboard_04.jpg',
                 'media_type'=>'thumbnail',
                 'created_at'=>$timestamp,
                 'updated_at'=>$timestamp

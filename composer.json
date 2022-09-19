@@ -12,7 +12,8 @@
         "laravel/telescope": "^4.9",
         "laravel/tinker": "^2.7",
         "predis/predis": "^2.0",
-        "spatie/laravel-newsletter": "^4.11"
+        "spatie/laravel-newsletter": "^4.11",
+        "twilio/sdk": "^6.42"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.12",
@@ -28,7 +29,10 @@
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/"
-        }
+        },
+        "files": [
+            "app/Helpers/Helper.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {

@@ -28,11 +28,11 @@ class BaseEloquentRepository implements BaseEloquentInterface
 
     public function getAllItems()
     {
-
+        $items = $this->model::active()->latest();
         if (isset(request()->page)){ // paginate if request has page query
-            $items = $this->model::active()->latest()->paginate(config('settings.pagination.per_page'));
+            $items = $items->paginate(config('settings.pagination.per_page'));
         } else{
-            $items = $this->model::active()->latest()->take(20)->get();
+            $items = $items->take(20)->get();
         }
         return $items;
     }

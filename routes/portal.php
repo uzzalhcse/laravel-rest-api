@@ -18,10 +18,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware(['auth:sanctum'])->group(function () {
     // our routes to be protected will go in here
-
-//    Route::get('/info', [AuthController::class, 'info']);
-
-    Route::apiResource('/blogs',   BlogController::class);
-    Route::apiResource('/ads',   AdsController::class);
+    Route::get('/my-ads',   [AdsController::class,'myAds']);
+    Route::get('/ads-info/{ads}',   [AdsController::class,'show']);
+    Route::post('/save-my-ads',   [AdsController::class,'store']);
 });
 

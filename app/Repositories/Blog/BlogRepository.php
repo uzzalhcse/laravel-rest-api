@@ -37,8 +37,10 @@ class BlogRepository extends BaseEloquentRepository implements BlogRepositoryInt
         $blog->user_id = Auth::id();
         $blog->title = $request->title;
         $blog->body = $request->body;
-        $thumbnail = $this->saveThumbnail($request);
-        $banner = $this->saveBanner($request);
+//        $thumbnail = $this->saveThumbnail($request);
+//        $banner = $this->saveBanner($request);
+        $thumbnail = upload_file($request,'thumbnail_file','/blogs/');
+        $banner = upload_file($request,'banner_file','/blogs/');
         $blog->thumbnail = $thumbnail;
         $blog->banner = $banner;
         $blog->save();
@@ -52,8 +54,10 @@ class BlogRepository extends BaseEloquentRepository implements BlogRepositoryInt
     {
         $model->title = $request->title;
         $model->body = $request->body;
-        $thumbnail = $this->saveThumbnail($request);
-        $banner = $this->saveBanner($request);
+//        $thumbnail = $this->saveThumbnail($request);
+//        $banner = $this->saveBanner($request);
+        $thumbnail = upload_file($request,'thumbnail_file','/blogs/');
+        $banner = upload_file($request,'banner_file','/blogs/');
         if ($thumbnail){
             $model->thumbnail = $thumbnail;
         }
@@ -64,31 +68,31 @@ class BlogRepository extends BaseEloquentRepository implements BlogRepositoryInt
         return $model;
     }
 
-    public function saveThumbnail(Request $request): ?string
-    {
-        $filename_path = null;
-        if ($request->hasFile('thumbnail_file')) {
-            $destinationPath = '/uploads/blogs/'.Carbon::now()->month.'/';
-            $file = $request->file('thumbnail_file');
-            $filename = time().'_'.Str::of($file->getClientOriginalName())->lower()->kebab();
-            $file->move(public_path() . $destinationPath, $filename);
-            $filename_path = $destinationPath . $filename;
-        }
-        return $filename_path;
-    }
-
-    public function saveBanner(Request $request): ?string
-    {
-        $filename_path = null;
-        if ($request->hasFile('banner_file')) {
-            $destinationPath = '/uploads/blogs/'.Carbon::now()->month.'/';
-            $file = $request->file('banner_file');
-            $filename = time().'_'.Str::of($file->getClientOriginalName())->lower()->kebab();
-            $file->move(public_path() . $destinationPath, $filename);
-            $filename_path = $destinationPath . $filename;
-        }
-        return $filename_path;
-    }
+//    public function saveThumbnail(Request $request): ?string
+//    {
+//        $filename_path = null;
+//        if ($request->hasFile('thumbnail_file')) {
+//            $destinationPath = '/uploads/blogs/'.Carbon::now()->month.'/';
+//            $file = $request->file('thumbnail_file');
+//            $filename = time().'_'.Str::of($file->getClientOriginalName())->lower()->kebab();
+//            $file->move(public_path() . $destinationPath, $filename);
+//            $filename_path = $destinationPath . $filename;
+//        }
+//        return $filename_path;
+//    }
+//
+//    public function saveBanner(Request $request): ?string
+//    {
+//        $filename_path = null;
+//        if ($request->hasFile('banner_file')) {
+//            $destinationPath = '/uploads/blogs/'.Carbon::now()->month.'/';
+//            $file = $request->file('banner_file');
+//            $filename = time().'_'.Str::of($file->getClientOriginalName())->lower()->kebab();
+//            $file->move(public_path() . $destinationPath, $filename);
+//            $filename_path = $destinationPath . $filename;
+//        }
+//        return $filename_path;
+//    }
 
 
 }

@@ -13,10 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('ad_countries', function (Blueprint $table) {
+        Schema::create('ads_providers', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('ad_id')->constrained('ads')->cascadeOnDelete();
-            $table->foreignId('country_id')->constrained('countries')->cascadeOnDelete();
+            $table->foreignId('ads_id')->constrained('ads')->cascadeOnDelete();
+            $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ad_countries');
+        Schema::dropIfExists('ad_providers');
     }
 };

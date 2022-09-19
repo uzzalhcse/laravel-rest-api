@@ -52,16 +52,6 @@ class User extends Authenticatable
 //        'is_active'
 //    ];
 
-
-    /**
-     * attributes
-     * @param $value
-     */
-    public function setPasswordAttribute($value)
-    {
-        $this->attributes['password'] = bcrypt($value);
-    }
-
     public function roles()
     {
         return $this->belongsToMany(Role::class,'user_roles');
@@ -84,6 +74,11 @@ class User extends Authenticatable
     public function getAvatarAttribute(){
         return url('/').$this->attributes['avatar'];
     }
+
+    public function getNameAttribute(){
+        return $this->first_name.' '.$this->last_name;
+    }
+
     public function formatResponse(){
         return [
             'id'=>$this->id,

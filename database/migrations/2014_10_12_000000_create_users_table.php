@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('occupation')->nullable();
             $table->string('job_title')->nullable();
             $table->string('gender');
-            $table->string('mobile');
+            $table->string('mobile')->nullable();
             $table->string('email')->unique();
             $table->text('address');
             $table->foreignId('country_id')->default(1)->constrained('countries');

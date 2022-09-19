@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Share;
 use App\Http\Controllers\ApiController;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\EloquentResource;
+use App\Http\Resources\ProviderResource;
 use App\Http\Resources\Share\StatusResource;
 use App\Interfaces\AdsRepositoryInterface;
 use App\Interfaces\Blog\BlogRepositoryInterface;
@@ -92,7 +93,7 @@ class UtilsController extends ApiController
             return $query->where('slug','provider');
         })->get();
         return $this->success('Service Providers',[
-            'providers'=>$users
+            'providers'=>ProviderResource::collection($users)
         ]);
     }
 

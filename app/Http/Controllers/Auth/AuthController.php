@@ -7,8 +7,10 @@ use App\Http\Requests\Auth\RegisterRequest;
 use App\Http\Requests\Auth\UpdatePasswordRequest;
 use App\Http\Requests\Auth\UpdateProfileRequest;
 use App\Http\Resources\Auth\AuthResource;
+use App\Models\Auth\Role;
 use App\Models\Auth\User;
 use App\Models\Auth\UserProfile;
+use App\Models\Auth\UserRole;
 use App\Repositories\Auth\UserRepository;
 use App\Rules\MatchOldPassword;
 use Illuminate\Http\JsonResponse;
@@ -16,7 +18,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 class AuthController extends ApiController
 {
@@ -62,29 +66,41 @@ class AuthController extends ApiController
 
             $userProfile = new UserProfile();
             $userProfile->user_id = $user->id;
-            $userProfile->company_name = $request->company_name;
-            $userProfile->company_size = $request->company_size;
-            $userProfile->company_info = $request->company_info;
-            $userProfile->industry = $request->industry;
-            $userProfile->work_phone = $request->work_phone;
-            $userProfile->no_of_employee = $request->no_of_employee;
-            $userProfile->avg_call_receive_day = $request->avg_call_receive_day;
-            $userProfile->state = $request->state;
-            $userProfile->city = $request->city;
-            $userProfile->zipcode = $request->zipcode;
-            $userProfile->annual_income = $request->annual_income;
-            $userProfile->annual_budget = $request->annual_budget;
-            $userProfile->mobile_service_provider = $request->mobile_service_provider;
-            $userProfile->phone_model = $request->phone_model;
-            $userProfile->personality = $request->personality;
-            $userProfile->no_of_handset = $request->no_of_handset;
-            $userProfile->payment_period = $request->payment_period;
-            $userProfile->ad_line_interest = $request->ad_line_interest;
-            $userProfile->intend_countries = $request->intend_countries;
+            $userProfile->company_name = $request->profile['company_name'];
+            $userProfile->company_size = $request->profile['company_size'];
+            $userProfile->company_info = $request->profile['company_info'];
+            $userProfile->industry = $request->profile['industry'];
+            $userProfile->work_phone = $request->profile['work_phone'];
+            $userProfile->no_of_employee = $request->profile['no_of_employee'];
+            $userProfile->avg_call_receive_day = $request->profile['avg_call_receive_day'];
+            $userProfile->state = $request->profile['state'];
+            $userProfile->city = $request->profile['city'];
+            $userProfile->zipcode = $request->profile['zipcode'];
+            $userProfile->annual_income = $request->profile['annual_income'];
+            $userProfile->annual_budget = $request->profile['annual_budget'];
+            $userProfile->mobile_service_provider = $request->profile['mobile_service_provider'];
+            $userProfile->phone_model = $request->profile['phone_model'];
+            $userProfile->personality = $request->profile['personality'];
+            $userProfile->no_of_handset = $request->profile['no_of_handset'];
+            $userProfile->payment_period = $request->profile['payment_period'];
+            $userProfile->ad_line_interest = $request->profile['ad_line_interest'];
+            $userProfile->intend_countries = $request->profile['intend_countries'];
             $userProfile->save();
+
+            $role = Role::where('slug',Str::lower($request->type))->firstOrFail();
+            $userRole = new UserRole();
+            $userRole->user_id = $user->id;
+            $userRole->role_id = $role->id;
+            $userRole->save();
+
             DB::commit();
+            return $this->success('Sign up successful');
         } catch (\Exception $exception){
             DB::rollBack();
+            Log::info($exception);
+            return $this->error('Sign up failed',[
+                $exception->getMessage()
+            ]);
         }
     }
 

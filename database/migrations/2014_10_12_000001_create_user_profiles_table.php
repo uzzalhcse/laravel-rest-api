@@ -15,9 +15,10 @@ return new class extends Migration
     {
         Schema::create('user_profiles', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
             $table->string('company_name');
-            $table->string('company_size');
-            $table->string('company_info');
+            $table->string('company_size')->nullable();
+            $table->string('company_info')->nullable();
             $table->string('industry');
             $table->string('work_phone');
             $table->string('no_of_employee')->nullable();
