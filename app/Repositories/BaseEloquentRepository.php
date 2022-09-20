@@ -26,9 +26,34 @@ class BaseEloquentRepository implements BaseEloquentInterface
         $this->model = $model;
     }
 
-    public function getAllItems()
+    public function getActiveItems()
     {
         $items = $this->model::active()->latest();
+        if (isset(request()->page)){ // paginate if request has page query
+            $items = $items->paginate(config('settings.pagination.per_page'));
+        } else{
+            $items = $items->take(20)->get();
+        }
+        return $items;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAllItems(): mixed
+    {
+        $items = $this->model::latest();
+        if (isset(request()->page)){ // paginate if request has page query
+            $items = $items->paginate(config('settings.pagination.per_page'));
+        } else{
+            $items = $items->take(20)->get();
+        }
+        return $items;
+    }
+
+    public function getMyItems()
+    {
+        $items = $this->model::byOwner()->latest();
         if (isset(request()->page)){ // paginate if request has page query
             $items = $items->paginate(config('settings.pagination.per_page'));
         } else{

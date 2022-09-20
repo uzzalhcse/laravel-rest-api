@@ -41,8 +41,8 @@ class CommonSeeder extends Seeder
                 'user_id'=>'3',
                 'title'=>'CITI',
                 'description'=>'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic soluta unde veniam. Ipsa, mollitia, nemo? Ab aut delectus dolorem eaque eum explicabo fugit laboriosam perspiciatis ut vero. Corporis, impedit iste.',
-                'male_age_range'=>'{20,26}',
-                'female_age_range'=>'{30,45}',
+                'male_age_range'=>'[20,46]',
+                'female_age_range'=>'[18,35]',
                 'preferred_gender'=>'Both',
                 'created_at'=>$timestamp,
                 'updated_at'=>$timestamp
@@ -52,8 +52,8 @@ class CommonSeeder extends Seeder
                 'user_id'=>'3',
                 'title'=>'Cocacola',
                 'description'=>'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic soluta unde veniam. Ipsa, mollitia, nemo? Ab aut delectus dolorem eaque eum explicabo fugit laboriosam perspiciatis ut vero. Corporis, impedit iste.',
-                'male_age_range'=>'{20,26}',
-                'female_age_range'=>'{30,45}',
+                'male_age_range'=>'[20,40]',
+                'female_age_range'=>'[20,45]',
                 'preferred_gender'=>'Male',
                 'created_at'=>$timestamp,
                 'updated_at'=>$timestamp
@@ -63,8 +63,8 @@ class CommonSeeder extends Seeder
                 'user_id'=>'3',
                 'title'=>'Pizza Hunt',
                 'description'=>'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic soluta unde veniam. Ipsa, mollitia, nemo? Ab aut delectus dolorem eaque eum explicabo fugit laboriosam perspiciatis ut vero. Corporis, impedit iste.',
-                'male_age_range'=>'{20,26}',
-                'female_age_range'=>'{30,45}',
+                'male_age_range'=>'[20,56]',
+                'female_age_range'=>'[19,55]',
                 'preferred_gender'=>'Male',
                 'created_at'=>$timestamp,
                 'updated_at'=>$timestamp
@@ -74,8 +74,8 @@ class CommonSeeder extends Seeder
                 'user_id'=>'3',
                 'title'=>'Star Bucks',
                 'description'=>'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic soluta unde veniam. Ipsa, mollitia, nemo? Ab aut delectus dolorem eaque eum explicabo fugit laboriosam perspiciatis ut vero. Corporis, impedit iste.',
-                'male_age_range'=>'{20,26}',
-                'female_age_range'=>'{30,45}',
+                'male_age_range'=>'[20,60]',
+                'female_age_range'=>'[21,45]',
                 'preferred_gender'=>'Female',
                 'created_at'=>$timestamp,
                 'updated_at'=>$timestamp
@@ -85,8 +85,8 @@ class CommonSeeder extends Seeder
                 'user_id'=>'3',
                 'title'=>'Pepsi',
                 'description'=>'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic soluta unde veniam. Ipsa, mollitia, nemo? Ab aut delectus dolorem eaque eum explicabo fugit laboriosam perspiciatis ut vero. Corporis, impedit iste.',
-                'male_age_range'=>'{20,26}',
-                'female_age_range'=>'{30,45}',
+                'male_age_range'=>'[20,62]',
+                'female_age_range'=>'[21,45]',
                 'preferred_gender'=>'Female',
                 'created_at'=>$timestamp,
                 'updated_at'=>$timestamp
@@ -219,9 +219,27 @@ class CommonSeeder extends Seeder
                 'updated_at'=>$timestamp
             ]
         ];
-
-
         DB::table('media')->insert($adsMedia);
+
+        $adsCountry = [
+            ['country_id'=>'231', 'ads_id'=>'1', 'created_at'=>$timestamp, 'updated_at'=>$timestamp],
+            ['country_id'=>'231', 'ads_id'=>'2', 'created_at'=>$timestamp, 'updated_at'=>$timestamp],
+            ['country_id'=>'231', 'ads_id'=>'3', 'created_at'=>$timestamp, 'updated_at'=>$timestamp],
+            ['country_id'=>'231', 'ads_id'=>'4', 'created_at'=>$timestamp, 'updated_at'=>$timestamp],
+            ['country_id'=>'231', 'ads_id'=>'5', 'created_at'=>$timestamp, 'updated_at'=>$timestamp],
+        ];
+        DB::table('ads_countries')->insert($adsCountry);
+
+        $adsProviders = [
+            ['user_id'=>'4', 'ads_id'=>'1', 'created_at'=>$timestamp, 'updated_at'=>$timestamp],
+            ['user_id'=>'4', 'ads_id'=>'2', 'created_at'=>$timestamp, 'updated_at'=>$timestamp],
+            ['user_id'=>'4', 'ads_id'=>'3', 'created_at'=>$timestamp, 'updated_at'=>$timestamp],
+            ['user_id'=>'4', 'ads_id'=>'4', 'created_at'=>$timestamp, 'updated_at'=>$timestamp],
+            ['user_id'=>'4', 'ads_id'=>'5', 'created_at'=>$timestamp, 'updated_at'=>$timestamp]
+        ];
+        DB::table('ads_providers')->insert($adsProviders);
+
+
 
         $billboards = [
             [

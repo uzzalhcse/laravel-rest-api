@@ -11,7 +11,11 @@ interface BaseEloquentInterface
      * get paginate item if request query exist 'page'
      * without paginate return latest n items
      */
+    public function getActiveItems();
+
     public function getAllItems();
+
+    public function getMyItems();
 
     public function getById($id);
 

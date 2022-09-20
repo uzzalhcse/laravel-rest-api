@@ -29,7 +29,7 @@ class RoleController extends ApiController
     public function index(): JsonResponse
     {
         return $this->success('Role lists',[
-            'roles'=> new EloquentResource($this->roleRepository->getAllItems())
+            'roles'=> new EloquentResource($this->roleRepository->getActiveItems())
         ]);
     }
 

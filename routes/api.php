@@ -1,13 +1,11 @@
 <?php
 
-use App\Http\Controllers\Auth\RoleController;
+use App\Http\Controllers\AdsController;
 use App\Http\Controllers\Blog\BlogController;
 use App\Http\Controllers\Customization\FaqController;
 use App\Http\Controllers\Customization\PageController;
 use App\Http\Controllers\NewsletterController;
-use App\Http\Controllers\Share\AdsController;
 use App\Http\Controllers\Share\UtilsController;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*

@@ -47,10 +47,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-//    protected $appends = [
-//        'acl',
-//        'is_active'
-//    ];
+    protected $appends = [
+        'name'
+    ];
 
     public function roles()
     {

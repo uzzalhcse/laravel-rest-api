@@ -7,19 +7,26 @@ use App\Models\Share\Country;
 use App\Models\Share\Media;
 use App\Traits\ScopeActive;
 use App\Traits\Status;
+use App\Traits\Utils;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 
 class Ads extends Model
 {
-    use HasFactory,ScopeActive,Status;
+    use HasFactory,ScopeActive,Status,Utils;
+    protected $casts = [
+        'male_age_range'=>'array',
+        'female_age_range'=>'array',
+
+
+    ];
 
     public function media()
     {
         return $this->morphMany(Media::class, 'mediable');
     }
-    public function scopeAdvertiser($query){
+    public function scopeByOwner($query){
         return $query->where('user_id',Auth::id());
     }
 
@@ -33,7 +40,7 @@ class Ads extends Model
     public function getAudioAttribute(){
         return $this->media->where('media_type','audio')->first()->path;
     }
-    public function advertiser(){
+    public function owner(){
         return $this->belongsTo(User::class,'user_id');
     }
     public function countries(){
@@ -52,23 +59,30 @@ class Ads extends Model
         return $this->providers->pluck('id');
     }
 
-    public function formatResponse(): array
+    public function formatResponse($is_detail = false): array
     {
         $res = [
             'id'=>$this->id,
             'title'=>$this->title,
-            'advertiser'=>$this->advertiser,
-            'date'=>$this->created_at->format('Y'),
+            'owner'=>$this->owner,
+            'year'=>$this->year,
             'thumbnail'=>url('/').$this->thumbnail,
-            'aired'=>$this->created_at->format('Y-m-d'),
+            'aired'=>$this->date,
             'description'=>$this->description,
             'audio'=>url('/').$this->audio,
             'banner'=>url('/').$this->banner,
-            'country_ids'=>$this->country_ids,
-            'provider_id'=>$this->provider_id,
             'rating'=> 4.2,
+            'status_id'=> $this->status_id,
             'status'=>$this->status->title
         ];
-        return $res;
+        $details = [
+            'male_age_range'=>$this->male_age_range,
+            'female_age_range'=>$this->female_age_range,
+            'preferred_gender'=>$this->preferred_gender,
+            'country_ids'=>$this->country_ids,
+            'provider_ids'=>$this->provider_ids,
+
+        ];
+        return $is_detail ? array_merge($res,$details) : $res;
     }
 }

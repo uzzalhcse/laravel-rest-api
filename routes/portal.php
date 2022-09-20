@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\Blog\BlogController;
-use App\Http\Controllers\Share\AdsController;
+use App\Http\Controllers\AdsController;
+use App\Http\Controllers\BillboardController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,5 +21,10 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::get('/my-ads',   [AdsController::class,'myAds']);
     Route::get('/ads-info/{ads}',   [AdsController::class,'show']);
     Route::post('/save-my-ads',   [AdsController::class,'store']);
+    Route::put('/update-my-ads/{ads}',   [AdsController::class,'update']);
+
+
+    Route::get('/my-billboards',   [BillboardController::class,'index']);
+    Route::get('/billboard-info/{billboard}',   [BillboardController::class,'show']);
 });
 

@@ -19,6 +19,14 @@ if (! function_exists('is_advertiser')) {
     }
 }
 
+
+if (! function_exists('is_provider')) {
+    function is_provider(): bool
+    {
+        return Auth::check() && in_array('provider',Auth::user()->roles->pluck('slug')->toArray());
+    }
+}
+
 if (! function_exists('is_user')) {
     function is_user(): bool
     {

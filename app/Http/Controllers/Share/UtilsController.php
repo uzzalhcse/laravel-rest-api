@@ -69,10 +69,10 @@ class UtilsController extends ApiController
                 'providers'=>'250',
                 'daily_paid'=>'100k',
             ],
-            'ads'=>new EloquentResource($this->adsRepository->getAllItems()),
-            'billboards'=>new EloquentResource($this->billBoardRepository->getAllItems()),
+            'ads'=>new EloquentResource($this->adsRepository->getActiveItems()),
+            'billboards'=>new EloquentResource($this->billBoardRepository->getActiveItems()),
             'faqs'=>new EloquentResource(Faq::all()),
-            'blogs'=> new EloquentResource($this->blogRepository->getAllItems())
+            'blogs'=> new EloquentResource($this->blogRepository->getActiveItems())
         ]);
     }
 

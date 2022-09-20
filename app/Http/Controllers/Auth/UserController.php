@@ -37,7 +37,7 @@ class UserController extends ApiController
     public function index(): JsonResponse
     {
         return $this->success('User lists',[
-            'item'=> new EloquentResource($this->userRepository->getAllItems())
+            'item'=> new EloquentResource($this->userRepository->getActiveItems())
         ]);
     }
 

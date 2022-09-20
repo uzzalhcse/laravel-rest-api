@@ -22,6 +22,7 @@ class AdsRepository extends BaseEloquentRepository implements AdsRepositoryInter
         parent::__construct($ads);
     }
 
+
     /**
      * @param Request $request
      * @return Model|null
@@ -35,29 +36,15 @@ class AdsRepository extends BaseEloquentRepository implements AdsRepositoryInter
             $ads->user_id = Auth::id();
             $ads->title = $request->title;
             $ads->description = $request->description;
-            $ads->male_age_range = $request->male_age_range;
-            $ads->female_age_range = $request->female_age_range;
+            $ads->male_age_range = explode(',', $request->male_age_range);
+            $ads->female_age_range = explode(',', $request->female_age_range);
             $ads->preferred_gender = $request->preferred_gender;
-            $ads->status_id = 2;
+            $ads->status_id = 3;
             $ads->save();
             $ads->countries()->attach(explode(',',$request->country_ids));
-//            $ads->providers()->attach(explode(',', $request->provider_ids));
+            $ads->providers()->attach(explode(',', $request->provider_ids));
+            $this->handleMedia($request, $ads);
 
-            $thumbnail = upload_file($request,'thumbnail_file','/media/thumbnail/');
-            $banner = upload_file($request,'banner_file','/media/banner/');
-            $audio = upload_file($request,'audio_file','/media/audio/');
-            $ads->media()->create([
-                'path'=>$thumbnail,
-                'media_type'=>'thumbnail',
-            ]);
-            $ads->media()->create([
-                'path'=>$banner,
-                'media_type'=>'banner',
-            ]);
-            $ads->media()->create([
-                'path'=>$audio,
-                'media_type'=>'audio',
-            ]);
             DB::commit();
             return $ads;
 
@@ -69,22 +56,74 @@ class AdsRepository extends BaseEloquentRepository implements AdsRepositoryInter
 
     }
 
-
     /**
-     * @return mixed
+     * @param Request $request
+     * @param Model $ads
+     * @return Model|null
      */
-    public function myAds(): mixed
+    public function update(Request $request, Model $ads): ?Model
     {
-        $items = $this->model::latest();
-        if (is_advertiser()){
-            $items = $items->advertiser();
+        DB::beginTransaction();
+        try {
+            $ads->title = $request->title;
+            $ads->description = $request->description;
+            $ads->male_age_range = explode(',', $request->male_age_range);
+            $ads->female_age_range = explode(',', $request->female_age_range);
+            $ads->preferred_gender = $request->preferred_gender;
+            $ads->save();
+            $ads->countries()->sync(explode(',',$request->country_ids));
+            $ads->providers()->sync(explode(',', $request->provider_ids));
+            $this->handleMedia($request, $ads);
+            DB::commit();
+            return $ads;
+
+        } catch (\Exception $exception){
+            Log::info($exception);
+            DB::rollBack();
+            return null;
         }
-        if (isset(request()->page)){ // paginate if request has page query
-            $items = $items->paginate(config('settings.pagination.per_page'));
-        } else{
-            $items = $items->take(20)->get();
-        }
-        return $items;
     }
 
+    /**
+     * @param Request $request
+     * @param Model $ads
+     * @return Model
+     */
+    public function handleMedia(Request $request, $ads)
+    {
+
+        $thumbnail = upload_file($request,'thumbnail_file','/media/thumbnail/');
+        $banner = upload_file($request,'banner_file','/media/banner/');
+        $audio = upload_file($request,'audio_file','/media/audio/');
+
+        if ($thumbnail) $ads->media()->updateOrCreate(['media_type'=>'thumbnail'],[
+            'path'=>$thumbnail,
+            'media_type'=>'thumbnail',
+        ]);
+        if ($banner) $ads->media()->updateOrCreate(['media_type'=>'banner'],[
+            'path'=>$banner,
+            'media_type'=>'banner',
+        ]);
+        if ($audio) $ads->media()->updateOrCreate(['media_type'=>'audio'],[
+            'path'=>$audio,
+            'media_type'=>'audio',
+        ]);
+        return $ads;
+    }
+
+    /**
+     * @param $status
+     * @return mixed
+     */
+    public function updateStatus(Ads $ads,$status): mixed
+    {
+        $statuses = [1,2,3,4];
+        if (!in_array($status,$statuses)){
+            return false;
+        }
+        $ads->status_id = $status;
+        $ads->save();
+        return $ads;
+
+    }
 }

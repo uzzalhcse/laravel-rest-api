@@ -35,7 +35,7 @@ class BlogController extends ApiController
     public function index(): JsonResponse
     {
         return $this->success('Blog list',[
-            'blogs'=> new EloquentResource($this->blogRepository->getAllItems())
+            'blogs'=> new EloquentResource($this->blogRepository->getActiveItems())
         ]);
     }
 
