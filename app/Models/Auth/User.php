@@ -7,6 +7,7 @@ use App\Models\Acl\Module;
 use App\Models\Acl\Permission;
 use App\Traits\ScopeActive;
 use App\Traits\Status;
+use App\Traits\Utils;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -14,7 +15,7 @@ use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable, ScopeActive,Status;
+    use HasApiTokens, HasFactory, Notifiable, ScopeActive,Status,Utils;
 
     /**
      * The attributes that are mass assignable.
@@ -82,10 +83,15 @@ class User extends Authenticatable
         return [
             'id'=>$this->id,
             'name'=>$this->name,
+            'avatar'=>$this->avatar,
             'email'=>$this->email,
+            'mobile'=>$this->email,
+            'address'=>$this->address,
             'role_ids'=>$this->roles->pluck('id'),
             'roles'=>$this->roles,
             'is_active'=>$this->is_active,
+            'date'=>$this->date,
+            'status'=>$this->status->title,
             'status_id'=>$this->status_id,
         ];
     }

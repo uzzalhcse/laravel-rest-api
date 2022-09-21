@@ -16,4 +16,7 @@ interface UserRepositoryInterface extends BaseEloquentInterface
     public function updateProfile(Request $request, User $user): User;
 
     public function saveAcl(User $user, array $roles, array $permissions): void;
+
+    public function getUsersByRole();
+    public function updateStatus(User $user, $status);
 }

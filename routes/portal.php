@@ -24,7 +24,9 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::put('/update-my-ads/{ads}',   [AdsController::class,'update']);
 
 
-    Route::get('/my-billboards',   [BillboardController::class,'index']);
+    Route::get('/my-billboards',   [BillboardController::class,'myBillBoard']);
     Route::get('/billboard-info/{billboard}',   [BillboardController::class,'show']);
+    Route::post('/save-my-billboard',   [BillboardController::class,'store']);
+    Route::put('/update-my-billboard/{billboard}',   [BillboardController::class,'update']);
 });
 

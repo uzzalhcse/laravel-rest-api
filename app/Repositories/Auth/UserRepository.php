@@ -26,6 +26,26 @@ class UserRepository extends BaseEloquentRepository implements UserRepositoryInt
         parent::__construct($user);
     }
 
+    public function getUsersByRole(){
+        $items = $this->model::latest();
+        $role = \request()->input('role');
+        $status_id = \request()->input('status_id');
+        if ($role) {
+            $items = $items->whereHas('roles',function ($q) use ($role) {
+                $q->where('slug',$role);
+            });
+        }
+        if ($status_id && $status_id != 'null') {
+            $items = $items->where('status_id',$status_id);
+        }
+        if (isset(request()->page)){ // paginate if request has page query
+            $items = $items->paginate(config('settings.pagination.per_page'));
+        } else{
+            $items = $items->take(20)->get();
+        }
+        return $items;
+    }
+
     public function updateProfile(Request $request, $user): User
     {
         $this->update($request->validated(),$user);
@@ -52,5 +72,17 @@ class UserRepository extends BaseEloquentRepository implements UserRepositoryInt
     {
         $user->roles()->sync($roles);
         $user->permissions()->sync($roles);
+    }
+
+    public function updateStatus(User $user,$status): mixed
+    {
+        $statuses = [1,2,3,4,5,6];
+        if (!in_array($status,$statuses)){
+            return false;
+        }
+        $user->status_id = $status;
+        $user->save();
+        return $user;
+
     }
 }

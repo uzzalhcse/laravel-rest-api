@@ -37,7 +37,7 @@ class UserController extends ApiController
     public function index(): JsonResponse
     {
         return $this->success('User lists',[
-            'item'=> new EloquentResource($this->userRepository->getActiveItems())
+            'items'=> new EloquentResource(is_admin()? $this->userRepository->getUsersByRole() : $this->userRepository->getActiveItems())
         ]);
     }
 
@@ -99,5 +99,11 @@ class UserController extends ApiController
     {
         $this->userRepository->delete($user);
         return $this->success('User deleted');
+    }
+
+    public function updateStatus(User $user, $status): JsonResponse
+    {
+        $res = $this->userRepository->updateStatus($user, $status);
+        return $res ? $this->success('Status Updated') : $this->error('Status Update Failed');
     }
 }

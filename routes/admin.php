@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\AdsController;
+use App\Http\Controllers\Auth\UserController;
+use App\Http\Controllers\BillboardController;
 use App\Http\Controllers\Blog\BlogController;
 use Illuminate\Support\Facades\Route;
 
@@ -22,7 +24,12 @@ Route::middleware(['auth:sanctum'])->group(function () {
 //    Route::get('/info', [AuthController::class, 'info']);
 
     Route::apiResource('/blogs',   BlogController::class);
-    Route::get('/update-status/{ads}/{status}',   [AdsController::class,'updateStatus']);
     Route::apiResource('/ads',   AdsController::class);
+    Route::get('/update-ads-status/{ads}/{status}',   [AdsController::class,'updateStatus']);
+
+    Route::apiResource('/billboards',   BillboardController::class);
+    Route::get('/update-billboard-status/{billboard}/{status}',   [BillboardController::class,'updateStatus']);
+    Route::get('/users',   [UserController::class,'index']);
+    Route::get('/update-user-status/{user}/{status}',   [UserController::class,'updateStatus']);
 });
 
