@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Share;
 
 use App\Http\Controllers\ApiController;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\ActivityLogResource;
 use App\Http\Resources\EloquentResource;
 use App\Http\Resources\ProviderResource;
 use App\Http\Resources\Share\StatusResource;
@@ -23,6 +24,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Artisan;
+use Spatie\Activitylog\Models\Activity;
 
 class UtilsController extends ApiController
 {
@@ -98,6 +100,11 @@ class UtilsController extends ApiController
     }
 
 
+    public function activityLogs(){
+        return $this->success('Activity Logs',[
+            'items'=> new ActivityLogResource(Activity::latest()->paginate(config('settings.pagination.per_page')))
+        ]);
+    }
 
 
 

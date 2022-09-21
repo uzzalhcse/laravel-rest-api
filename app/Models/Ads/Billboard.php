@@ -9,11 +9,14 @@ use App\Traits\Status;
 use App\Traits\Utils;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Auth;
+use Spatie\Activitylog\LogOptions;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 class Billboard extends Model
 {
-    use HasFactory,ScopeActive,Status, Utils;
+    use HasFactory,SoftDeletes,ScopeActive,Status, Utils, LogsActivity;
 
     public function media()
     {
@@ -52,5 +55,17 @@ class Billboard extends Model
 
         ];
         return $is_detail ? array_merge($items,$details) : $items;
+    }
+
+    /**
+     * @return LogOptions
+     */
+    public function getActivitylogOptions(): LogOptions
+    {
+        return LogOptions::defaults()
+            ->useLogName('Billboard')
+            ->logOnly(['title', 'status_id'])
+            ->logOnlyDirty()
+            ->setDescriptionForEvent(fn(string $eventName) => "This Billboard {$this->name} has been {$eventName}");
     }
 }

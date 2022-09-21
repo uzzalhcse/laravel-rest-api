@@ -29,8 +29,6 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->foreignId('status_id')->default(1)->constrained('statuses');
-            $table->foreignId('created_by')->nullable()->constrained('users')->cascadeOnDelete();
-            $table->foreignId('updated_by')->nullable()->constrained('users')->cascadeOnDelete();
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();

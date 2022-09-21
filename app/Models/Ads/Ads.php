@@ -10,11 +10,14 @@ use App\Traits\Status;
 use App\Traits\Utils;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Auth;
+use Spatie\Activitylog\LogOptions;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 class Ads extends Model
 {
-    use HasFactory,ScopeActive,Status,Utils;
+    use HasFactory,SoftDeletes,ScopeActive,Status,Utils,LogsActivity;
     protected $casts = [
         'male_age_range'=>'array',
         'female_age_range'=>'array',
@@ -84,5 +87,17 @@ class Ads extends Model
 
         ];
         return $is_detail ? array_merge($res,$details) : $res;
+    }
+
+    /**
+     * @return LogOptions
+     */
+    public function getActivitylogOptions(): LogOptions
+    {
+        return LogOptions::defaults()
+            ->useLogName('Ads')
+            ->logOnly(['title', 'status_id'])
+            ->logOnlyDirty()
+            ->setDescriptionForEvent(fn(string $eventName) => "This Ads {$this->name} has been {$eventName}");
     }
 }

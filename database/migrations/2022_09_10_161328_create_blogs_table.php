@@ -22,6 +22,7 @@ return new class extends Migration
             $table->longText('body');
             $table->foreignId('status_id')->default(1)->constrained('statuses');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

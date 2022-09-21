@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\ActivityLogResource;
 use App\Http\Resources\Auth\AuthResource;
 use App\Http\Resources\TestCollection;
 use App\Http\Resources\TestResource;
@@ -14,12 +15,13 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Mail;
 use Exception;
+use Spatie\Activitylog\Models\Activity;
 use Twilio\Rest\Client;
 
 class TestController extends ApiController
 {
     public function test(){
-        return [in_array('super_admin',User::find(1)->roles->pluck('slug')->toArray())];
+        return [$lastActivity = new ActivityLogResource(Activity::all())];
     }
 
     public function testEmail(){

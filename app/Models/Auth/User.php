@@ -2,21 +2,22 @@
 
 namespace App\Models\Auth;
 
-use App\Http\Resources\Auth\RolePermissions;
 use App\Models\Acl\Module;
 use App\Models\Acl\Permission;
 use App\Traits\ScopeActive;
 use App\Traits\Status;
 use App\Traits\Utils;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Spatie\Activitylog\LogOptions;
+use Spatie\Activitylog\Traits\LogsActivity;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable, ScopeActive,Status,Utils;
-
+    use HasApiTokens, HasFactory,SoftDeletes, Notifiable, ScopeActive,Status,Utils, LogsActivity;
     /**
      * The attributes that are mass assignable.
      *
@@ -94,5 +95,17 @@ class User extends Authenticatable
             'status'=>$this->status->title,
             'status_id'=>$this->status_id,
         ];
+    }
+
+    /**
+     * @return LogOptions
+     */
+    public function getActivitylogOptions(): LogOptions
+    {
+        return LogOptions::defaults()
+            ->useLogName('User')
+            ->logOnly(['first_name', 'last_name', 'email', 'status_id'])
+            ->logOnlyDirty()
+            ->setDescriptionForEvent(fn(string $eventName) => "This User {$this->name} has been {$eventName}");
     }
 }

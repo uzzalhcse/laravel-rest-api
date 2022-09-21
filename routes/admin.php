@@ -4,6 +4,7 @@ use App\Http\Controllers\AdsController;
 use App\Http\Controllers\Auth\UserController;
 use App\Http\Controllers\BillboardController;
 use App\Http\Controllers\Blog\BlogController;
+use App\Http\Controllers\Share\UtilsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -31,5 +32,8 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::get('/update-billboard-status/{billboard}/{status}',   [BillboardController::class,'updateStatus']);
     Route::get('/users',   [UserController::class,'index']);
     Route::get('/update-user-status/{user}/{status}',   [UserController::class,'updateStatus']);
+
+
+    Route::get('/activity-logs',   [UtilsController::class,'activityLogs']);
 });
 
