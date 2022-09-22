@@ -53,6 +53,9 @@ class Ads extends Model
     public function providers(){
         return $this->belongsToMany(User::class,'ads_providers','ads_id','user_id');
     }
+    public function subscribers(){
+        return $this->belongsToMany(User::class,'ads_subscriptions')->withTimestamps();
+    }
 
     public function getCountryIdsAttribute(){
         return $this->countries->pluck('id');

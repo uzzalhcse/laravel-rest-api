@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Resources\ActivityLogResource;
 use App\Http\Resources\Auth\AuthResource;
+use App\Http\Resources\EloquentResource;
 use App\Http\Resources\TestCollection;
 use App\Http\Resources\TestResource;
 use App\Jobs\WelcomeEmailJob;
@@ -21,7 +22,13 @@ use Twilio\Rest\Client;
 class TestController extends ApiController
 {
     public function test(){
-        return [$lastActivity = new ActivityLogResource(Activity::all())];
+        return $this->mySubscriptions();
+    }
+    public function mySubscriptions(){
+        $user = User::find(5);
+        return $this->success('Subscriptions',[
+            'items'=>new EloquentResource($user->ads_subscriptions)
+        ]);
     }
 
     public function testEmail(){

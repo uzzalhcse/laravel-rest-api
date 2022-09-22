@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdsController;
+use App\Http\Controllers\AdsSubscriptionController;
 use App\Http\Controllers\BillboardController;
 use Illuminate\Support\Facades\Route;
 
@@ -28,5 +29,9 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::get('/billboard-info/{billboard}',   [BillboardController::class,'show']);
     Route::post('/save-my-billboard',   [BillboardController::class,'store']);
     Route::put('/update-my-billboard/{billboard}',   [BillboardController::class,'update']);
+
+    Route::get('/my-subscriptions',   [AdsSubscriptionController::class,'index']);
+    Route::get('/subscribe-ads/{ads}',   [AdsSubscriptionController::class,'subscribeAds']);
+    Route::get('/unsubscribe-ads/{ads}',   [AdsSubscriptionController::class,'unsubscribeAds']);
 });
 

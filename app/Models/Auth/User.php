@@ -4,6 +4,7 @@ namespace App\Models\Auth;
 
 use App\Models\Acl\Module;
 use App\Models\Acl\Permission;
+use App\Models\Ads\Ads;
 use App\Traits\ScopeActive;
 use App\Traits\Status;
 use App\Traits\Utils;
@@ -95,6 +96,10 @@ class User extends Authenticatable
             'status'=>$this->status->title,
             'status_id'=>$this->status_id,
         ];
+    }
+
+    public function ads_subscriptions(){
+        return $this->belongsToMany(Ads::class,'ads_subscriptions');
     }
 
     /**

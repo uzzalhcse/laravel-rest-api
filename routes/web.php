@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Acl\RolePermissionController;
+use App\Http\Controllers\AdsSubscriptionController;
 use App\Http\Services\Payment\Ekpay\PaymentController;
 use Illuminate\Support\Facades\Route;
 
@@ -23,3 +24,4 @@ Route::get('/modules', [RolePermissionController::class, 'allModules']);
 
 
 Route::get('/test', [\App\Http\Controllers\TestController::class, 'test']);
+Route::get('/subscribe/{ads}', [AdsSubscriptionController::class,'subscribeAds']);
