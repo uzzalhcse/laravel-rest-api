@@ -56,7 +56,17 @@ class Ads extends Model
     public function subscribers(){
         return $this->belongsToMany(User::class,'ads_subscriptions')->withTimestamps();
     }
+    public function reviews(){
+        return $this->hasMany(AdsReview::class);
+    }
+    public function getRatingAttribute(){
+        return $this->reviews->average('rating');
+    }
 
+    public function getIsSubscribedAttribute(){
+        return $this->subscribers->where('id',Auth::guard('sanctum')->id())->count() > 0;
+//        return in_array(Auth::guard('sanctum')->id(),$this->subscribers->pluck('id')->toArray());
+    }
     public function getCountryIdsAttribute(){
         return $this->countries->pluck('id');
     }
@@ -71,13 +81,14 @@ class Ads extends Model
             'id'=>$this->id,
             'title'=>$this->title,
             'owner'=>$this->owner,
+            'is_subscribed'=>$this->is_subscribed,
             'year'=>$this->year,
             'thumbnail'=>url('/').$this->thumbnail,
             'aired'=>$this->date,
             'description'=>$this->description,
             'audio'=>url('/').$this->audio,
             'banner'=>url('/').$this->banner,
-            'rating'=> 4.2,
+            'rating'=> $this->rating,
             'status_id'=> $this->status_id,
             'status'=>$this->status->title
         ];

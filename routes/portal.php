@@ -33,5 +33,6 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::get('/my-subscriptions',   [AdsSubscriptionController::class,'index']);
     Route::get('/subscribe-ads/{ads}',   [AdsSubscriptionController::class,'subscribeAds']);
     Route::get('/unsubscribe-ads/{ads}',   [AdsSubscriptionController::class,'unsubscribeAds']);
+    Route::post('/submit-rating',   [AdsSubscriptionController::class,'submitRating']);
 });
 

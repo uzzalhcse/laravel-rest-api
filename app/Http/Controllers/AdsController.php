@@ -21,7 +21,8 @@ class AdsController extends ApiController
 
     public function index(){
         return $this->success('All Ads',[
-            'items'=> new EloquentResource(is_admin() ?$this->adsRepository->getAllItems() : $this->adsRepository->getActiveItems())
+            'items'=> new EloquentResource(is_admin() ?$this->adsRepository->getAllItems() : $this->adsRepository->getActiveItems()),
+            'popular_items'=> new EloquentResource($this->adsRepository->popularItems()),
         ]);
     }
 

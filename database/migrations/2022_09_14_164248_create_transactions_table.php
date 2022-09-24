@@ -16,13 +16,12 @@ return new class extends Migration
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
-            $table->morphs('transactionable');
             $table->string('trxid')->unique();
-            $table->string('type')->nullable();
             $table->double('sub_total',10,2);
             $table->double('discount',10,2);
             $table->double('tax',10,2);
             $table->double('total',10,2);
+            $table->string('type');
             $table->foreignId('status_id')->default(2)->constrained('statuses')->cascadeOnDelete();
             $table->timestamps();
             $table->softDeletes();

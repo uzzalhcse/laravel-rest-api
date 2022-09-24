@@ -2,7 +2,10 @@
 
 namespace Database\Seeders\Share;
 
+use Carbon\Carbon;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class TransactionSeeder extends Seeder
 {
@@ -13,6 +16,36 @@ class TransactionSeeder extends Seeder
      */
     public function run()
     {
-        //
+
+        $timestamp = Carbon::now()->toDateTimeString();
+        $transactions = [
+            [
+                'user_id'=>'3',
+                'trxid'=> Str::random(6),
+                'sub_total'=>'3005',
+                'discount'=>'0',
+                'tax'=>'0',
+                'total'=>'3005',
+                'type'=>'Package Purchase',
+                'status_id'=>'1',
+                'created_at'=>$timestamp,
+                'updated_at'=>$timestamp
+            ],
+            [
+                'user_id'=>'4',
+                'trxid'=> Str::random(6),
+                'sub_total'=>'880',
+                'discount'=>'0',
+                'tax'=>'0',
+                'total'=>'880',
+                'type'=>'Package Purchase',
+                'status_id'=>'1',
+                'created_at'=>$timestamp,
+                'updated_at'=>$timestamp
+            ]
+        ];
+
+
+        DB::table('transactions')->insert($transactions);
     }
 }

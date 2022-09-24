@@ -16,6 +16,7 @@ use Database\Seeders\Package\PackageSeeder;
 use Database\Seeders\Share\CommonSeeder;
 use Database\Seeders\Share\CountrySeeder;
 use Database\Seeders\Share\StatusSeeder;
+use Database\Seeders\Share\TransactionSeeder;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -42,5 +43,7 @@ class DatabaseSeeder extends Seeder
         $this->call(BlogCommentSeeder::class);
         $this->call(PackageSeeder::class);
         $this->call(CommonSeeder::class);
+        $this->call(AdsReviewSeeder::class);
+        $this->call(TransactionSeeder::class);
     }
 }

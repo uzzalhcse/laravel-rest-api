@@ -22,6 +22,17 @@ class AdsRepository extends BaseEloquentRepository implements AdsRepositoryInter
         parent::__construct($ads);
     }
 
+    public function popularItems()
+    {
+        $items = $this->model::active()->latest();
+        if (isset(request()->page)){ // paginate if request has page query
+            $items = $items->paginate(config('settings.pagination.per_page'));
+        } else{
+            $items = $items->take(20)->get();
+        }
+        return $items->where('rating','>',0);
+    }
+
 
     /**
      * @param Request $request
