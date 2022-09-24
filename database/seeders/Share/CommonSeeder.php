@@ -539,7 +539,7 @@ class CommonSeeder extends Seeder
             [
                 'mediable_type'=>'App\Models\Ads\Ads',
                 'mediable_id'=>'14',
-                'path'=>'/uploads/defaults/media/audio/choice.mp3',
+                'path'=>'/uploads/defaults/media/audio/choicehotel.mp3',
                 'media_type'=>'audio',
                 'created_at'=>$timestamp,
                 'updated_at'=>$timestamp
