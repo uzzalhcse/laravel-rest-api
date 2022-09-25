@@ -39,7 +39,7 @@ class CommonSeeder extends Seeder
             [
                 'id'=>'1',
                 'user_id'=>'3',
-                'title'=>'CITI',
+                'title'=>'CITI Bank',
                 'description'=>'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic soluta unde veniam. Ipsa, mollitia, nemo? Ab aut delectus dolorem eaque eum explicabo fugit laboriosam perspiciatis ut vero. Corporis, impedit iste.',
                 'male_age_range'=>'[20,46]',
                 'female_age_range'=>'[18,35]',
@@ -61,7 +61,7 @@ class CommonSeeder extends Seeder
             [
                 'id'=>'3',
                 'user_id'=>'3',
-                'title'=>'Pizza Hunt',
+                'title'=>'Pizza Hut',
                 'description'=>'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic soluta unde veniam. Ipsa, mollitia, nemo? Ab aut delectus dolorem eaque eum explicabo fugit laboriosam perspiciatis ut vero. Corporis, impedit iste.',
                 'male_age_range'=>'[20,56]',
                 'female_age_range'=>'[19,55]',
@@ -90,6 +90,116 @@ class CommonSeeder extends Seeder
                 'preferred_gender'=>'Female',
                 'created_at'=>$timestamp,
                 'updated_at'=>$timestamp
+            ],
+            [
+                'id'=>'6',
+                'user_id'=>'3',
+                'title'=>'Geico',
+                'description'=>'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic soluta unde veniam. Ipsa, mollitia, nemo? Ab aut delectus dolorem eaque eum explicabo fugit laboriosam perspiciatis ut vero. Corporis, impedit iste.',
+                'male_age_range'=>'[20,62]',
+                'female_age_range'=>'[21,45]',
+                'preferred_gender'=>'both',
+                'created_at'=>$timestamp,
+                'updated_at'=>$timestamp
+            ],
+            [
+                'id'=>'7',
+                'user_id'=>'3',
+                'title'=>'Expedia',
+                'description'=>'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic soluta unde veniam. Ipsa, mollitia, nemo? Ab aut delectus dolorem eaque eum explicabo fugit laboriosam perspiciatis ut vero. Corporis, impedit iste.',
+                'male_age_range'=>'[20,62]',
+                'female_age_range'=>'[21,45]',
+                'preferred_gender'=>'both',
+                'created_at'=>$timestamp,
+                'updated_at'=>$timestamp
+            ],
+            [
+                'id'=>'8',
+                'user_id'=>'3',
+                'title'=>'H&M',
+                'description'=>'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic soluta unde veniam. Ipsa, mollitia, nemo? Ab aut delectus dolorem eaque eum explicabo fugit laboriosam perspiciatis ut vero. Corporis, impedit iste.',
+                'male_age_range'=>'[20,62]',
+                'female_age_range'=>'[21,45]',
+                'preferred_gender'=>'both',
+                'created_at'=>$timestamp,
+                'updated_at'=>$timestamp
+            ],
+            [
+                'id'=>'9',
+                'user_id'=>'3',
+                'title'=>'MCDonalds',
+                'description'=>'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic soluta unde veniam. Ipsa, mollitia, nemo? Ab aut delectus dolorem eaque eum explicabo fugit laboriosam perspiciatis ut vero. Corporis, impedit iste.',
+                'male_age_range'=>'[20,62]',
+                'female_age_range'=>'[21,45]',
+                'preferred_gender'=>'both',
+                'created_at'=>$timestamp,
+                'updated_at'=>$timestamp
+            ],
+            [
+                'id'=>'10',
+                'user_id'=>'3',
+                'title'=>'Disney',
+                'description'=>'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic soluta unde veniam. Ipsa, mollitia, nemo? Ab aut delectus dolorem eaque eum explicabo fugit laboriosam perspiciatis ut vero. Corporis, impedit iste.',
+                'male_age_range'=>'[20,62]',
+                'female_age_range'=>'[21,45]',
+                'preferred_gender'=>'both',
+                'created_at'=>$timestamp,
+                'updated_at'=>$timestamp
+            ],
+            [
+                'id'=>'11',
+                'user_id'=>'3',
+                'title'=>'Subway',
+                'description'=>'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic soluta unde veniam. Ipsa, mollitia, nemo? Ab aut delectus dolorem eaque eum explicabo fugit laboriosam perspiciatis ut vero. Corporis, impedit iste.',
+                'male_age_range'=>'[20,62]',
+                'female_age_range'=>'[21,45]',
+                'preferred_gender'=>'both',
+                'created_at'=>$timestamp,
+                'updated_at'=>$timestamp
+            ],
+            [
+                'id'=>'12',
+                'user_id'=>'3',
+                'title'=>'T-Mobile',
+                'description'=>'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic soluta unde veniam. Ipsa, mollitia, nemo? Ab aut delectus dolorem eaque eum explicabo fugit laboriosam perspiciatis ut vero. Corporis, impedit iste.',
+                'male_age_range'=>'[20,62]',
+                'female_age_range'=>'[21,45]',
+                'preferred_gender'=>'both',
+                'created_at'=>$timestamp,
+                'updated_at'=>$timestamp
+            ],
+            [
+                'id'=>'13',
+                'user_id'=>'3',
+                'title'=>'Liberty Mutual',
+                'description'=>'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic soluta unde veniam. Ipsa, mollitia, nemo? Ab aut delectus dolorem eaque eum explicabo fugit laboriosam perspiciatis ut vero. Corporis, impedit iste.',
+                'male_age_range'=>'[20,62]',
+                'female_age_range'=>'[21,45]',
+                'preferred_gender'=>'both',
+                'created_at'=>$timestamp,
+                'updated_at'=>$timestamp
+            ],
+            [
+                'id'=>'14',
+                'user_id'=>'3',
+                'title'=>'Choice Hotels',
+                'description'=>'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic soluta unde veniam. Ipsa, mollitia, nemo? Ab aut delectus dolorem eaque eum explicabo fugit laboriosam perspiciatis ut vero. Corporis, impedit iste.',
+                'male_age_range'=>'[20,62]',
+                'female_age_range'=>'[21,45]',
+                'preferred_gender'=>'both',
+                'created_at'=>$timestamp,
+                'updated_at'=>$timestamp
+            ],
+            [
+                'id'=>'15',
+                'user_id'=>'3',
+                'title'=>'Pringles',
+                'description'=>'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic soluta unde veniam. Ipsa, mollitia, nemo? Ab aut delectus dolorem eaque eum explicabo fugit laboriosam perspiciatis ut vero. Corporis, impedit iste.',
+                'male_age_range'=>'[20,62]',
+                'female_age_range'=>'[21,45]',
+                'preferred_gender'=>'both',
+                'created_at'=>$timestamp,
+                'updated_at'=>$timestamp
             ]
         ];
 
@@ -101,7 +211,7 @@ class CommonSeeder extends Seeder
             [
                 'mediable_type'=>'App\Models\Ads\Ads',
                 'mediable_id'=>'1',
-                'path'=>'/uploads/defaults/media/thumbnail/citi.jpg',
+                'path'=>'/uploads/defaults/media/thumbnail/citi.png',
                 'media_type'=>'thumbnail',
                 'created_at'=>$timestamp,
                 'updated_at'=>$timestamp
@@ -109,7 +219,7 @@ class CommonSeeder extends Seeder
             [
                 'mediable_type'=>'App\Models\Ads\Ads',
                 'mediable_id'=>'1',
-                'path'=>'/uploads/defaults/media/banner/coca-cola.jpg',
+                'path'=>'/uploads/defaults/media/banner/citibank.png',
                 'media_type'=>'banner',
                 'created_at'=>$timestamp,
                 'updated_at'=>$timestamp
@@ -117,7 +227,7 @@ class CommonSeeder extends Seeder
             [
                 'mediable_type'=>'App\Models\Ads\Ads',
                 'mediable_id'=>'1',
-                'path'=>'/uploads/defaults/media/audio/citi_bank.mp3',
+                'path'=>'/uploads/defaults/media/audio/citibank.mp3',
                 'media_type'=>'audio',
                 'created_at'=>$timestamp,
                 'updated_at'=>$timestamp
@@ -133,7 +243,7 @@ class CommonSeeder extends Seeder
             [
                 'mediable_type'=>'App\Models\Ads\Ads',
                 'mediable_id'=>'2',
-                'path'=>'/uploads/defaults/media/banner/coca-cola.jpg',
+                'path'=>'/uploads/defaults/media/banner/cocacola.png',
                 'media_type'=>'banner',
                 'created_at'=>$timestamp,
                 'updated_at'=>$timestamp
@@ -141,7 +251,7 @@ class CommonSeeder extends Seeder
             [
                 'mediable_type'=>'App\Models\Ads\Ads',
                 'mediable_id'=>'2',
-                'path'=>'/uploads/defaults/media/audio/coca-cola.mp3',
+                'path'=>'/uploads/defaults/media/audio/cocacola.mp3',
                 'media_type'=>'audio',
                 'created_at'=>$timestamp,
                 'updated_at'=>$timestamp
@@ -149,7 +259,7 @@ class CommonSeeder extends Seeder
             [
                 'mediable_type'=>'App\Models\Ads\Ads',
                 'mediable_id'=>'3',
-                'path'=>'/uploads/defaults/media/thumbnail/pizza-hunt.jpg',
+                'path'=>'/uploads/defaults/media/thumbnail/pizzahut.png',
                 'media_type'=>'thumbnail',
                 'created_at'=>$timestamp,
                 'updated_at'=>$timestamp
@@ -157,7 +267,7 @@ class CommonSeeder extends Seeder
             [
                 'mediable_type'=>'App\Models\Ads\Ads',
                 'mediable_id'=>'3',
-                'path'=>'/uploads/defaults/media/banner/coca-cola.jpg',
+                'path'=>'/uploads/defaults/media/banner/pizzahut.png',
                 'media_type'=>'banner',
                 'created_at'=>$timestamp,
                 'updated_at'=>$timestamp
@@ -165,7 +275,7 @@ class CommonSeeder extends Seeder
             [
                 'mediable_type'=>'App\Models\Ads\Ads',
                 'mediable_id'=>'3',
-                'path'=>'/uploads/defaults/media/audio/coca-cola.mp3',
+                'path'=>'/uploads/defaults/media/audio/pizzahut.mp3',
                 'media_type'=>'audio',
                 'created_at'=>$timestamp,
                 'updated_at'=>$timestamp
@@ -181,7 +291,7 @@ class CommonSeeder extends Seeder
             [
                 'mediable_type'=>'App\Models\Ads\Ads',
                 'mediable_id'=>'4',
-                'path'=>'/uploads/defaults/media/banner/coca-cola.jpg',
+                'path'=>'/uploads/defaults/media/banner/starbucks.png',
                 'media_type'=>'banner',
                 'created_at'=>$timestamp,
                 'updated_at'=>$timestamp
@@ -189,7 +299,7 @@ class CommonSeeder extends Seeder
             [
                 'mediable_type'=>'App\Models\Ads\Ads',
                 'mediable_id'=>'4',
-                'path'=>'/uploads/defaults/media/audio/coca-cola.mp3',
+                'path'=>'/uploads/defaults/media/audio/starbucks.mp3',
                 'media_type'=>'audio',
                 'created_at'=>$timestamp,
                 'updated_at'=>$timestamp
@@ -205,7 +315,7 @@ class CommonSeeder extends Seeder
             [
                 'mediable_type'=>'App\Models\Ads\Ads',
                 'mediable_id'=>'5',
-                'path'=>'/uploads/defaults/media/banner/pepsi.jpg',
+                'path'=>'/uploads/defaults/media/banner/pepsi.png',
                 'media_type'=>'banner',
                 'created_at'=>$timestamp,
                 'updated_at'=>$timestamp
@@ -213,11 +323,252 @@ class CommonSeeder extends Seeder
             [
                 'mediable_type'=>'App\Models\Ads\Ads',
                 'mediable_id'=>'5',
-                'path'=>'/uploads/defaults/media/audio/coca-cola.mp3',
+                'path'=>'/uploads/defaults/media/audio/pepsi.mp3',
+                'media_type'=>'audio',
+                'created_at'=>$timestamp,
+                'updated_at'=>$timestamp
+            ],
+            [
+                'mediable_type'=>'App\Models\Ads\Ads',
+                'mediable_id'=>'6',
+                'path'=>'/uploads/defaults/media/thumbnail/geico.png',
+                'media_type'=>'thumbnail',
+                'created_at'=>$timestamp,
+                'updated_at'=>$timestamp
+            ],
+            [
+                'mediable_type'=>'App\Models\Ads\Ads',
+                'mediable_id'=>'6',
+                'path'=>'/uploads/defaults/media/banner/geico.png',
+                'media_type'=>'banner',
+                'created_at'=>$timestamp,
+                'updated_at'=>$timestamp
+            ],
+            [
+                'mediable_type'=>'App\Models\Ads\Ads',
+                'mediable_id'=>'6',
+                'path'=>'/uploads/defaults/media/audio/geico.mp3',
+                'media_type'=>'audio',
+                'created_at'=>$timestamp,
+                'updated_at'=>$timestamp
+            ],
+            [
+                'mediable_type'=>'App\Models\Ads\Ads',
+                'mediable_id'=>'7',
+                'path'=>'/uploads/defaults/media/thumbnail/expedia.png',
+                'media_type'=>'thumbnail',
+                'created_at'=>$timestamp,
+                'updated_at'=>$timestamp
+            ],
+            [
+                'mediable_type'=>'App\Models\Ads\Ads',
+                'mediable_id'=>'7',
+                'path'=>'/uploads/defaults/media/banner/expedia.png',
+                'media_type'=>'banner',
+                'created_at'=>$timestamp,
+                'updated_at'=>$timestamp
+            ],
+            [
+                'mediable_type'=>'App\Models\Ads\Ads',
+                'mediable_id'=>'7',
+                'path'=>'/uploads/defaults/media/audio/expedia.mp3',
+                'media_type'=>'audio',
+                'created_at'=>$timestamp,
+                'updated_at'=>$timestamp
+            ],
+            [
+                'mediable_type'=>'App\Models\Ads\Ads',
+                'mediable_id'=>'8',
+                'path'=>'/uploads/defaults/media/thumbnail/h&m.png',
+                'media_type'=>'thumbnail',
+                'created_at'=>$timestamp,
+                'updated_at'=>$timestamp
+            ],
+            [
+                'mediable_type'=>'App\Models\Ads\Ads',
+                'mediable_id'=>'8',
+                'path'=>'/uploads/defaults/media/banner/h&m.png',
+                'media_type'=>'banner',
+                'created_at'=>$timestamp,
+                'updated_at'=>$timestamp
+            ],
+            [
+                'mediable_type'=>'App\Models\Ads\Ads',
+                'mediable_id'=>'8',
+                'path'=>'/uploads/defaults/media/audio/h&m.mp3',
+                'media_type'=>'audio',
+                'created_at'=>$timestamp,
+                'updated_at'=>$timestamp
+            ],
+            [
+                'mediable_type'=>'App\Models\Ads\Ads',
+                'mediable_id'=>'9',
+                'path'=>'/uploads/defaults/media/thumbnail/mcdonalds.png',
+                'media_type'=>'thumbnail',
+                'created_at'=>$timestamp,
+                'updated_at'=>$timestamp
+            ],
+            [
+                'mediable_type'=>'App\Models\Ads\Ads',
+                'mediable_id'=>'9',
+                'path'=>'/uploads/defaults/media/banner/mcdonalds.png',
+                'media_type'=>'banner',
+                'created_at'=>$timestamp,
+                'updated_at'=>$timestamp
+            ],
+            [
+                'mediable_type'=>'App\Models\Ads\Ads',
+                'mediable_id'=>'9',
+                'path'=>'/uploads/defaults/media/audio/mcdonalds.mp3',
+                'media_type'=>'audio',
+                'created_at'=>$timestamp,
+                'updated_at'=>$timestamp
+            ],
+            [
+                'mediable_type'=>'App\Models\Ads\Ads',
+                'mediable_id'=>'10',
+                'path'=>'/uploads/defaults/media/thumbnail/disney.png',
+                'media_type'=>'thumbnail',
+                'created_at'=>$timestamp,
+                'updated_at'=>$timestamp
+            ],
+            [
+                'mediable_type'=>'App\Models\Ads\Ads',
+                'mediable_id'=>'10',
+                'path'=>'/uploads/defaults/media/banner/disney.png',
+                'media_type'=>'banner',
+                'created_at'=>$timestamp,
+                'updated_at'=>$timestamp
+            ],
+            [
+                'mediable_type'=>'App\Models\Ads\Ads',
+                'mediable_id'=>'10',
+                'path'=>'/uploads/defaults/media/audio/disney.mp3',
+                'media_type'=>'audio',
+                'created_at'=>$timestamp,
+                'updated_at'=>$timestamp
+            ],
+            [
+                'mediable_type'=>'App\Models\Ads\Ads',
+                'mediable_id'=>'11',
+                'path'=>'/uploads/defaults/media/thumbnail/subway.png',
+                'media_type'=>'thumbnail',
+                'created_at'=>$timestamp,
+                'updated_at'=>$timestamp
+            ],
+            [
+                'mediable_type'=>'App\Models\Ads\Ads',
+                'mediable_id'=>'11',
+                'path'=>'/uploads/defaults/media/banner/subway.png',
+                'media_type'=>'banner',
+                'created_at'=>$timestamp,
+                'updated_at'=>$timestamp
+            ],
+            [
+                'mediable_type'=>'App\Models\Ads\Ads',
+                'mediable_id'=>'11',
+                'path'=>'/uploads/defaults/media/audio/subway.mp3',
+                'media_type'=>'audio',
+                'created_at'=>$timestamp,
+                'updated_at'=>$timestamp
+            ],
+            [
+                'mediable_type'=>'App\Models\Ads\Ads',
+                'mediable_id'=>'12',
+                'path'=>'/uploads/defaults/media/thumbnail/tmobile.png',
+                'media_type'=>'thumbnail',
+                'created_at'=>$timestamp,
+                'updated_at'=>$timestamp
+            ],
+            [
+                'mediable_type'=>'App\Models\Ads\Ads',
+                'mediable_id'=>'12',
+                'path'=>'/uploads/defaults/media/banner/tmobile.png',
+                'media_type'=>'banner',
+                'created_at'=>$timestamp,
+                'updated_at'=>$timestamp
+            ],
+            [
+                'mediable_type'=>'App\Models\Ads\Ads',
+                'mediable_id'=>'12',
+                'path'=>'/uploads/defaults/media/audio/tmobile.mp3',
+                'media_type'=>'audio',
+                'created_at'=>$timestamp,
+                'updated_at'=>$timestamp
+            ],
+            [
+                'mediable_type'=>'App\Models\Ads\Ads',
+                'mediable_id'=>'13',
+                'path'=>'/uploads/defaults/media/thumbnail/liberty.png',
+                'media_type'=>'thumbnail',
+                'created_at'=>$timestamp,
+                'updated_at'=>$timestamp
+            ],
+            [
+                'mediable_type'=>'App\Models\Ads\Ads',
+                'mediable_id'=>'13',
+                'path'=>'/uploads/defaults/media/banner/liberty.png',
+                'media_type'=>'banner',
+                'created_at'=>$timestamp,
+                'updated_at'=>$timestamp
+            ],
+            [
+                'mediable_type'=>'App\Models\Ads\Ads',
+                'mediable_id'=>'13',
+                'path'=>'/uploads/defaults/media/audio/liberty.mp3',
+                'media_type'=>'audio',
+                'created_at'=>$timestamp,
+                'updated_at'=>$timestamp
+            ],
+            [
+                'mediable_type'=>'App\Models\Ads\Ads',
+                'mediable_id'=>'14',
+                'path'=>'/uploads/defaults/media/thumbnail/choice.png',
+                'media_type'=>'thumbnail',
+                'created_at'=>$timestamp,
+                'updated_at'=>$timestamp
+            ],
+            [
+                'mediable_type'=>'App\Models\Ads\Ads',
+                'mediable_id'=>'14',
+                'path'=>'/uploads/defaults/media/banner/choice.png',
+                'media_type'=>'banner',
+                'created_at'=>$timestamp,
+                'updated_at'=>$timestamp
+            ],
+            [
+                'mediable_type'=>'App\Models\Ads\Ads',
+                'mediable_id'=>'14',
+                'path'=>'/uploads/defaults/media/audio/choicehotel.mp3',
+                'media_type'=>'audio',
+                'created_at'=>$timestamp,
+                'updated_at'=>$timestamp
+            ],
+            [
+                'mediable_type'=>'App\Models\Ads\Ads',
+                'mediable_id'=>'15',
+                'path'=>'/uploads/defaults/media/thumbnail/pringle.png',
+                'media_type'=>'thumbnail',
+                'created_at'=>$timestamp,
+                'updated_at'=>$timestamp
+            ],
+            [
+                'mediable_type'=>'App\Models\Ads\Ads',
+                'mediable_id'=>'15',
+                'path'=>'/uploads/defaults/media/banner/pringle.png',
+                'media_type'=>'banner',
+                'created_at'=>$timestamp,
+                'updated_at'=>$timestamp
+            ],
+            [
+                'mediable_type'=>'App\Models\Ads\Ads',
+                'mediable_id'=>'15',
+                'path'=>'/uploads/defaults/media/audio/pringle.mp3',
                 'media_type'=>'audio',
                 'created_at'=>$timestamp,
                 'updated_at'=>$timestamp
             ]
+
         ];
         DB::table('media')->insert($adsMedia);
 
