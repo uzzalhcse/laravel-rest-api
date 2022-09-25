@@ -18,6 +18,12 @@ class TransactionController extends ApiController
     {
         $this->transactionRepository = $transactionRepository;
     }
+    public function index(): JsonResponse
+    {
+        return $this->success('Transaction History',[
+            'items'=>new EloquentResource($this->transactionRepository->getAllItems())
+        ]);
+    }
 
 
     public function purchaseHistory(): JsonResponse

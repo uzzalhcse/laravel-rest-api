@@ -38,5 +38,6 @@ Route::middleware(['auth:sanctum'])->group(function () {
 
 
     Route::get('/purchase-history',   [TransactionController::class,'purchaseHistory']);
+    Route::get('/transaction-history',   [TransactionController::class,'index']);
 });
 

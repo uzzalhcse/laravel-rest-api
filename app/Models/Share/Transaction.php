@@ -25,6 +25,7 @@ class Transaction extends Model
             'trxid'=>$this->trxid,
             'date'=>$this->date,
             'total'=>$this->total,
+            'payment_method'=>$this->payment_method,
             'status'=>$this->status->title,
         ];
     }

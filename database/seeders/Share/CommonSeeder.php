@@ -25,7 +25,7 @@ class CommonSeeder extends Seeder
                 'package_id'=>'1',
                 'amount'=>'2000',
                 'audition_limit'=>'13333',
-                'expired_at'=>'2020-09-28',
+                'expired_at'=>'2022-11-28',
                 'created_at'=>$timestamp,
                 'updated_at'=>$timestamp
             ]
