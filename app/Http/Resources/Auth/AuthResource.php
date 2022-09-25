@@ -21,6 +21,8 @@ class AuthResource extends JsonResource
           'office_id'=>$this->office_id,
           'office'=>$this->office,
           'avatar'=>$this->avatar,
+          'billboard_package'=>$this->billboard_package,
+          'advertisement_package'=>$this->advertisement_package,
           'roles'=>$this->roles->pluck('slug'),
           'role_names'=>$this->roles->pluck('slug'),
           'acl'=>$this->acl,

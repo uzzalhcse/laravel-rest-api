@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdsController;
 use App\Http\Controllers\AdsSubscriptionController;
 use App\Http\Controllers\BillboardController;
+use App\Http\Controllers\TransactionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -34,5 +35,8 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::get('/subscribe-ads/{ads}',   [AdsSubscriptionController::class,'subscribeAds']);
     Route::get('/unsubscribe-ads/{ads}',   [AdsSubscriptionController::class,'unsubscribeAds']);
     Route::post('/submit-rating',   [AdsSubscriptionController::class,'submitRating']);
+
+
+    Route::get('/purchase-history',   [TransactionController::class,'purchaseHistory']);
 });
 

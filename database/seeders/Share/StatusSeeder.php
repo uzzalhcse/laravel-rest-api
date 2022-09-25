@@ -22,6 +22,7 @@ class StatusSeeder extends Seeder
             array('id' => '4','title' => 'Rejected','code' => '3',),
             array('id' => '5','title' => 'Ban','code' => '4',),
             array('id' => '6','title' => 'Suspend','code' => '5',),
+            array('id' => '7','title' => 'Completed','code' => '6',),
         );
 
         DB::table('statuses')->insert($statuses);
