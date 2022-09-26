@@ -22,7 +22,7 @@ class CommonSeeder extends Seeder
         $userPacks = [
             [
                 'user_id'=>'3',
-                'package_id'=>'1',
+                'package_id'=>'2',
                 'amount'=>'2000',
                 'audition_limit'=>'13333',
                 'expired_at'=>'2022-11-28',

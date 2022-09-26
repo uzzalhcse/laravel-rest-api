@@ -7,6 +7,7 @@ use App\Http\Resources\EloquentResource;
 use App\Interfaces\BillBoardRepositoryInterface;
 use App\Models\Ads\Billboard;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\Auth;
 
 class BillboardController extends ApiController
 {
@@ -44,6 +45,9 @@ class BillboardController extends ApiController
 
     public function store(BillboardRequest $request): JsonResponse
     {
+        if (!isset(Auth::user()->billboard_package) || !Auth::user()->billboard_package->is_active){
+            return $this->error("You Don't have any Active Package");
+        }
         $res = $this->billBoardRepository->store($request);
         return $res? $this->success('Billboard created successfully') : $this->error('Billboard Create Failed');
     }

@@ -28,6 +28,9 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::get('/info', [AuthController::class, 'info']);
     Route::post('/logout', [AuthController::class, 'logout']);
 
+    Route::get('/billing-address', [AuthController::class, 'billingAddress']);
+    Route::post('/save-billing-address', [AuthController::class, 'saveBillingAddress']);
+
     Route::post('/update-profile', [AuthController::class, 'updateProfile']);
     Route::post('/update-password', [AuthController::class, 'updatePassword']);
 
@@ -36,6 +39,9 @@ Route::middleware(['auth:sanctum'])->group(function () {
 
     Route::apiResource('/users',   UserController::class);
     Route::apiResource('/roles',   RoleController::class);
+
+
+    Route::post('/purchase-package', [UserController::class, 'purchasePackage']);
 
 });
 

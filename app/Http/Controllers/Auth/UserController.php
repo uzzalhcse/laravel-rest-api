@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\ApiController;
 use App\Http\Requests\Auth\UserRequest;
+use App\Http\Requests\PurchasePackageRequest;
 use App\Http\Resources\Acl\PermissionResource;
 use App\Http\Resources\EloquentResource;
 use App\Http\Resources\Auth\UserResource;
@@ -11,9 +12,16 @@ use App\Interfaces\Auth\UserRepositoryInterface;
 use App\Jobs\WelcomeEmailJob;
 use App\Models\Acl\Module;
 use App\Models\Auth\User;
+use App\Models\Package\Package;
+use App\Models\Package\UserPackage;
+use App\Models\Share\Transaction;
 use App\Repositories\Auth\UserRepository;
+use Carbon\Carbon;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class UserController extends ApiController
 {
@@ -105,5 +113,47 @@ class UserController extends ApiController
     {
         $res = $this->userRepository->updateStatus($user, $status);
         return $res ? $this->success('Status Updated') : $this->error('Status Update Failed');
+    }
+
+    public function purchasePackage(PurchasePackageRequest $request): JsonResponse
+    {
+        $user = Auth::user();
+        $amount = abs($request->amount);
+        if (isset($user->billboard_package) && isset($user->advertisement_package)){
+            return $this->error('Package already exist');
+        }
+        $package = Package::findOrFail($request->id);
+
+        DB::beginTransaction();
+        try {
+
+            $userPackage = new UserPackage();
+            $userPackage->user_id = $user->id;
+            $userPackage->package_id = $package->id;
+            $userPackage->amount = $amount;
+            $userPackage->audition_limit = floor($amount * $package->cpa);
+            $userPackage->expired_at = $package->type == 'Billboard' ? Carbon::now()->addDays(floor($amount * $package->cpa)) : Carbon::now();
+            $userPackage->save();
+
+
+            $transaction = new Transaction();
+            $transaction->user_id = $user->id;
+            $transaction->trxid = Str::random(6);
+            $transaction->sub_total = $request->amount;
+            $transaction->discount = 0;
+            $transaction->tax = 0;
+            $transaction->total = $request->amount;
+            $transaction->payment_method = $request->payment_method;
+            $transaction->type = $request->type;
+            $transaction->status_id = $request->payment_method == 'Bank' ? 3 : 1;
+            $transaction->save();
+            DB::commit();
+            return $this->success('Purchase completed');
+
+        } catch (\Exception $exception){
+            DB::rollBack();
+            return $this->error('Purchase failed',[$exception]);
+        }
+
     }
 }

@@ -6,6 +6,7 @@ use App\Http\Requests\AdsRequest;
 use App\Http\Resources\EloquentResource;
 use App\Interfaces\AdsRepositoryInterface;
 use App\Models\Ads\Ads;
+use Illuminate\Support\Facades\Auth;
 
 class AdsController extends ApiController
 {
@@ -40,6 +41,10 @@ class AdsController extends ApiController
     }
 
     public function store(AdsRequest $request){
+
+        if (!isset(Auth::user()->advertisement_package) || !Auth::user()->advertisement_package->is_active){
+            return $this->error("You Don't have any Active Package");
+        }
         $ads = $this->adsRepository->store($request);
         return $ads?$this->success('Ads Created Successfully'):$this->error('Ads create failed');
     }

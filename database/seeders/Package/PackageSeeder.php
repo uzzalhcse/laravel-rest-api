@@ -44,7 +44,7 @@ class PackageSeeder extends Seeder
                 'name'=>'Billboard',
                 'min_price'=>100,
                 'max_price'=>10000,
-                'cpa'=>0,
+                'cpa'=>0.1,
                 'no_of_network_provider_limit'=>0,
                 'type'=>'Billboard',
                 'is_popular'=>'0',

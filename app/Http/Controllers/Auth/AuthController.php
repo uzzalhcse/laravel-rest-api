@@ -6,7 +6,9 @@ use App\Http\Requests\Auth\LoginRequest;
 use App\Http\Requests\Auth\RegisterRequest;
 use App\Http\Requests\Auth\UpdatePasswordRequest;
 use App\Http\Requests\Auth\UpdateProfileRequest;
+use App\Http\Requests\BillingAddressRequest;
 use App\Http\Resources\Auth\AuthResource;
+use App\Models\Auth\BillingAddress;
 use App\Models\Auth\Role;
 use App\Models\Auth\User;
 use App\Models\Auth\UserProfile;
@@ -87,6 +89,18 @@ class AuthController extends ApiController
             $userProfile->intend_countries = $request->profile['intend_countries'];
             $userProfile->save();
 
+            $billingAddress = new BillingAddress();
+            $billingAddress->user_id = $user->id;
+            $billingAddress->country_id = $user->country_id;
+            $billingAddress->first_name = $user->first_name;
+            $billingAddress->last_name = $user->last_name;
+            $billingAddress->company_name = $request->profile['company_name'];
+            $billingAddress->email = $user->email;
+            $billingAddress->address = $user->address;
+            $billingAddress->city = $request->profile['city'];
+            $billingAddress->zipcode = $request->profile['zipcode'];
+            $billingAddress->save();
+
             $role = Role::where('slug',Str::lower($request->type))->firstOrFail();
             $userRole = new UserRole();
             $userRole->user_id = $user->id;
@@ -125,6 +139,31 @@ class AuthController extends ApiController
             'user'=>$user
         ]);
 
+    }
+
+    public function billingAddress(): JsonResponse
+    {
+        return $this->success("Billing Address",[
+            'item'=>Auth::user()->billing_address
+        ]);
+    }
+    public function saveBillingAddress(BillingAddressRequest $request): JsonResponse
+    {
+        $billing_address = BillingAddress::where('user_id',Auth::id())->first();
+        if (!isset($billing_address)){
+            $billing_address = new BillingAddress();
+        }
+        $billing_address->user_id = Auth::id();
+        $billing_address->country_id = $request->country_id;
+        $billing_address->first_name = $request->first_name;
+        $billing_address->last_name = $request->last_name;
+        $billing_address->company_name = $request->company_name;
+        $billing_address->email = $request->email;
+        $billing_address->address = $request->address;
+        $billing_address->city = $request->city;
+        $billing_address->zipcode = $request->zipcode;
+        $billing_address->save();
+        return $this->success('Billing address saved');
     }
 
     public function updatePassword(UpdatePasswordRequest $request)

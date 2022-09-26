@@ -70,6 +70,11 @@ class User extends Authenticatable
     public function permissions(){
         return $this->belongsToMany(Permission::class,'user_permissions');
     }
+    public function billing_address(){
+        return $this->hasOne(BillingAddress::class)->withDefault([
+            'country_id'=>null
+        ]);
+    }
 
     public function getAclAttribute(){
         return $this->roles->map->permissions->flatten()->merge($this->permissions)->pluck('slug');
