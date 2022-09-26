@@ -13,7 +13,7 @@ class NewsletterController extends ApiController
 
         if ( ! Newsletter::isSubscribed($request->email) )
         {
-            Newsletter::subscribe($request->email,['FNAME'=>$request->name]);
+            Newsletter::subscribePending($request->email,['FNAME'=>$request->name]);
             return $this->success('Thanks For Subscribe');
         }
         return $this->error('Sorry! You have already subscribed');

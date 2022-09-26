@@ -4,6 +4,7 @@ namespace App\Repositories;
 
 use App\Interfaces\AdsRepositoryInterface;
 use App\Models\Ads\Ads;
+use App\Models\Share\Status;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -24,7 +25,7 @@ class AdsRepository extends BaseEloquentRepository implements AdsRepositoryInter
 
     public function popularItems()
     {
-        $items = $this->model::active()->latest();
+        $items = $this->model::active()->search()->latest();
         if (isset(request()->page)){ // paginate if request has page query
             $items = $items->paginate(config('settings.pagination.per_page'));
         } else{
@@ -50,7 +51,7 @@ class AdsRepository extends BaseEloquentRepository implements AdsRepositoryInter
             $ads->male_age_range = explode(',', $request->male_age_range);
             $ads->female_age_range = explode(',', $request->female_age_range);
             $ads->preferred_gender = $request->preferred_gender;
-            $ads->status_id = 3;
+            $ads->status_id = Status::Pending;
             $ads->save();
             $ads->countries()->attach(explode(',',$request->country_ids));
             $ads->providers()->attach(explode(',', $request->provider_ids));

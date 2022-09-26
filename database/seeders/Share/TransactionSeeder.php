@@ -31,32 +31,6 @@ class TransactionSeeder extends Seeder
                 'status_id'=>'7',
                 'created_at'=>$timestamp,
                 'updated_at'=>$timestamp
-            ],
-            [
-                'user_id'=>'3',
-                'trxid'=> Str::random(6),
-                'sub_total'=>'880',
-                'discount'=>'0',
-                'tax'=>'0',
-                'total'=>'880',
-                'payment_method'=>'Paypal',
-                'type'=>'Package Purchase',
-                'status_id'=>'3',
-                'created_at'=>$timestamp,
-                'updated_at'=>$timestamp
-            ],
-            [
-                'user_id'=>'4',
-                'trxid'=> Str::random(6),
-                'sub_total'=>'880',
-                'discount'=>'0',
-                'tax'=>'0',
-                'total'=>'880',
-                'payment_method'=>'Paypal',
-                'type'=>'Package Purchase',
-                'status_id'=>'1',
-                'created_at'=>$timestamp,
-                'updated_at'=>$timestamp
             ]
         ];
 

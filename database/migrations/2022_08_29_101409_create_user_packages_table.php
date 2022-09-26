@@ -20,6 +20,7 @@ return new class extends Migration
             $table->double('amount',10,2);
             $table->integer('audition_limit');
             $table->date('expired_at');
+            $table->foreignId('transaction_id')->constrained('transactions');
             $table->foreignId('status_id')->default(1)->constrained('statuses');
             $table->timestamps();
         });

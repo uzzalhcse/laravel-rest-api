@@ -4,6 +4,7 @@ namespace App\Models\Share;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use PhpParser\Node\Const_;
 
 /**
  * App\Models\Share\Status
@@ -26,4 +27,11 @@ use Illuminate\Database\Eloquent\Model;
 class Status extends Model
 {
     use HasFactory;
+    public const Active = 1;
+    public const InActive = 2;
+    public const Pending = 3;
+    public const Rejected = 4;
+    public const Ban = 5;
+    public const Suspend = 6;
+    public const Completed = 7;
 }

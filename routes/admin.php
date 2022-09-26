@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\UserController;
 use App\Http\Controllers\BillboardController;
 use App\Http\Controllers\Blog\BlogController;
 use App\Http\Controllers\Share\UtilsController;
+use App\Http\Controllers\TransactionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,5 +36,10 @@ Route::middleware(['auth:sanctum'])->group(function () {
 
 
     Route::get('/activity-logs',   [UtilsController::class,'activityLogs']);
+
+
+
+    Route::get('/transaction-history',   [TransactionController::class,'index']);
+    Route::get('/mark-transaction-as-completed/{transaction}',   [TransactionController::class,'markAsCompleted']);
 });
 

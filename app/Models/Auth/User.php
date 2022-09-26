@@ -5,6 +5,7 @@ namespace App\Models\Auth;
 use App\Models\Acl\Module;
 use App\Models\Acl\Permission;
 use App\Models\Ads\Ads;
+use App\Models\Ads\AdsReview;
 use App\Models\Package\UserPackage;
 use App\Traits\ScopeActive;
 use App\Traits\Status;
@@ -106,6 +107,9 @@ class User extends Authenticatable
 
     public function ads_subscriptions(){
         return $this->belongsToMany(Ads::class,'ads_subscriptions');
+    }
+    public function ads_reviews(){
+        return $this->hasMany(AdsReview::class);
     }
     public function billboard_package(){
         return $this->hasOne(UserPackage::class)->whereHas('package',function ($q){

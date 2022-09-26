@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\TransactionUpdateStatusRequest;
+use App\Http\Requests\UploadReceiptRequest;
 use App\Http\Resources\EloquentResource;
 use App\Interfaces\TransactionRepositoryInterface;
+use App\Models\Share\Transaction;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
@@ -31,5 +34,17 @@ class TransactionController extends ApiController
         return $this->success('Purchase History',[
             'items'=>new EloquentResource($this->transactionRepository->purchaseHistory())
         ]);
+    }
+    public function uploadReceipt(UploadReceiptRequest $request ): JsonResponse
+    {
+        $transaction = Transaction::findOrFail($request->transaction_id);
+        $res = $this->transactionRepository->uploadReceipt($request,$transaction);
+        return $res ? $this->success('Receipt Upload successfully') : $this->error('Upload failed');
+    }
+
+    public function markAsCompleted(Transaction $transaction): JsonResponse
+    {
+        $res = $this->transactionRepository->markAsCompleted($transaction);
+        return $res ? $this->success('Transaction updated successfully') : $this->error('Transaction update failed');
     }
 }

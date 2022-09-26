@@ -4,6 +4,7 @@ namespace App\Repositories;
 
 use App\Interfaces\BillBoardRepositoryInterface;
 use App\Models\Ads\Billboard;
+use App\Models\Share\Status;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -33,7 +34,7 @@ class BillBoardRepository extends BaseEloquentRepository implements BillBoardRep
             $billboard = new Billboard();
             $billboard->title = $request->title;
             $billboard->user_id = Auth::id();
-            $billboard->status_id = 2;
+            $billboard->status_id = Status::InActive;
             $billboard->save();
             $this->handleMedia($request,$billboard);
             DB::commit();

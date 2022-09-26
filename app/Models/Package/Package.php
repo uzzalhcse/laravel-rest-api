@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Auth;
 class Package extends Model
 {
     use HasFactory;
-    protected $appends = ['is_purchased'];
+    protected $appends = ['is_purchased','status'];
 
     public function scopeEnabled($query){
         return $query->where('is_enabled',1);
@@ -23,6 +23,15 @@ class Package extends Model
     public function users(){
         return $this->belongsToMany(User::class,'user_packages');
     }
+
+    public function user_package(){
+        return $this->hasOne(UserPackage::class);
+    }
+
+    public function getStatusAttribute(){
+        return $this->user_package ? $this->user_package->status->title : null;
+    }
+
 
 //    public function formatResponse(): array
 //    {

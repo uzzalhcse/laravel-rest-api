@@ -29,12 +29,17 @@ class AdsSubscriptionController extends ApiController
     }
 
     public function subscribeAds(Ads $ads){
+        if (count(Auth::user()->ads_subscriptions) > config('settings.max_ad_choice') ){
+            return $this->error('You have reached max ad choice limit');
+        }
         $ads->subscribers()->sync([Auth::id()]);
         return $this->success('Subscription success');
     }
 
     public function unsubscribeAds(Ads $ads){
         $ads->subscribers()->detach([Auth::id()]);
+        $adsReview = AdsReview::where('user_id',Auth::id())->where('ads_id',$ads->id)->first();
+        $adsReview->delete();
         return $this->success('Subscription Canceled');
     }
 

@@ -14,6 +14,7 @@ use App\Models\Acl\Module;
 use App\Models\Auth\User;
 use App\Models\Package\Package;
 use App\Models\Package\UserPackage;
+use App\Models\Share\Status;
 use App\Models\Share\Transaction;
 use App\Repositories\Auth\UserRepository;
 use Carbon\Carbon;
@@ -127,15 +128,6 @@ class UserController extends ApiController
         DB::beginTransaction();
         try {
 
-            $userPackage = new UserPackage();
-            $userPackage->user_id = $user->id;
-            $userPackage->package_id = $package->id;
-            $userPackage->amount = $amount;
-            $userPackage->audition_limit = floor($amount * $package->cpa);
-            $userPackage->expired_at = $package->type == 'Billboard' ? Carbon::now()->addDays(floor($amount * $package->cpa)) : Carbon::now();
-            $userPackage->save();
-
-
             $transaction = new Transaction();
             $transaction->user_id = $user->id;
             $transaction->trxid = Str::random(6);
@@ -145,8 +137,20 @@ class UserController extends ApiController
             $transaction->total = $request->amount;
             $transaction->payment_method = $request->payment_method;
             $transaction->type = $request->type;
-            $transaction->status_id = $request->payment_method == 'Bank' ? 3 : 1;
+            $transaction->status_id = $request->payment_method == 'Bank' ? Status::Pending : Status::Active;
             $transaction->save();
+
+
+            $userPackage = new UserPackage();
+            $userPackage->user_id = $user->id;
+            $userPackage->package_id = $package->id;
+            $userPackage->amount = $amount;
+            $userPackage->audition_limit = floor($amount * $package->cpa);
+            $userPackage->expired_at = $package->type == 'Billboard' ? Carbon::now()->addDays(floor($amount * $package->cpa)) : Carbon::now();
+            $userPackage->status_id = Status::Pending;
+            $userPackage->transaction_id = $transaction->id;
+            $userPackage->save();
+
             DB::commit();
             return $this->success('Purchase completed');
 

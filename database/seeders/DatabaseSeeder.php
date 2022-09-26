@@ -42,8 +42,8 @@ class DatabaseSeeder extends Seeder
         $this->call(BlogSeeder::class);
         $this->call(BlogCommentSeeder::class);
         $this->call(PackageSeeder::class);
+        $this->call(TransactionSeeder::class);
         $this->call(CommonSeeder::class);
         $this->call(AdsReviewSeeder::class);
-        $this->call(TransactionSeeder::class);
     }
 }

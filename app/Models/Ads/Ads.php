@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 use Spatie\Activitylog\LogOptions;
 use Spatie\Activitylog\Traits\LogsActivity;
 
@@ -31,6 +32,12 @@ class Ads extends Model
     }
     public function scopeByOwner($query){
         return $query->where('user_id',Auth::id());
+    }
+    public function scopeSearch($query){
+        $searchQuery = Str::of(request()->input('query'));
+        if (isset($searchQuery) && $searchQuery != null && $searchQuery->length() >1) {
+            return $query->where('title','like','%'.$searchQuery->lower().'%');
+        }
     }
 
     public function getThumbnailAttribute(){

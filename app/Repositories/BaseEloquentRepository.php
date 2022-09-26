@@ -29,6 +29,9 @@ class BaseEloquentRepository implements BaseEloquentInterface
     public function getActiveItems()
     {
         $items = $this->model::active()->latest();
+        if (method_exists($this->model, 'search')){
+            $items = $items->search();
+        }
         if (isset(request()->page)){ // paginate if request has page query
             $items = $items->paginate(config('settings.pagination.per_page'));
         } else{
@@ -43,6 +46,9 @@ class BaseEloquentRepository implements BaseEloquentInterface
     public function getAllItems(): mixed
     {
         $items = $this->model::latest();
+        if (method_exists($this->model, 'search')){
+            $items = $items->search();
+        }
         if (isset(request()->page)){ // paginate if request has page query
             $items = $items->paginate(config('settings.pagination.per_page'));
         } else{
