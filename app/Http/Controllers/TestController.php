@@ -22,7 +22,7 @@ use Twilio\Rest\Client;
 class TestController extends ApiController
 {
     public function test(){
-        return $this->mySubscriptions();
+        return [get_percentage(200,50)];
     }
     public function mySubscriptions(){
         $user = User::find(5);

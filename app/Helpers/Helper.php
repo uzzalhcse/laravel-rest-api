@@ -50,3 +50,10 @@ if (! function_exists('upload_file')) {
     }
 }
 
+if (! function_exists('get_percentage')) {
+    function get_percentage($number,$percentage)
+    {
+        return ($percentage / 100) * $number;
+    }
+}
+

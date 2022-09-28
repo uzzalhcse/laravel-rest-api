@@ -31,5 +31,15 @@ Route::get('/packages',                     [UtilsController::class, 'packages']
 Route::get('/service-providers',            [UtilsController::class, 'serviceProviders']);
 Route::post('/newsletter',                     [NewsletterController::class, 'store']);
 
+
+
+
+
+
+
+
+
+
+
 Route::get('/clear',                     [UtilsController::class, 'clear']);
 

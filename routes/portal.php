@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdsController;
 use App\Http\Controllers\AdsSubscriptionController;
+use App\Http\Controllers\AuditionController;
 use App\Http\Controllers\BillboardController;
 use App\Http\Controllers\TransactionController;
 use Illuminate\Support\Facades\Route;
@@ -39,5 +40,10 @@ Route::middleware(['auth:sanctum'])->group(function () {
 
     Route::get('/purchase-history',   [TransactionController::class,'purchaseHistory']);
     Route::post('/upload-receipt',   [TransactionController::class,'uploadReceipt']);
+
+
+
+    Route::post('/virtual-call',                     [AuditionController::class, 'virtualCall']);
+    Route::post('/my-earning-history',   [AuditionController::class,'myEarningHistory']);
 });
 

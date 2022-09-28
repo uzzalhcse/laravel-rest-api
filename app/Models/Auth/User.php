@@ -6,6 +6,8 @@ use App\Models\Acl\Module;
 use App\Models\Acl\Permission;
 use App\Models\Ads\Ads;
 use App\Models\Ads\AdsReview;
+use App\Models\Ads\AuditionEarning;
+use App\Models\Ads\AuditionHistory;
 use App\Models\Package\UserPackage;
 use App\Traits\ScopeActive;
 use App\Traits\Status;
@@ -104,6 +106,13 @@ class User extends Authenticatable
             'status_id'=>$this->status_id,
         ];
     }
+    public function ads(){
+        return $this->hasMany(Ads::class);
+    }
+
+    public function ads_audition(){
+        return $this->hasMany(AuditionHistory::class,'advertiser_id');
+    }
 
     public function ads_subscriptions(){
         return $this->belongsToMany(Ads::class,'ads_subscriptions');
@@ -120,6 +129,14 @@ class User extends Authenticatable
         return $this->hasOne(UserPackage::class)->whereHas('package',function ($q){
             return $q->where('type','Advertisement');
         });
+    }
+
+    public function getRemainingAuditionLimit(){
+        return  $this->advertisement_package->audition_limit - $this->ads_audition->count();
+    }
+
+    public function earning_histories(){
+        return $this->hasMany(AuditionEarning::class);
     }
 
     /**

@@ -9,6 +9,7 @@ use App\Interfaces\TransactionRepositoryInterface;
 use App\Models\Share\Transaction;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TransactionController extends ApiController
 {

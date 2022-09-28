@@ -40,14 +40,7 @@ class AdsReviewSeeder extends Seeder
                 'rating'=>4,
                 'created_at'=>$timestamp,
                 'updated_at'=>$timestamp
-            ],
-            [
-                'user_id'=>6,
-                'ads_id'=> 2,
-                'rating'=>5,
-                'created_at'=>$timestamp,
-                'updated_at'=>$timestamp
-            ],
+            ]
         ];
 
 

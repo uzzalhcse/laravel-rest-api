@@ -60,7 +60,7 @@ class UsersTableSeeder extends Seeder
                 'updated_at'=>Carbon::now()->toDateTimeString(),
             ],
             [
-                'first_name' => 'Robi',
+                'first_name' => 'GrameenPhone',
                 'last_name' => '',
                 'type' => 'Provider',
                 'gender' => 'Male',

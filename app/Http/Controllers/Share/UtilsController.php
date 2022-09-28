@@ -11,6 +11,8 @@ use App\Http\Resources\Share\StatusResource;
 use App\Interfaces\AdsRepositoryInterface;
 use App\Interfaces\Blog\BlogRepositoryInterface;
 use App\Models\Ads\Ads;
+use App\Models\Ads\AuditionEarning;
+use App\Models\Ads\AuditionHistory;
 use App\Models\Auth\User;
 use App\Models\Package\Package;
 use App\Models\Share\Country;
@@ -24,6 +26,8 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Spatie\Activitylog\Models\Activity;
 
 class UtilsController extends ApiController
@@ -105,6 +109,7 @@ class UtilsController extends ApiController
             'items'=> new ActivityLogResource(Activity::latest()->paginate(config('settings.pagination.per_page')))
         ]);
     }
+
 
 
 

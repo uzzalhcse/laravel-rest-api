@@ -53,6 +53,10 @@ class Ads extends Model
     public function owner(){
         return $this->belongsTo(User::class,'user_id');
     }
+
+    public function auditions(){
+        return $this->hasMany(AuditionHistory::class);
+    }
     public function countries(){
         return $this->belongsToMany(Country::class,'ads_countries');
     }
