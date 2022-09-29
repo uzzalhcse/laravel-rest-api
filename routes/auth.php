@@ -41,6 +41,8 @@ Route::middleware(['auth:sanctum'])->group(function () {
 
 
     Route::post('/purchase-package', [UserController::class, 'purchasePackage']);
+    Route::post('/payout-request', [UserController::class, 'payoutRequest']);
+    Route::post('/payout-history',   [UserController::class,'payoutHistory']);
 
 
 });

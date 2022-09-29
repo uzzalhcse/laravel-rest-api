@@ -44,6 +44,10 @@ class DatabaseSeeder extends Seeder
         $this->call(PackageSeeder::class);
         $this->call(TransactionSeeder::class);
         $this->call(CommonSeeder::class);
+        $this->call(AdsSubscriptionSeeder::class);
         $this->call(AdsReviewSeeder::class);
+        $this->call(AuditionSeeder::class);
+        $this->call(AuditionHistorySeeder::class);
+        $this->call(PayoutHistorySeeder::class);
     }
 }

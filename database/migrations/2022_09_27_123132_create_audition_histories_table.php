@@ -15,12 +15,10 @@ return new class extends Migration
     {
         Schema::create('audition_histories', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('audition_id')->constrained('auditions')->cascadeOnDelete();
             $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
-            $table->foreignId('ads_id')->constrained('ads')->cascadeOnDelete();
-            $table->foreignId('advertiser_id')->constrained('users')->cascadeOnDelete();
-            $table->foreignId('provider_id')->constrained('users')->cascadeOnDelete();
-            $table->string('mobile');
-            $table->double('cpa');
+            $table->double('amount',10,2)->default(0);
+            $table->boolean('is_pending')->default(1);
             $table->timestamps();
         });
     }

@@ -7,7 +7,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class AdsSubscriptionSeeder extends Seeder
+class AuditionSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -18,28 +18,40 @@ class AdsSubscriptionSeeder extends Seeder
     {
 
         $timestamp = Carbon::now()->toDateTimeString();
-        $ads_subscriptions = [
+        $auditions = [
             [
                 'user_id'=>5,
-                'ads_id'=> 1,
+                'ads_id'=>1,
+                'advertiser_id'=> 3,
+                'provider_id'=> 4,
+                'mobile'=> '+8801764695324',
+                'cpa'=> 200,
                 'created_at'=>$timestamp,
                 'updated_at'=>$timestamp
             ],
             [
                 'user_id'=>5,
-                'ads_id'=> 2,
+                'ads_id'=>2,
+                'advertiser_id'=> 3,
+                'provider_id'=> 4,
+                'mobile'=> '+8801764695324',
+                'cpa'=> 200,
                 'created_at'=>$timestamp,
                 'updated_at'=>$timestamp
             ],
             [
                 'user_id'=>5,
-                'ads_id'=> 3,
+                'ads_id'=>3,
+                'advertiser_id'=> 3,
+                'provider_id'=> 4,
+                'mobile'=> '+8801764695324',
+                'cpa'=> 200,
                 'created_at'=>$timestamp,
                 'updated_at'=>$timestamp
-            ]
+            ],
         ];
 
 
-        DB::table('ads_subscriptions')->insert($ads_subscriptions);
+        DB::table('auditions')->insert($auditions);
     }
 }

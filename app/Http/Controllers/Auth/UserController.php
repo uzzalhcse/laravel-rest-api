@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\ApiController;
 use App\Http\Requests\Auth\UserRequest;
+use App\Http\Requests\PayoutRequest;
 use App\Http\Requests\PurchasePackageRequest;
 use App\Http\Resources\Acl\PermissionResource;
 use App\Http\Resources\EloquentResource;
@@ -14,6 +15,7 @@ use App\Models\Acl\Module;
 use App\Models\Auth\User;
 use App\Models\Package\Package;
 use App\Models\Package\UserPackage;
+use App\Models\PayoutHistory;
 use App\Models\Share\Status;
 use App\Models\Share\Transaction;
 use App\Repositories\Auth\UserRepository;
@@ -159,5 +161,34 @@ class UserController extends ApiController
             return $this->error('Purchase failed',[$exception]);
         }
 
+    }
+
+    public function payoutRequest(PayoutRequest $request){
+        $user = Auth::user();
+        $amount = abs($request->amount);
+        if ($amount > $user->available_balance){
+            return $this->error('Insufficient Balance',[$user->available_balance]);
+        }
+
+        $payoutHistory = new PayoutHistory();
+        $payoutHistory->user_id = $user->id;
+        $payoutHistory->amount = $amount;
+        $payoutHistory->payment_method = $request->payment_method;
+        $payoutHistory->paypal_email = $request->paypal_email;
+        $payoutHistory->bank_account_name = $request->bank_account_name;
+        $payoutHistory->bank_account_number = $request->bank_account_number;
+        $payoutHistory->bank_swift_code = $request->bank_swift_code;
+        $payoutHistory->bank_name = $request->bank_name;
+        $payoutHistory->bank_iban = $request->bank_iban;
+        $payoutHistory->status_id = Status::Pending;
+        $payoutHistory->save();
+        return $this->success('Payout request submitted successfully');
+    }
+
+    public function payoutHistory(Request $request){
+        $items = PayoutHistory::where('user_id',Auth::id())->latest();
+        return $this->success('Payout History',[
+            'items'=>new EloquentResource(paginate_if_required($items))
+        ]);
     }
 }

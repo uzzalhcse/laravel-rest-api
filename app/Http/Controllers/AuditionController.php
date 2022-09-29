@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\AuditionRequest;
 use App\Http\Resources\EloquentResource;
 use App\Models\Ads\Ads;
-use App\Models\Ads\AuditionEarning;
+use App\Models\Ads\Audition;
 use App\Models\Ads\AuditionHistory;
 use App\Models\Auth\User;
 use Illuminate\Http\Request;
@@ -49,7 +49,7 @@ class AuditionController extends ApiController
          * */
         DB::beginTransaction();
         try {
-            $auditionHistory = new AuditionHistory();
+            $auditionHistory = new Audition();
             $auditionHistory->user_id = $user->id;
             $auditionHistory->ads_id = $ad->id;
             $auditionHistory->advertiser_id = $ad->owner->id;
@@ -64,7 +64,7 @@ class AuditionController extends ApiController
              *
              * */
 
-            $auditionEarning = new AuditionEarning();
+            $auditionEarning = new AuditionHistory();
             $auditionEarning->audition_history_id = $auditionHistory->id;
             $auditionEarning->user_id = $user->id;
             $auditionEarning->amount = get_percentage($cpa,50);
@@ -75,7 +75,7 @@ class AuditionController extends ApiController
              *
              * Provider earning 25%
              * */
-            $auditionEarning = new AuditionEarning();
+            $auditionEarning = new AuditionHistory();
             $auditionEarning->audition_history_id = $auditionHistory->id;
             $auditionEarning->user_id = $ad->providers->first()->id;
             $auditionEarning->amount =  get_percentage($cpa,25);
@@ -100,14 +100,19 @@ class AuditionController extends ApiController
 
 
     public function myEarningHistory(Request $request){
-        $items = AuditionEarning::where('user_id',Auth::id())->latest();
-        if (isset(request()->page)){ // paginate if request has page query
-            $items = $items->paginate(config('settings.pagination.per_page'));
-        } else{
-            $items = $items->take(20)->get();
-        }
+        $items = AuditionHistory::where('user_id',Auth::id())->latest();
+
         return $this->success('My Earning History',[
-            'items'=> new EloquentResource($items)
+            'items'=> new EloquentResource(paginate_if_required($items))
+        ]);
+    }
+    public function myAdsReports(Request $request){
+//        $auditions = Auth::user()->ads->load('auditions.provider','auditions.advertiser','auditions.publisher')->map->auditions->flatten();
+        $auditions = Audition::with('provider','advertiser','publisher')
+            ->whereIn('ads_id',Auth::user()->ads->pluck('id')->toArray())
+            ->latest();
+        return $this->success('Audition Reports',[
+            'items'=> new EloquentResource(paginate_if_required($auditions))
         ]);
     }
 }

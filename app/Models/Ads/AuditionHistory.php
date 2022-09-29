@@ -3,26 +3,27 @@
 namespace App\Models\Ads;
 
 use App\Models\Auth\User;
+use App\Traits\Utils;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class AuditionHistory extends Model
 {
-    use HasFactory;
+    use HasFactory, Utils;
 
-    public function ads(){
-        return $this->belongsTo(Ads::class);
+    public function audition(){
+        return $this->belongsTo(Audition::class);
     }
 
-    public function provider(){
-        return $this->belongsTo(User::class,'provider_id');
-    }
-
-    public function advertiser(){
-        return $this->belongsTo(User::class,'advertiser_id');
-    }
-
-    public function publisher(){
-        return $this->belongsTo(User::class,'user_id');
+    public function formatResponse(){
+        return [
+            'id'=>$this->id,
+            'amount'=>$this->amount,
+            'ads'=>$this->audition->ads->title,
+            'provider'=>$this->audition->provider->name,
+            'mobile'=>$this->audition->mobile,
+            'is_pending'=>$this->is_pending,
+            'date'=>$this->date,
+        ];
     }
 }

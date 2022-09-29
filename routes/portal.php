@@ -45,5 +45,6 @@ Route::middleware(['auth:sanctum'])->group(function () {
 
     Route::post('/virtual-call',                     [AuditionController::class, 'virtualCall']);
     Route::post('/my-earning-history',   [AuditionController::class,'myEarningHistory']);
+    Route::post('/my-ads-report',   [AuditionController::class,'myAdsReports']);
 });
 

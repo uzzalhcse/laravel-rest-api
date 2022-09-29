@@ -55,7 +55,7 @@ class Ads extends Model
     }
 
     public function auditions(){
-        return $this->hasMany(AuditionHistory::class);
+        return $this->hasMany(Audition::class);
     }
     public function countries(){
         return $this->belongsToMany(Country::class,'ads_countries');

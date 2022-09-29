@@ -57,3 +57,16 @@ if (! function_exists('get_percentage')) {
     }
 }
 
+
+if (! function_exists('paginate_if_required')) {
+    function paginate_if_required($items)
+    {
+        if (isset(request()->page)){ // paginate if request has page query
+            $items = $items->paginate(config('settings.pagination.per_page'));
+        } else{
+            $items = $items->take(20)->get();
+        }
+        return $items;
+    }
+}
+

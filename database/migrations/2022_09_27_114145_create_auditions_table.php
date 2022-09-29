@@ -13,12 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('audition_earnings', function (Blueprint $table) {
+        Schema::create('auditions', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('audition_history_id')->constrained('audition_histories')->cascadeOnDelete();
             $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
-            $table->double('amount',10,2)->default(0);
-            $table->boolean('is_pending')->default(1);
+            $table->foreignId('ads_id')->constrained('ads')->cascadeOnDelete();
+            $table->foreignId('advertiser_id')->constrained('users')->cascadeOnDelete();
+            $table->foreignId('provider_id')->constrained('users')->cascadeOnDelete();
+            $table->string('mobile');
+            $table->double('cpa');
             $table->timestamps();
         });
     }
@@ -30,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('audition_earnings');
+        Schema::dropIfExists('auditions');
     }
 };
