@@ -89,8 +89,12 @@ class UtilsController extends ApiController
     }
 
     public function packages(){
+        $packages = Package::enabled();
+        if(is_provider()){
+            $packages = $packages->where('type','Billboard');
+        }
         return $this->success('All Package List',[
-            'items'=>Package::enabled()->get()
+            'items'=>$packages->get()
         ]);
     }
 

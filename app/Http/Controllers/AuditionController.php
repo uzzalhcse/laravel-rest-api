@@ -8,6 +8,7 @@ use App\Models\Ads\Ads;
 use App\Models\Ads\Audition;
 use App\Models\Ads\AuditionHistory;
 use App\Models\Auth\User;
+use App\Models\Share\Media;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -113,6 +114,38 @@ class AuditionController extends ApiController
             ->latest();
         return $this->success('Audition Reports',[
             'items'=> new EloquentResource(paginate_if_required($auditions))
+        ]);
+    }
+
+    public function myMediaFiles(){
+        $user = User::with('ads.media','billboards.media')->find(Auth::id());
+        $adsMedia = $user->ads->sortByDesc('updated_at')->take(6)->pluck('media')->flatten();
+        $billboardMedia = $user->billboards->sortByDesc('updated_at')->take(12)->pluck('media')->flatten();
+        $totalAds = $user->ads->pluck('media')->flatten()->count();
+        $totalBillboard = $user->billboards->pluck('media')->flatten()->count();
+        return $this->success('My latest Media files',[
+            'total_ads'=>$totalAds,
+            'total_billboard'=>$totalBillboard,
+            'ads'=>$adsMedia->map->formatResponse(),
+            'billboards'=>$billboardMedia->map->formatResponse(),
+        ]);
+    }
+    public function myMediaFilesByType($type){
+        $user = Auth::user();
+        $media = Media::with('mediable')
+            ->whereHas('mediable', function ($q) use ($user) {
+                $q->where('user_id',$user->id);
+            });
+        if ($type == 'images'){
+            $media = $media->whereIn('media_type',['banner', 'thumbnail']);
+        } else{
+            $media = $media->where('media_type',$type);
+        }
+
+        $media = $media->latest('updated_at')
+            ->paginate(config('settings.pagination.max_per_page'));
+        return $this->success('All Media files by types',[
+            'items'=>new EloquentResource($media)
         ]);
     }
 }

@@ -11,6 +11,7 @@ use App\Jobs\WelcomeEmailJob;
 use App\Mail\WelcomeEmail;
 use App\Models\Ads\Ads;
 use App\Models\Auth\User;
+use App\Models\Share\Media;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Cache;
@@ -22,7 +23,18 @@ use Twilio\Rest\Client;
 class TestController extends ApiController
 {
     public function test(){
-        return [get_percentage(200,50)];
+        return $this->getMediaFiles();
+    }
+    public function getMediaFiles(){
+        $type = 'banner';
+        $media = Media::with('mediable')
+            ->whereHas('mediable', function ($q){
+            $q->where('user_id',3);
+        })
+            ->latest('updated_at')->get();
+        return $this->success('',[
+            'items'=>$media
+        ]);
     }
     public function mySubscriptions(){
         $user = User::find(5);

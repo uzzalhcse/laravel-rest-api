@@ -7,8 +7,8 @@ use App\Models\Acl\Permission;
 use App\Models\Ads\Ads;
 use App\Models\Ads\AdsReview;
 use App\Models\Ads\Audition;
-use App\Models\Ads\AuditionEarning;
 use App\Models\Ads\AuditionHistory;
+use App\Models\Ads\Billboard;
 use App\Models\Package\UserPackage;
 use App\Models\PayoutHistory;
 use App\Traits\ScopeActive;
@@ -110,6 +110,10 @@ class User extends Authenticatable
     }
     public function ads(){
         return $this->hasMany(Ads::class);
+    }
+
+    public function billboards(){
+        return $this->hasMany(Billboard::class);
     }
 
     public function ads_audition(){

@@ -104,9 +104,9 @@ class AdsRepository extends BaseEloquentRepository implements AdsRepositoryInter
     public function handleMedia(Request $request, $ads)
     {
 
-        $thumbnail = upload_file($request,'thumbnail_file','/media/thumbnail/');
-        $banner = upload_file($request,'banner_file','/media/banner/');
-        $audio = upload_file($request,'audio_file','/media/audio/');
+        $thumbnail = upload_file($request,'thumbnail_file','/media/thumbnail/', $request->title);
+        $banner = upload_file($request,'banner_file','/media/banner/', $request->title);
+        $audio = upload_file($request,'audio_file','/media/audio/', $request->title);
 
         if ($thumbnail) $ads->media()->updateOrCreate(['media_type'=>'thumbnail'],[
             'path'=>$thumbnail,

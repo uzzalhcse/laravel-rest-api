@@ -46,5 +46,8 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::post('/virtual-call',                     [AuditionController::class, 'virtualCall']);
     Route::post('/my-earning-history',   [AuditionController::class,'myEarningHistory']);
     Route::post('/my-ads-report',   [AuditionController::class,'myAdsReports']);
+
+    Route::get('/my-media-files',   [AuditionController::class,'myMediaFiles']);
+    Route::get('/my-media-files/{type}',   [AuditionController::class,'myMediaFilesByType']);
 });
 

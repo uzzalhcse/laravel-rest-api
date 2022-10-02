@@ -23,7 +23,7 @@ if (! function_exists('is_advertiser')) {
 if (! function_exists('is_provider')) {
     function is_provider(): bool
     {
-        return Auth::check() && in_array('provider',Auth::user()->roles->pluck('slug')->toArray());
+        return Auth::guard('sanctum')->check() && in_array('provider',Auth::guard('sanctum')->user()->roles->pluck('slug')->toArray());
     }
 }
 
@@ -36,13 +36,18 @@ if (! function_exists('is_user')) {
 
 
 if (! function_exists('upload_file')) {
-    function upload_file(Request $request,$key,$path = '/'): ?string
+    function upload_file(Request $request,$key,$path = '/',$file_title = null): ?string
     {
         $filename_path = null;
         if ($request->hasFile($key)) {
             $destinationPath = '/uploads'.$path.Carbon::now()->month.'/';
             $file = $request->file($key);
-            $filename = time().'_'.Str::of($file->getClientOriginalName())->lower()->kebab();
+            if ($file_title){
+                $filename = time().'_'.Str::of($file_title)->lower()->kebab().'.'.$file->getClientOriginalExtension();
+            } else{
+
+                $filename = time().'_'.Str::of($file->getClientOriginalName())->lower()->kebab();
+            }
             $file->move(public_path() . $destinationPath, $filename);
             $filename_path = $destinationPath . $filename;
         }
