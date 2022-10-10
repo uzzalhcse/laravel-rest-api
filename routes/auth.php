@@ -44,6 +44,8 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::post('/payout-request', [UserController::class, 'payoutRequest']);
     Route::post('/payout-history',   [UserController::class,'payoutHistory']);
 
+    Route::get('/dashboard',   [AuthController::class,'dashboard']);
+
 
 });
 

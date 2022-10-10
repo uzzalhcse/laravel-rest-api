@@ -12,6 +12,8 @@ use App\Http\Resources\Auth\UserResource;
 use App\Interfaces\Auth\UserRepositoryInterface;
 use App\Jobs\WelcomeEmailJob;
 use App\Models\Acl\Module;
+use App\Models\Ads\Ads;
+use App\Models\Ads\Audition;
 use App\Models\Auth\User;
 use App\Models\Package\Package;
 use App\Models\Package\UserPackage;
@@ -191,4 +193,19 @@ class UserController extends ApiController
             'items'=>new EloquentResource(paginate_if_required($items))
         ]);
     }
+
+
+    public function allPayoutHistory(Request $request, User $user){
+        $items = PayoutHistory::where('user_id',$user->id)->latest();
+        return $this->success('Payout History',[
+            'items'=>new EloquentResource(paginate_if_required($items))
+        ]);
+    }
+
+    public function userProfile(User $user){
+        return $this->success('User profile',[
+            'user'=> $user->formatResponse()
+        ]);
+    }
+
 }

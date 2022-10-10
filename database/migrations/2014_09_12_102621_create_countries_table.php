@@ -18,6 +18,9 @@ return new class extends Migration
             $table->string('code');
             $table->string('name');
             $table->string('phone_code');
+            $table->double('latitude');
+            $table->double('longitude');
+            $table->boolean('has_coverage')->default(0);
             $table->timestamps();
         });
     }

@@ -8,13 +8,21 @@ use App\Http\Requests\Auth\UpdatePasswordRequest;
 use App\Http\Requests\Auth\UpdateProfileRequest;
 use App\Http\Requests\BillingAddressRequest;
 use App\Http\Resources\Auth\AuthResource;
+use App\Http\Resources\EloquentResource;
+use App\Models\Ads\Ads;
+use App\Models\Ads\Audition;
+use App\Models\Ads\AuditionHistory;
 use App\Models\Auth\BillingAddress;
 use App\Models\Auth\Role;
 use App\Models\Auth\User;
 use App\Models\Auth\UserProfile;
 use App\Models\Auth\UserRole;
+use App\Models\Package\UserPackage;
+use App\Models\PayoutHistory;
+use App\Models\Share\Country;
 use App\Repositories\Auth\UserRepository;
 use App\Rules\MatchOldPassword;
+use Carbon\Carbon;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -173,5 +181,102 @@ class AuthController extends ApiController
 
     }
 
+    public function adminDashboard(){
+        $users = User::where('type','User')->latest()->get();
+        $advertisers = User::where('type','Advertiser')->get();
+        $providers = User::where('type','Provider')->get();
+        $ads = Ads::where('status_id',1)->latest()->get();
+        $user_packages = UserPackage::where('status_id',1)->get();
+        $auditions = Audition::all();
+        $auditionsGrp = $auditions->groupBy(function($date) {
+            return Carbon::parse($date->created_at)->format('Y-m-d');
+        });
+        $auditionReport = array();
+
+        foreach ($auditionsGrp as $key => $audition){
+            $auditionReport['labels'][] = Carbon::parse($key)->format('d M');
+            $auditionReport['data'][] = $audition->count();
+        }
+
+        $users = User::where('type','User')->get();
+        return $this->success('Dashboard',[
+            'summary'=>[
+                'active_users'=>$users->where('status_id',1)->count(),
+                'ads'=>$ads->count(),
+                'advertisers'=>$advertisers->count(),
+                'providers'=>$providers->count(),
+                'plans'=>$user_packages->count(),
+                'earnings'=>get_percentage($auditions->sum('cpa'),25),
+            ],
+            '$auditionsGrp'=>$auditionsGrp,
+            'auditionReport'=>$auditionReport,
+            'latest_ads'=>new EloquentResource($ads->take(20)),
+            'latest_users'=>new EloquentResource($users)
+        ]);
+    }
+
+//    public function addCoverage(Country $country){
+//        $country->has_coverage = 1;
+//        $country->save();
+//        return $this->success('Country coverage updated');
+//    }
+
+    public function advertiserDashboard(){
+        $myAuditions = Audition::where('advertiser_id', Auth::id())->get();
+        $myAds = Ads::where('user_id', Auth::id())->get();
+        $total_spend = $myAuditions->sum('cpa');
+        $total_audition = $myAuditions->count();
+        $total_ads = $myAds->count();
+        $remainingAudition = Auth::user()->advertisement_package->audition_limit - Auth::user()->ads_audition->count();
+
+        $auditionsGrp = $myAuditions->groupBy(function($date) {
+            return Carbon::parse($date->created_at)->format('Y-m-d');
+        });;
+        $auditionReport = array();
+
+        foreach ($auditionsGrp as $key => $audition){
+            $auditionReport['labels'][] = Carbon::parse($key)->format('d M');
+            $auditionReport['data'][] = $audition->count();
+        }
+
+        return $this->success('Advertiser dashboard',[
+            'summary'=>[
+                'total_spend'=>$total_spend,
+                'total_audition'=>$total_audition,
+                'total_ads'=>$total_ads,
+                'remaining_audition'=>$remainingAudition,
+            ],
+            'auditionReport'=>$auditionReport,
+        ]);
+    }
+    public function portalDashboard(){
+        $myAuditions = Audition::where(is_provider() ? 'provider_id' : 'user_id', Auth::id())->get();
+        $myAuditionHistories = AuditionHistory::where('user_id', Auth::id())->get();
+        $total_audition = $myAuditions->count();
+        $total_earned = $myAuditionHistories->sum('amount');
+        $pending_balance = $myAuditionHistories->where('is_pending',1);
+        $total_pending_balance = $pending_balance->sum('amount');
+        $total_payout = PayoutHistory::where('user_id',Auth::id())->get()->sum('amount');
+
+        $auditionsGrp = $myAuditions->groupBy(function($date) {
+            return Carbon::parse($date->created_at)->format('Y-m-d');
+        });;
+        $auditionReport = array();
+
+        foreach ($auditionsGrp as $key => $audition){
+            $auditionReport['labels'][] = Carbon::parse($key)->format('d M');
+            $auditionReport['data'][] = $audition->count();
+        }
+
+        return $this->success('Advertiser dashboard',[
+            'summary'=>[
+                'total_earned'=>$total_earned,
+                'total_audition'=>$total_audition,
+                'total_pending_balance'=>$total_pending_balance,
+                'total_payout'=>$total_payout,
+            ],
+            'auditionReport'=>$auditionReport,
+        ]);
+    }
 
 }

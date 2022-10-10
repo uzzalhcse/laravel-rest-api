@@ -6,6 +6,8 @@ use App\Http\Resources\EloquentResource;
 use App\Interfaces\AdsSubscriptionRepositoryInterface;
 use App\Models\Ads\Ads;
 use App\Models\Ads\AdsReview;
+use App\Models\Ads\AdsSubscription;
+use App\Models\Auth\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -25,6 +27,12 @@ class AdsSubscriptionController extends ApiController
     public function index(){
         return $this->success('My Ads Subscriptions',[
             'items'=> new EloquentResource(Auth::user()->ads_subscriptions)
+        ]);
+    }
+
+    public function allItems(User $user){
+        return $this->success('Ads Subscriptions',[
+            'items'=> new EloquentResource($user->ads_subscriptions)
         ]);
     }
 

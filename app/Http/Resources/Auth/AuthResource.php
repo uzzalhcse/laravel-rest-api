@@ -17,6 +17,9 @@ class AuthResource extends JsonResource
         return [
           'id'=>$this->id,
           'name'=>$this->name,
+          'first_name'=>$this->first_name,
+          'last_name'=>$this->last_name,
+          'mobile'=>$this->mobile,
           'email'=>$this->email,
           'office_id'=>$this->office_id,
           'office'=>$this->office,

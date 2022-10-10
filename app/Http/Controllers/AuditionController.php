@@ -66,7 +66,7 @@ class AuditionController extends ApiController
              * */
 
             $auditionEarning = new AuditionHistory();
-            $auditionEarning->audition_history_id = $auditionHistory->id;
+            $auditionEarning->audition_id = $auditionHistory->id;
             $auditionEarning->user_id = $user->id;
             $auditionEarning->amount = get_percentage($cpa,50);
             $auditionEarning->is_pending = 1;
@@ -77,7 +77,7 @@ class AuditionController extends ApiController
              * Provider earning 25%
              * */
             $auditionEarning = new AuditionHistory();
-            $auditionEarning->audition_history_id = $auditionHistory->id;
+            $auditionEarning->audition_id = $auditionHistory->id;
             $auditionEarning->user_id = $ad->providers->first()->id;
             $auditionEarning->amount =  get_percentage($cpa,25);
             $auditionEarning->is_pending = 1;
@@ -116,26 +116,53 @@ class AuditionController extends ApiController
             'items'=> new EloquentResource(paginate_if_required($auditions))
         ]);
     }
+    public function allAdsReports(Request $request, User $user){
+        $auditions = Audition::with('provider','advertiser','publisher')
+            ->whereIn('ads_id',$user->ads->pluck('id')->toArray())
+            ->latest();
+        return $this->success('All Audition Reports',[
+            'items'=> new EloquentResource(paginate_if_required($auditions))
+        ]);
+    }
 
     public function myMediaFiles(){
-        $user = User::with('ads.media','billboards.media')->find(Auth::id());
-        $adsMedia = $user->ads->sortByDesc('updated_at')->take(6)->pluck('media')->flatten();
-        $billboardMedia = $user->billboards->sortByDesc('updated_at')->take(12)->pluck('media')->flatten();
-        $totalAds = $user->ads->pluck('media')->flatten()->count();
-        $totalBillboard = $user->billboards->pluck('media')->flatten()->count();
+//        $user = User::with('ads.media','billboards.media')->find(Auth::id());
+//        $adsMedia = $user->ads->sortByDesc('updated_at')->take(6)->pluck('media')->flatten();
+//        $billboardMedia = $user->billboards->sortByDesc('updated_at')->take(12)->pluck('media')->flatten();
+//        $totalAds = $user->ads->pluck('media')->flatten()->count();
+//        $totalBillboard = $user->billboards->pluck('media')->flatten()->count();
+
+
+        $user = Auth::user();
+        $media = Media::with('mediable');
+        if (!is_admin()){
+            $media = $media->whereHas('mediable', function ($q) use ($user) {
+                $q->where('user_id',$user->id);
+            });
+        }
+
+        $media = $media->latest('updated_at');
+        $adsMedia = $media->get()->where('mediable_type','App\Models\Ads\Ads');
+        $billboardMedia = $media->get()->where('mediable_type','App\Models\Ads\Billboard');
+
+
+        $totalBillboard = $billboardMedia->count();
+        $totalAds = $adsMedia->count();
         return $this->success('My latest Media files',[
             'total_ads'=>$totalAds,
             'total_billboard'=>$totalBillboard,
-            'ads'=>$adsMedia->map->formatResponse(),
-            'billboards'=>$billboardMedia->map->formatResponse(),
+            'ads'=>$adsMedia->take(6)->map->formatResponse(),
+            'billboards'=>$billboardMedia->take(6)->map->formatResponse(),
         ]);
     }
     public function myMediaFilesByType($type){
         $user = Auth::user();
-        $media = Media::with('mediable')
-            ->whereHas('mediable', function ($q) use ($user) {
+        $media = Media::with('mediable');
+        if (!is_admin()){
+            $media = $media->whereHas('mediable', function ($q) use ($user) {
                 $q->where('user_id',$user->id);
             });
+        }
         if ($type == 'images'){
             $media = $media->whereIn('media_type',['banner', 'thumbnail']);
         } else{

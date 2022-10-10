@@ -23,7 +23,7 @@ class AuditionHistorySeeder extends Seeder
                 'audition_id'=>1,
                 'user_id'=>5,
                 'amount'=> 100,
-                'is_pending'=> 1,
+                'is_pending'=> 0,
                 'created_at'=>$timestamp,
                 'updated_at'=>$timestamp
             ],
@@ -39,7 +39,7 @@ class AuditionHistorySeeder extends Seeder
                 'audition_id'=>2,
                 'user_id'=>5,
                 'amount'=> 100,
-                'is_pending'=> 1,
+                'is_pending'=> 0,
                 'created_at'=>$timestamp,
                 'updated_at'=>$timestamp
             ],

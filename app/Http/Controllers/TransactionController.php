@@ -6,6 +6,7 @@ use App\Http\Requests\TransactionUpdateStatusRequest;
 use App\Http\Requests\UploadReceiptRequest;
 use App\Http\Resources\EloquentResource;
 use App\Interfaces\TransactionRepositoryInterface;
+use App\Models\PayoutHistory;
 use App\Models\Share\Transaction;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -47,5 +48,19 @@ class TransactionController extends ApiController
     {
         $res = $this->transactionRepository->markAsCompleted($transaction);
         return $res ? $this->success('Transaction updated successfully') : $this->error('Transaction update failed');
+    }
+
+    public function payoutHistory(){
+        $items = PayoutHistory::latest();
+        return $this->success('All Payout History',[
+            'items'=> new EloquentResource(paginate_if_required($items))
+        ]);
+    }
+
+    public function payoutStatusUpdate(Request $request){
+        $payoutHistory = PayoutHistory::findOrFail($request->id);
+        $payoutHistory->status_id = $request->status_id;
+        $payoutHistory->save();
+        return $this->success('Status updated successfully');
     }
 }

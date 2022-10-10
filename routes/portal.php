@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdsController;
 use App\Http\Controllers\AdsSubscriptionController;
 use App\Http\Controllers\AuditionController;
+use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\BillboardController;
 use App\Http\Controllers\TransactionController;
 use Illuminate\Support\Facades\Route;
@@ -49,5 +50,8 @@ Route::middleware(['auth:sanctum'])->group(function () {
 
     Route::get('/my-media-files',   [AuditionController::class,'myMediaFiles']);
     Route::get('/my-media-files/{type}',   [AuditionController::class,'myMediaFilesByType']);
+
+    Route::get('/advertiser-dashboard',   [AuthController::class,'advertiserDashboard']);
+    Route::get('/portal-dashboard',   [AuthController::class,'portalDashboard']);
 });
 
