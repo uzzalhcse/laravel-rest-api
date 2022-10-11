@@ -85,7 +85,7 @@ class AuditionController extends ApiController
 
 
             DB::commit();
-            return $this->success('Selected Property for Virtual Call',[
+            return $this->success('Virtual Call Generated',[
                 'mobile'=>$user->mobile,
                 'ads'=>$ad->title,
                 'cpa'=>$ad->owner->advertisement_package->package->cpa,

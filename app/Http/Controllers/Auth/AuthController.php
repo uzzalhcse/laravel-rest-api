@@ -17,6 +17,7 @@ use App\Models\Auth\Role;
 use App\Models\Auth\User;
 use App\Models\Auth\UserProfile;
 use App\Models\Auth\UserRole;
+use App\Models\Otp;
 use App\Models\Package\UserPackage;
 use App\Models\PayoutHistory;
 use App\Models\Share\Country;
@@ -57,6 +58,10 @@ class AuthController extends ApiController
     }
 
     public function register(RegisterRequest $request){
+//        $otp = Otp::where('mobile',$request->mobile)->where('token',$request->token)->first();
+//        if (!isset($otp)){
+//            return $this->error('Invalid OTP');
+//        }
         DB::beginTransaction();
         try {
 
@@ -227,7 +232,10 @@ class AuthController extends ApiController
         $total_spend = $myAuditions->sum('cpa');
         $total_audition = $myAuditions->count();
         $total_ads = $myAds->count();
-        $remainingAudition = Auth::user()->advertisement_package->audition_limit - Auth::user()->ads_audition->count();
+        $remainingAudition = 0;
+        if (Auth::user()->advertisement_package){
+            $remainingAudition = Auth::user()->advertisement_package->audition_limit - Auth::user()->ads_audition->count();
+        }
 
         $auditionsGrp = $myAuditions->groupBy(function($date) {
             return Carbon::parse($date->created_at)->format('Y-m-d');

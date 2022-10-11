@@ -204,7 +204,7 @@ class UserController extends ApiController
 
     public function userProfile(User $user){
         return $this->success('User profile',[
-            'user'=> $user->formatResponse()
+            'user'=> $user->getInfo()
         ]);
     }
 

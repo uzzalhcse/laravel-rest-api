@@ -17,13 +17,14 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Mail;
 use Exception;
+use Illuminate\Support\Str;
 use Spatie\Activitylog\Models\Activity;
 use Twilio\Rest\Client;
 
 class TestController extends ApiController
 {
     public function test(){
-        return $this->getMediaFiles();
+        return $this->twilioSms();
     }
     public function getMediaFiles(){
         $type = 'banner';

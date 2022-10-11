@@ -20,6 +20,7 @@ class PayoutHistory extends Model
         return [
             'id'=>$this->id,
             'user'=>$this->user->name,
+            'user_id'=>$this->user_id,
             'amount'=>$this->amount,
             'payment_method'=>$this->payment_method,
             'paypal_email'=>$this->paypal_email,

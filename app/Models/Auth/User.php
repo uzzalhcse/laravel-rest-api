@@ -11,6 +11,7 @@ use App\Models\Ads\AuditionHistory;
 use App\Models\Ads\Billboard;
 use App\Models\Package\UserPackage;
 use App\Models\PayoutHistory;
+use App\Models\Share\Country;
 use App\Traits\ScopeActive;
 use App\Traits\Status;
 use App\Traits\Utils;
@@ -109,6 +110,28 @@ class User extends Authenticatable
             'status_id'=>$this->status_id,
         ];
     }
+
+    public function getInfo(){
+        return [
+            'id'=>$this->id,
+            'name'=>$this->name,
+            'avatar'=>$this->avatar,
+            'email'=>$this->email,
+            'mobile'=>$this->mobile,
+            'gender'=>$this->gender,
+            'country'=>$this->country->name,
+            'type'=>$this->type,
+            'address'=>$this->address,
+            'phone_model'=>$this->profile?->phone_model,
+            'is_active'=>$this->is_active,
+            'date'=>$this->date,
+            'status'=>$this->status->title,
+        ];
+    }
+    public function profile(){
+        return $this->hasOne(UserProfile::class);
+    }
+
     public function ads(){
         return $this->hasMany(Ads::class);
     }
@@ -149,6 +172,11 @@ class User extends Authenticatable
 
     public function payout_histories(){
         return $this->hasMany(PayoutHistory::class);
+    }
+
+
+    public function country(){
+        return $this->belongsTo(Country::class);
     }
 
     /**

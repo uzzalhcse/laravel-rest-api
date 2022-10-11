@@ -47,7 +47,7 @@ class AdsSubscriptionController extends ApiController
     public function unsubscribeAds(Ads $ads){
         $ads->subscribers()->detach([Auth::id()]);
         $adsReview = AdsReview::where('user_id',Auth::id())->where('ads_id',$ads->id)->first();
-        $adsReview->delete();
+        $adsReview?->delete();
         return $this->success('Subscription Canceled');
     }
 

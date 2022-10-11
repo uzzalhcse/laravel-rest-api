@@ -22,9 +22,9 @@ class CommonSeeder extends Seeder
         $userPacks = [
             [
                 'user_id'=>'3',
-                'package_id'=>'2',
-                'amount'=>'2000',
-                'audition_limit'=>'13333',
+                'package_id'=>'1',
+                'amount'=>'1200',
+                'audition_limit'=>'10000',
                 'expired_at'=>'2022-12-28',
                 'transaction_id'=>'1',
                 'created_at'=>$timestamp,

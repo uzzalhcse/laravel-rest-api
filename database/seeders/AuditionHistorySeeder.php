@@ -22,7 +22,7 @@ class AuditionHistorySeeder extends Seeder
             [
                 'audition_id'=>1,
                 'user_id'=>5,
-                'amount'=> 100,
+                'amount'=> 0.6,
                 'is_pending'=> 0,
                 'created_at'=>$timestamp,
                 'updated_at'=>$timestamp
@@ -30,7 +30,7 @@ class AuditionHistorySeeder extends Seeder
             [
                 'audition_id'=>1,
                 'user_id'=>4,
-                'amount'=> 50,
+                'amount'=> 0.3,
                 'is_pending'=> 1,
                 'created_at'=>$timestamp,
                 'updated_at'=>$timestamp
@@ -38,7 +38,7 @@ class AuditionHistorySeeder extends Seeder
             [
                 'audition_id'=>2,
                 'user_id'=>5,
-                'amount'=> 100,
+                'amount'=> 0.6,
                 'is_pending'=> 0,
                 'created_at'=>$timestamp,
                 'updated_at'=>$timestamp
@@ -46,7 +46,7 @@ class AuditionHistorySeeder extends Seeder
             [
                 'audition_id'=>2,
                 'user_id'=>4,
-                'amount'=> 50,
+                'amount'=> 0.3,
                 'is_pending'=> 1,
                 'created_at'=>$timestamp,
                 'updated_at'=>$timestamp
@@ -54,7 +54,7 @@ class AuditionHistorySeeder extends Seeder
             [
                 'audition_id'=>3,
                 'user_id'=>5,
-                'amount'=> 100,
+                'amount'=> 0.6,
                 'is_pending'=> 1,
                 'created_at'=>$timestamp,
                 'updated_at'=>$timestamp
@@ -62,7 +62,7 @@ class AuditionHistorySeeder extends Seeder
             [
                 'audition_id'=>3,
                 'user_id'=>4,
-                'amount'=> 50,
+                'amount'=> 0.3,
                 'is_pending'=> 1,
                 'created_at'=>$timestamp,
                 'updated_at'=>$timestamp

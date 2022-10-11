@@ -21,7 +21,7 @@ class PayoutHistorySeeder extends Seeder
         $payout_histories = [
             [
                 'user_id'=>5,
-                'amount'=>45,
+                'amount'=>0.5,
                 'payment_method'=>'Paypal',
                 'paypal_email'=> 'paypal@gmail.com',
                 'bank_account_name'=> null,
@@ -35,7 +35,7 @@ class PayoutHistorySeeder extends Seeder
             ],
             [
                 'user_id'=>5,
-                'amount'=>120,
+                'amount'=>0.8,
                 'payment_method'=>'Bank',
                 'paypal_email'=> null,
                 'bank_account_name'=> 'Uzzal Hosen',

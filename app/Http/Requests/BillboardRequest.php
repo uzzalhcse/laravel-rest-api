@@ -23,8 +23,13 @@ class BillboardRequest extends FormRequest
      */
     public function rules()
     {
+        $fileRules = 'required';
+        if (request()->isMethod('put')){
+            $fileRules = 'sometimes';
+        }
         return [
             'title'=>'required',
+            'thumbnail_file'=> $fileRules.'|mimes:png,jpg,jpeg|max:1024',
 //            'thumbnail'=>'required'
         ];
     }

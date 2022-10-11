@@ -4,6 +4,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
+use Twilio\Rest\Client;
 
 if (! function_exists('is_admin')) {
     function is_admin(): bool
@@ -72,6 +73,30 @@ if (! function_exists('paginate_if_required')) {
             $items = $items->take(20)->get();
         }
         return $items;
+    }
+}
+
+
+if (! function_exists('send_sms')) {
+    function send_sms($to,$msg): bool
+    {
+        try {
+
+            $account_sid = env("TWILIO_SID");
+            $auth_token = env("TWILIO_TOKEN");
+            $twilio_number = env("TWILIO_FROM");
+
+            $client = new Client($account_sid, $auth_token);
+            $res = $client->messages->create($to, [
+                'from' => $twilio_number,
+                'body' => $msg]);
+
+            return true;
+
+        } catch (Exception $e) {
+            \Illuminate\Support\Facades\Log::info('SMS_'.$e);
+            return false;
+        }
     }
 }
 

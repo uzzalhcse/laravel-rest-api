@@ -25,7 +25,7 @@ class AuditionSeeder extends Seeder
                 'advertiser_id'=> 3,
                 'provider_id'=> 4,
                 'mobile'=> '+8801764695324',
-                'cpa'=> 200,
+                'cpa'=> 0.12,
                 'created_at'=>$timestamp,
                 'updated_at'=>$timestamp
             ],
@@ -35,7 +35,7 @@ class AuditionSeeder extends Seeder
                 'advertiser_id'=> 3,
                 'provider_id'=> 4,
                 'mobile'=> '+8801764695324',
-                'cpa'=> 200,
+                'cpa'=> 0.12,
                 'created_at'=>$timestamp,
                 'updated_at'=>$timestamp
             ],
@@ -45,7 +45,7 @@ class AuditionSeeder extends Seeder
                 'advertiser_id'=> 3,
                 'provider_id'=> 4,
                 'mobile'=> '+8801764695324',
-                'cpa'=> 200,
+                'cpa'=> 0.12,
                 'created_at'=>$timestamp,
                 'updated_at'=>$timestamp
             ],

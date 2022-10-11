@@ -37,6 +37,8 @@ class Transaction extends Model
             'total'=>$this->total,
             'receipt'=>$this->receipt ? url($this->receipt->path): null,
             'receipt_file'=>null,
+            'package_name'=>$this->package->package->name,
+            'package_is_active'=>$this->package->is_active,
             'payment_method'=>$this->payment_method,
             'status'=>$this->status->title,
         ];

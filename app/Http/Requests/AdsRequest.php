@@ -23,8 +23,15 @@ class AdsRequest extends FormRequest
      */
     public function rules()
     {
+        $fileRules = 'required';
+        if (request()->isMethod('put')){
+            $fileRules = 'sometimes';
+        }
         return [
             'title'=> 'required',
+            'thumbnail_file'=> $fileRules.'|mimes:png,jpg,jpeg|max:1024',
+            'banner_file'=> $fileRules.'|mimes:png,jpg,jpeg|max:1024',
+            'audio_file'=> $fileRules.'|mimes:mp3|max:200',
             'description'=> 'required',
             'country_ids'=> 'required',
             'provider_ids'=> 'required',

@@ -22,6 +22,7 @@ use App\Models\Share\Faq;
 use App\Models\Share\Status;
 use App\Models\Share\Upazila;
 use App\Repositories\BillBoardRepository;
+use App\Services\OTPService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -35,15 +36,17 @@ class UtilsController extends ApiController
     protected BlogRepositoryInterface $blogRepository;
     protected AdsRepositoryInterface $adsRepository;
     protected BillBoardRepository $billBoardRepository;
+    protected OTPService $OTPService;
 
     /**
      * @param BlogRepositoryInterface $blogRepository
      */
-    public function __construct(BlogRepositoryInterface $blogRepository,AdsRepositoryInterface $adsRepository,BillBoardRepository $billBoardRepository)
+    public function __construct(BlogRepositoryInterface $blogRepository,AdsRepositoryInterface $adsRepository,BillBoardRepository $billBoardRepository,OTPService $OTPService)
     {
         $this->blogRepository = $blogRepository;
         $this->adsRepository = $adsRepository;
         $this->billBoardRepository = $billBoardRepository;
+        $this->OTPService = $OTPService;
     }
     /**
      * Display a listing of the resource.
@@ -62,6 +65,11 @@ class UtilsController extends ApiController
             'countries'=>Country::all()
         ]);
     }
+    public function billboards(){
+        return $this->success('Billboard List',[
+            'billboards'=>new EloquentResource($this->billBoardRepository->getActiveItems()),
+        ]);
+    }
 
     public function homepage(){
         return $this->success('Homepage',[
@@ -75,7 +83,7 @@ class UtilsController extends ApiController
                 'providers'=>'250',
                 'daily_paid'=>'100k',
             ],
-            'ads'=>new EloquentResource($this->adsRepository->getActiveItems()),
+            'ads'=>new EloquentResource($this->adsRepository->popularItems()),
             'billboards'=>new EloquentResource($this->billBoardRepository->getActiveItems()),
             'faqs'=>new EloquentResource(Faq::all()),
             'blogs'=> new EloquentResource($this->blogRepository->getActiveItems())
@@ -115,6 +123,9 @@ class UtilsController extends ApiController
     }
 
 
+    public function sendOtp(Request $request){
+        return $this->OTPService->sendOTP($request);
+    }
 
 
 

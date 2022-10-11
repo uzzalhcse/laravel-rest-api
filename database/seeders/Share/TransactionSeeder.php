@@ -22,10 +22,10 @@ class TransactionSeeder extends Seeder
             [
                 'user_id'=>'3',
                 'trxid'=> Str::random(6),
-                'sub_total'=>'3005',
+                'sub_total'=>'1200',
                 'discount'=>'0',
                 'tax'=>'0',
-                'total'=>'3005',
+                'total'=>'1200',
                 'payment_method'=>'Paypal',
                 'type'=>'Package Purchase',
                 'status_id'=>'7',
