@@ -27,8 +27,7 @@ class AuthResource extends JsonResource
           'billboard_package'=>$this->billboard_package,
           'advertisement_package'=>$this->advertisement_package,
           'roles'=>$this->roles->pluck('slug'),
-          'role_names'=>$this->roles->pluck('slug'),
-          'acl'=>$this->acl,
+//          'acl'=>$this->acl,
         ];
     }
 }
