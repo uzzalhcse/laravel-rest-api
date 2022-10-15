@@ -9,6 +9,7 @@ use App\Models\Ads\AdsReview;
 use App\Models\Ads\Audition;
 use App\Models\Ads\AuditionHistory;
 use App\Models\Ads\Billboard;
+use App\Models\Message;
 use App\Models\Package\UserPackage;
 use App\Models\PayoutHistory;
 use App\Models\Share\Country;
@@ -177,6 +178,17 @@ class User extends Authenticatable
 
     public function country(){
         return $this->belongsTo(Country::class);
+    }
+
+    public function send_messages(){
+        return $this->hasMany(Message::class,'sender_id')->latest();
+    }
+
+    public function receive_messages(){
+        return $this->hasMany(Message::class,'receiver_id')->latest();
+    }
+    public function last_msg(){
+        return $this->send_messages->merge($this->receive_messages)->last();
     }
 
     /**

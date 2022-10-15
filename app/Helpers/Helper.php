@@ -100,3 +100,10 @@ if (! function_exists('send_sms')) {
     }
 }
 
+if (! function_exists('num_format')) {
+    function num_format($number,$decimals = 3, $decimal_separator = '.', $thousands_separator = ''): float
+    {
+       return number_format($number, $decimals, $decimal_separator, $thousands_separator);
+    }
+}
+

@@ -11,6 +11,10 @@ trait Utils
     {
         return Carbon::parse($this->created_at)->format('Y-m-d');
     }
+    public function getTimeAttribute(): string
+    {
+        return Carbon::parse($this->created_at)->diffForHumans();
+    }
 
     public function getYearAttribute(): string
     {

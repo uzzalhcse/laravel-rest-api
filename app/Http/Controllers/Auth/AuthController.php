@@ -278,10 +278,10 @@ class AuthController extends ApiController
 
         return $this->success('Advertiser dashboard',[
             'summary'=>[
-                'total_earned'=>$total_earned,
-                'total_audition'=>$total_audition,
-                'total_pending_balance'=>$total_pending_balance,
-                'total_payout'=>$total_payout,
+                'total_earned'=>num_format($total_earned),
+                'total_audition'=>num_format($total_audition),
+                'total_pending_balance'=>num_format($total_pending_balance),
+                'total_payout'=>num_format($total_payout),
             ],
             'auditionReport'=>$auditionReport,
         ]);

@@ -7,7 +7,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class AdsSubscriptionSeeder extends Seeder
+class MessageSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -18,52 +18,50 @@ class AdsSubscriptionSeeder extends Seeder
     {
 
         $timestamp = Carbon::now()->toDateTimeString();
-        $ads_subscriptions = [
+        $messages = [
             [
-                'user_id'=>5,
-                'ads_id'=> 1,
+                'sender_id'=>5,
+                'receiver_id'=>6,
+                'body'=>'Hi',
+                'type'=>'text',
                 'created_at'=>$timestamp,
                 'updated_at'=>$timestamp
             ],
             [
-                'user_id'=>5,
-                'ads_id'=> 2,
+                'sender_id'=>6,
+                'receiver_id'=>5,
+                'body'=>'Hlw',
+                'type'=>'text',
                 'created_at'=>$timestamp,
                 'updated_at'=>$timestamp
             ],
             [
-                'user_id'=>5,
-                'ads_id'=> 3,
+                'sender_id'=>6,
+                'receiver_id'=>5,
+                'body'=>'How can i help you',
+                'type'=>'text',
                 'created_at'=>$timestamp,
                 'updated_at'=>$timestamp
             ],
             [
-                'user_id'=>5,
-                'ads_id'=> 4,
+                'sender_id'=>5,
+                'receiver_id'=>6,
+                'body'=>'No, thanks. im just checking the system',
+                'type'=>'text',
                 'created_at'=>$timestamp,
                 'updated_at'=>$timestamp
             ],
             [
-                'user_id'=>5,
-                'ads_id'=> 5,
+                'sender_id'=>6,
+                'receiver_id'=>5,
+                'body'=>'Sure, feel free to check our platform',
+                'type'=>'text',
                 'created_at'=>$timestamp,
                 'updated_at'=>$timestamp
             ],
-            [
-                'user_id'=>5,
-                'ads_id'=> 6,
-                'created_at'=>$timestamp,
-                'updated_at'=>$timestamp
-            ],
-            [
-                'user_id'=>5,
-                'ads_id'=> 7,
-                'created_at'=>$timestamp,
-                'updated_at'=>$timestamp
-            ]
         ];
 
 
-        DB::table('ads_subscriptions')->insert($ads_subscriptions);
+        DB::table('messages')->insert($messages);
     }
 }

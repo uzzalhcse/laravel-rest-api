@@ -4,6 +4,7 @@ use App\Http\Controllers\Acl\RolePermissionController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Auth\RoleController;
 use App\Http\Controllers\Auth\UserController;
+use App\Http\Controllers\MessageController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -44,7 +45,9 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::post('/payout-request', [UserController::class, 'payoutRequest']);
     Route::post('/payout-history',   [UserController::class,'payoutHistory']);
 
-    Route::get('/dashboard',   [AuthController::class,'dashboard']);
+    Route::get('/contacts',   [MessageController::class,'contacts']);
+    Route::get('/fetch-messages/{sender_id}',   [MessageController::class,'fetchMessages']);
+    Route::post('/send-message',   [MessageController::class,'sendMessage']);
 
 
 });

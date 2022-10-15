@@ -49,5 +49,6 @@ class DatabaseSeeder extends Seeder
         $this->call(AuditionSeeder::class);
         $this->call(AuditionHistorySeeder::class);
         $this->call(PayoutHistorySeeder::class);
+        $this->call(MessageSeeder::class);
     }
 }
