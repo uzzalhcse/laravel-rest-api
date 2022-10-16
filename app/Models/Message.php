@@ -22,12 +22,24 @@ class Message extends Model
     }
 
     public function formatResponse($is_detail = false){
+        $body = $is_detail ? $this->body : substr($this->body,0,30-3).'...' ;
+        if ($this->type == 'image'){
+            $body = url($this->body);
+        }
         return [
-            'body'=>$is_detail ? $this->body : substr($this->body,0,30-3).'...' ,
-            'type'=>$this->url,
+            'body'=>$body,
+            'type'=>$this->type,
             'avatar'=>$this->sender_id == auth()->id() ? $this->sender->avatar : $this->receiver->avatar,
             'time'=>$this->time,
             'is_sender'=>$this->sender_id == auth()->id(),
+        ];
+    }
+
+    public function formatMedia(){
+        return [
+            'path'=>url($this->body),
+            'type'=>$this->type,
+            'time'=>$this->time,
         ];
     }
 }

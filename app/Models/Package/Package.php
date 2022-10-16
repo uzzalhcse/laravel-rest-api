@@ -33,19 +33,20 @@ class Package extends Model
     }
 
 
-//    public function formatResponse(): array
-//    {
-//        return [
-//            'id'=>$this->id,
-//            'name'=>$this->name,
-//            'amount'=>0,
-//            'min_price'=>$this->min_price,
-//            'max_price'=>$this->max_price,
-//            'cpa'=>$this->cpa,
-//            'no_of_network_provider_limit'=>$this->no_of_network_provider_limit,
-//            'type'=>$this->type,
-//            'is_popular'=>$this->is_popular,
-//            'is_enabled'=>$this->is_enabled,
-//        ];
-//    }
+    public function formatResponse(): array
+    {
+        return [
+            'id'=>$this->id,
+            'name'=>$this->name,
+            'min_price'=>$this->min_price,
+            'max_price'=>$this->max_price,
+            'cpa'=>$this->cpa,
+            'no_of_network_provider_limit'=>$this->no_of_network_provider_limit,
+            'type'=>$this->type,
+            'is_popular'=>$this->is_popular,
+            'is_purchased'=>$this->is_purchased,
+            'status'=>$this->status,
+            'is_enabled'=>$this->is_enabled,
+        ];
+    }
 }

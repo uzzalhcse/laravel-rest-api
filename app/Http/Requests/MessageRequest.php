@@ -27,7 +27,7 @@ class MessageRequest extends FormRequest
             'receiver_id'=>'required',
             'body'=>'required',
             'type'=>'required',
-            'file'=>'required_if:type,image,file|mimes:png,jpg,jpeg,pdf,csv|max:2048',
+            'file'=>'required_if:type,image,file|mimes:png,jpg,jpeg,pdf|max:2048',
         ];
     }
 }

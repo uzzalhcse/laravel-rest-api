@@ -102,7 +102,7 @@ class UtilsController extends ApiController
             $packages = $packages->where('type','Billboard');
         }
         return $this->success('All Package List',[
-            'items'=>$packages->get()
+            'items'=>new EloquentResource($packages->get())
         ]);
     }
 
