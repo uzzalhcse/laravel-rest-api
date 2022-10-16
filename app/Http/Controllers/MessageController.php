@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\MessageSentEvent;
 use App\Http\Requests\MessageRequest;
 use App\Models\Auth\User;
 use App\Models\Message;
@@ -13,11 +14,20 @@ class MessageController extends ApiController
 {
     public function fetchMessages($sender_id){
         $sender = User::findOrFail($sender_id);
+        $user = Auth::user();
         $messages = Message::where('sender_id',$sender->id)
             ->orWhere('receiver_id',$sender->id)
             ->orWhere('sender_id',Auth::id())
             ->orWhere('receiver_id',Auth::id())
             ->get();
+//        $messages = Message::where('sender_id',$sender->id)
+//            ->orWhere('receiver_id',$sender->id)
+//            ->orWhere('sender_id',Auth::id())
+//            ->orWhere('receiver_id',Auth::id())
+////            ->orWhere(function ($query) use ($user, $sender) {
+////                $query->where('receiver_id', $sender->id)->OrWhere('sender_id', $user->id);
+////            })
+//            ->get();
         $messageList = $messages->map->formatResponse(true)->groupBy('time');
         return $this->success('Message List',[
             'messages'=>$messageList,
@@ -33,7 +43,7 @@ class MessageController extends ApiController
             ->orWhere('receiver_id',$auth->id)
             ->get();
 
-        $recipients = $messages->pluck('sender_id','receiver_id')->keys();
+        $recipients = $messages->pluck('sender_id','receiver_id')->keys()->merge(6);
 
         $users = User::whereNot('id',$auth->id)->whereIn('id',$recipients)->get();
         $contacts = array();
@@ -42,9 +52,10 @@ class MessageController extends ApiController
             $contacts[] = [
                 'name'=>$user->name,
                 'avatar'=>$user->avatar,
+                'type'=>$user->type,
                 'id'=>$user->id,
-                'last_msg'=>$messages->last()->formatResponse(),
-                'last_msg_at'=>$messages->last()->time
+                'last_msg'=>$messages->last()?->formatResponse(),
+                'last_msg_at'=>$messages->last()?->time
             ];
         }
 
@@ -69,7 +80,7 @@ class MessageController extends ApiController
         }
         $message->save();
 //        $message = $message->load('sender','receiver');
-//        broadcast(new MessageSent($message->receiver_id, $message));
+        broadcast(new MessageSentEvent($message->receiver_id, $message));
         return $this->success('Message Sent!');
     }
 }

@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Broadcast;
 |
 */
 
-Broadcast::channel('App.Models.User.{id}', function ($user, $id) {
+Broadcast::channel('chat.{id}', function ($user,$id) {
+    \Illuminate\Support\Facades\Log::info($user->id);
     return (int) $user->id === (int) $id;
 });

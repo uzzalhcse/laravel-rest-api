@@ -26,10 +26,12 @@ class Message extends Model
         if ($this->type == 'image'){
             $body = url($this->body);
         }
+        $actor = $this->sender_id == auth()->id() ? $this->sender : $this->receiver;
         return [
             'body'=>$body,
             'type'=>$this->type,
-            'avatar'=>$this->sender_id == auth()->id() ? $this->sender->avatar : $this->receiver->avatar,
+            'name'=>$actor->name,
+            'avatar'=>$actor->avatar,
             'time'=>$this->time,
             'is_sender'=>$this->sender_id == auth()->id(),
         ];
