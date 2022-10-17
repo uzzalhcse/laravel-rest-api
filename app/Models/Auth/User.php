@@ -27,13 +27,16 @@ use Spatie\Activitylog\Traits\LogsActivity;
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory,SoftDeletes, Notifiable, ScopeActive,Status,Utils, LogsActivity;
+    const CUSTOMER_CARE_USER_ID = 6;
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name',
+        'first_name',
+        'last_name',
+        'mobile',
         'email',
         'password',
     ];

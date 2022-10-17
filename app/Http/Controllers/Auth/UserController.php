@@ -135,12 +135,12 @@ class UserController extends ApiController
             $transaction = new Transaction();
             $transaction->user_id = $user->id;
             $transaction->trxid = Str::random(6);
-            $transaction->sub_total = $request->amount;
+            $transaction->sub_total = $amount;
             $transaction->discount = 0;
             $transaction->tax = 0;
-            $transaction->total = $request->amount;
+            $transaction->total = $amount;
             $transaction->payment_method = $request->payment_method;
-            $transaction->type = $request->type;
+            $transaction->type = $package->type;
             $transaction->status_id = $request->payment_method == 'Bank' ? Status::Pending : Status::Active;
             $transaction->save();
 

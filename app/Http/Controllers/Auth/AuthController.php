@@ -276,7 +276,7 @@ class AuthController extends ApiController
             $auditionReport['data'][] = $audition->count();
         }
 
-        return $this->success('Advertiser dashboard',[
+        return $this->success('Portal dashboard',[
             'summary'=>[
                 'total_earned'=>num_format($total_earned),
                 'total_audition'=>num_format($total_audition),

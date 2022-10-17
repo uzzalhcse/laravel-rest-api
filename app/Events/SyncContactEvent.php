@@ -12,7 +12,7 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-class MessageSentEvent implements ShouldBroadcast
+class SyncContactEvent implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
@@ -28,18 +28,18 @@ class MessageSentEvent implements ShouldBroadcast
      *
      * @var Message
      */
-    public $message;
+    public $contacts;
 
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct($receiver_id, Message $message)
+    public function __construct($receiver_id, $contacts)
     {
         info("receiver ID ".$receiver_id);
         $this->receiver_id = $receiver_id;
-        $this->message = $message->formatResponse(true,$receiver_id);
+        $this->contacts = $contacts;
     }
 
     /**
@@ -49,11 +49,11 @@ class MessageSentEvent implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return new PrivateChannel('chat.'.$this->receiver_id);
+        return new PrivateChannel('chat-contacts.'.$this->receiver_id);
     }
 
     public function broadcastAs()
     {
-        return 'MessageSent';
+        return 'ContactListEvent';
     }
 }

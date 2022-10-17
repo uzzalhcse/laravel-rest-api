@@ -25,7 +25,8 @@ class PurchasePackageRequest extends FormRequest
     {
         return [
             'id'=>'required',
-            'amount'=>'required'
+            'amount'=>'required',
+            'payment_method'=>'required',
         ];
     }
 }

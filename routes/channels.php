@@ -14,6 +14,9 @@ use Illuminate\Support\Facades\Broadcast;
 */
 
 Broadcast::channel('chat.{id}', function ($user,$id) {
-    \Illuminate\Support\Facades\Log::info($user->id);
+    return (int) $user->id === (int) $id;
+});
+
+Broadcast::channel('chat-contacts.{id}', function ($user,$id) {
     return (int) $user->id === (int) $id;
 });

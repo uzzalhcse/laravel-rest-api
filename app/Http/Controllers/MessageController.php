@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Events\MessageSentEvent;
+use App\Events\SyncContactEvent;
 use App\Http\Requests\MessageRequest;
 use App\Models\Auth\User;
 use App\Models\Message;
@@ -14,21 +15,31 @@ class MessageController extends ApiController
 {
     public function fetchMessages($sender_id){
         $sender = User::findOrFail($sender_id);
-        $user = Auth::user();
-        $messages = Message::where('sender_id',$sender->id)
-            ->orWhere('receiver_id',$sender->id)
-            ->orWhere('sender_id',Auth::id())
-            ->orWhere('receiver_id',Auth::id())
+        $auth = Auth::user();
+
+        $messages = collect();
+        $items = Message::with('receiver','sender')
+            ->where('sender_id',\auth()->user()->id)
+            ->where('receiver_id',$sender_id)
             ->get();
-//        $messages = Message::where('sender_id',$sender->id)
-//            ->orWhere('receiver_id',$sender->id)
-//            ->orWhere('sender_id',Auth::id())
-//            ->orWhere('receiver_id',Auth::id())
-////            ->orWhere(function ($query) use ($user, $sender) {
-////                $query->where('receiver_id', $sender->id)->OrWhere('sender_id', $user->id);
-////            })
-//            ->get();
-        $messageList = $messages->map->formatResponse(true)->groupBy('time');
+        $items2 = Message::with('receiver','sender')
+            ->where('sender_id',$sender_id)
+            ->where('receiver_id',\auth()->user()->id)
+            ->get();
+        $items = $items->merge($items2)->sortBy('created_at')->values();
+//        foreach ($items as $item){
+//            $actor = $auth->id == $item->receiver_id && $sender_id == $item->receiver_id? $item->sender->avatar : $item->receiver->avatar;
+//            $messageList[]=[
+//                'body'=>$item->body,
+//                'type'=>$item->type,
+//                'name'=>'$actor->name',
+//                'avatar'=>$actor,
+//                'time'=>$item->time,
+//                'is_sender'=>$item->sender_id == $auth->id,
+//            ];
+//        }
+
+        $messageList = $items->map->formatResponse(true,$sender_id);
         return $this->success('Message List',[
             'messages'=>$messageList,
             'media_items'=>$messages->where('type','image')->map->formatMedia()->values(),
@@ -38,31 +49,75 @@ class MessageController extends ApiController
 
     public function contacts(): JsonResponse
     {
+
         $auth = Auth::user();
-        $messages = Message::where('sender_id',$auth->id)
-            ->orWhere('receiver_id',$auth->id)
-            ->get();
-
-        $recipients = $messages->pluck('sender_id','receiver_id')->keys()->merge(6);
-
-        $users = User::whereNot('id',$auth->id)->whereIn('id',$recipients)->get();
-        $contacts = array();
-
-        foreach ($users as $user){
-            $contacts[] = [
-                'name'=>$user->name,
-                'avatar'=>$user->avatar,
-                'type'=>$user->type,
-                'id'=>$user->id,
-                'last_msg'=>$messages->last()?->formatResponse(),
-                'last_msg_at'=>$messages->last()?->time
-            ];
-        }
-
+        $contacts = $this->myContacts($auth);
         return $this->success('My contacts',[
             'contacts'=>$contacts
         ]);
 
+    }
+    public function myContacts($auth){
+        $customerCareUser = User::find(User::CUSTOMER_CARE_USER_ID);
+        $received_messages = Message::where('receiver_id',$auth->id)
+            ->get()->pluck('sender_id');
+        $send_messages = Message::where('sender_id',$auth->id)
+            ->get()->pluck('receiver_id');
+        $recipients = $received_messages->merge($send_messages)->unique()->values();
+//        info($recipients);
+
+        $items = collect();
+        $contacts = collect();
+
+        foreach ($recipients as $contact){
+            $msg = Message::with('sender')->where('sender_id',$auth->id)
+                ->where('receiver_id', $contact)
+                ->orWhere(function ($query) use ($auth, $contact) {
+                    $query->where('sender_id', $contact);
+                    $query->where('receiver_id', $auth->id);
+                })->orderByDesc('created_at')->limit(1)->first();
+            if ($msg){
+
+                $items[] = $msg;
+            }
+
+        }
+        $items = $items->sortByDesc('created_at');
+
+        foreach ($items as $item){
+            if ($item->receiver_id === $auth->id){
+
+                $contacts[]=[
+                    'name'=>$item->sender->name,
+                    'avatar'=>$item->sender->avatar,
+                    'type'=>$item->sender->type,
+                    'id'=>$item->sender_id,
+                    'last_msg'=>$item->formatResponse(),
+                    'last_msg_at'=>$item->time,
+                ];
+            } else{
+
+                $contacts[]=[
+                    'name'=>$item->receiver->name,
+                    'avatar'=>$item->receiver->avatar,
+                    'type'=>$item->receiver->type,
+                    'id'=>$item->receiver_id,
+                    'last_msg'=>$item->formatResponse(),
+                    'last_msg_at'=>$item->time,
+                ];
+            }
+        }
+        if (count($contacts) <1 && $customerCareUser->id != $auth->id){
+            $contacts[]=[
+                'name'=>$customerCareUser->name,
+                'avatar'=>$customerCareUser->avatar,
+                'type'=>'text',
+                'id'=>$customerCareUser->id,
+                'last_msg'=>null,
+                'last_msg_at'=>'',
+            ];
+        }
+        return $contacts;
     }
 
     public function sendMessage(MessageRequest $request){
@@ -79,8 +134,12 @@ class MessageController extends ApiController
             $message->body = $request->body;
         }
         $message->save();
-//        $message = $message->load('sender','receiver');
+        $auth = User::find($message->receiver_id);
+        $contacts = $this->myContacts($auth);
+
+
         broadcast(new MessageSentEvent($message->receiver_id, $message));
+        broadcast(new SyncContactEvent($message->receiver_id, $contacts));
         return $this->success('Message Sent!');
     }
 }

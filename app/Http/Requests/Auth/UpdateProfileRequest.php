@@ -25,10 +25,11 @@ class UpdateProfileRequest extends FormRequest
     public function rules()
     {
         return [
-            'avatar_file' =>  'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'name' => 'required|string',
+            'avatar_file' =>  'sometimes|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'first_name' => 'required|string',
+            'last_name' => 'required|string',
             'email' => 'required|email|unique:users,email,'.Auth::id(),
-            'office_id' => 'required',
+//            'office_id' => 'required',
         ];
     }
 }
