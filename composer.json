@@ -15,7 +15,8 @@
         "pusher/pusher-php-server": "^7.2",
         "spatie/laravel-activitylog": "^4.5",
         "spatie/laravel-newsletter": "^4.11",
-        "twilio/sdk": "^6.42"
+        "twilio/sdk": "^6.42",
+        "vonage/vonage-laravel": "^1.0"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.12",

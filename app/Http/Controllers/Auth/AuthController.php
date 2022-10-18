@@ -58,10 +58,10 @@ class AuthController extends ApiController
     }
 
     public function register(RegisterRequest $request){
-//        $otp = Otp::where('mobile',$request->mobile)->where('token',$request->token)->first();
-//        if (!isset($otp)){
-//            return $this->error('Invalid OTP');
-//        }
+        $otp = Otp::where('mobile',$request->mobile)->where('token',$request->token)->first();
+        if (!isset($otp)){
+            return $this->error('Invalid OTP');
+        }
         DB::beginTransaction();
         try {
 
@@ -120,6 +120,7 @@ class AuthController extends ApiController
             $userRole->role_id = $role->id;
             $userRole->save();
 
+            $otp->delete();
             DB::commit();
             return $this->success('Sign up successful');
         } catch (\Exception $exception){

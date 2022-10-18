@@ -22,14 +22,14 @@ class OTPService
         $otp->token = $this->generateOTP();
         $otp->attempt += 1;
 
-        $otp->save();
-        return $this->success('Otp has been sent');
-//        if (send_sms($otp->mobile,"Your ATC verification code is {$otp->token}. The code will expire in 2 minutes.Please do NOT share your OTP with others")){
-//            $otp->save();
-//            return $this->success('Otp has been sent');
-//        } else{
-//            return $this->error('OTP send failed');
-//        }
+//        $otp->save();
+//        return $this->success('Otp has been sent');
+        if (send_sms($otp->mobile,"Your ATC verification code is {$otp->token}. The code will expire in 2 minutes.Please do NOT share your OTP with others")){
+            $otp->save();
+            return $this->success('Otp has been sent');
+        } else{
+            return $this->error('OTP send failed');
+        }
     }
     public function generateOTP(){
         return rand(99999,999999);

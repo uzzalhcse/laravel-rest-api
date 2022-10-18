@@ -20,11 +20,12 @@ use Exception;
 use Illuminate\Support\Str;
 use Spatie\Activitylog\Models\Activity;
 use Twilio\Rest\Client;
+use Vonage\Laravel\Facade\Vonage;
 
 class TestController extends ApiController
 {
     public function test(){
-        return $this->twilioSms();
+//        return $this->nextmoSms();
     }
     public function getMediaFiles(){
         $type = 'banner';
@@ -51,6 +52,11 @@ class TestController extends ApiController
         }
 //        Mail::to($users->first()->email)->send(new WelcomeEmail($users->first()));
         return $this->success('Mail sent to '.$users->count().' number of users');
+    }
+    public function nextmoSms(){
+        $toNumber = '+8801860865698';
+        $res = send_sms($toNumber,'This is test msg from atc');
+        return $res ? $this->success('Sms send successfully') : $this->error('Sms send failed');
     }
     public function twilioSms()
     {

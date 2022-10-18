@@ -80,21 +80,25 @@ if (! function_exists('paginate_if_required')) {
 if (! function_exists('send_sms')) {
     function send_sms($to,$msg): bool
     {
+        $basic  = new \Vonage\Client\Credentials\Basic(env('VONAGE_KEY', 'a9e4c146'), env('VONAGE_SECRET', 'UWb9yYV2UbBpghax'));
+        $client = new \Vonage\Client($basic);
+
+
         try {
+            $response = $client->sms()->send(
+                new \Vonage\SMS\Message\SMS($to, 'ATC', $msg)
+            );
 
-            $account_sid = env("TWILIO_SID");
-            $auth_token = env("TWILIO_TOKEN");
-            $twilio_number = env("TWILIO_FROM");
+            $message = $response->current();
 
-            $client = new Client($account_sid, $auth_token);
-            $res = $client->messages->create($to, [
-                'from' => $twilio_number,
-                'body' => $msg]);
-
-            return true;
-
-        } catch (Exception $e) {
-            \Illuminate\Support\Facades\Log::info('SMS_'.$e);
+            if ($message->getStatus() == 0) {
+                return true;
+            } else {
+                \Illuminate\Support\Facades\Log::info("The message failed with status: " . $message->getStatus() . "\n");
+                return false;
+            }
+        } catch (Exception $exception){
+            \Illuminate\Support\Facades\Log::info("The message failed with status: " . $exception->getMessage() . "\n");
             return false;
         }
     }
