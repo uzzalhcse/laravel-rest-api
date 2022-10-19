@@ -33,6 +33,8 @@ Route::get('/packages',                     [UtilsController::class, 'packages']
 Route::get('/service-providers',            [UtilsController::class, 'serviceProviders']);
 Route::post('/newsletter',                     [NewsletterController::class, 'store']);
 Route::post('/send-otp',                     [UtilsController::class, 'sendOtp']);
+Route::post('/forget-password',                     [UtilsController::class, 'forgetPassword']);
+Route::post('/set-password',                     [UtilsController::class, 'setPassword']);
 
 
 Route::post('/virtual-call',                     [AuditionController::class, 'virtualCall']);

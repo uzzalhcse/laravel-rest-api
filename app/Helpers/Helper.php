@@ -3,6 +3,7 @@
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Str;
 use Twilio\Rest\Client;
 
@@ -49,8 +50,8 @@ if (! function_exists('upload_file')) {
 
                 $filename = time().'_'.Str::of($file->getClientOriginalName())->lower()->kebab();
             }
-            $file->move(public_path() . $destinationPath, $filename);
             $filename_path = $destinationPath . $filename;
+            $file->move(public_path() . $destinationPath, $filename);
         }
         return $filename_path;
     }
@@ -78,31 +79,44 @@ if (! function_exists('paginate_if_required')) {
 
 
 if (! function_exists('send_sms')) {
-    function send_sms($to,$msg): bool
+    function send_sms($to,$msg)
     {
-        $basic  = new \Vonage\Client\Credentials\Basic(env('VONAGE_KEY', 'a9e4c146'), env('VONAGE_SECRET', 'UWb9yYV2UbBpghax'));
-        $client = new \Vonage\Client($basic);
+        $response = Http::get('https://api.sms.net.bd/sendsms', [
+            'api_key' => '40G7C80aHilL847LsmRDuewhM279qwetCvgydNpg',
+            'msg' => $msg,
+            'to' => $to,
+        ]);
 
-
-        try {
-            $response = $client->sms()->send(
-                new \Vonage\SMS\Message\SMS($to, 'ATC', $msg)
-            );
-
-            $message = $response->current();
-
-            if ($message->getStatus() == 0) {
-                return true;
-            } else {
-                \Illuminate\Support\Facades\Log::info("The message failed with status: " . $message->getStatus() . "\n");
-                return false;
-            }
-        } catch (Exception $exception){
-            \Illuminate\Support\Facades\Log::info("The message failed with status: " . $exception->getMessage() . "\n");
-            return false;
-        }
+        return !($response['error'] != 0);
     }
 }
+
+//if (! function_exists('send_sms')) {
+//    function send_sms($to,$msg): bool
+//    {
+//        $basic  = new \Vonage\Client\Credentials\Basic(env('VONAGE_KEY', 'a9e4c146'), env('VONAGE_SECRET', 'UWb9yYV2UbBpghax'));
+//        $client = new \Vonage\Client($basic);
+//
+//
+//        try {
+//            $response = $client->sms()->send(
+//                new \Vonage\SMS\Message\SMS($to, 'ATC', $msg)
+//            );
+//
+//            $message = $response->current();
+//
+//            if ($message->getStatus() == 0) {
+//                return true;
+//            } else {
+//                \Illuminate\Support\Facades\Log::info("The message failed with status: " . $message->getStatus() . "\n");
+//                return false;
+//            }
+//        } catch (Exception $exception){
+//            \Illuminate\Support\Facades\Log::info("The message failed with status: " . $exception->getMessage() . "\n");
+//            return false;
+//        }
+//    }
+//}
 
 if (! function_exists('num_format')) {
     function num_format($number,$decimals = 3, $decimal_separator = '.', $thousands_separator = ''): float

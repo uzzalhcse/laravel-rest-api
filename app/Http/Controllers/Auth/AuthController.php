@@ -9,6 +9,7 @@ use App\Http\Requests\Auth\UpdateProfileRequest;
 use App\Http\Requests\BillingAddressRequest;
 use App\Http\Resources\Auth\AuthResource;
 use App\Http\Resources\EloquentResource;
+use App\Jobs\WelcomeEmailJob;
 use App\Models\Ads\Ads;
 use App\Models\Ads\Audition;
 use App\Models\Ads\AuditionHistory;
@@ -120,6 +121,7 @@ class AuthController extends ApiController
             $userRole->role_id = $role->id;
             $userRole->save();
 
+            dispatch(new WelcomeEmailJob($user));
             $otp->delete();
             DB::commit();
             return $this->success('Sign up successful');

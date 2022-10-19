@@ -8,7 +8,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class WelcomeEmail extends Mailable
+class AdSubscriptionEmail extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -31,8 +31,8 @@ class WelcomeEmail extends Mailable
     public function build()
     {
         return $this
-            ->subject('Welcome to Adstocall')
+            ->subject('Adstocall Ads Subscription')
             ->replyTo($this->user->email,$this->user->name)
-            ->view('emails.welcome');
+            ->view('emails.ad_subscription');
     }
 }

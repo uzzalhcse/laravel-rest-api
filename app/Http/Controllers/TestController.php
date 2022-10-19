@@ -25,7 +25,7 @@ use Vonage\Laravel\Facade\Vonage;
 class TestController extends ApiController
 {
     public function test(){
-//        return $this->nextmoSms();
+        return $this->smsBd();
     }
     public function getMediaFiles(){
         $type = 'banner';
@@ -46,12 +46,18 @@ class TestController extends ApiController
     }
 
     public function testEmail(){
-        $users = User::all()->take(150);
+        $users = User::all()->take(6);
         foreach ($users as $user){
             dispatch(new WelcomeEmailJob($user));
         }
 //        Mail::to($users->first()->email)->send(new WelcomeEmail($users->first()));
         return $this->success('Mail sent to '.$users->count().' number of users');
+    }
+    public function smsBd(){
+        $toNumber = '+8801860865698';
+        $res = send_sms($toNumber,'This is test msg from atc');
+        return [$res];
+//        return $res ? $this->success('Sms send successfully') : $this->error('Sms send failed');
     }
     public function nextmoSms(){
         $toNumber = '+8801860865698';

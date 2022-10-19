@@ -42,7 +42,7 @@ class MessageController extends ApiController
         $messageList = $items->map->formatResponse(true,$sender_id);
         return $this->success('Message List',[
             'messages'=>$messageList,
-            'media_items'=>$messages->where('type','image')->map->formatMedia()->values(),
+            'media_items'=>$items->where('type','image')->map->formatMedia()->values(),
             'user'=>$sender->formatResponse()
         ]);
     }
@@ -92,7 +92,8 @@ class MessageController extends ApiController
                     'avatar'=>$item->sender->avatar,
                     'type'=>$item->sender->type,
                     'id'=>$item->sender_id,
-                    'last_msg'=>$item->formatResponse(),
+                    'last_msg_type'=>$item->type,
+                    'last_msg'=>$item->type == 'image' ? url($item->body) : substr($item->body,0,30-3).'...',
                     'last_msg_at'=>$item->time,
                 ];
             } else{
@@ -102,7 +103,8 @@ class MessageController extends ApiController
                     'avatar'=>$item->receiver->avatar,
                     'type'=>$item->receiver->type,
                     'id'=>$item->receiver_id,
-                    'last_msg'=>$item->formatResponse(),
+                    'last_msg_type'=>$item->type,
+                    'last_msg'=>$item->type == 'image' ? url($item->body) : substr($item->body,0,30-3).'...',
                     'last_msg_at'=>$item->time,
                 ];
             }
@@ -114,6 +116,7 @@ class MessageController extends ApiController
                 'type'=>'text',
                 'id'=>$customerCareUser->id,
                 'last_msg'=>null,
+                'last_msg_type'=>null,
                 'last_msg_at'=>'',
             ];
         }
