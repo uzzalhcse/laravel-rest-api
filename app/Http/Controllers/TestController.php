@@ -25,7 +25,7 @@ use Vonage\Laravel\Facade\Vonage;
 class TestController extends ApiController
 {
     public function test(){
-        return $this->smsBd();
+        return $intent = User::find(5)->createSetupIntent();
     }
     public function getMediaFiles(){
         $type = 'banner';

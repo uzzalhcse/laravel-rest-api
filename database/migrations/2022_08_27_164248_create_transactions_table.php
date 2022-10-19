@@ -21,7 +21,7 @@ return new class extends Migration
             $table->double('discount',10,2);
             $table->double('tax',10,2);
             $table->double('total',10,2);
-            $table->string('payment_method');
+            $table->string('payment_type');
             $table->string('type');
             $table->foreignId('status_id')->default(2)->constrained('statuses')->cascadeOnDelete();
             $table->timestamps();

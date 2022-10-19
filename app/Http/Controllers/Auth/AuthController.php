@@ -60,7 +60,7 @@ class AuthController extends ApiController
 
     public function register(RegisterRequest $request){
         $otp = Otp::where('mobile',$request->mobile)->where('token',$request->token)->first();
-        if (!isset($otp)){
+        if (!isset($otp) && $request->type = 'User'){
             return $this->error('Invalid OTP');
         }
         DB::beginTransaction();
@@ -160,7 +160,7 @@ class AuthController extends ApiController
     public function billingAddress(): JsonResponse
     {
         return $this->success("Billing Address",[
-            'item'=>Auth::user()->billing_address
+            'item'=>Auth::user()->billing_address->formatResponse()
         ]);
     }
     public function saveBillingAddress(BillingAddressRequest $request): JsonResponse
@@ -287,6 +287,12 @@ class AuthController extends ApiController
                 'total_payout'=>num_format($total_payout),
             ],
             'auditionReport'=>$auditionReport,
+        ]);
+    }
+
+    public function getPaymentIndent(){
+        return $this->success('Payment Intent',[
+            'indent'=> Auth::user()->createSetupIntent()
         ]);
     }
 

@@ -48,6 +48,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::get('/contacts',   [MessageController::class,'contacts']);
     Route::get('/fetch-messages/{sender_id}',   [MessageController::class,'fetchMessages']);
     Route::post('/send-message',   [MessageController::class,'sendMessage']);
+    Route::get('/get-payment-indent',   [AuthController::class,'getPaymentIndent']);
 
 
 });

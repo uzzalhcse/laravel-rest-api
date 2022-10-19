@@ -128,7 +128,15 @@ class UserController extends ApiController
             return $this->error('Package already exist');
         }
         $package = Package::findOrFail($request->id);
-
+        if ($request->payment_type == 'Card'){
+            try {
+                $user->createOrGetStripeCustomer();
+                $user->updateDefaultPaymentMethod($request->payment_method);
+                $user->charge($amount * 100, $request->payment_method);
+            } catch (\Exception $exception) {
+                return $this->error('Purchase failed',[$exception->getMessage()]);
+            }
+        }
         DB::beginTransaction();
         try {
 
@@ -139,9 +147,9 @@ class UserController extends ApiController
             $transaction->discount = 0;
             $transaction->tax = 0;
             $transaction->total = $amount;
-            $transaction->payment_method = $request->payment_method;
+            $transaction->payment_type = $request->payment_type;
             $transaction->type = $package->type;
-            $transaction->status_id = $request->payment_method == 'Bank' ? Status::Pending : Status::Active;
+            $transaction->status_id = $request->payment_type == 'Bank' ? Status::Pending : Status::Completed;
             $transaction->save();
 
 
@@ -151,7 +159,7 @@ class UserController extends ApiController
             $userPackage->amount = $amount;
             $userPackage->audition_limit = floor($amount * $package->cpa);
             $userPackage->expired_at = $package->type == 'Billboard' ? Carbon::now()->addDays(floor($amount * $package->cpa)) : Carbon::now();
-            $userPackage->status_id = Status::Pending;
+            $userPackage->status_id = $request->payment_type == 'Bank' ? Status::Pending : Status::Active;;
             $userPackage->transaction_id = $transaction->id;
             $userPackage->save();
 

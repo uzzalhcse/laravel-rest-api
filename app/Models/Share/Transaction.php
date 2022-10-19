@@ -39,7 +39,7 @@ class Transaction extends Model
             'receipt_file'=>null,
             'package_name'=>$this->package->package->name,
             'package_is_active'=>$this->package->is_active,
-            'payment_method'=>$this->payment_method,
+            'payment_type'=>$this->payment_type,
             'status'=>$this->status->title,
         ];
     }

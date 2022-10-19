@@ -26,7 +26,8 @@ class PurchasePackageRequest extends FormRequest
         return [
             'id'=>'required',
             'amount'=>'required',
-            'payment_method'=>'required',
+            'payment_type'=>'required',
+            'payment_method'=>'required_if:payment_type,Card',
         ];
     }
 }

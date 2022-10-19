@@ -20,13 +20,14 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Laravel\Cashier\Billable;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Activitylog\LogOptions;
 use Spatie\Activitylog\Traits\LogsActivity;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory,SoftDeletes, Notifiable, ScopeActive,Status,Utils, LogsActivity;
+    use HasApiTokens, HasFactory,SoftDeletes, Notifiable, ScopeActive,Status,Utils, LogsActivity, Billable;
     const CUSTOMER_CARE_USER_ID = 6;
     /**
      * The attributes that are mass assignable.
@@ -82,7 +83,7 @@ class User extends Authenticatable
     }
     public function billing_address(){
         return $this->hasOne(BillingAddress::class)->withDefault([
-            'country_id'=>null
+            'country_id'=>null,
         ]);
     }
 
