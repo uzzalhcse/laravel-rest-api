@@ -10,6 +10,7 @@ use App\Models\Ads\Audition;
 use App\Models\Ads\AuditionHistory;
 use App\Models\Ads\Billboard;
 use App\Models\Message;
+use App\Models\Notification;
 use App\Models\Package\UserPackage;
 use App\Models\PayoutHistory;
 use App\Models\Share\Country;
@@ -194,6 +195,12 @@ class User extends Authenticatable
     public function last_msg(){
         return $this->send_messages->merge($this->receive_messages)->last();
     }
+
+    public function my_notifications()
+    {
+        return $this->hasMany(Notification::class,'notifiable_id');
+    }
+
 
     /**
      * @return LogOptions

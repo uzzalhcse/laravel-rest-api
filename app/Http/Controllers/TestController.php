@@ -13,6 +13,7 @@ use App\Models\Ads\Ads;
 use App\Models\Auth\User;
 use App\Models\Share\Media;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Mail;
@@ -25,7 +26,14 @@ use Vonage\Laravel\Facade\Vonage;
 class TestController extends ApiController
 {
     public function test(){
-        return $intent = User::find(5)->createSetupIntent();
+        return $this->sendNotification();
+    }
+    public function sendNotification(){
+//        $user = User::find(3);
+        $user = Auth::user();
+        $res = send_notification([$user->id],'Test Notification'.Str::random(6),"This is test notification");
+//        $res = $user->my_notifications->sortBy('created_at')->last()->formatResponse();
+        return [$res];
     }
     public function getMediaFiles(){
         $type = 'banner';

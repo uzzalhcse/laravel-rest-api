@@ -20,3 +20,8 @@ Broadcast::channel('chat.{id}', function ($user,$id) {
 Broadcast::channel('chat-contacts.{id}', function ($user,$id) {
     return (int) $user->id === (int) $id;
 });
+
+
+Broadcast::channel('fetch-notification.{id}', function ($user,$id) {
+    return (int) $user->id === (int) $id;
+});

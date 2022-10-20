@@ -51,5 +51,9 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::get('/get-payment-indent',   [AuthController::class,'getPaymentIndent']);
 
 
+    Route::get('/my-notifications',   [AuthController::class,'myNotifications']);
+
+    Route::get('/test',                     [\App\Http\Controllers\TestController::class, 'test']);
+
 });
 

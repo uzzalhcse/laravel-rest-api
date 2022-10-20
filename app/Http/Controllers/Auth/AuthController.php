@@ -18,6 +18,7 @@ use App\Models\Auth\Role;
 use App\Models\Auth\User;
 use App\Models\Auth\UserProfile;
 use App\Models\Auth\UserRole;
+use App\Models\Notification;
 use App\Models\Otp;
 use App\Models\Package\UserPackage;
 use App\Models\PayoutHistory;
@@ -51,6 +52,12 @@ class AuthController extends ApiController
         if (!Auth::user()->is_active){
             return $this->error('Account is not Active!');
         }
+
+        if (isset($request->device_token)){
+            auth()->user()->device_token = $request->device_token;
+            auth()->user()->save();
+        }
+
         $tokenName = 'adminAuthToken';
         return $this->success('Login Success', [
             'access_token' => auth()->user()->createToken($tokenName)->plainTextToken,
@@ -294,6 +301,14 @@ class AuthController extends ApiController
         return $this->success('Payment Intent',[
             'indent'=> Auth::user()->createSetupIntent()
         ]);
+    }
+
+    public function myNotifications(){
+        $notifications = Auth::user()->my_notifications()->latest('created_at');
+        return $this->success('My notifications',[
+            'notification'=>new EloquentResource(paginate_if_required($notifications))
+        ]);
+
     }
 
 }

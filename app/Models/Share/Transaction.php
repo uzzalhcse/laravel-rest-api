@@ -2,6 +2,7 @@
 
 namespace App\Models\Share;
 
+use App\Models\Auth\User;
 use App\Models\Package\UserPackage;
 use App\Traits\Utils;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -18,6 +19,9 @@ class Transaction extends Model
 
     public function scopeByOwner($query){
         return $query->where('user_id',Auth::id());
+    }
+    public function user(){
+        return $this->belongsTo(User::class);
     }
 
     public function receipt()

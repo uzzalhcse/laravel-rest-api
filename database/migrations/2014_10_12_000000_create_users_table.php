@@ -28,6 +28,7 @@ return new class extends Migration
             $table->foreignId('country_id')->default(1)->constrained('countries');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('device_key')->nullable();
             $table->foreignId('status_id')->default(1)->constrained('statuses');
             $table->rememberToken();
             $table->timestamps();

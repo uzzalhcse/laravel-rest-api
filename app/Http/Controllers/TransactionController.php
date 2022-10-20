@@ -47,6 +47,8 @@ class TransactionController extends ApiController
     public function markAsCompleted(Transaction $transaction): JsonResponse
     {
         $res = $this->transactionRepository->markAsCompleted($transaction);
+
+        send_notification([$transaction->user->id],'Package Purchase',"Your Payment is approve by admin");
         return $res ? $this->success('Transaction updated successfully') : $this->error('Transaction update failed');
     }
 
@@ -61,6 +63,8 @@ class TransactionController extends ApiController
         $payoutHistory = PayoutHistory::findOrFail($request->id);
         $payoutHistory->status_id = $request->status_id;
         $payoutHistory->save();
+
+        send_notification([$payoutHistory->user->id],'Payout Request',"Your Withdrawal Request is approved");
         return $this->success('Status updated successfully');
     }
 }

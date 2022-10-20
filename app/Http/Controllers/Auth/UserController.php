@@ -163,6 +163,7 @@ class UserController extends ApiController
             $userPackage->transaction_id = $transaction->id;
             $userPackage->save();
 
+            send_notification([$user->id],'Package Purchase',"Thanks for purchasing package.");
             DB::commit();
             return $this->success('Purchase completed');
 
@@ -192,6 +193,7 @@ class UserController extends ApiController
         $payoutHistory->bank_iban = $request->bank_iban;
         $payoutHistory->status_id = Status::Pending;
         $payoutHistory->save();
+        send_notification([$user->id],'Payout request',"Your payment is in progress");
         return $this->success('Payout request submitted successfully');
     }
 

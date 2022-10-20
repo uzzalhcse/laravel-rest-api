@@ -1,9 +1,13 @@
 <?php
 
+use App\Events\NotificationEvent;
+use App\Models\Auth\User;
+use App\Notifications\GeneralNotification;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Str;
 use Twilio\Rest\Client;
 
@@ -122,6 +126,50 @@ if (! function_exists('num_format')) {
     function num_format($number,$decimals = 3, $decimal_separator = '.', $thousands_separator = ''): float
     {
        return number_format($number, $decimals, $decimal_separator, $thousands_separator);
+    }
+}
+
+
+
+if (! function_exists('send_notification')) {
+    function send_notification($userIds, $title, $body)
+    {
+        $users = User::whereIn('id',$userIds)->get();
+        $firebaseToken = $users->pluck('device_token');
+
+        $SERVER_API_KEY = env('FCM_SERVER_KEY');
+
+        $data = [
+            "registration_ids" => $firebaseToken,
+            "notification" => [
+                'type'=>'general',
+                "title" => $title,
+                "body" => $body,
+            ]
+        ];
+        foreach ($users as $user){
+            $user->notify(new GeneralNotification($data['notification']));
+            $user->fresh();
+            broadcast(new NotificationEvent($user->id, $user->my_notifications->sortBy('created_at')->last()->formatResponse()));
+        }
+        $dataString = json_encode($data);
+
+        $headers = [
+            'Authorization: key=' . $SERVER_API_KEY,
+            'Content-Type: application/json',
+        ];
+
+        $ch = curl_init();
+
+        curl_setopt($ch, CURLOPT_URL, 'https://fcm.googleapis.com/fcm/send');
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $dataString);
+
+        $response = curl_exec($ch);
+        return json_decode($response);
     }
 }
 
