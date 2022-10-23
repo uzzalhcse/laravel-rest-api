@@ -60,7 +60,8 @@ class AuthController extends ApiController
 
         $tokenName = 'adminAuthToken';
         return $this->success('Login Success', [
-            'access_token' => auth()->user()->createToken($tokenName)->plainTextToken,
+//            'access_token' => auth()->user()->createToken($tokenName)->plainTextToken, // for sanctum
+            'access_token' => auth()->user()->createToken($tokenName)->accessToken,
             'token_type' => 'Bearer'
         ]);
     }
@@ -191,7 +192,7 @@ class AuthController extends ApiController
 
     public function updatePassword(UpdatePasswordRequest $request)
     {
-        User::find(Auth::id())->update(['password'=> $request->new_password]);
+        User::find(Auth::id())->update(['password'=> Hash::make($request->new_password)]);
         return $this->success('Successfully Change Password');
 
     }
