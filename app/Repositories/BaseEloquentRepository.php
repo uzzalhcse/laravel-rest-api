@@ -32,12 +32,7 @@ class BaseEloquentRepository implements BaseEloquentInterface
         if (method_exists($this->model, 'search')){
             $items = $items->search();
         }
-        if (isset(request()->page)){ // paginate if request has page query
-            $items = $items->paginate(config('settings.pagination.per_page'));
-        } else{
-            $items = $items->take(20)->get();
-        }
-        return $items;
+        return new EloquentResource(paginate_if_required($items));
     }
 
     /**
@@ -49,23 +44,13 @@ class BaseEloquentRepository implements BaseEloquentInterface
         if (method_exists($this->model, 'search')){
             $items = $items->search();
         }
-        if (isset(request()->page)){ // paginate if request has page query
-            $items = $items->paginate(config('settings.pagination.per_page'));
-        } else{
-            $items = $items->take(20)->get();
-        }
-        return $items;
+        return new EloquentResource(paginate_if_required($items));
     }
 
     public function getMyItems()
     {
         $items = $this->model::byOwner()->latest();
-        if (isset(request()->page)){ // paginate if request has page query
-            $items = $items->paginate(config('settings.pagination.per_page'));
-        } else{
-            $items = $items->take(20)->get();
-        }
-        return $items;
+        return new EloquentResource(paginate_if_required($items));
     }
 
 
