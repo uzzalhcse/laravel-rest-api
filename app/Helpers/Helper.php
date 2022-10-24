@@ -82,16 +82,46 @@ if (! function_exists('paginate_if_required')) {
 }
 
 
+//if (! function_exists('send_sms')) {
+//    function send_sms($to,$msg)
+//    {
+//        $response = Http::get('https://api.sms.net.bd/sendsms', [
+//            'api_key' => '40G7C80aHilL847LsmRDuewhM279qwetCvgydNpg',
+//            'msg' => $msg,
+//            'to' => $to,
+//        ]);
+//
+//        return !($response['error'] != 0);
+//    }
+//}
+
 if (! function_exists('send_sms')) {
     function send_sms($to,$msg)
     {
-        $response = Http::get('https://api.sms.net.bd/sendsms', [
-            'api_key' => '40G7C80aHilL847LsmRDuewhM279qwetCvgydNpg',
-            'msg' => $msg,
-            'to' => $to,
+        return send_sms_infobip($to,$msg);
+    }
+}
+if (! function_exists('send_sms_infobip')) {
+    function send_sms_infobip($to,$msg)
+    {
+        $key = 'a64250e756e0d95a5f0d2c1fea07fa3b-014661dc-7aff-456b-9962-0564d01bc3c9';
+        $response = Http::withHeaders([
+            'Authorization' => "App a64250e756e0d95a5f0d2c1fea07fa3b-014661dc-7aff-456b-9962-0564d01bc3c9",
+            'Content-Type' => 'application/json',
+            'Accept' => 'application/json',
+        ])->post('https://nzgz5y.api.infobip.com/sms/2/text/advanced', [
+            'messages' => [
+                [
+                    'from' => 'ATC',
+                    'destinations' => [
+                        ['to' => $to]
+                    ],
+                    'text' => $msg,
+                ]
+            ]
         ]);
 
-        return !($response['error'] != 0);
+        return true;
     }
 }
 

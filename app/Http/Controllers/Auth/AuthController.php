@@ -68,7 +68,7 @@ class AuthController extends ApiController
 
     public function register(RegisterRequest $request){
         $otp = Otp::where('mobile',$request->mobile)->where('token',$request->token)->first();
-        if (!isset($otp) && $request->type = 'User'){
+        if (!isset($otp) && $request->type == 'User'){
             return $this->error('Invalid OTP');
         }
         DB::beginTransaction();
@@ -130,7 +130,9 @@ class AuthController extends ApiController
             $userRole->save();
 
             dispatch(new WelcomeEmailJob($user));
-            $otp->delete();
+            if ($request->type == 'User'){
+                $otp->delete();
+            }
             DB::commit();
             return $this->success('Sign up successful');
         } catch (\Exception $exception){

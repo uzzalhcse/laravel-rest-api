@@ -142,7 +142,7 @@ class UtilsController extends ApiController
         }
         $user = User::where('mobile',$request->mobile)->first();
         if (!isset($user)){
-            return $this->error('Invalid Mobile Number');
+            return $this->error('Invalid Mobile/User');
         }
         return $this->OTPService->sendOTP($request);
     }

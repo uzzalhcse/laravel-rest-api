@@ -26,7 +26,7 @@ use Vonage\Laravel\Facade\Vonage;
 class TestController extends ApiController
 {
     public function test(){
-        return $this->sendNotification();
+        return send_sms_infobip('','');
     }
     public function sendNotification(){
 //        $user = User::find(3);
