@@ -32,7 +32,7 @@ class BaseEloquentRepository implements BaseEloquentInterface
         if (method_exists($this->model, 'search')){
             $items = $items->search();
         }
-        return new EloquentResource(paginate_if_required($items));
+        return paginate_if_required($items);
     }
 
     /**
@@ -44,13 +44,13 @@ class BaseEloquentRepository implements BaseEloquentInterface
         if (method_exists($this->model, 'search')){
             $items = $items->search();
         }
-        return new EloquentResource(paginate_if_required($items));
+        return paginate_if_required($items);
     }
 
     public function getMyItems()
     {
         $items = $this->model::byOwner()->latest();
-        return new EloquentResource(paginate_if_required($items));
+        return paginate_if_required($items);
     }
 
 
