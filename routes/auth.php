@@ -52,6 +52,7 @@ Route::middleware(['auth:api'])->group(function () {
 
 
     Route::get('/my-notifications',   [AuthController::class,'myNotifications']);
+    Route::get('/delete-my-account',   [AuthController::class,'deleteMyAccount']);
 
     Route::get('/test',                     [\App\Http\Controllers\TestController::class, 'test']);
 

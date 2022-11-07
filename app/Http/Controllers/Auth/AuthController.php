@@ -313,5 +313,9 @@ class AuthController extends ApiController
         ]);
 
     }
+    public function deleteMyAccount(){
+        Auth::user()->delete();
+        return $this->success('Account deleted successfully');
+    }
 
 }
