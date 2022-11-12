@@ -18,7 +18,7 @@ class Package extends Model
         return $query->where('is_enabled',1);
     }
     public function getIsPurchasedAttribute(){
-        return $this->users->where('id',Auth::guard('sanctum')->id())->count() > 0;
+        return $this->users->where('id',Auth::guard('api')->id())->count() > 0;
     }
     public function users(){
         return $this->belongsToMany(User::class,'user_packages');

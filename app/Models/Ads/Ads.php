@@ -75,7 +75,7 @@ class Ads extends Model
     }
 
     public function getIsSubscribedAttribute(){
-        return $this->subscribers->where('id',Auth::guard('sanctum')->id())->count() > 0;
+        return $this->subscribers->where('id',Auth::guard('api')->id())->count() > 0;
 //        return in_array(Auth::guard('sanctum')->id(),$this->subscribers->pluck('id')->toArray());
     }
     public function getCountryIdsAttribute(){

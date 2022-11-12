@@ -29,7 +29,7 @@ if (! function_exists('is_advertiser')) {
 if (! function_exists('is_provider')) {
     function is_provider(): bool
     {
-        return Auth::guard('sanctum')->check() && in_array('provider',Auth::guard('sanctum')->user()->roles->pluck('slug')->toArray());
+        return Auth::guard('api')->check() && in_array('provider',Auth::guard('api')->user()->roles->pluck('slug')->toArray());
     }
 }
 
