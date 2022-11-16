@@ -3,6 +3,7 @@
 namespace App\Http\Requests\Auth;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class RegisterRequest extends FormRequest
 {
@@ -27,18 +28,18 @@ class RegisterRequest extends FormRequest
             'first_name' => 'required',
             'last_name' => 'required',
             'type' => 'required',
-            'occupation' => 'required_if:type,User',
-            'job_title' => 'required_if:type,Advertiser',
-            'gender' => 'required',
+//            'occupation' => 'required_if:type,User',
+//            'job_title' => 'required_if:type,Advertiser',
+//            'gender' => 'required',
             'mobile' => 'required_if:type,User',
-            'email' => 'required|email|unique:users',
+            'email' => ['required', Rule::unique('users')->whereNull('deleted_at')],
             'address' => 'required',
             'country_id' => 'required',
             'password' => 'required|between:8,255|confirmed',
             'profile' => 'present|array',
-            'profile.company_name' => 'required',
-            'profile.company_size' => 'required_if:type,User',
-            'profile.company_info' => 'required_if:type,Advertiser',
+//            'profile.company_name' => 'required',
+//            'profile.company_size' => 'required_if:type,User',
+//            'profile.company_info' => 'required_if:type,Advertiser',
             'profile.industry' => 'required',
             'profile.work_phone' => 'required',
             'profile.no_of_employee' => 'required_if:type,Advertiser',

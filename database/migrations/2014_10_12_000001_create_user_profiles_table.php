@@ -16,11 +16,11 @@ return new class extends Migration
         Schema::create('user_profiles', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
-            $table->string('company_name');
+            $table->string('company_name')->nullable();
             $table->string('company_size')->nullable();
             $table->string('company_info')->nullable();
-            $table->string('industry');
-            $table->string('work_phone');
+            $table->string('industry')->nullable();
+            $table->string('work_phone')->nullable();
             $table->string('no_of_employee')->nullable();
             $table->integer('avg_call_receive_day')->nullable();
             $table->string('state')->nullable();

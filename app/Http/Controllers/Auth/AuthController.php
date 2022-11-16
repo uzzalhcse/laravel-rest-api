@@ -47,7 +47,7 @@ class AuthController extends ApiController
     public function login(LoginRequest $request): JsonResponse
     {
         if (!Auth::attempt($request->only('email','password'))) {
-            return $this->error('Credentials not match', 401);
+            return $this->error('Invalid Credentials or user not exist', 401);
         }
         if (!Auth::user()->is_active){
             return $this->error('Account is not Active!');

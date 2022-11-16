@@ -130,6 +130,10 @@ class UtilsController extends ApiController
         return $this->OTPService->sendOTP($request);
     }
 
+    public function verifyOtp(Request $request){
+        return $this->OTPService->verifyOTP($request);
+    }
+
 
     public function forgetPassword(Request $request){
         $rules = [

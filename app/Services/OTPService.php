@@ -40,6 +40,7 @@ class OTPService
         if (!isset($otp)){
             return $this->error('Invalid OTP');
         }
+        return $this->success('OTP verified');
     }
 
 }

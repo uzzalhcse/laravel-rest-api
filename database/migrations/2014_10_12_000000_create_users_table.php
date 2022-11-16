@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('avatar')->nullable();
             $table->string('occupation')->nullable();
             $table->string('job_title')->nullable();
-            $table->string('gender');
+            $table->string('gender')->nullable();
             $table->string('mobile')->nullable();
             $table->string('email')->unique();
             $table->text('address');
