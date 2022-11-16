@@ -59,9 +59,18 @@ class MessageController extends ApiController
     }
     public function myContacts($auth){
         $customerCareUser = User::find(User::CUSTOMER_CARE_USER_ID);
-        $received_messages = Message::where('receiver_id',$auth->id)
+        $received_messages = Message::with('sender')
+            ->whereHas('sender', function ($q){
+                $q->whereNull('deleted_at');
+            })
+            ->where('receiver_id',$auth->id)
             ->get()->pluck('sender_id');
-        $send_messages = Message::where('sender_id',$auth->id)
+
+        $send_messages = Message::with('receiver')
+            ->whereHas('receiver', function ($q){
+                $q->whereNull('deleted_at');
+            })
+            ->where('sender_id',$auth->id)
             ->get()->pluck('receiver_id');
         $recipients = $received_messages->merge($send_messages)->unique()->values();
 //        info($recipients);
@@ -88,9 +97,9 @@ class MessageController extends ApiController
             if ($item->receiver_id === $auth->id){
 
                 $contacts[]=[
-                    'name'=>$item->sender->name,
-                    'avatar'=>$item->sender->avatar,
-                    'type'=>$item->sender->type,
+                    'name'=>$item->sender?->name,
+                    'avatar'=>$item->sender?->avatar,
+                    'type'=>$item->sender?->type,
                     'id'=>$item->sender_id,
                     'last_msg_type'=>$item->type,
                     'last_msg'=>$item->type == 'image' ? url($item->body) : substr($item->body,0,30-3).'...',
