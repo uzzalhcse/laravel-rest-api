@@ -26,7 +26,7 @@ class AdsSubscriptionController extends ApiController
 
     public function index(){
         return $this->success('My Ads Subscriptions',[
-            'items'=> new EloquentResource(Auth::user()->ads_subscriptions)
+            'items'=> new EloquentResource(Auth::guard('api')->user()->ads_subscriptions)
         ]);
     }
 
@@ -37,27 +37,27 @@ class AdsSubscriptionController extends ApiController
     }
 
     public function subscribeAds(Ads $ads){
-        if (count(Auth::user()->ads_subscriptions) >= config('settings.max_ad_choice') ){
+        if (count(Auth::guard('api')->user()->ads_subscriptions) >= config('settings.max_ad_choice') ){
             return $this->error('You have reached max ad choice limit');
         }
-        $ads->subscribers()->sync([Auth::id()]);
+        $ads->subscribers()->sync([Auth::guard('api')->id()]);
         return $this->success('Subscription success');
     }
 
     public function unsubscribeAds(Ads $ads){
-        $ads->subscribers()->detach([Auth::id()]);
-//        $adsReview = AdsReview::where('user_id',Auth::id())->where('ads_id',$ads->id)->first();
+        $ads->subscribers()->detach([Auth::guard('api')->id()]);
+//        $adsReview = AdsReview::where('user_id',Auth::guard('api')->id())->where('ads_id',$ads->id)->first();
 //        $adsReview?->delete();
         return $this->success('Subscription Canceled');
     }
 
     public function submitRating(Request $request){
-        $adsReview = AdsReview::where('ads_id',$request->id)->where('user_id',Auth::id())->first();
+        $adsReview = AdsReview::where('ads_id',$request->id)->where('user_id',Auth::guard('api')->id())->first();
         if (!isset($adsReview)){
             $adsReview = new AdsReview();
         }
         $adsReview->ads_id = $request->id;
-        $adsReview->user_id = Auth::id();
+        $adsReview->user_id = Auth::guard('api')->id();
         $adsReview->rating = $request->rating;
         $adsReview->save();
         return $this->success('Review submitted');

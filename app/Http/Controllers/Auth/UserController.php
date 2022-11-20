@@ -122,11 +122,11 @@ class UserController extends ApiController
 
     public function purchasePackage(PurchasePackageRequest $request): JsonResponse
     {
-        $user = Auth::user();
+        $user = Auth::guard('api')->user();
         $amount = abs($request->amount);
-        if (isset($user->billboard_package) && isset($user->advertisement_package)){
-            return $this->error('Package already exist');
-        }
+//        if (isset($user->billboard_package) && isset($user->advertisement_package)){
+//            return $this->error('Package already exist');
+//        }
         $package = Package::findOrFail($request->id);
         if ($request->payment_type == 'Card'){
             try {
@@ -153,12 +153,19 @@ class UserController extends ApiController
             $transaction->save();
 
 
+            $userPackage = UserPackage::with('package')->whereHas('package', function ($p) use ($package) {
+                $p->where('type',$package->type);
+            })->where('user_id',$user->id)->first();
+            if (isset($userPackage)){
+                $userPackage->status_id = Status::Suspend;
+                $userPackage->save();
+            }
             $userPackage = new UserPackage();
             $userPackage->user_id = $user->id;
             $userPackage->package_id = $package->id;
             $userPackage->amount = $amount;
-            $userPackage->audition_limit = floor($amount * $package->cpa);
-            $userPackage->expired_at = $package->type == 'Billboard' ? Carbon::now()->addDays(floor($amount * $package->cpa)) : Carbon::now();
+            $userPackage->audition_limit = floor($amount / $package->cpa);
+            $userPackage->expired_at = $package->type == 'Billboard' ? Carbon::now()->addDays(floor($amount * $package->cpa)) : Carbon::now()->addYear(10);
             $userPackage->status_id = $request->payment_type == 'Bank' ? Status::Pending : Status::Active;;
             $userPackage->transaction_id = $transaction->id;
             $userPackage->save();
@@ -175,7 +182,7 @@ class UserController extends ApiController
     }
 
     public function payoutRequest(PayoutRequest $request){
-        $user = Auth::user();
+        $user = Auth::guard('api')->user();
         $amount = abs($request->amount);
         if ($amount > $user->available_balance){
             return $this->error('Insufficient Balance',[$user->available_balance]);
@@ -198,7 +205,7 @@ class UserController extends ApiController
     }
 
     public function payoutHistory(Request $request){
-        $items = PayoutHistory::where('user_id',Auth::id())->latest();
+        $items = PayoutHistory::where('user_id',Auth::guard('api')->id())->latest();
         return $this->success('Payout History',[
             'items'=>new EloquentResource(paginate_if_required($items))
         ]);

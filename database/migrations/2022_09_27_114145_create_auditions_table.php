@@ -19,6 +19,7 @@ return new class extends Migration
             $table->foreignId('ads_id')->constrained('ads')->cascadeOnDelete();
             $table->foreignId('advertiser_id')->constrained('users')->cascadeOnDelete();
             $table->foreignId('provider_id')->constrained('users')->cascadeOnDelete();
+            $table->foreignId('package_id')->constrained('packages')->cascadeOnDelete();
             $table->string('mobile');
             $table->double('cpa');
             $table->timestamps();

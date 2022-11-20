@@ -26,8 +26,8 @@ class TransactionSeeder extends Seeder
                 'discount'=>'0',
                 'tax'=>'0',
                 'total'=>'1200',
-                'payment_type'=>'Paypal',
-                'type'=>'Package Purchase',
+                'payment_type'=>'Card',
+                'type'=>'Advertisement',
                 'status_id'=>'7',
                 'created_at'=>$timestamp,
                 'updated_at'=>$timestamp

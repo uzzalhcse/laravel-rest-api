@@ -155,12 +155,12 @@ class AuthController extends ApiController
     public function info(Request $request)
     {
         return $this->success('Auth User Info',[
-            'user'=>new AuthResource(Auth::user())
+            'user'=>new AuthResource(Auth::guard('api')->user())
         ]);
     }
 
     public function updateProfile(UpdateProfileRequest $request){
-        $user = $this->userRepository->updateProfile($request,Auth::user());
+        $user = $this->userRepository->updateProfile($request,Auth::guard('api')->user());
         return $this->success('Profile updated successfully',[
             'user'=>$user
         ]);
@@ -170,16 +170,16 @@ class AuthController extends ApiController
     public function billingAddress(): JsonResponse
     {
         return $this->success("Billing Address",[
-            'item'=>Auth::user()->billing_address->formatResponse()
+            'item'=>Auth::guard('api')->user()->billing_address->formatResponse()
         ]);
     }
     public function saveBillingAddress(BillingAddressRequest $request): JsonResponse
     {
-        $billing_address = BillingAddress::where('user_id',Auth::id())->first();
+        $billing_address = BillingAddress::where('user_id',Auth::guard('api')->id())->first();
         if (!isset($billing_address)){
             $billing_address = new BillingAddress();
         }
-        $billing_address->user_id = Auth::id();
+        $billing_address->user_id = Auth::guard('api')->id();
         $billing_address->country_id = $request->country_id;
         $billing_address->first_name = $request->first_name;
         $billing_address->last_name = $request->last_name;
@@ -194,7 +194,7 @@ class AuthController extends ApiController
 
     public function updatePassword(UpdatePasswordRequest $request)
     {
-        User::find(Auth::id())->update(['password'=> Hash::make($request->new_password)]);
+        User::find(Auth::guard('api')->id())->update(['password'=> Hash::make($request->new_password)]);
         return $this->success('Successfully Change Password');
 
     }
@@ -224,7 +224,7 @@ class AuthController extends ApiController
                 'advertisers'=>$advertisers->count(),
                 'providers'=>$providers->count(),
                 'plans'=>$user_packages->count(),
-                'earnings'=>get_percentage($auditions->sum('cpa'),25),
+                'earnings'=>num_format(get_percentage($auditions->sum('cpa'),25)),
             ],
             '$auditionsGrp'=>$auditionsGrp,
             'auditionReport'=>$auditionReport,
@@ -240,14 +240,14 @@ class AuthController extends ApiController
 //    }
 
     public function advertiserDashboard(){
-        $myAuditions = Audition::where('advertiser_id', Auth::id())->get();
-        $myAds = Ads::where('user_id', Auth::id())->get();
+        $myAuditions = Audition::where('advertiser_id', Auth::guard('api')->id())->get();
+        $myAds = Ads::where('user_id', Auth::guard('api')->id())->get();
         $total_spend = $myAuditions->sum('cpa');
         $total_audition = $myAuditions->count();
         $total_ads = $myAds->count();
         $remainingAudition = 0;
-        if (Auth::user()->advertisement_package){
-            $remainingAudition = Auth::user()->advertisement_package->audition_limit - Auth::user()->ads_audition->count();
+        if (Auth::guard('api')->user()->advertisement_package){
+            $remainingAudition = \auth()->guard('api')->user()->advertisement_package->audition_limit - $myAuditions->where('package_id',\auth()->guard('api')->user()->advertisement_package->package_id)->count();
         }
 
         $auditionsGrp = $myAuditions->groupBy(function($date) {
@@ -262,22 +262,23 @@ class AuthController extends ApiController
 
         return $this->success('Advertiser dashboard',[
             'summary'=>[
-                'total_spend'=>$total_spend,
+                'total_spend'=>num_format($total_spend),
                 'total_audition'=>$total_audition,
                 'total_ads'=>$total_ads,
                 'remaining_audition'=>$remainingAudition,
             ],
             'auditionReport'=>$auditionReport,
+            'advertisement_package'=>Auth::guard('api')->user()->advertisement_package,
         ]);
     }
     public function portalDashboard(){
-        $myAuditions = Audition::where(is_provider() ? 'provider_id' : 'user_id', Auth::id())->get();
-        $myAuditionHistories = AuditionHistory::where('user_id', Auth::id())->get();
+        $myAuditions = Audition::where(is_provider() ? 'provider_id' : 'user_id', Auth::guard('api')->id())->get();
+        $myAuditionHistories = AuditionHistory::where('user_id', Auth::guard('api')->id())->get();
         $total_audition = $myAuditions->count();
         $total_earned = $myAuditionHistories->sum('amount');
         $pending_balance = $myAuditionHistories->where('is_pending',1);
         $total_pending_balance = $pending_balance->sum('amount');
-        $total_payout = PayoutHistory::where('user_id',Auth::id())->get()->sum('amount');
+        $total_payout = PayoutHistory::where('user_id',Auth::guard('api')->id())->get()->sum('amount');
 
         $auditionsGrp = $myAuditions->groupBy(function($date) {
             return Carbon::parse($date->created_at)->format('Y-m-d');
@@ -302,19 +303,19 @@ class AuthController extends ApiController
 
     public function getPaymentIndent(){
         return $this->success('Payment Intent',[
-            'indent'=> Auth::user()->createSetupIntent()
+            'indent'=> Auth::guard('api')->user()->createSetupIntent()
         ]);
     }
 
     public function myNotifications(){
-        $notifications = Auth::user()->my_notifications()->latest('created_at');
+        $notifications = Auth::guard('api')->user()->my_notifications()->latest('created_at');
         return $this->success('My notifications',[
             'notification'=>new EloquentResource(paginate_if_required($notifications))
         ]);
 
     }
     public function deleteMyAccount(){
-        Auth::user()->delete();
+        Auth::guard('api')->user()->delete();
         return $this->success('Account deleted successfully');
     }
 

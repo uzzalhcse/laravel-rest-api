@@ -47,7 +47,7 @@ class AdsController extends ApiController
 
     public function store(AdsRequest $request){
 
-        if (!isset(Auth::user()->advertisement_package) || !Auth::user()->advertisement_package->is_active){
+        if (!isset(Auth::guard('api')->user()->advertisement_package) || !Auth::guard('api')->user()->advertisement_package->is_active){
             return $this->error("You Don't have any Active Package");
         }
         $ads = $this->adsRepository->store($request);

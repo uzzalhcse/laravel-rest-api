@@ -45,7 +45,7 @@ class BillboardController extends ApiController
 
     public function store(BillboardRequest $request): JsonResponse
     {
-        if (!isset(Auth::user()->billboard_package) || !Auth::user()->billboard_package->is_active){
+        if (!isset(Auth::guard('api')->user()->billboard_package) || !Auth::guard('api')->user()->billboard_package->is_active){
             return $this->error("You Don't have any Active Package");
         }
         $res = $this->billBoardRepository->store($request);

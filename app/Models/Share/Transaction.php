@@ -14,11 +14,11 @@ class Transaction extends Model
     use HasFactory, Utils, \App\Traits\Status;
 
     public function scopePurchase($query){
-        return $query->whereIn('type',['Package Purchase','Billboard']);
+        return $query->whereIn('type',['Advertisement','Billboard']);
     }
 
     public function scopeByOwner($query){
-        return $query->where('user_id',Auth::id());
+        return $query->where('user_id',Auth::guard('api')->id());
     }
     public function user(){
         return $this->belongsTo(User::class);

@@ -15,7 +15,7 @@ class MessageController extends ApiController
 {
     public function fetchMessages($sender_id){
         $sender = User::findOrFail($sender_id);
-        $auth = Auth::user();
+        $auth = Auth::guard('api')->user();
 
         $messages = collect();
         $items = Message::with('receiver','sender')
@@ -50,7 +50,7 @@ class MessageController extends ApiController
     public function contacts(): JsonResponse
     {
 
-        $auth = Auth::user();
+        $auth = Auth::guard('api')->user();
         $contacts = $this->myContacts($auth);
         return $this->success('My contacts',[
             'contacts'=>$contacts
@@ -133,7 +133,7 @@ class MessageController extends ApiController
     }
 
     public function sendMessage(MessageRequest $request){
-        $user = Auth::user();
+        $user = Auth::guard('api')->user();
 
         $message = new Message();
         $message->sender_id = $user->id;

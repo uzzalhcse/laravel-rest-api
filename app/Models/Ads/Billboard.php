@@ -32,7 +32,7 @@ class Billboard extends Model
     }
 
     public function scopeByOwner($query){
-        return $query->where('user_id',Auth::id());
+        return $query->where('user_id',Auth::guard('api')->id());
     }
     public function user(){
         return $this->belongsTo(User::class);

@@ -31,7 +31,7 @@ class Ads extends Model
         return $this->morphMany(Media::class, 'mediable');
     }
     public function scopeByOwner($query){
-        return $query->where('user_id',Auth::id());
+        return $query->where('user_id',Auth::guard('api')->id());
     }
     public function scopeSearch($query){
         $searchQuery = Str::of(request()->input('query'));

@@ -34,7 +34,7 @@ class BlogRepository extends BaseEloquentRepository implements BlogRepositoryInt
     public function store(Request $request): ?Model
     {
         $blog = new Blog();
-        $blog->user_id = Auth::id();
+        $blog->user_id = Auth::guard('api')->id();
         $blog->title = $request->title;
         $blog->body = $request->body;
 //        $thumbnail = $this->saveThumbnail($request);

@@ -160,12 +160,12 @@ class User extends Authenticatable
     public function billboard_package(){
         return $this->hasOne(UserPackage::class)->whereHas('package',function ($q){
             return $q->where('type','Billboard');
-        });
+        })->where('status_id',\App\Models\Share\Status::Active);
     }
     public function advertisement_package(){
         return $this->hasOne(UserPackage::class)->whereHas('package',function ($q){
             return $q->where('type','Advertisement');
-        });
+        })->where('status_id',\App\Models\Share\Status::Active);
     }
 
     public function getAvailableBalanceAttribute(){

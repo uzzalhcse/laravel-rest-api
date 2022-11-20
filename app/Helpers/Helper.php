@@ -14,14 +14,14 @@ use Twilio\Rest\Client;
 if (! function_exists('is_admin')) {
     function is_admin(): bool
     {
-        return Auth::check() && in_array('super_admin',Auth::user()->roles->pluck('slug')->toArray());
+        return Auth::check() && in_array('super_admin',Auth::guard('api')->user()->roles->pluck('slug')->toArray());
     }
 }
 
 if (! function_exists('is_advertiser')) {
     function is_advertiser(): bool
     {
-        return Auth::check() && in_array('advertiser',Auth::user()->roles->pluck('slug')->toArray());
+        return Auth::check() && in_array('advertiser',Auth::guard('api')->user()->roles->pluck('slug')->toArray());
     }
 }
 
@@ -36,7 +36,7 @@ if (! function_exists('is_provider')) {
 if (! function_exists('is_user')) {
     function is_user(): bool
     {
-        return Auth::check() && in_array('user',Auth::user()->roles->pluck('slug')->toArray());
+        return Auth::check() && in_array('user',Auth::guard('api')->user()->roles->pluck('slug')->toArray());
     }
 }
 

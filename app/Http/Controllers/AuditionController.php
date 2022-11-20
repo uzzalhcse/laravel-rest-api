@@ -26,10 +26,10 @@ class AuditionController extends ApiController
         }
 
 
-        $remainingAuditionLimit = $ad->owner->advertisement_package->audition_limit - $ad->owner->ads_audition->count();
+        $remainingAuditionLimit = $ad->owner->advertisement_package->audition_limit - $ad->owner->ads_audition->where('package_id',$ad->owner->advertisement_package->package_id)->count();
         $cpa = $ad->owner->advertisement_package->package->cpa;
         if (!$ad->owner->advertisement_package->is_active){
-            return $this->error('Advertiser Package is not active');
+            return $this->error('Advertiser Package is not active',$ad->owner->advertisement_package);
         }
         if ($remainingAuditionLimit<1){
             return $this->error('Advertiser reached maximum audition limit');
@@ -55,6 +55,7 @@ class AuditionController extends ApiController
             $auditionHistory->ads_id = $ad->id;
             $auditionHistory->advertiser_id = $ad->owner->id;
             $auditionHistory->provider_id = $ad->providers->first()->id;
+            $auditionHistory->package_id = $ad->owner->advertisement_package->package_id;
             $auditionHistory->mobile = $user->mobile;
             $auditionHistory->cpa = $cpa;
             $auditionHistory->save();
@@ -101,16 +102,16 @@ class AuditionController extends ApiController
 
 
     public function myEarningHistory(Request $request){
-        $items = AuditionHistory::where('user_id',Auth::id())->latest();
+        $items = AuditionHistory::where('user_id',Auth::guard('api')->id())->latest();
 
         return $this->success('My Earning History',[
             'items'=> new EloquentResource(paginate_if_required($items))
         ]);
     }
     public function myAdsReports(Request $request){
-//        $auditions = Auth::user()->ads->load('auditions.provider','auditions.advertiser','auditions.publisher')->map->auditions->flatten();
+//        $auditions = Auth::guard('api')->user()->ads->load('auditions.provider','auditions.advertiser','auditions.publisher')->map->auditions->flatten();
         $auditions = Audition::with('provider','advertiser','publisher')
-            ->whereIn('ads_id',Auth::user()->ads->pluck('id')->toArray())
+            ->whereIn('ads_id',Auth::guard('api')->user()->ads->pluck('id')->toArray())
             ->latest();
         return $this->success('Audition Reports',[
             'items'=> new EloquentResource(paginate_if_required($auditions))
@@ -126,14 +127,14 @@ class AuditionController extends ApiController
     }
 
     public function myMediaFiles(){
-//        $user = User::with('ads.media','billboards.media')->find(Auth::id());
+//        $user = User::with('ads.media','billboards.media')->find(Auth::guard('api')->id());
 //        $adsMedia = $user->ads->sortByDesc('updated_at')->take(6)->pluck('media')->flatten();
 //        $billboardMedia = $user->billboards->sortByDesc('updated_at')->take(12)->pluck('media')->flatten();
 //        $totalAds = $user->ads->pluck('media')->flatten()->count();
 //        $totalBillboard = $user->billboards->pluck('media')->flatten()->count();
 
 
-        $user = Auth::user();
+        $user = Auth::guard('api')->user();
         $media = Media::with('mediable');
         if (!is_admin()){
             $media = $media->whereHas('mediable', function ($q) use ($user) {
@@ -156,7 +157,7 @@ class AuditionController extends ApiController
         ]);
     }
     public function myMediaFilesByType($type){
-        $user = Auth::user();
+        $user = Auth::guard('api')->user();
         $media = Media::with('mediable');
         if (!is_admin()){
             $media = $media->whereHas('mediable', function ($q) use ($user) {

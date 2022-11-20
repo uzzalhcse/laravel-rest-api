@@ -25,7 +25,7 @@ class Package extends Model
     }
 
     public function user_package(){
-        return $this->hasOne(UserPackage::class);
+        return $this->hasOne(UserPackage::class)->where('user_id',Auth::guard('api')->id());
     }
 
     public function getStatusAttribute(){
@@ -47,6 +47,7 @@ class Package extends Model
             'is_purchased'=>$this->is_purchased,
             'status'=>$this->status,
             'is_enabled'=>$this->is_enabled,
+            'user_package'=>$this->user_package,
         ];
     }
 }

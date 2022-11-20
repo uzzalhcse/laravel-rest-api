@@ -28,7 +28,7 @@ class UpdateProfileRequest extends FormRequest
             'avatar_file' =>  'sometimes|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'first_name' => 'required|string',
             'last_name' => 'required|string',
-            'email' => 'required|email|unique:users,email,'.Auth::id(),
+            'email' => 'required|email|unique:users,email,'.Auth::guard('api')->id(),
 //            'office_id' => 'required',
         ];
     }

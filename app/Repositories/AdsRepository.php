@@ -45,7 +45,7 @@ class AdsRepository extends BaseEloquentRepository implements AdsRepositoryInter
         try {
 
             $ads = new Ads();
-            $ads->user_id = Auth::id();
+            $ads->user_id = Auth::guard('api')->id();
             $ads->title = $request->title;
             $ads->description = $request->description;
             $ads->male_age_range = explode(',', $request->male_age_range);

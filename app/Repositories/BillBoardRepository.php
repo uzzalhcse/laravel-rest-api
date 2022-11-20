@@ -33,7 +33,7 @@ class BillBoardRepository extends BaseEloquentRepository implements BillBoardRep
         try {
             $billboard = new Billboard();
             $billboard->title = $request->title;
-            $billboard->user_id = Auth::id();
+            $billboard->user_id = Auth::guard('api')->id();
             $billboard->status_id = Status::InActive;
             $billboard->save();
             $this->handleMedia($request,$billboard);
