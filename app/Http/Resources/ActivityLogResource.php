@@ -47,9 +47,9 @@ class ActivityLogResource extends ResourceCollection
         return [
 //            'subject'=>$item->subject,
             'causer'=>[
-                'id'=>$item->causer->id,
-                'avatar'=>$item->causer->avatar,
-                'name'=>$item->causer->name
+                'id'=>$item->causer?->id,
+                'avatar'=>$item->causer?->avatar,
+                'name'=>$item->causer?->name
             ],
             'description'=>$item->description,
             'changes'=>$item->changes(),
